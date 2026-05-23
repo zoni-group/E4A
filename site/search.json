@@ -1,0 +1,1832 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "English for AI",
+    "section": "",
+    "text": "1 Welcome\nWelcome to English for AI: ESL-Oriented AI Fundamentals.\nThis course helps English learners use AI tools in safe, clear, and useful ways. You will practice English while you learn how to write prompts, compare choices, check sources, describe visuals, and explain your thinking.\nAI can help you think and communicate. AI does not make the final decision for you.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>English for AI</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#what-you-will-make",
+    "href": "index.html#what-you-will-make",
+    "title": "English for AI",
+    "section": "1.1 What You Will Make",
+    "text": "1.1 What You Will Make\nYou will build a portfolio called:\nEnglish AI Decision Toolkit\nYour toolkit will include prompts, vocabulary, sentence frames, decision matrices, source-checking work, a visual description, a speaking script, a safety checklist, and a final reflection.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>English for AI</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#course-map",
+    "href": "index.html#course-map",
+    "title": "English for AI",
+    "section": "1.2 Course Map",
+    "text": "1.2 Course Map\n\n\n\n\n\n\n\n\n\nPart\nTime\nMain Skill\nPortfolio File\n\n\n\n\nClass 1\n2 hours\nAI basics and English prompts\nClass 1 - My First English AI Prompt.md\n\n\nSelf-Practice 1\n2 hours\nPrompt variations and vocabulary\nSelf-Practice 1 - Prompt Practice and Vocabulary Log.md\n\n\nClass 2\n2 hours\nCompare choices\nClass 2 - English Decision Matrix.md\n\n\nSelf-Practice 2\n2 hours\nRevise prompts and decisions\nSelf-Practice 2 - Revised Prompt and Matrix.md\n\n\nClass 3\n2 hours\nCheck AI answers with sources\nClass 3 - Source-Grounded Answer in English.md\n\n\nSelf-Practice 3\n2 hours\nEvidence and paraphrase\nSelf-Practice 3 - Source Check and Paraphrase.md\n\n\nClass 4\n2 hours\nVisual and speaking communication\nClass 4 - Visual Description and 60-Second Script.md\n\n\nSelf-Practice 4\n2 hours\nVisual and speaking practice\nSelf-Practice 4 - Visual Speaking Practice.md\n\n\nSelf-Practice 5\n2 hours\nPortfolio completion\nSelf-Practice 5 - Presentation Draft and Checklist.md\n\n\nClass 5\n2 hours\nFinal toolkit and presentation\nFinal project + AI decision assistant prompt",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>English for AI</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#course-promise",
+    "href": "index.html#course-promise",
+    "title": "English for AI",
+    "section": "1.3 Course Promise",
+    "text": "1.3 Course Promise\nIn this course:\n\nYou write in English.\nYou use simple, clear prompts.\nYou protect private information.\nYou check important answers.\nYou make the final decision.\n\n\n\n\n\n\n\nWarningPrivacy Rule\n\n\n\nDo not put private information into an AI tool. Do not upload private documents. Use safe examples and public information for class practice.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>English for AI</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html",
+    "href": "orientation.html",
+    "title": "2  Orientation",
+    "section": "",
+    "text": "2.1 Course Purpose\nThis course teaches AI as an English communication and decision-support skill. It is not a programming course. You will use AI to practice English, organize ideas, compare options, read sources, and prepare short communication tasks.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html#who-this-course-is-for",
+    "href": "orientation.html#who-this-course-is-for",
+    "title": "2  Orientation",
+    "section": "2.2 Who This Course Is For",
+    "text": "2.2 Who This Course Is For\nThis course is for English language learners with almost no previous AI knowledge. Beginner and low-intermediate students can use the sentence frames and templates. Higher-level students can write longer answers and add more detail.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html#english-first-work",
+    "href": "orientation.html#english-first-work",
+    "title": "2  Orientation",
+    "section": "2.3 English-First Work",
+    "text": "2.3 English-First Work\nYour final course work should be in English.\nYou may use your first language to understand instructions when your teacher allows it. But your portfolio files, prompts, answers, reflections, and presentation should be in simple English.\n\n\n\n\n\n\nflowchart LR\n  O[Orientation] --&gt; C[Class lesson]\n  C --&gt; S[Self-practice]\n  S --&gt; P[Portfolio artifact]\n  P --&gt; T[English AI Decision Toolkit]\n\n\n\n\nFigure 2.1: Your path through the English for AI course.\n\n\n\n\n\nIn simple English: each class and self-practice task helps you build one part of your final toolkit.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html#tools",
+    "href": "orientation.html#tools",
+    "title": "2  Orientation",
+    "section": "2.4 Tools",
+    "text": "2.4 Tools\nStudents need only a basic device with a browser. A low-end Chromebook is enough.\nTeachers may provide:\n\nthe course website\nprinted handouts\nPDF or Word exports\na safe AI tool approved by the school\nteacher-provided sample AI outputs when internet access is limited\n\nAvoid paid accounts when possible. Save important work outside any AI tool.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html#if-you-need-support",
+    "href": "orientation.html#if-you-need-support",
+    "title": "2  Orientation",
+    "section": "2.5 If You Need Support",
+    "text": "2.5 If You Need Support\nThis course should feel safe and useful. If something is hard, you have options. Tell your teacher early — they can help.\n\nYou can ask for a printed copy of any page.\nYou can ask for more time to finish a task or save a file.\nYou can write some answers instead of saying them, if your teacher allows it.\nYou can say some answers instead of writing them, if your teacher allows it.\nYou do not need to record your voice unless your teacher says it is allowed.\nYou can use your first language to think, but please write final work in English.\nTell your teacher if a tool, link, or activity does not work on your device.\nNever share private information to complete an activity. Ask for a safer example.\n\nAsking for help is part of learning. You are not behind for asking.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html#portfolio-folder",
+    "href": "orientation.html#portfolio-folder",
+    "title": "2  Orientation",
+    "section": "2.6 Portfolio Folder",
+    "text": "2.6 Portfolio Folder\nCreate this folder on your device or in your approved school storage:\nEnglish AI Decision Toolkit/",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html#before-class-5-checklist",
+    "href": "orientation.html#before-class-5-checklist",
+    "title": "2  Orientation",
+    "section": "2.7 Before Class 5 Checklist",
+    "text": "2.7 Before Class 5 Checklist\nBefore Class 5, you should have these files:\nClass 1 - My First English AI Prompt.md\nSelf-Practice 1 - Prompt Practice and Vocabulary Log.md\nClass 2 - English Decision Matrix.md\nSelf-Practice 2 - Revised Prompt and Matrix.md\nClass 3 - Source-Grounded Answer in English.md\nSelf-Practice 3 - Source Check and Paraphrase.md\nClass 4 - Visual Description and 60-Second Script.md\nSelf-Practice 4 - Visual Speaking Practice.md\nSelf-Practice 5 - Presentation Draft and Checklist.md\nVocabulary Log.md\nPersonal AI Safety Checklist.md",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html#final-submission-checklist",
+    "href": "orientation.html#final-submission-checklist",
+    "title": "2  Orientation",
+    "section": "2.8 Final Submission Checklist",
+    "text": "2.8 Final Submission Checklist\nYour complete English AI Decision Toolkit should include:\nClass 1 - My First English AI Prompt.md\nSelf-Practice 1 - Prompt Practice and Vocabulary Log.md\nClass 2 - English Decision Matrix.md\nSelf-Practice 2 - Revised Prompt and Matrix.md\nClass 3 - Source-Grounded Answer in English.md\nSelf-Practice 3 - Source Check and Paraphrase.md\nClass 4 - Visual Description and 60-Second Script.md\nSelf-Practice 4 - Visual Speaking Practice.md\nSelf-Practice 5 - Presentation Draft and Checklist.md\nClass 5 - My AI Decision Assistant Prompt.md\nClass 5 - Final Project - My English AI Workflow.md\nVocabulary Log.md\nSentence Frames I Can Use.md\nPersonal AI Safety Checklist.md\n\n\n\n\n\n\nTipOpen File Formats\n\n\n\nUse open or easy-to-export formats when possible:\n.md, .txt, .csv, .png, .svg, .wav, .ogg, .pdf, .docx",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html#my-progress",
+    "href": "orientation.html#my-progress",
+    "title": "2  Orientation",
+    "section": "2.9 My Progress",
+    "text": "2.9 My Progress\nUse this tracker to see where you are in the course. Check each box when you finish and save the file in your English AI Decision Toolkit folder.\n\n\n\n\n\n\n\n\nStep\nWhat to finish\nDone?\n\n\n\n\nClass 1\nClass 1 - My First English AI Prompt.md\n[ ]\n\n\nSelf-Practice 1\nSelf-Practice 1 - Prompt Practice and Vocabulary Log.md\n[ ]\n\n\nClass 2\nClass 2 - English Decision Matrix.md\n[ ]\n\n\nSelf-Practice 2\nSelf-Practice 2 - Revised Prompt and Matrix.md\n[ ]\n\n\nClass 3\nClass 3 - Source-Grounded Answer in English.md\n[ ]\n\n\nSelf-Practice 3\nSelf-Practice 3 - Source Check and Paraphrase.md\n[ ]\n\n\nClass 4\nClass 4 - Visual Description and 60-Second Script.md\n[ ]\n\n\nSelf-Practice 4\nSelf-Practice 4 - Visual Speaking Practice.md\n[ ]\n\n\nSelf-Practice 5\nSelf-Practice 5 - Presentation Draft and Checklist.md (preparation for Class 5)\n[ ]\n\n\nClass 5\nClass 5 - My AI Decision Assistant Prompt.md\n[ ]\n\n\nClass 5\nClass 5 - Final Project - My English AI Workflow.md\n[ ]\n\n\nReference\nVocabulary Log.md\n[ ]\n\n\nReference\nSentence Frames I Can Use.md\n[ ]\n\n\nReference\nPersonal AI Safety Checklist.md\n[ ]\n\n\nFinal check\nI reviewed all files for private information.\n[ ]\n\n\nFinal check\nI saved my files outside the AI tool.\n[ ]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html#colab-ai-in-the-labs",
+    "href": "orientation.html#colab-ai-in-the-labs",
+    "title": "2  Orientation",
+    "section": "2.10 Colab AI in the Labs",
+    "text": "2.10 Colab AI in the Labs\nSome Optional Colab Labs use Colab AI. Colab AI is Google Colab’s built-in AI helper. When you open a lab and the AI cell runs, the lab tries to use Colab AI automatically. You do not need to turn it on.\nIf Colab AI is available, you will see a short answer in the lab. Read it carefully and decide what to keep, change, or reject. The AI answer is for review only.\nIf Colab AI is not available — for example, if your account or Colab runtime does not support it — you will see a short, friendly message. The regular lab steps will still work, and you can finish your portfolio without AI.\nSafety rules for every Colab AI cell:\n\nUse safe examples only.\nNever type private information into the lab.\nCheck important AI answers with a real source.\nAI may be wrong. You decide what is true.\nYou make the final decision.\n\n\nAvailable Colab AI models can change over time. The lab will pick a working model if one is available, and continue without AI if none is available.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html#class-routine",
+    "href": "orientation.html#class-routine",
+    "title": "2  Orientation",
+    "section": "2.11 Class Routine",
+    "text": "2.11 Class Routine\nUse this routine in every class:\n\nRead the task in English.\nHighlight key words.\nAsk: What do I need to do?\nUse sentence frames.\nComplete the task in English.\nCheck the answer with a partner or teacher.\nSave the work in your toolkit.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "orientation.html#can-do-goals",
+    "href": "orientation.html#can-do-goals",
+    "title": "2  Orientation",
+    "section": "2.12 Can-Do Goals",
+    "text": "2.12 Can-Do Goals\nBy the end of the course, you can say:\n\nI can write a simple prompt in English.\nI can compare two choices using simple English.\nI can ask AI to explain an answer more clearly.\nI can identify private information I should not share.\nI can check an answer with a source.\nI can give a short presentation about my AI workflow.\n\n\n\n\n\n\n\nWarningHigh-Stakes Warning\n\n\n\nFor health, legal, immigration, money, safety, school records, or work contracts, use AI only to organize questions or learn vocabulary. Ask a qualified person before making a final decision.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Orientation</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html",
+    "href": "class-01-ai-basics-english-prompts.html",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "",
+    "text": "3.1 Start Here\nDuration: 2 hours\nYou need help studying. You open an AI tool and type:\nThe answer is long, general, and not very useful. It is mostly a guess about what you need.\nNow you try again with a clearer English prompt:\nThis time the answer is clear and useful. The only thing that changed was the prompt.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#start-here",
+    "href": "class-01-ai-basics-english-prompts.html#start-here",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "",
+    "text": "Help me study.\n\n\nI need help making a simple English study plan.\n\nI have an English test on Friday.\nI can study 30 minutes each day.\nI need help with vocabulary and speaking.\n\nPlease give me:\n1. A 4-day study plan.\n2. A list of 10 words to review.\n3. A 5-minute speaking practice activity.\n\nUse simple English.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#why-this-matters",
+    "href": "class-01-ai-basics-english-prompts.html#why-this-matters",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "3.2 Why This Matters",
+    "text": "3.2 Why This Matters\nWhen you ask AI in clear English, you get better answers. You also practice English you can use every day — at school, at work, and with family. A good prompt is a skill. Clear English is a skill. Today you will start to build both.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#today-you-will",
+    "href": "class-01-ai-basics-english-prompts.html#today-you-will",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "3.3 Today You Will",
+    "text": "3.3 Today You Will\nBy the end of this lesson, you will:\n\nLearn the ZONI CLEAR prompt scaffold in simple English.\nCompare a weak prompt with a strong prompt.\nWrite your own English AI prompt for a safe everyday task.\nPractice a safe privacy rule: never share private information with AI.\nSave: English AI Decision Toolkit/Class 1 - My First English AI Prompt.md.\n\n\n\n\n\n\n\nNoteLesson Reference\n\n\n\n\n\nThis is the curriculum focus for today. Open this box to see the full lesson plan. You do not need to memorize it — use it as a quick guide.\nTheme: AI can help when we ask clear questions in English.\nAI Focus: Prompt writing.\nESL Focus: Simple requests, question words, imperatives, and polite language.\nContent Objective: Students will write a clear English prompt for a simple everyday task.\nLanguage Objective: Students will use simple English request forms:\n\nHelp me…\nExplain…\nCompare…\nGive me…\nAsk me questions before you answer.\nUse simple English.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#beginner-explanation",
+    "href": "class-01-ai-basics-english-prompts.html#beginner-explanation",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "3.4 Beginner Explanation",
+    "text": "3.4 Beginner Explanation\nAI tools answer instructions called prompts. A prompt is a question or an instruction you write in English. A good prompt tells the AI what you need, gives short context, and explains the format you want for the answer.\nFor English learners, writing prompts is also English practice. You practice giving clear instructions, asking questions, and improving sentences that are not clear. The more clear your English, the more useful the AI answer.\n\n\n\n\n\n\nWarningPrivacy Rule\n\n\n\nDo not share private information with AI. Do not type passwords, addresses, ID numbers, medical records, immigration documents, or private school/work documents into an AI tool.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#key-vocabulary",
+    "href": "class-01-ai-basics-english-prompts.html#key-vocabulary",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "3.5 Key Vocabulary",
+    "text": "3.5 Key Vocabulary\n\n\n\n\n\n\n\n\nWord\nSimple Meaning\nExample Sentence\n\n\n\n\nAI\nA computer system that can create answers, text, images, or other outputs\nI used AI to organize my ideas.\n\n\nprompt\nThe instruction or question you give AI\nMy prompt asks for a simple email.\n\n\noutput\nThe answer from AI\nThe output was too long.\n\n\ncontext\nBackground information\nI gave context about my schedule.\n\n\nrevise\nImprove after checking\nI revised my prompt.\n\n\nprivate\nNot for everyone to see\nMy address is private.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#sentence-frames",
+    "href": "class-01-ai-basics-english-prompts.html#sentence-frames",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "3.6 Sentence Frames",
+    "text": "3.6 Sentence Frames\nI need help with __________.\nPlease explain __________ in simple English.\nGive me __________.\nUse a table with __________.\nAsk me questions if __________.\nDo not include __________.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#class-agenda",
+    "href": "class-01-ai-basics-english-prompts.html#class-agenda",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "3.7 Class Agenda",
+    "text": "3.7 Class Agenda\n\n\n\n\n\n\n\n\nTime\nActivity\nPurpose\n\n\n\n\n15 min\nWarm-up: What can AI help with?\nSort safe and unsafe AI tasks.\n\n\n20 min\nMini-lesson: ZONI CLEAR prompt scaffold\nLearn a repeatable prompt structure.\n\n\n30 min\nGuided practice: weak prompt vs strong prompt\nIdentify task, context, limits, and output format.\n\n\n35 min\nIndependent practice: first English AI prompt\nWrite and test or review a safe prompt.\n\n\n20 min\nPair speaking\nExplain the prompt and privacy choice.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#guided-practice",
+    "href": "class-01-ai-basics-english-prompts.html#guided-practice",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "3.8 Guided Practice",
+    "text": "3.8 Guided Practice\n\n3.8.1 Warm-Up: What Can AI Help With?\nSort each task.\n\n\n\nTask\nGood for AI\nUse Carefully\nDo Not Use AI Alone\n\n\n\n\nBrainstorm lunch ideas\nX\n\n\n\n\nAsk for a medical diagnosis\n\n\nX\n\n\nSummarize a public article\nX\n\n\n\n\nUpload immigration papers\n\n\nX\n\n\nPractice interview answers\nX\n\n\n\n\n\nPair speaking frames:\nI think this is good for AI because __________.\nI think we should be careful because __________.\nI think we should not use AI for this because __________.\n\n\n3.8.2 Mini-Lesson: The ZONI CLEAR Prompt Scaffold\nThis course uses a ZONI CLEAR scaffold to help you write prompts in simple English. CLEAR means Context, Limits, Example or format, Ask, and Review.\n\n\n\nLetter\nMeaning\nStudent-Friendly Question\n\n\n\n\nC\nContext\nWhat is my situation?\n\n\nL\nLimit\nWhat should AI avoid?\n\n\nE\nExample\nWhat style or format do I want?\n\n\nA\nAsk\nWhat do I want AI to do?\n\n\nR\nReview\nWhat should AI check before answering?\n\n\n\n\n\n\n\n\n\nflowchart LR\n  C[Context] --&gt; L[Limits]\n  L --&gt; E[Example or format]\n  E --&gt; A[Ask]\n  A --&gt; R[Review]\n  R --&gt; P[Better prompt]\n\n\n\n\nFigure 3.1: The ZONI CLEAR prompt flow.\n\n\n\n\n\nIn simple English: a clear prompt gives AI the situation, the rules, the format, the task, and a check.\nStudent template:\nI need help with: [task]\n\nContext:\n[short background]\n\nLimits:\n- Use simple English.\n- Do not invent facts.\n- Do not use private information.\n- Ask questions if information is missing.\n\nOutput format:\n[table / checklist / email / short paragraph]\n\nBefore answering:\nList assumptions and missing information.\n\n\n3.8.3 Weak Prompt vs Strong Prompt\nWeak prompt:\nHelp me study.\nStrong prompt:\nI need help making a simple study plan.\n\nContext:\n- I have an English test on Friday.\n- I can study 30 minutes each day.\n- I need help with vocabulary and speaking.\n\nPlease give me:\n1. A 4-day study plan.\n2. A list of 10 words to review.\n3. A 5-minute speaking practice activity.\n4. Questions you need before improving the plan.\n\nUse simple English.\nUnderline:\n\nthe task\nthe context\nthe limits\nthe output format",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#independent-practice",
+    "href": "class-01-ai-basics-english-prompts.html#independent-practice",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "3.9 Independent Practice",
+    "text": "3.9 Independent Practice\nChoose one safe task:\n\nWrite a polite email.\nPlan study time.\nPrepare for a job interview.\nUnderstand a public announcement.\nMake a grocery list on a budget.\nOrganize a weekly schedule.\n\nUse this student file:\n# Class 1 - My First English AI Prompt\n\nMy task:\n[write task]\n\nMy prompt:\n[write prompt]\n\nAI answer summary:\n[write 2-3 sentences]\n\nWords I learned:\n1.\n2.\n3.\n\nWhat I checked:\n[write one thing]\n\nWhat I should not share:\n[write private information I removed]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#pair-speaking-or-presentation-task",
+    "href": "class-01-ai-basics-english-prompts.html#pair-speaking-or-presentation-task",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "3.10 Pair Speaking or Presentation Task",
+    "text": "3.10 Pair Speaking or Presentation Task\nIn pairs, explain your prompt.\nMy task is __________.\nI gave the AI context about __________.\nI asked for __________.\nI did not share __________ because it is private.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#reflection",
+    "href": "class-01-ai-basics-english-prompts.html#reflection",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "3.11 Reflection",
+    "text": "3.11 Reflection\nWrite three short sentences:\nToday I learned that AI can __________.\nOne English phrase I practiced is __________.\nOne private detail I should not share is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "class-01-ai-basics-english-prompts.html#exit-ticket",
+    "href": "class-01-ai-basics-english-prompts.html#exit-ticket",
+    "title": "3  Class 1: AI Basics and English Prompts",
+    "section": "3.12 Exit Ticket",
+    "text": "3.12 Exit Ticket\nSubmit or save:\n\nOne English prompt.\nThree new vocabulary words.\nOne privacy rule in English.\n\n\n\n\n\n\n\nTipOptional Colab Lab\n\n\n\nThis lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.\nOpen the Class 1 Prompt Playground lab in Colab to build a ZONI CLEAR prompt step by step:\nhttps://colab.research.google.com/github/zoni-group/E4A/blob/public-cdba759557f5/english-for-ai-course/interactives/class-01-prompt-playground.ipynb\nUse safe examples only. Do not enter private information.\nThe lab uses Colab AI automatically when it is available in the Colab runtime. If Colab AI is not available, the regular lab steps still work, and you can finish your portfolio without AI.\nAfter any AI answer, say: “I checked the AI answer before I used it.”\n\n\n\n\n\n\n\n\nNoteCheck Yourself\n\n\n\nYour Class 1 prompt is ready when:\n\nThe task is clear in one short sentence.\nYou added useful context (your situation, what you need).\nYour English is simple and easy to read.\nNo private information is in the prompt.\n\n\n\n\n\n\n\n\n\nImportantRequired Portfolio Artifact\n\n\n\nSave your work here:\nEnglish AI Decision Toolkit/Class 1 - My First English AI Prompt.md",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Class 1: AI Basics and English Prompts</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-01-prompt-vocabulary-practice.html",
+    "href": "self-practice-01-prompt-vocabulary-practice.html",
+    "title": "4  Self-Practice 1: Prompt and Vocabulary Practice",
+    "section": "",
+    "text": "4.1 Start Here\nDuration: 2 hours\nIn Class 1 you wrote your first English AI prompt. Today, on your own time, you will try the same task with a few small changes and see what changes in the answer. A small change in your English often makes a big change in the AI answer.\nYou will work in your own toolkit folder. You can use any safe everyday task. You do not need to use an AI tool to do most of this practice — your teacher can give you a sample output if you do not have AI at home.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Self-Practice 1: Prompt and Vocabulary Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-01-prompt-vocabulary-practice.html#what-you-will-practice",
+    "href": "self-practice-01-prompt-vocabulary-practice.html#what-you-will-practice",
+    "title": "4  Self-Practice 1: Prompt and Vocabulary Practice",
+    "section": "4.2 What You Will Practice",
+    "text": "4.2 What You Will Practice\n\nReviewing your Class 1 prompt and finding the parts that worked.\nWriting three different versions of one prompt in simple English.\nComparing the AI answers (or sample outputs) and choosing the best one.\nLearning five new English words you can use again.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Self-Practice 1: Prompt and Vocabulary Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-01-prompt-vocabulary-practice.html#what-you-will-save",
+    "href": "self-practice-01-prompt-vocabulary-practice.html#what-you-will-save",
+    "title": "4  Self-Practice 1: Prompt and Vocabulary Practice",
+    "section": "4.3 What You Will Save",
+    "text": "4.3 What You Will Save\nEnglish AI Decision Toolkit/Self-Practice 1 - Prompt Practice and Vocabulary Log.md\n\n\n\n\n\n\nNotePractice Reference\n\n\n\n\n\nOpen this box to see how this self-practice is structured. Read it once, then move into the parts of the practice.\nMode: Independent practice outside synchronous class.\nPurpose: Practice writing clear English prompts, compare outputs, build vocabulary, and apply privacy rules.\nStudent Instructions: Complete this practice in your English AI Decision Toolkit folder. Use a safe everyday task. Do not use private information.\nIf you cannot use an AI tool at home, ask your teacher for a safe sample output.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Self-Practice 1: Prompt and Vocabulary Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-01-prompt-vocabulary-practice.html#part-1-review-your-class-1-prompt---15-minutes",
+    "href": "self-practice-01-prompt-vocabulary-practice.html#part-1-review-your-class-1-prompt---15-minutes",
+    "title": "4  Self-Practice 1: Prompt and Vocabulary Practice",
+    "section": "4.4 Part 1: Review Your Class 1 Prompt - 15 Minutes",
+    "text": "4.4 Part 1: Review Your Class 1 Prompt - 15 Minutes\nOpen your Class 1 prompt. Highlight the words that show:\n\nwhat you need\nyour context\nthe format you want\nwhat AI should avoid\n\nWrite:\n# Self-Practice 1 - Prompt Practice and Vocabulary Log\n\n## Part 1: Prompt Review\n\nMy prompt asks AI to:\n[write task]\n\nMy context is:\n[write context]\n\nThe format I requested is:\n[write format]\n\nOne thing AI should avoid is:\n[write limit]",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Self-Practice 1: Prompt and Vocabulary Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-01-prompt-vocabulary-practice.html#part-2-write-three-prompt-variations---35-minutes",
+    "href": "self-practice-01-prompt-vocabulary-practice.html#part-2-write-three-prompt-variations---35-minutes",
+    "title": "4  Self-Practice 1: Prompt and Vocabulary Practice",
+    "section": "4.5 Part 2: Write Three Prompt Variations - 35 Minutes",
+    "text": "4.5 Part 2: Write Three Prompt Variations - 35 Minutes\nChoose one safe everyday task.\nExamples:\n\nask for a simple email draft\norganize a study schedule\npractice interview questions\nexplain a public notice\nmake a vocabulary review plan\n\n## Part 2: Three Prompt Variations\n\nTask:\n[write task]\n\nPrompt 1 - Short:\n[write prompt]\n\nPrompt 2 - More Context:\n[write prompt]\n\nPrompt 3 - Clear Format:\n[write prompt]",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Self-Practice 1: Prompt and Vocabulary Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-01-prompt-vocabulary-practice.html#part-3-compare-the-outputs---35-minutes",
+    "href": "self-practice-01-prompt-vocabulary-practice.html#part-3-compare-the-outputs---35-minutes",
+    "title": "4  Self-Practice 1: Prompt and Vocabulary Practice",
+    "section": "4.6 Part 3: Compare the Outputs - 35 Minutes",
+    "text": "4.6 Part 3: Compare the Outputs - 35 Minutes\nUse AI or a teacher-provided sample output. Compare the answers in simple English.\n## Part 3: Output Comparison\n\nPrompt 1 was useful because __________.\nPrompt 2 was better because __________.\nPrompt 3 was clearest because __________.\n\nThe best prompt was Prompt ___ because __________.\n\nOne answer I should verify is __________.\nOne private detail I did not share is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Self-Practice 1: Prompt and Vocabulary Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-01-prompt-vocabulary-practice.html#part-4-vocabulary-practice---20-minutes",
+    "href": "self-practice-01-prompt-vocabulary-practice.html#part-4-vocabulary-practice---20-minutes",
+    "title": "4  Self-Practice 1: Prompt and Vocabulary Practice",
+    "section": "4.7 Part 4: Vocabulary Practice - 20 Minutes",
+    "text": "4.7 Part 4: Vocabulary Practice - 20 Minutes\nAdd five words to your vocabulary log.\n\n\n\nWord\nSimple Meaning\nMy Sentence\n\n\n\n\nprompt\n\n\n\n\noutput\n\n\n\n\ncontext\n\n\n\n\nformat\n\n\n\n\nprivate",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Self-Practice 1: Prompt and Vocabulary Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-01-prompt-vocabulary-practice.html#part-5-reflection-and-save---15-minutes",
+    "href": "self-practice-01-prompt-vocabulary-practice.html#part-5-reflection-and-save---15-minutes",
+    "title": "4  Self-Practice 1: Prompt and Vocabulary Practice",
+    "section": "4.8 Part 5: Reflection and Save - 15 Minutes",
+    "text": "4.8 Part 5: Reflection and Save - 15 Minutes\n## Reflection\n\nOne prompt skill I practiced is __________.\nOne English word I understand better is __________.\nOne privacy rule I will remember is __________.\n\n\n\n\n\n\nTipOptional Colab Lab\n\n\n\nThis lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.\nOpen the Class 1 Prompt Playground lab in Colab and try three small prompt variations:\nhttps://colab.research.google.com/github/zoni-group/E4A/blob/public-cdba759557f5/english-for-ai-course/interactives/class-01-prompt-playground.ipynb\nUse safe examples only. Do not enter private information.\nThe lab uses Colab AI automatically when it is available in the Colab runtime. If Colab AI is not available, the regular lab steps still work, and you can finish your self-practice without AI.\nAfter any AI answer, say: “I checked the AI answer before I used it.”\n\n\n\n\n\n\n\n\nNoteCheck Yourself\n\n\n\nYour Self-Practice 1 file is ready when:\n\nYou saved three prompt variations.\nYou added at least five new words to your vocabulary log.\nYou wrote a short reflection in simple English.\nNo private information appears in any prompt or answer.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Self-Practice 1: Prompt and Vocabulary Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-01-prompt-vocabulary-practice.html#required-artifact",
+    "href": "self-practice-01-prompt-vocabulary-practice.html#required-artifact",
+    "title": "4  Self-Practice 1: Prompt and Vocabulary Practice",
+    "section": "4.9 Required Artifact",
+    "text": "4.9 Required Artifact\nSave:\nEnglish AI Decision Toolkit/Self-Practice 1 - Prompt Practice and Vocabulary Log.md",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Self-Practice 1: Prompt and Vocabulary Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-01-prompt-vocabulary-practice.html#portfolio-saving-instructions",
+    "href": "self-practice-01-prompt-vocabulary-practice.html#portfolio-saving-instructions",
+    "title": "4  Self-Practice 1: Prompt and Vocabulary Practice",
+    "section": "4.10 Portfolio Saving Instructions",
+    "text": "4.10 Portfolio Saving Instructions\n\nSave your file in your toolkit folder.\nCheck that the file name is correct.\nAdd any new words to Vocabulary Log.md.\nKeep your prompt reusable. It should work in more than one AI tool.\n\n\n\n\n\n\n\nWarningPrivacy Check\n\n\n\nBefore saving, remove names, addresses, phone numbers, ID numbers, passwords, and private documents.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Self-Practice 1: Prompt and Vocabulary Practice</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html",
+    "href": "class-02-decision-making-comparisons.html",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "",
+    "text": "5.1 Start Here\nDuration: 2 hours\nA friend asks you a simple question:\nThink about it. There is no single best plan for everyone.\nThe “best” choice changes for each person. Before you choose anything — a phone plan, a job, a class, a bus or train — you need to know what matters most to you.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#start-here",
+    "href": "class-02-decision-making-comparisons.html#start-here",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "",
+    "text": "What is the best phone plan?\n\n\nA student who calls family abroad needs international minutes.\nA delivery driver needs a lot of mobile data on the road.\nA parent at home might prefer a family plan with shared data.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#why-this-matters",
+    "href": "class-02-decision-making-comparisons.html#why-this-matters",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "5.2 Why This Matters",
+    "text": "5.2 Why This Matters\nYou make decisions every day. Which job to apply for. Which class to take. How to spend your time and your money. AI can help you see your options and compare them in English. But AI does not know your life. You do. Today you will learn a simple tool to compare choices in clear English — and remember that the final decision is yours.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#today-you-will",
+    "href": "class-02-decision-making-comparisons.html#today-you-will",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "5.3 Today You Will",
+    "text": "5.3 Today You Will\nBy the end of this lesson, you will:\n\nLearn how to build a simple decision matrix in English.\nCompare two real-life options using clear comparison phrases.\nPractice English like “A is cheaper than B” and “I might choose A because…”\nDecide why the final decision must stay with a person, not the AI.\nSave: English AI Decision Toolkit/Class 2 - English Decision Matrix.md.\n\n\n\n\n\n\n\nNoteLesson Reference\n\n\n\n\n\nThis is the curriculum focus for today. Open this box to see the full lesson plan. You do not need to memorize it — use it as a quick guide.\nTheme: AI can help compare choices, but people make the final decision.\nAI Focus: Decision matrix.\nESL Focus: Comparatives, superlatives, modals, and reasons.\nContent Objective: Students will compare two or three options using a decision matrix.\nLanguage Objective: Students will use English comparison language:\nOption A is cheaper than Option B.\nOption B is more convenient.\nI should choose...\nI might choose...\nI chose this because...\nThe risk is...",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#beginner-explanation",
+    "href": "class-02-decision-making-comparisons.html#beginner-explanation",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "5.4 Beginner Explanation",
+    "text": "5.4 Beginner Explanation\nA decision matrix is a simple table for comparing choices. You pick the things that matter to you (criteria), give each option a score, and write short reasons in English. AI can help you find criteria you forgot or risks you did not see. AI should not choose for you — you make the final decision.\n\n\n\n\n\n\nNoteMethod Note\n\n\n\nThis activity adapts the decision matrix, also called a Pugh matrix, decision grid, or selection matrix. A decision matrix helps compare options against criteria and can use weights when some criteria matter more (American Society for Quality n.d.).\n\n\n\n\n\n\n\n\nImportantHuman Decision Rule\n\n\n\nAI can help you compare. You make the final decision.\n\n\n\n\n\n\n\n\nflowchart LR\n  O[Options] --&gt; C[Criteria]\n  C --&gt; M[Matrix scores]\n  M --&gt; A[AI suggestions]\n  A --&gt; V[Verify facts]\n  V --&gt; D[Student decides]\n\n\n\n\nFigure 5.1: AI can help compare, but the student makes the decision.\n\n\n\n\n\nIn simple English: AI can give ideas, but you check the facts and make the final choice.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#key-vocabulary",
+    "href": "class-02-decision-making-comparisons.html#key-vocabulary",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "5.5 Key Vocabulary",
+    "text": "5.5 Key Vocabulary\n\n\n\n\n\n\n\n\nWord\nSimple Meaning\nExample Sentence\n\n\n\n\noption\nA choice\nBus and train are two options.\n\n\ncompare\nLook at two or more things\nI compare the cost and time.\n\n\ncriteria\nThe things that matter\nMy criteria are cost and safety.\n\n\nrisk\nA possible problem\nThe risk is arriving late.\n\n\nevidence\nInformation that supports an answer\nThe price is evidence.\n\n\ndecision\nA choice after thinking\nMy decision is to take the bus.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#sentence-frames",
+    "href": "class-02-decision-making-comparisons.html#sentence-frames",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "5.6 Sentence Frames",
+    "text": "5.6 Sentence Frames\nFor me, the most important criterion is __________.\nOption A is cheaper than Option B.\nOption B is more convenient than Option A.\nI might choose __________ because __________.\nBefore I decide, I need to check __________.\nAI helped me compare, but I chose __________.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#class-agenda",
+    "href": "class-02-decision-making-comparisons.html#class-agenda",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "5.7 Class Agenda",
+    "text": "5.7 Class Agenda\n\n\n\n\n\n\n\n\nTime\nActivity\nPurpose\n\n\n\n\n15 min\nWarm-up: What does “best” mean?\nShow that “best” depends on the person.\n\n\n20 min\nMini-lesson: decision matrix\nLearn criteria, scores, and evidence.\n\n\n25 min\nGuided practice: commute options\nCompare bus and train.\n\n\n40 min\nIndependent practice: my decision matrix\nBuild a matrix for a safe decision.\n\n\n20 min\nPair speaking\nExplain the decision and what to verify.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#guided-practice",
+    "href": "class-02-decision-making-comparisons.html#guided-practice",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "5.8 Guided Practice",
+    "text": "5.8 Guided Practice\n\n5.8.1 Warm-Up: What Does “Best” Mean?\nQuestion:\nWhat is the best phone plan?\nPossible criteria:\n\ncost\ndata\ncoverage\ncontract\nfamily plan\ninternational calls\n\nSpeaking frame:\nFor me, the most important criterion is __________ because __________.\n\n\n5.8.2 Mini-Lesson: Decision Matrix\nBasic structure:\nDecision:\n[What am I choosing?]\n\nOptions:\nA.\nB.\nC.\n\nCriteria:\n1. Cost\n2. Time\n3. Convenience\n4. Quality\n5. Risk\nScoring:\n1 = poor\n2 = okay\n3 = good\n4 = very good\n5 = excellent\n\n\n5.8.3 Compare Two Commute Options\n\n\n\nCriteria\nImportance 1-5\nBus\nTrain\nNotes\n\n\n\n\nCost\n5\n5\n3\nBus is cheaper.\n\n\nTime\n4\n2\n5\nTrain is faster.\n\n\nConvenience\n3\n3\n4\nTrain has fewer stops.\n\n\nRisk\n4\n3\n4\nBus may be late.\n\n\n\nWrite three comparison sentences:\nThe bus is cheaper than the train.\nThe train is faster than the bus.\nI might choose the train because time is important.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#independent-practice",
+    "href": "class-02-decision-making-comparisons.html#independent-practice",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "5.9 Independent Practice",
+    "text": "5.9 Independent Practice\nUse this student file:\n# Class 2 - English Decision Matrix\n\nDecision:\n[Write the decision]\n\nOptions:\nA.\nB.\nC.\n\n| Criteria | Importance 1-5 | Option A | Option B | Option C | Evidence / Notes |\n|---|---:|---:|---:|---:|---|\n| Cost | | | | | |\n| Time | | | | | |\n| Convenience | | | | | |\n| Quality | | | | | |\n| Risk | | | | | |\n\nMy decision for now:\n[choice]\n\nMy reason:\nI chose __________ because __________.\n\nWhat I need to check:\n1.\n2.\n3.\nOptional AI support prompt:\nHelp me improve this decision matrix.\nDo not make the final decision for me.\nUse simple English.\n\nTell me:\n1. What criteria I forgot.\n2. What assumptions I made.\n3. What information I should verify before choosing.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#pair-speaking-or-presentation-task",
+    "href": "class-02-decision-making-comparisons.html#pair-speaking-or-presentation-task",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "5.10 Pair Speaking or Presentation Task",
+    "text": "5.10 Pair Speaking or Presentation Task\nExplain your matrix to a partner.\nI am choosing between __________ and __________.\nThe most important criterion is __________.\nOption ___ is better for __________.\nBefore I decide, I need to check __________.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#reflection",
+    "href": "class-02-decision-making-comparisons.html#reflection",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "5.11 Reflection",
+    "text": "5.11 Reflection\nOne criterion I used is __________.\nOne risk I found is __________.\nOne thing I need to verify is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "class-02-decision-making-comparisons.html#exit-ticket",
+    "href": "class-02-decision-making-comparisons.html#exit-ticket",
+    "title": "5  Class 2: Making Better Decisions in English",
+    "section": "5.12 Exit Ticket",
+    "text": "5.12 Exit Ticket\nSubmit or save:\n\nOne decision matrix.\nThree comparison sentences.\nOne sentence explaining why AI should not make the final decision.\n\n\n\n\n\n\n\nTipOptional Colab Lab\n\n\n\nThis lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.\nOpen the Class 2 Decision Matrix Lab in Colab to build, score, and compare three options:\nhttps://colab.research.google.com/github/zoni-group/E4A/blob/public-cdba759557f5/english-for-ai-course/interactives/class-02-decision-matrix-lab.ipynb\nUse safe examples only. Do not enter private information.\nThe lab uses Colab AI automatically when it is available in the Colab runtime. If Colab AI is not available, the regular lab steps still work, and you can finish your portfolio without AI.\nAfter any AI answer, say: “I checked the AI answer before I used it.”\n\n\n\n\n\n\n\n\nNoteCheck Yourself\n\n\n\nYour Class 2 decision matrix is ready when:\n\nYou list two or three clear options.\nYour criteria are useful for your decision.\nYou use comparison language (“A is cheaper than B”).\nThe final decision is yours, not the AI’s, with a short reason in English.\n\n\n\n\n\n\n\n\n\nImportantRequired Portfolio Artifact\n\n\n\nSave your work here:\nEnglish AI Decision Toolkit/Class 2 - English Decision Matrix.md",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Class 2: Making Better Decisions in English</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-02-prompt-decision-practice.html",
+    "href": "self-practice-02-prompt-decision-practice.html",
+    "title": "6  Self-Practice 2: Prompt Revision and Decision Practice",
+    "section": "",
+    "text": "6.1 Start Here\nDuration: 2 hours\nIn Class 2 you built a decision matrix in English. Now you will practice two skills together: writing a better English prompt and using a matrix to think about a small everyday choice.\nPick a small, safe choice — like studying today or tomorrow, taking the bus or walking, or cooking at home or buying food. Small choices are perfect for practice.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Self-Practice 2: Prompt Revision and Decision Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-02-prompt-decision-practice.html#what-you-will-practice",
+    "href": "self-practice-02-prompt-decision-practice.html#what-you-will-practice",
+    "title": "6  Self-Practice 2: Prompt Revision and Decision Practice",
+    "section": "6.2 What You Will Practice",
+    "text": "6.2 What You Will Practice\n\nImproving your Class 1 prompt with the ZONI CLEAR scaffold.\nBuilding a short decision matrix for a real, safe choice.\nUsing English comparison phrases and reason words (“because”, “before I decide”).\nAsking AI (or a partner) to review your matrix without making the decision for you.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Self-Practice 2: Prompt Revision and Decision Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-02-prompt-decision-practice.html#what-you-will-save",
+    "href": "self-practice-02-prompt-decision-practice.html#what-you-will-save",
+    "title": "6  Self-Practice 2: Prompt Revision and Decision Practice",
+    "section": "6.3 What You Will Save",
+    "text": "6.3 What You Will Save\nEnglish AI Decision Toolkit/Self-Practice 2 - Revised Prompt and Matrix.md\n\n\n\n\n\n\nNotePractice Reference\n\n\n\n\n\nOpen this box to see how this self-practice is structured. Read it once, then move into the parts.\nMode: Independent practice outside synchronous class.\nPurpose: Strengthen prompt writing, comparison language, decision matrices, and portfolio organization.\nStudent Instructions: Complete this practice in your English AI Decision Toolkit folder. Use safe, non-private examples.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Self-Practice 2: Prompt Revision and Decision Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-02-prompt-decision-practice.html#part-1-revise-your-class-1-prompt---30-minutes",
+    "href": "self-practice-02-prompt-decision-practice.html#part-1-revise-your-class-1-prompt---30-minutes",
+    "title": "6  Self-Practice 2: Prompt Revision and Decision Practice",
+    "section": "6.4 Part 1: Revise Your Class 1 Prompt - 30 Minutes",
+    "text": "6.4 Part 1: Revise Your Class 1 Prompt - 30 Minutes\nOpen your Class 1 prompt. Improve it using the ZONI CLEAR scaffold.\n# Self-Practice 2 - Revised Prompt and Matrix\n\n## Part 1: Revised English Prompt\n\nMy original prompt was:\n[paste original prompt]\n\nMy revised prompt is:\n[paste improved prompt]\n\nI improved it by adding:\n- Context: __________\n- Limits: __________\n- Output format: __________\n- Review instruction: __________",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Self-Practice 2: Prompt Revision and Decision Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-02-prompt-decision-practice.html#part-2-practice-a-small-decision-matrix---50-minutes",
+    "href": "self-practice-02-prompt-decision-practice.html#part-2-practice-a-small-decision-matrix---50-minutes",
+    "title": "6  Self-Practice 2: Prompt Revision and Decision Practice",
+    "section": "6.5 Part 2: Practice a Small Decision Matrix - 50 Minutes",
+    "text": "6.5 Part 2: Practice a Small Decision Matrix - 50 Minutes\nChoose a simple decision:\n\nstudy today or tomorrow\ncook at home or buy food\ntake the bus or walk\nreview vocabulary or practice speaking\n\n## Part 2: Practice Decision Matrix\n\nDecision:\n[write decision]\n\nOptions:\nA.\nB.\n\n| Criteria | Option A | Option B | Notes |\n|---|---:|---:|---|\n| Cost | | | |\n| Time | | | |\n| Convenience | | | |\n| Risk | | | |\n\nMy choice for now:\n[choice]\n\nI chose this because __________.\nBefore I decide, I need to check __________.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Self-Practice 2: Prompt Revision and Decision Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-02-prompt-decision-practice.html#part-3-ai-review-prompt---20-minutes",
+    "href": "self-practice-02-prompt-decision-practice.html#part-3-ai-review-prompt---20-minutes",
+    "title": "6  Self-Practice 2: Prompt Revision and Decision Practice",
+    "section": "6.6 Part 3: AI Review Prompt - 20 Minutes",
+    "text": "6.6 Part 3: AI Review Prompt - 20 Minutes\nAsk AI, a partner, or a teacher-provided sample response to review your matrix.\n## Part 3: AI Review Prompt\n\nPrompt:\nHelp me review this decision matrix.\nDo not make the final decision for me.\nUse simple English.\nTell me:\n1. One criterion I should add.\n2. One assumption I should check.\n3. One risk I should think about.\n\nOne useful suggestion was __________.\nOne suggestion I will not use is __________ because __________.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Self-Practice 2: Prompt Revision and Decision Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-02-prompt-decision-practice.html#part-4-vocabulary-practice---10-minutes",
+    "href": "self-practice-02-prompt-decision-practice.html#part-4-vocabulary-practice---10-minutes",
+    "title": "6  Self-Practice 2: Prompt Revision and Decision Practice",
+    "section": "6.7 Part 4: Vocabulary Practice - 10 Minutes",
+    "text": "6.7 Part 4: Vocabulary Practice - 10 Minutes\nAdd five words to your vocabulary log.\n\n\n\nWord\nSimple Meaning\nMy Sentence\n\n\n\n\nprompt\n\n\n\n\ncompare\n\n\n\n\noption\n\n\n\n\ncriteria\n\n\n\n\nrisk",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Self-Practice 2: Prompt Revision and Decision Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-02-prompt-decision-practice.html#part-5-reflection---10-minutes",
+    "href": "self-practice-02-prompt-decision-practice.html#part-5-reflection---10-minutes",
+    "title": "6  Self-Practice 2: Prompt Revision and Decision Practice",
+    "section": "6.8 Part 5: Reflection - 10 Minutes",
+    "text": "6.8 Part 5: Reflection - 10 Minutes\nOne thing I can do better in English now is __________.\nOne thing I still need to practice is __________.\n\n\n\n\n\n\nTipOptional Colab Lab\n\n\n\nThis lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.\nOpen the Class 2 Decision Matrix Lab in Colab to revise your matrix at home:\nhttps://colab.research.google.com/github/zoni-group/E4A/blob/public-cdba759557f5/english-for-ai-course/interactives/class-02-decision-matrix-lab.ipynb\nUse safe examples only. Do not enter private information.\nThe lab uses Colab AI automatically when it is available in the Colab runtime. If Colab AI is not available, the regular lab steps still work, and you can finish your self-practice without AI.\nAfter any AI answer, say: “I checked the AI answer before I used it.”\n\n\n\n\n\n\n\n\nNoteCheck Yourself\n\n\n\nYour Self-Practice 2 file is ready when:\n\nYour revised prompt is clearer than your Class 1 prompt (more context, limits, or format).\nYour decision matrix shows useful criteria and short notes.\nYou explain one AI suggestion you used AND one you did not use, with a short reason.\nThe final decision is yours, written in simple English.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Self-Practice 2: Prompt Revision and Decision Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-02-prompt-decision-practice.html#required-artifact",
+    "href": "self-practice-02-prompt-decision-practice.html#required-artifact",
+    "title": "6  Self-Practice 2: Prompt Revision and Decision Practice",
+    "section": "6.9 Required Artifact",
+    "text": "6.9 Required Artifact\nSave:\nEnglish AI Decision Toolkit/Self-Practice 2 - Revised Prompt and Matrix.md",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Self-Practice 2: Prompt Revision and Decision Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-02-prompt-decision-practice.html#portfolio-saving-instructions",
+    "href": "self-practice-02-prompt-decision-practice.html#portfolio-saving-instructions",
+    "title": "6  Self-Practice 2: Prompt Revision and Decision Practice",
+    "section": "6.10 Portfolio Saving Instructions",
+    "text": "6.10 Portfolio Saving Instructions\n\nSave the revised prompt and matrix in one file.\nAdd new words to Vocabulary Log.md.\nKeep the final decision in your own words.\nSave in .md, .txt, .docx, or .pdf if your teacher asks for another format.\n\n\n\n\n\n\n\nImportantDecision Rule\n\n\n\nAI can suggest criteria. AI can point out risks. You choose what matters most.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Self-Practice 2: Prompt Revision and Decision Practice</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html",
+    "href": "class-03-source-grounded-reading.html",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "",
+    "text": "7.1 Start Here\nDuration: 2 hours\nA friend asks you: “Can I return this item to the store?”\nYou see two answers.\nAnswer A:\nAnswer B:\nWhich answer do you trust more?\nAnswer B shows where the information came from. You can check it. Answer A might be true — but it might be wrong, and you have no way to know. Trusting an answer without a source can cost you time, money, or even a job.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#start-here",
+    "href": "class-03-source-grounded-reading.html#start-here",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "",
+    "text": "Yes, you can return it within 30 days.\n\nAccording to the store's return policy, items can be returned\nwithin 30 days with a receipt.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#why-this-matters",
+    "href": "class-03-source-grounded-reading.html#why-this-matters",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "7.2 Why This Matters",
+    "text": "7.2 Why This Matters\nAI sometimes invents answers that sound correct but are not true. We call this a hallucination. If you ask AI about school rules, store policies, public notices, work guides, or health information, a wrong answer can cause real problems. Today you will learn how to give AI a short source text and ask for answers only from that source. This is a safer way to use AI, and it is excellent English reading practice.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#today-you-will",
+    "href": "class-03-source-grounded-reading.html#today-you-will",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "7.3 Today You Will",
+    "text": "7.3 Today You Will\nBy the end of this lesson, you will:\n\nLearn how to write a source-grounded prompt.\nQuote a short public text and paraphrase it in your own simple English.\nPractice saying “I cannot answer from the provided source” when the answer is not there.\nSpot a hallucination by checking the source.\nSave: English AI Decision Toolkit/Class 3 - Source-Grounded Answer in English.md.\n\n\n\n\n\n\n\nNoteLesson Reference\n\n\n\n\n\nThis is the curriculum focus for today. Open this box to see the full lesson plan. You do not need to memorize it — use it as a quick guide.\nTheme: AI answers must be checked with sources.\nAI Focus: Source-grounded answers and hallucination awareness.\nESL Focus: Reading for details, paraphrasing, evidence language, and citations.\nContent Objective: Students will answer a question using only a provided source text.\nLanguage Objective: Students will use evidence phrases:\nThe source says...\nAccording to the text...\nThis means...\nThe answer is not in the source.\nI need to check...",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#beginner-explanation",
+    "href": "class-03-source-grounded-reading.html#beginner-explanation",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "7.4 Beginner Explanation",
+    "text": "7.4 Beginner Explanation\nSometimes AI gives an answer that sounds correct but is not really supported. We call this a hallucination. The words look fine, but the facts may be invented.\nA safer way to use AI for reading: give it a short source text and ask it to answer only from that text. If the answer is not in the text, AI should say so — and so should you.\nIn simple English:\nDo not guess. Use the source.\n\n\n\n\n\n\nNoteResearch Note\n\n\n\nThis classroom routine is informed by work on AI factuality, hallucination, and retrieval/source-grounded generation. In this class, we practice a simple version: use the provided source, quote short evidence, and do not guess when the source does not answer (Maynez et al. 2020; Lewis et al. 2020).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#key-vocabulary",
+    "href": "class-03-source-grounded-reading.html#key-vocabulary",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "7.5 Key Vocabulary",
+    "text": "7.5 Key Vocabulary\n\n\n\n\n\n\n\n\nWord\nSimple Meaning\nExample Sentence\n\n\n\n\nsource\nThe original text or information\nThe source is a school policy.\n\n\ncitation\nA note that shows where information came from\nI need a citation for this answer.\n\n\nevidence\nWords from the source that support an answer\nThe sentence is evidence.\n\n\nquote\nExact words from a source\nI used a short quote.\n\n\nparaphrase\nSame idea in your own words\nI paraphrased the rule.\n\n\nhallucination\nAn AI answer that may be wrong or unsupported\nThe AI hallucinated a date.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#sentence-frames",
+    "href": "class-03-source-grounded-reading.html#sentence-frames",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "7.6 Sentence Frames",
+    "text": "7.6 Sentence Frames\nMy question was __________.\nThe source says __________.\nAccording to the text, __________.\nThis means __________.\nThe source does not say __________.\nI cannot answer from the provided source.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#class-agenda",
+    "href": "class-03-source-grounded-reading.html#class-agenda",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "7.7 Class Agenda",
+    "text": "7.7 Class Agenda\n\n\n\n\n\n\n\n\nTime\nActivity\nPurpose\n\n\n\n\n15 min\nWarm-up: Which answer is better?\nNotice evidence in answers.\n\n\n25 min\nMini-lesson: source-grounded prompts\nLearn how to limit AI to a source.\n\n\n35 min\nGuided practice: public rule or policy\nRead, quote, and paraphrase.\n\n\n20 min\nHallucination test\nPractice unsupported-question response.\n\n\n15 min\nPair speaking\nExplain evidence in English.\n\n\n10 min\nReflection\nSave learning and next step.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#guided-practice",
+    "href": "class-03-source-grounded-reading.html#guided-practice",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "7.8 Guided Practice",
+    "text": "7.8 Guided Practice\n\n7.8.1 Warm-Up: Which Answer Is Better?\nAnswer A:\nYou can return the item after 30 days.\nAnswer B:\nAccording to the return policy, items can be returned within 30 days with a receipt.\nDiscuss:\nWhich answer is easier to trust?\nWhat evidence do you see?\nWhat is still missing?\n\n\n7.8.2 Mini-Lesson: Source-Grounded Prompt\nUse this template:\nUse ONLY the source text below.\nIf the answer is not in the source, say:\n\"I cannot answer from the provided source.\"\n\nQuestion:\n[student question]\n\nSource text:\n[paste short source section]\n\nAnswer format:\n1. Short answer\n2. Evidence from the source\n3. What is unclear\n4. What I should check next\n\n\n\n\n\n\nflowchart LR\n  Q[Question] --&gt; S[Source text]\n  S --&gt; E[Find evidence]\n  E --&gt; C{Answer there?}\n  C --&gt;|Yes| Q2[Short quote]\n  Q2 --&gt; P[Paraphrase]\n  C --&gt;|No| N[Do not guess]\n\n\n\n\nFigure 7.1: A safe routine for source-grounded answers.\n\n\n\n\n\nIn simple English: use the source. If the source does not answer, say so.\n\n\n\n\n\n\nNoteSource-Checking Note\n\n\n\nFor important answers, stop, check the source, look for better coverage, and trace the claim back to evidence (Caulfield 2019).\n\n\n\n\n7.8.3 Public Rule or Policy\nUse a short public text selected by the teacher. The folder assets/sample-documents/ has safe practice sources:\n\nassets/sample-documents/bus-route-notice.md\nassets/sample-documents/community-event-announcement.md\nassets/sample-documents/library-borrowing-rules.md\nassets/sample-documents/product-return-policy-sample.md\nassets/sample-documents/recycling-pickup-guide.md\nassets/sample-documents/study-room-rules.md\n\nStudent worksheet:\n# Class 3 - Source-Grounded Answer in English\n\nQuestion:\n[Write the question]\n\nKey words in the question:\n1.\n2.\n3.\n\nShort answer:\n[Write answer]\n\nEvidence:\nThe source says: \"[short quote]\"\n\nParaphrase:\nThis means __________.\n\nWhat is unclear:\n[Write uncertainty]\n\nWhat I should check next:\n[Write next step]",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#independent-practice",
+    "href": "class-03-source-grounded-reading.html#independent-practice",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "7.9 Independent Practice",
+    "text": "7.9 Independent Practice\nAsk one supported question and one unsupported question about the same source.\nSupported question example:\nHow many days can I borrow a library book?\nUnsupported question example:\nWhat is the library manager's personal phone number?\nCorrect unsupported answer:\nI cannot answer from the provided source.\nLabel each answer:\nSupported / Not supported / Not in the source",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#pair-speaking-or-presentation-task",
+    "href": "class-03-source-grounded-reading.html#pair-speaking-or-presentation-task",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "7.10 Pair Speaking or Presentation Task",
+    "text": "7.10 Pair Speaking or Presentation Task\nExplain your source answer to a partner.\nMy question was __________.\nThe source says __________.\nThis means __________.\nThe source does not say __________.\nI need to check __________.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#reflection",
+    "href": "class-03-source-grounded-reading.html#reflection",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "7.11 Reflection",
+    "text": "7.11 Reflection\nToday I learned:\n[write one sentence]\n\nOne source phrase I can use:\n[write phrase]\n\nOne thing AI should not do:\n[write sentence]",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "class-03-source-grounded-reading.html#exit-ticket",
+    "href": "class-03-source-grounded-reading.html#exit-ticket",
+    "title": "7  Class 3: Source-Grounded Reading",
+    "section": "7.12 Exit Ticket",
+    "text": "7.12 Exit Ticket\nSubmit or save:\n\nOne source-grounded answer.\nOne short quote.\nOne paraphrase.\nOne example of “not in the source.”\n\n\n\n\n\n\n\nTipOptional Colab Lab\n\n\n\nThis lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.\nOpen the Class 3 Source-Grounded Lab in Colab to practice answering safely from a short source:\nhttps://colab.research.google.com/github/zoni-group/E4A/blob/public-cdba759557f5/english-for-ai-course/interactives/class-03-source-grounded-lab.ipynb\nUse the built-in safe sample sources only. Do not paste private documents.\nThe lab uses Colab AI automatically when it is available in the Colab runtime. Colab AI is asked to answer only from the source you load; if the source does not answer, AI must say “I cannot answer from the provided source.” If Colab AI is not available, the regular lab steps still work, and you can finish your portfolio without AI.\nAfter any AI answer, say: “I checked the AI answer before I used it.”\n\n\n\n\n\n\n\n\nNoteCheck Yourself\n\n\n\nYour Class 3 source-grounded answer is ready when:\n\nYour answer uses information from the source, not guesses.\nYou include a short quote from the source.\nYour paraphrase is in your own simple English.\nIf the source did not answer, you wrote “I cannot answer from the provided source.”\n\n\n\n\n\n\n\n\n\nImportantRequired Portfolio Artifact\n\n\n\nSave your work here:\nEnglish AI Decision Toolkit/Class 3 - Source-Grounded Answer in English.md",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Class 3: Source-Grounded Reading</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-03-source-check-paraphrase.html",
+    "href": "self-practice-03-source-check-paraphrase.html",
+    "title": "8  Self-Practice 3: Source Check and Paraphrase",
+    "section": "",
+    "text": "8.1 Start Here\nDuration: 2 hours\nIn Class 3 you learned that a safe AI answer should come from a source you can check. Today you will practice this on your own with a short, safe, public text.\nChoose a short public text from the assets/sample-documents/ folder, or use a short text your teacher gave you. Do not use private documents, school records, medical papers, or any document with names, addresses, or ID numbers.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Self-Practice 3: Source Check and Paraphrase</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-03-source-check-paraphrase.html#what-you-will-practice",
+    "href": "self-practice-03-source-check-paraphrase.html#what-you-will-practice",
+    "title": "8  Self-Practice 3: Source Check and Paraphrase",
+    "section": "8.2 What You Will Practice",
+    "text": "8.2 What You Will Practice\n\nReading a short public source and finding key words.\nAsking AI a question that the source DOES answer (supported).\nAsking AI a question that the source does NOT answer (unsupported).\nQuoting a short sentence and paraphrasing it in your own simple English.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Self-Practice 3: Source Check and Paraphrase</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-03-source-check-paraphrase.html#what-you-will-save",
+    "href": "self-practice-03-source-check-paraphrase.html#what-you-will-save",
+    "title": "8  Self-Practice 3: Source Check and Paraphrase",
+    "section": "8.3 What You Will Save",
+    "text": "8.3 What You Will Save\nEnglish AI Decision Toolkit/Self-Practice 3 - Source Check and Paraphrase.md\n\n\n\n\n\n\nNotePractice Reference\n\n\n\n\n\nOpen this box to see how this self-practice is structured. Read it once, then move into the parts.\nMode: Independent practice outside synchronous class.\nPurpose: Practice reading a public source, checking AI answers, paraphrasing, and identifying unsupported information.\nStudent Instructions: Use a short public source chosen by the teacher or a safe public text from assets/sample-documents/, such as:\n\nbus-route-notice.md\ncommunity-event-announcement.md\nlibrary-borrowing-rules.md\nproduct-return-policy-sample.md\nrecycling-pickup-guide.md\nstudy-room-rules.md\n\nDo not use private documents.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Self-Practice 3: Source Check and Paraphrase</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-03-source-check-paraphrase.html#part-1-choose-and-read-a-source---20-minutes",
+    "href": "self-practice-03-source-check-paraphrase.html#part-1-choose-and-read-a-source---20-minutes",
+    "title": "8  Self-Practice 3: Source Check and Paraphrase",
+    "section": "8.4 Part 1: Choose and Read a Source - 20 Minutes",
+    "text": "8.4 Part 1: Choose and Read a Source - 20 Minutes\n# Self-Practice 3 - Source Check and Paraphrase\n\n## Part 1: Source Information\n\nSource title:\n[write title]\n\nSource type:\n[library rule / school notice / public announcement / other]\n\nThree key words:\n1.\n2.\n3.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Self-Practice 3: Source Check and Paraphrase</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-03-source-check-paraphrase.html#part-2-ask-a-source-grounded-question---25-minutes",
+    "href": "self-practice-03-source-check-paraphrase.html#part-2-ask-a-source-grounded-question---25-minutes",
+    "title": "8  Self-Practice 3: Source Check and Paraphrase",
+    "section": "8.5 Part 2: Ask a Source-Grounded Question - 25 Minutes",
+    "text": "8.5 Part 2: Ask a Source-Grounded Question - 25 Minutes\n## Part 2: Source-Grounded Question\n\nMy question:\n[write question]\n\nPrompt I used:\nUse only the source text. If the answer is not in the source, say:\n\"I cannot answer from the provided source.\"\n\nShort answer:\n[write answer]",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Self-Practice 3: Source Check and Paraphrase</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-03-source-check-paraphrase.html#part-3-evidence-and-paraphrase---30-minutes",
+    "href": "self-practice-03-source-check-paraphrase.html#part-3-evidence-and-paraphrase---30-minutes",
+    "title": "8  Self-Practice 3: Source Check and Paraphrase",
+    "section": "8.6 Part 3: Evidence and Paraphrase - 30 Minutes",
+    "text": "8.6 Part 3: Evidence and Paraphrase - 30 Minutes\n## Part 3: Evidence and Paraphrase\n\nEvidence:\nThe source says: \"[short quote]\"\n\nParaphrase:\nThis means __________.\n\nImportant detail:\nThe most important detail is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Self-Practice 3: Source Check and Paraphrase</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-03-source-check-paraphrase.html#part-4-unsupported-question-test---20-minutes",
+    "href": "self-practice-03-source-check-paraphrase.html#part-4-unsupported-question-test---20-minutes",
+    "title": "8  Self-Practice 3: Source Check and Paraphrase",
+    "section": "8.7 Part 4: Unsupported Question Test - 20 Minutes",
+    "text": "8.7 Part 4: Unsupported Question Test - 20 Minutes\nAsk one question that the source does not answer.\n## Part 4: Unsupported Question Test\n\nQuestion not answered by the source:\n[write question]\n\nCorrect response:\nI cannot answer from the provided source.\n\nWhy this is safer:\nIt is safer because __________.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Self-Practice 3: Source Check and Paraphrase</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-03-source-check-paraphrase.html#part-5-vocabulary-practice---10-minutes",
+    "href": "self-practice-03-source-check-paraphrase.html#part-5-vocabulary-practice---10-minutes",
+    "title": "8  Self-Practice 3: Source Check and Paraphrase",
+    "section": "8.8 Part 5: Vocabulary Practice - 10 Minutes",
+    "text": "8.8 Part 5: Vocabulary Practice - 10 Minutes\nAdd five words to your vocabulary log.\n\n\n\nWord\nSimple Meaning\nMy Sentence\n\n\n\n\nsource\n\n\n\n\nevidence\n\n\n\n\nquote\n\n\n\n\nparaphrase\n\n\n\n\nunsupported",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Self-Practice 3: Source Check and Paraphrase</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-03-source-check-paraphrase.html#part-6-reflection-and-save---15-minutes",
+    "href": "self-practice-03-source-check-paraphrase.html#part-6-reflection-and-save---15-minutes",
+    "title": "8  Self-Practice 3: Source Check and Paraphrase",
+    "section": "8.9 Part 6: Reflection and Save - 15 Minutes",
+    "text": "8.9 Part 6: Reflection and Save - 15 Minutes\n## Reflection\n\nOne reading skill I practiced is __________.\nOne source phrase I can use is __________.\nOne thing I should verify is __________.\n\n\n\n\n\n\nTipOptional Colab Lab\n\n\n\nThis lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.\nOpen the Class 3 Source-Grounded Lab in Colab to practice with safe sample sources at home:\nhttps://colab.research.google.com/github/zoni-group/E4A/blob/public-cdba759557f5/english-for-ai-course/interactives/class-03-source-grounded-lab.ipynb\nUse the built-in safe sample sources only. Do not paste private documents.\nThe lab uses Colab AI automatically when it is available in the Colab runtime. Colab AI is asked to answer only from the source you load. If Colab AI is not available, the regular lab steps still work, and you can finish your self-practice without AI.\nAfter any AI answer, say: “I checked the AI answer before I used it.”\n\n\n\n\n\n\n\n\nNoteCheck Yourself\n\n\n\nYour Self-Practice 3 file is ready when:\n\nYour source-grounded answer is saved with the source title or link.\nYou included a short quote from the source.\nYour paraphrase uses your own simple English.\nFor the unsupported question, you wrote “I cannot answer from the provided source.”\nYou used a safe public source, not a private document.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Self-Practice 3: Source Check and Paraphrase</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-03-source-check-paraphrase.html#required-artifact",
+    "href": "self-practice-03-source-check-paraphrase.html#required-artifact",
+    "title": "8  Self-Practice 3: Source Check and Paraphrase",
+    "section": "8.10 Required Artifact",
+    "text": "8.10 Required Artifact\nSave:\nEnglish AI Decision Toolkit/Self-Practice 3 - Source Check and Paraphrase.md",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Self-Practice 3: Source Check and Paraphrase</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-03-source-check-paraphrase.html#portfolio-saving-instructions",
+    "href": "self-practice-03-source-check-paraphrase.html#portfolio-saving-instructions",
+    "title": "8  Self-Practice 3: Source Check and Paraphrase",
+    "section": "8.11 Portfolio Saving Instructions",
+    "text": "8.11 Portfolio Saving Instructions\n\nSave your source check file in your toolkit folder.\nKeep the source title or link with your work.\nAdd new words to Vocabulary Log.md.\nDo not save private source documents in the toolkit.\n\n\n\n\n\n\n\nWarningUnsupported Question Rule\n\n\n\nIf the source does not answer the question, write: I cannot answer from the provided source.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Self-Practice 3: Source Check and Paraphrase</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html",
+    "href": "class-04-visual-speaking-audio-communication.html",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "",
+    "text": "9.1 Start Here\nDuration: 2 hours\nYou see a small flyer on a wall at school:\nYou ask yourself: Which Thursday? What time? What is the meeting about? Should I bring something?\nNow look at a clearer version:\nNow you know if it is for you. The same idea — a small flyer — but the second version uses clear English words and clear visual details. People can read it, understand it, and decide quickly.\nSpeaking is the same. A short, clear message helps people listen and respond.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#start-here",
+    "href": "class-04-visual-speaking-audio-communication.html#start-here",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "",
+    "text": "Meeting Thursday Room 3\n\n\nEnglish Conversation Club\nThursday, June 5\n4:00 to 5:00 PM\nLibrary, Room 3\nFree and open to all students.\nPlease bring one question to share.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#why-this-matters",
+    "href": "class-04-visual-speaking-audio-communication.html#why-this-matters",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "9.2 Why This Matters",
+    "text": "9.2 Why This Matters\nYou will share messages, images, and short spoken English in your daily life — at school, at work, with family, and in your community. Clear visuals and clear speaking help people understand and act. They also help you feel more confident in English. Today you will practice both, and learn safe rules for using images and voice.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#today-you-will",
+    "href": "class-04-visual-speaking-audio-communication.html#today-you-will",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "9.3 Today You Will",
+    "text": "9.3 Today You Will\nBy the end of this lesson, you will:\n\nDescribe a visual in simple English.\nLearn safe image and voice rules: open licenses, consent, and no private faces or voices.\nWrite a 60-second English speaking script with a greeting, purpose, request, and thank-you.\nRead your script aloud and give a partner kind, helpful feedback.\nSave: English AI Decision Toolkit/Class 4 - Visual Description and 60-Second Script.md.\n\n\n\n\n\n\n\nNoteLesson Reference\n\n\n\n\n\nThis is the curriculum focus for today. Open this box to see the full lesson plan. You do not need to memorize it — use it as a quick guide.\nTheme: AI and open tools can help students communicate clearly in English using visuals and speech.\nAI Focus: Visual prompts, open media, speaking scripts, and audio awareness.\nESL Focus: Descriptive language, captions, polite requests, pronunciation, and fluency.\nContent Objective: Students will create a visual communication plan and write a 60-second English speaking script.\nLanguage Objective: Students will describe visuals and deliver practical spoken English using clear sentence frames.\nThe image shows...\nThe purpose is...\nI am calling about...\nCould you please...\nThank you for your time.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#beginner-explanation",
+    "href": "class-04-visual-speaking-audio-communication.html#beginner-explanation",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "9.4 Beginner Explanation",
+    "text": "9.4 Beginner Explanation\nA visual is a picture, flyer, or simple diagram. A clear visual helps people understand your message quickly. A script is the words you prepare before you speak. A short script helps you speak more clearly and stay calm.\nAI can help you check or improve a visual description or a speaking script. You still need to check that the message is true, safe, respectful, and uses only images and voices you have permission to use.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#key-vocabulary",
+    "href": "class-04-visual-speaking-audio-communication.html#key-vocabulary",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "9.5 Key Vocabulary",
+    "text": "9.5 Key Vocabulary\n\n\n\n\n\n\n\n\nWord\nSimple Meaning\nExample Sentence\n\n\n\n\nimage\nA picture\nThe image shows a classroom.\n\n\nlicense\nPermission to use something\nThe image has an open license.\n\n\nattribution\nGiving credit to the creator\nI wrote an attribution.\n\n\ncaption\nShort text near an image\nThe caption explains the picture.\n\n\nscript\nWritten words prepared before speaking\nI wrote a script for my call.\n\n\npronunciation\nHow words sound\nI practiced pronunciation.\n\n\nconsent\nPermission\nI need consent to use a voice recording.\n\n\nfeedback\nAdvice to improve\nMy partner gave feedback.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#sentence-frames",
+    "href": "class-04-visual-speaking-audio-communication.html#sentence-frames",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "9.6 Sentence Frames",
+    "text": "9.6 Sentence Frames\nThe image shows __________.\nThere is __________.\nThere are __________.\nThe purpose is __________.\nHello, my name is __________.\nI would like to __________.\nCould you please __________?\nThank you for your help.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#class-agenda",
+    "href": "class-04-visual-speaking-audio-communication.html#class-agenda",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "9.7 Class Agenda",
+    "text": "9.7 Class Agenda\n\n\n\n\n\n\n\n\nTime\nActivity\nPurpose\n\n\n\n\n15 min\nWarm-up: clear or confusing communication?\nIdentify missing details.\n\n\n20 min\nMini-lesson: safe visuals, open licenses, and consent\nLearn image and audio safety.\n\n\n25 min\nGuided practice A: visual description\nDescribe a visual in simple English.\n\n\n20 min\nGuided practice B: improve a speaking script\nBuild polite spoken English.\n\n\n30 min\nIndependent practice: visual plan and script\nCreate a portfolio artifact.\n\n\n10 min\nPair feedback\nPractice speaking and improve clarity.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#guided-practice",
+    "href": "class-04-visual-speaking-audio-communication.html#guided-practice",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "9.8 Guided Practice",
+    "text": "9.8 Guided Practice\n\n9.8.1 Warm-Up: Clear or Confusing Communication?\nLook at a short message and a simple image or flyer.\nAnswer:\nWhat is clear?\nWhat is confusing?\nWhat is missing?\nSpeaking frames:\nThe message is clear because __________.\nThe image is confusing because __________.\nOne missing detail is __________.\n\n\n9.8.2 Mini-Lesson: Safe Visuals, Open Licenses, and Consent\nStudents learn:\n\nDo not copy random images without permission.\nDo not use another person’s face or voice without permission.\nDo not create misleading images.\nUse open-license media when possible.\nCourse images provided in this book are ZONI® assets unless otherwise noted.\nSave images in open formats like .svg or .png.\nRecord only your own voice if recording is allowed.\nDo not imitate or clone another real person’s voice.\n\n\n\n\n\n\n\nflowchart LR\n  V[Choose safe visual] --&gt; P[Check permission]\n  P --&gt; D[Describe in English]\n  D --&gt; S[Write script]\n  S --&gt; R[Practice]\n  R --&gt; H[Share safely]\n\n\n\n\nFigure 9.1: A safe process for visual speaking practice.\n\n\n\n\n\nIn simple English: first check that the visual is safe to use, then describe it and practice your script.\n\n\n\n\n\n\nNoteAttribution Note\n\n\n\nFor open-license images, give credit using TASL: Title, Author, Source, License. Also name changes you made, such as cropped, resized, translated, or edited (Creative Commons n.d.).\n\n\n\n\n9.8.3 Guided Practice A: Write a Visual Description\nVisual topic:\n[topic]\n\nPurpose:\nThis image helps people understand __________.\n\nDescription:\nThe image shows __________.\nThere is/are __________.\nThe background is __________.\nThe text says __________.\n\nSource:\n[ZONI-provided course image / self-created / teacher-provided / open-license image]\n\nCreator:\n[name if available]\n\nLicense:\n[license if available]\n\nChanges made:\n[describe changes]\n\nAttribution note:\n[short credit line]\n\nFile format:\n[.svg / .png / .pdf]\n\n\n9.8.4 Guided Practice B: Improve a Speaking Script\nOriginal:\nI need job. Help me.\nImproved:\nHello, my name is Carlos. I am interested in the cashier position.\nI have experience helping customers and handling payments.\nCould you please tell me how to apply?\nThank you for your time.\nIdentify:\n\ngreeting\npurpose\ndetails\nrequest\nclosing",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#independent-practice",
+    "href": "class-04-visual-speaking-audio-communication.html#independent-practice",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "9.9 Independent Practice",
+    "text": "9.9 Independent Practice\nChoose one practical communication task:\n\nflyer for an English study group\nvisual about AI privacy\nshort interview answer\nvoicemail script\nsimple presentation about a decision\ncommunity announcement\n\nStudent file:\n# Class 4 - Visual Description and 60-Second Script\n\n## Part 1: Visual Description\n\nVisual topic:\n[topic]\n\nPurpose:\nThis visual helps people understand __________.\n\nDescription:\nThe image shows __________.\nThere is/are __________.\nThe text says __________.\n\nVisual attribution:\n- Title:\n- Creator:\n- Source:\n- License or permission:\n- Changes made:\n- Attribution note:\n\n## Part 2: 60-Second Speaking Script\n\nPurpose:\n[Why am I speaking?]\n\nAudience:\n[Who will listen?]\n\nScript:\n[100-150 words]\n\nImportant details:\n- Date/time:\n- Name:\n- Request:\n- Deadline:\n\nPronunciation focus:\n[final consonants / stress / pausing / intonation]\n\nPrivacy check:\n[What should I remove before sharing?]\nOptional AI support prompt:\nHelp me improve this English speaking script.\nKeep my meaning.\nUse simple, polite English.\nDo not add private information.\nGive me:\n1. A revised version.\n2. Three pronunciation tips.\n3. Two words I should practice.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#pair-speaking-or-presentation-task",
+    "href": "class-04-visual-speaking-audio-communication.html#pair-speaking-or-presentation-task",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "9.10 Pair Speaking or Presentation Task",
+    "text": "9.10 Pair Speaking or Presentation Task\nRead your script to a partner. Your partner gives feedback:\nOne thing that was clear:\nOne word to practice:\nOne sentence that could be shorter:\nOne missing detail:\nOne privacy concern:",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#reflection",
+    "href": "class-04-visual-speaking-audio-communication.html#reflection",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "9.11 Reflection",
+    "text": "9.11 Reflection\nOne visual detail I can describe is __________.\nOne word I need to pronounce clearly is __________.\nOne consent rule I will remember is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "class-04-visual-speaking-audio-communication.html#exit-ticket",
+    "href": "class-04-visual-speaking-audio-communication.html#exit-ticket",
+    "title": "9  Class 4: Visual, Speaking, and Audio Communication",
+    "section": "9.12 Exit Ticket",
+    "text": "9.12 Exit Ticket\nSubmit or save:\n\nOne visual description or visual plan.\nOne attribution or source note.\nOne 60-second English script.\nOne pronunciation goal.\nOne consent rule for visual/audio tools.\n\n\n\n\n\n\n\nTipOptional Colab Lab\n\n\n\nThis lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.\nOpen the Class 4 Visual Script Lab in Colab to write your visual description and a 100-150 word speaking script:\nhttps://colab.research.google.com/github/zoni-group/E4A/blob/public-cdba759557f5/english-for-ai-course/interactives/class-04-visual-script-lab.ipynb\nUse safe visual topics only. Do not upload images, photos, or audio.\nThe lab uses Colab AI automatically when it is available in the Colab runtime. Colab AI can suggest a simpler version of your script; it must not generate images, describe real people, or add facts. If Colab AI is not available, the regular lab steps still work, and you can finish your portfolio without AI.\nAfter any AI answer, say: “I checked the AI answer before I used it.”\n\n\n\n\n\n\n\n\nNoteCheck Yourself\n\n\n\nYour Class 4 visual and script are ready when:\n\nYour visual description is clear and in simple English.\nYour script has a greeting, a purpose, a polite request, and a thank-you.\nYou used a safe image (ZONI-provided, open license, teacher-provided, or self-created).\nYou used only your own voice — no copying or imitating real people.\nNo private information appears in the visual or script.\n\n\n\n\n\n\n\n\n\nImportantRequired Portfolio Artifact\n\n\n\nSave your work here:\nEnglish AI Decision Toolkit/Class 4 - Visual Description and 60-Second Script.md",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Class 4: Visual, Speaking, and Audio Communication</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html",
+    "href": "self-practice-04-visual-speaking-practice.html",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "",
+    "text": "10.1 Start Here\nDuration: 2 hours\nIn Class 4 you described a visual and wrote a 60-second English script. Speaking gets easier the more you practice. Today you will improve both pieces in a quiet, safe place — at home, in the library, or anywhere you feel comfortable speaking aloud.\nYou do not need fancy equipment. You only need your visual plan, your script, and a few minutes to read your script out loud a few times.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html#what-you-will-practice",
+    "href": "self-practice-04-visual-speaking-practice.html#what-you-will-practice",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "10.2 What You Will Practice",
+    "text": "10.2 What You Will Practice\n\nReviewing and improving your Class 4 visual description.\nRevising your 60-second speaking script to make it clearer.\nReading the script aloud and timing yourself.\nChecking that you used safe images and only your own voice.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html#what-you-will-save",
+    "href": "self-practice-04-visual-speaking-practice.html#what-you-will-save",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "10.3 What You Will Save",
+    "text": "10.3 What You Will Save\nEnglish AI Decision Toolkit/Self-Practice 4 - Visual Speaking Practice.md\n\n\n\n\n\n\nNotePractice Reference\n\n\n\n\n\nOpen this box to see how this self-practice is structured. Read it once, then move into the parts.\nMode: Independent practice outside synchronous class.\nPurpose: Revise your visual communication plan, improve a speaking script, and practice safe visual/audio habits.\nStudent Instructions: Complete this practice in your English AI Decision Toolkit folder. Use a ZONI-provided course image, open-license media, teacher-provided image, or your own simple visual.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html#part-1-review-your-visual-plan---15-minutes",
+    "href": "self-practice-04-visual-speaking-practice.html#part-1-review-your-visual-plan---15-minutes",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "10.4 Part 1: Review Your Visual Plan - 15 Minutes",
+    "text": "10.4 Part 1: Review Your Visual Plan - 15 Minutes\nOpen your Class 4 visual description and script.\n# Self-Practice 4 - Visual Speaking Practice\n\n## Part 1: Visual Plan Review\n\nMy visual is for:\n[write purpose]\n\nThe audience is:\n[write audience]\n\nThe image/source I can use safely is:\n[ZONI-provided course image / self-created / teacher-provided / open-license image]\n\nVisual attribution:\n- Title:\n- Creator:\n- Source:\n- License or permission:\n- Changes made:\n- Attribution note:\n\n\n\n\n\n\nNoteAttribution Note\n\n\n\nCourse images provided in this book are ZONI® assets unless otherwise noted. For open-license images outside the course, give credit using TASL: Title, Author, Source, License. Also name changes you made, such as cropped, resized, translated, or edited (Creative Commons n.d.).",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html#part-2-improve-the-visual-description---25-minutes",
+    "href": "self-practice-04-visual-speaking-practice.html#part-2-improve-the-visual-description---25-minutes",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "10.5 Part 2: Improve the Visual Description - 25 Minutes",
+    "text": "10.5 Part 2: Improve the Visual Description - 25 Minutes\n## Part 2: Improved Visual Description\n\nThe image shows __________.\nThere is __________.\nThere are __________.\nThe purpose of the image is __________.\nOne detail I should remove or change is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html#part-3-revise-the-60-second-script---30-minutes",
+    "href": "self-practice-04-visual-speaking-practice.html#part-3-revise-the-60-second-script---30-minutes",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "10.6 Part 3: Revise the 60-Second Script - 30 Minutes",
+    "text": "10.6 Part 3: Revise the 60-Second Script - 30 Minutes\n## Part 3: Revised Speaking Script\n\nHello, my name is __________.\nI want to explain __________.\nThe visual shows __________.\nThis is important because __________.\nOne thing to remember is __________.\nPlease __________.\nThank you.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html#part-4-pronunciation-and-timing-practice---15-minutes",
+    "href": "self-practice-04-visual-speaking-practice.html#part-4-pronunciation-and-timing-practice---15-minutes",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "10.7 Part 4: Pronunciation and Timing Practice - 15 Minutes",
+    "text": "10.7 Part 4: Pronunciation and Timing Practice - 15 Minutes\nRead your script aloud three times.\n## Part 4: Pronunciation Practice\n\nMy script time was:\nAttempt 1: ___ seconds\nAttempt 2: ___ seconds\nAttempt 3: ___ seconds\n\nOne word I practiced is __________.\nOne sentence I can say more clearly is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html#part-5-consent-and-safety-check---15-minutes",
+    "href": "self-practice-04-visual-speaking-practice.html#part-5-consent-and-safety-check---15-minutes",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "10.8 Part 5: Consent and Safety Check - 15 Minutes",
+    "text": "10.8 Part 5: Consent and Safety Check - 15 Minutes\n## Part 5: Consent and Safety Check\n\n- [ ] I did not use private photos.\n- [ ] I did not record another person without permission.\n- [ ] I checked the image license or made the image myself.\n- [ ] I wrote the image title, creator, source, permission, and changes made.\n- [ ] I did not imitate another real person's voice.\n\nOne safety rule I followed is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html#part-6-vocabulary-practice-and-reflection---20-minutes",
+    "href": "self-practice-04-visual-speaking-practice.html#part-6-vocabulary-practice-and-reflection---20-minutes",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "10.9 Part 6: Vocabulary Practice and Reflection - 20 Minutes",
+    "text": "10.9 Part 6: Vocabulary Practice and Reflection - 20 Minutes\nAdd five words to your vocabulary log.\n\n\n\nWord\nSimple Meaning\nMy Sentence\n\n\n\n\nvisual\n\n\n\n\naudience\n\n\n\n\ntiming\n\n\n\n\nconsent\n\n\n\n\nattribution",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html#reflection",
+    "href": "self-practice-04-visual-speaking-practice.html#reflection",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "10.10 Reflection",
+    "text": "10.10 Reflection\nOne speaking skill I practiced is __________.\nOne visual safety rule I followed is __________.\n\n\n\n\n\n\nTipOptional Colab Lab\n\n\n\nThis lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.\nOpen the Class 4 Visual Script Lab in Colab to revise your visual description and 60-second speaking script at home:\nhttps://colab.research.google.com/github/zoni-group/E4A/blob/public-cdba759557f5/english-for-ai-course/interactives/class-04-visual-script-lab.ipynb\nUse safe visual topics only. Do not upload images, photos, or audio.\nThe lab uses Colab AI automatically when it is available in the Colab runtime. Colab AI can suggest a simpler version of your script. If Colab AI is not available, the regular lab steps still work, and you can finish your self-practice without AI.\nAfter any AI answer, say: “I checked the AI answer before I used it.”\n\n\n\n\n\n\n\n\nNoteCheck Yourself\n\n\n\nYour Self-Practice 4 file is ready when:\n\nYour visual description and 60-second script are revised and saved.\nYou completed the consent and safety check (safe image, your own voice).\nYou wrote down at least one word you practiced and one sentence you can say more clearly.\nYou only recorded audio if your teacher said it is allowed; otherwise reading aloud is enough.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html#required-artifact",
+    "href": "self-practice-04-visual-speaking-practice.html#required-artifact",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "10.11 Required Artifact",
+    "text": "10.11 Required Artifact\nSave:\nEnglish AI Decision Toolkit/Self-Practice 4 - Visual Speaking Practice.md",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-04-visual-speaking-practice.html#portfolio-saving-instructions",
+    "href": "self-practice-04-visual-speaking-practice.html#portfolio-saving-instructions",
+    "title": "10  Self-Practice 4: Visual and Speaking Practice",
+    "section": "10.12 Portfolio Saving Instructions",
+    "text": "10.12 Portfolio Saving Instructions\n\nSave your revised visual description and script.\nSave only safe image notes or links.\nAdd new words to Vocabulary Log.md.\nKeep any audio optional unless your teacher requires it and school rules allow it.\n\n\n\n\n\n\n\nWarningConsent Rule\n\n\n\nUse your own voice only. Do not record, copy, or imitate another person without permission.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Self-Practice 4: Visual and Speaking Practice</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html",
+    "href": "self-practice-05-portfolio-presentation-practice.html",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "",
+    "text": "11.1 Start Here\nDuration: 2 hours\nYou are almost at Class 5 — the final class. Today is the time to bring all your work together. Open your toolkit folder and look at how far you have come. Each file is something you wrote and improved with your own English.\nToday you will check that your portfolio is complete, choose your final project task, and write a first draft of your English presentation. You will leave this practice ready for Class 5.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html#what-you-will-practice",
+    "href": "self-practice-05-portfolio-presentation-practice.html#what-you-will-practice",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "11.2 What You Will Practice",
+    "text": "11.2 What You Will Practice\n\nChecking your toolkit folder against the Before Class 5 checklist.\nChoosing one real, safe task for your final project.\nWriting the first draft of a short English presentation.\nReading your draft aloud and finding one word to practice.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html#what-you-will-save",
+    "href": "self-practice-05-portfolio-presentation-practice.html#what-you-will-save",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "11.3 What You Will Save",
+    "text": "11.3 What You Will Save\nEnglish AI Decision Toolkit/Self-Practice 5 - Presentation Draft and Checklist.md\n\n\n\n\n\n\nNotePractice Reference\n\n\n\n\n\nOpen this box to see how this self-practice is structured. Read it once, then move into the parts.\nMode: Independent practice outside synchronous class.\nPurpose: Organize your portfolio and prepare for the final English presentation.\nStudent Instructions: Complete this practice in your English AI Decision Toolkit folder. Bring the completed checklist to Class 5.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html#part-1-portfolio-checklist---20-minutes",
+    "href": "self-practice-05-portfolio-presentation-practice.html#part-1-portfolio-checklist---20-minutes",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "11.4 Part 1: Portfolio Checklist - 20 Minutes",
+    "text": "11.4 Part 1: Portfolio Checklist - 20 Minutes\nCheck that you have these files before Class 5:\nEnglish AI Decision Toolkit/\nClass 1 - My First English AI Prompt.md\nSelf-Practice 1 - Prompt Practice and Vocabulary Log.md\nClass 2 - English Decision Matrix.md\nSelf-Practice 2 - Revised Prompt and Matrix.md\nClass 3 - Source-Grounded Answer in English.md\nSelf-Practice 3 - Source Check and Paraphrase.md\nClass 4 - Visual Description and 60-Second Script.md\nSelf-Practice 4 - Visual Speaking Practice.md\nVocabulary Log.md\nPersonal AI Safety Checklist.md\nComplete this checklist:\n# Self-Practice 5 - Presentation Draft and Checklist\n\n## Before Class 5 Checklist\n\n- [ ] I have my Class 1 prompt.\n- [ ] I completed Self-Practice 1.\n- [ ] I have my Class 2 decision matrix.\n- [ ] I completed Self-Practice 2.\n- [ ] I have my Class 3 source-grounded answer.\n- [ ] I completed Self-Practice 3.\n- [ ] I have my Class 4 visual description and script.\n- [ ] I completed Self-Practice 4.\n- [ ] I completed Self-Practice 5.\n- [ ] I updated my vocabulary log.\n- [ ] I drafted or updated my personal AI safety checklist.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html#part-2-choose-a-final-project-task---15-minutes",
+    "href": "self-practice-05-portfolio-presentation-practice.html#part-2-choose-a-final-project-task---15-minutes",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "11.5 Part 2: Choose a Final Project Task - 15 Minutes",
+    "text": "11.5 Part 2: Choose a Final Project Task - 15 Minutes\nChoose one real but safe task:\n\nchoose a study plan\nprepare for a job interview\ncompare transportation options\nplan a weekly budget\nwrite a polite request for help\nsummarize a public rule or announcement\ncreate a simple English learning plan\n\n## Final Project Choice\n\nMy final project task is:\n[write task]\n\nThis task is safe for AI because:\n[write reason]\n\nPrivate information I will not share:\n[write list]",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html#part-3-final-safety-checklist---20-minutes",
+    "href": "self-practice-05-portfolio-presentation-practice.html#part-3-final-safety-checklist---20-minutes",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "11.6 Part 3: Final Safety Checklist - 20 Minutes",
+    "text": "11.6 Part 3: Final Safety Checklist - 20 Minutes\n## Final Safety Checklist\n\n- [ ] My task is safe for AI practice.\n- [ ] I removed private information.\n- [ ] I know what I need to verify.\n- [ ] I can explain my decision in English.\n- [ ] I know that I make the final decision.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html#part-4-draft-your-presentation---35-minutes",
+    "href": "self-practice-05-portfolio-presentation-practice.html#part-4-draft-your-presentation---35-minutes",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "11.7 Part 4: Draft Your Presentation - 35 Minutes",
+    "text": "11.7 Part 4: Draft Your Presentation - 35 Minutes\nUse this frame:\nHello, my name is __________.\nMy project is about __________.\nFirst, I used AI to __________.\nNext, I checked __________.\nThen, I changed __________.\nI learned the words __________, __________, and __________.\nI will use this workflow when __________.\nI need to be careful because __________.\nThank you.\nWrite your draft:\n## Presentation Draft\n\nHello, my name is __________.\nMy project is about __________.\nFirst, I used AI to __________.\nNext, I checked __________.\nThen, I changed __________.\nI learned the words __________, __________, and __________.\nI will use this workflow when __________.\nI need to be careful because __________.\nThank you.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html#part-5-vocabulary-practice---10-minutes",
+    "href": "self-practice-05-portfolio-presentation-practice.html#part-5-vocabulary-practice---10-minutes",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "11.8 Part 5: Vocabulary Practice - 10 Minutes",
+    "text": "11.8 Part 5: Vocabulary Practice - 10 Minutes\nAdd five words to your vocabulary log.\n\n\n\nWord\nSimple Meaning\nMy Sentence\n\n\n\n\nportfolio\n\n\n\n\npresentation\n\n\n\n\nchecklist\n\n\n\n\ndraft\n\n\n\n\npractice",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html#part-6-practice-and-reflect---20-minutes",
+    "href": "self-practice-05-portfolio-presentation-practice.html#part-6-practice-and-reflect---20-minutes",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "11.9 Part 6: Practice and Reflect - 20 Minutes",
+    "text": "11.9 Part 6: Practice and Reflect - 20 Minutes\nRead your presentation aloud twice.\n## Reflection\n\nOne sentence I can say clearly is __________.\nOne word I need to practice is __________.\nOne question I want to ask the teacher is __________.\n\n\n\n\n\n\nTipOptional Colab Lab\n\n\n\nThis lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.\nOpen the Class 5 Toolkit Builder lab in Colab to check your portfolio status and write your final reflection:\nhttps://colab.research.google.com/github/zoni-group/E4A/blob/public-cdba759557f5/english-for-ai-course/interactives/class-05-toolkit-builder.ipynb\nUse safe examples only. Do not enter private information.\nThe lab uses Colab AI automatically when it is available in the Colab runtime. If Colab AI is not available, the regular lab steps still work, and you can finish your self-practice without AI.\nAfter any AI answer, say: “I checked the AI answer before I used it.”\n\n\n\n\n\n\n\n\nNoteCheck Yourself\n\n\n\nYour Self-Practice 5 file is ready when:\n\nThe Before Class 5 checklist is fully checked.\nYou chose a final project task that is real and safe.\nYour presentation draft uses simple English and process words (first, next, then, finally).\nYou practiced reading it aloud at least twice and noted one word to practice.\nYou are ready to bring this draft to Class 5.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html#required-artifact",
+    "href": "self-practice-05-portfolio-presentation-practice.html#required-artifact",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "11.10 Required Artifact",
+    "text": "11.10 Required Artifact\nSave:\nEnglish AI Decision Toolkit/Self-Practice 5 - Presentation Draft and Checklist.md",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html#portfolio-saving-instructions",
+    "href": "self-practice-05-portfolio-presentation-practice.html#portfolio-saving-instructions",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "11.11 Portfolio Saving Instructions",
+    "text": "11.11 Portfolio Saving Instructions\n\nSave the checklist and presentation draft.\nCheck that all previous files are in your toolkit folder.\nBring your final project task to Class 5.\nKeep your final task safe and non-private.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "self-practice-05-portfolio-presentation-practice.html#final-submission-checklist",
+    "href": "self-practice-05-portfolio-presentation-practice.html#final-submission-checklist",
+    "title": "11  Self-Practice 5: Prepare for Class 5 Portfolio Presentation",
+    "section": "11.12 Final Submission Checklist",
+    "text": "11.12 Final Submission Checklist\nIn Class 5, your complete toolkit should include these files:\nClass 1 - My First English AI Prompt.md\nSelf-Practice 1 - Prompt Practice and Vocabulary Log.md\nClass 2 - English Decision Matrix.md\nSelf-Practice 2 - Revised Prompt and Matrix.md\nClass 3 - Source-Grounded Answer in English.md\nSelf-Practice 3 - Source Check and Paraphrase.md\nClass 4 - Visual Description and 60-Second Script.md\nSelf-Practice 4 - Visual Speaking Practice.md\nSelf-Practice 5 - Presentation Draft and Checklist.md\nClass 5 - My AI Decision Assistant Prompt.md\nClass 5 - Final Project - My English AI Workflow.md\nVocabulary Log.md\nSentence Frames I Can Use.md\nPersonal AI Safety Checklist.md\n\n\n\n\n\n\nTipPresentation Tip\n\n\n\nSpeak slowly. Pause after each step word: first, next, then, finally.\n\n\n\n\n\n\n\n\nImportantNext\n\n\n\nNext, bring this draft and your complete portfolio folder to Class 5. In Class 5 you will combine your toolkit, add your AI safety checklist and reusable assistant prompt, and present your workflow in English.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Self-Practice 5: Prepare for Class 5 Portfolio Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html",
+    "href": "class-05-final-ai-decision-toolkit.html",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "",
+    "text": "12.1 Start Here\nDuration: 2 hours\nOpen your folder. Look at what you already have:\nFour weeks ago, many of these words were new. Now they are part of your English. You have built real skills: asking, comparing, checking, deciding, and explaining in English with the help of AI.\nToday you will put your skills together into one personal toolkit you can keep and use after this course ends.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#start-here",
+    "href": "class-05-final-ai-decision-toolkit.html#start-here",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "",
+    "text": "a Class 1 English AI prompt\na Class 2 decision matrix\na Class 3 source-grounded answer\na Class 4 visual description and 60-second script\nself-practice files for each class\na growing vocabulary log",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#why-this-matters",
+    "href": "class-05-final-ai-decision-toolkit.html#why-this-matters",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "12.2 Why This Matters",
+    "text": "12.2 Why This Matters\nTools are most useful when you can find them again later. After this class, your toolkit can help you choose a study plan, prepare for an interview, compare apartments, explain a public notice, or talk to a teacher in English. You will not have to start from zero. You will already know how to ask, how to check, and how to decide — safely, in English.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#today-you-will",
+    "href": "class-05-final-ai-decision-toolkit.html#today-you-will",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "12.3 Today You Will",
+    "text": "12.3 Today You Will\nBy the end of this lesson, you will:\n\nBuild your own Personal AI Safety Checklist.\nCreate a reusable “AI Decision Assistant” prompt you can use later.\nCombine all your class files into one English AI Decision Toolkit.\nPresent or share your workflow in simple English with a partner or group.\nSave:\n\nEnglish AI Decision Toolkit/Class 5 - My AI Decision Assistant Prompt.md\nEnglish AI Decision Toolkit/Class 5 - Final Project - My English AI Workflow.md\n\n\n\n\n\n\n\n\nNoteLesson Reference\n\n\n\n\n\nThis is the curriculum focus for today. Open this box to see the full lesson plan. You do not need to memorize it — use it as a quick guide.\nTheme: Students combine AI skills and English skills into a reusable workflow.\nAI Focus: Personal AI workflow and safety.\nESL Focus: Presentation, reflection, process explanation, and future-use language.\nContent Objective: Students will build and present a personal English AI Decision Toolkit.\nLanguage Objective: Students will explain their AI workflow in simple English.\nFirst, I...\nNext, I...\nThen, I...\nAfter that, I...\nFinally, I...\nI will use this when...\nI need to be careful because...",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#beginner-explanation",
+    "href": "class-05-final-ai-decision-toolkit.html#beginner-explanation",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "12.4 Beginner Explanation",
+    "text": "12.4 Beginner Explanation\nA workflow is a process you can use again and again. Your personal English AI workflow helps you ask, check, compare, decide, and explain — in English, safely. Your final toolkit is the place where all of this lives: your prompts, your decisions, your sources, your scripts, and your safety rules. It shows your English growth and your safe AI habits.\n\n\n\n\n\n\nflowchart LR\n  A[Ask] --&gt; C[Check]\n  C --&gt; M[Compare]\n  M --&gt; D[Decide]\n  D --&gt; E[Explain]\n  E --&gt; S[Save]\n\n\n\n\nFigure 12.1: The final English AI Decision Toolkit workflow.\n\n\n\n\n\nIn simple English: your toolkit shows how you use AI safely, check answers, make decisions, and save your work.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#key-vocabulary",
+    "href": "class-05-final-ai-decision-toolkit.html#key-vocabulary",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "12.5 Key Vocabulary",
+    "text": "12.5 Key Vocabulary\n\n\n\n\n\n\n\n\nWord\nSimple Meaning\nExample Sentence\n\n\n\n\nworkflow\nA repeatable process\nMy workflow helps me check AI answers.\n\n\ntemplate\nA reusable format\nI saved a prompt template.\n\n\nguardrail\nA safety rule\nMy guardrail is: do not share private data.\n\n\nportfolio\nA collection of work\nMy portfolio has five class files.\n\n\nreflection\nThinking about learning\nMy reflection explains what improved.\n\n\nfinal decision\nThe choice I make\nAI helps, but I make the final decision.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#sentence-frames",
+    "href": "class-05-final-ai-decision-toolkit.html#sentence-frames",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "12.6 Sentence Frames",
+    "text": "12.6 Sentence Frames\nMy project is about __________.\nFirst, I __________.\nNext, I checked __________.\nThen, I changed __________.\nFinally, I decided __________.\nI will use this workflow when __________.\nI need to be careful because __________.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#class-agenda",
+    "href": "class-05-final-ai-decision-toolkit.html#class-agenda",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "12.7 Class Agenda",
+    "text": "12.7 Class Agenda\n\n\n\n\n\n\n\n\nTime\nActivity\nPurpose\n\n\n\n\n15 min\nWarm-up: portfolio check\nConfirm required files.\n\n\n20 min\nMini-lesson: personal AI safety checklist\nBuild reusable guardrails.\n\n\n25 min\nGuided practice: AI decision assistant prompt\nCreate a reusable final prompt.\n\n\n30 min\nFinal project work time\nComplete final portfolio file.\n\n\n20 min\nFinal presentation or pair share\nPresent workflow in English.\n\n\n10 min\nFinal reflection and submission\nSubmit or save toolkit.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#guided-practice",
+    "href": "class-05-final-ai-decision-toolkit.html#guided-practice",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "12.8 Guided Practice",
+    "text": "12.8 Guided Practice\n\n12.8.1 Warm-Up: Portfolio Check\nOpen your folder:\nEnglish AI Decision Toolkit/\nBefore Class 5, you should have:\n\nClass 1 - My First English AI Prompt.md\nSelf-Practice 1 - Prompt Practice and Vocabulary Log.md\nClass 2 - English Decision Matrix.md\nSelf-Practice 2 - Revised Prompt and Matrix.md\nClass 3 - Source-Grounded Answer in English.md\nSelf-Practice 3 - Source Check and Paraphrase.md\nClass 4 - Visual Description and 60-Second Script.md\nSelf-Practice 4 - Visual Speaking Practice.md\nSelf-Practice 5 - Presentation Draft and Checklist.md\nVocabulary Log.md\nPersonal AI Safety Checklist.md\n\n\n\n12.8.2 Mini-Lesson: Personal AI Safety Checklist\nCopy and adapt:\n# Personal AI Safety Checklist\n\nBefore I use AI, I ask:\n\n1. Is this task safe for AI?\n2. Am I sharing private information?\n3. Do I need a source?\n4. Could this affect money, health, legal status, school, or work?\n5. What would happen if the AI is wrong?\n6. How will I verify the answer?\n7. What final decision is still mine?\n8. Can I explain my answer in English?\n\n\n12.8.3 Guided Practice: My AI Decision Assistant Prompt\n# My AI Decision Assistant Prompt\n\nYou are helping me think through a decision.\nDo not make the decision for me.\nUse simple English.\nAsk questions if important information is missing.\nSeparate facts from assumptions.\nGive me a decision matrix.\nTell me what I should verify before acting.\n\nDecision:\n[Write my decision]\n\nOptions:\n1.\n2.\n3.\n\nWhat matters most to me:\n1.\n2.\n3.\n\nLimits:\n- Do not invent facts.\n- Do not use private information.\n- Tell me when professional advice is needed.\n\nOutput format:\n1. Summary of my decision\n2. Decision matrix\n3. Pros and cons\n4. Missing information\n5. Risks\n6. Next best step\n7. Three useful English phrases for explaining my decision\n\nMissing information I need to check:\n1.\n2.\n3.\n\nFinal human decision reminder:\nAI can help me compare. I make the final decision.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#independent-practice",
+    "href": "class-05-final-ai-decision-toolkit.html#independent-practice",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "12.9 Independent Practice",
+    "text": "12.9 Independent Practice\nUse your Self-Practice 5 presentation draft and create the final project file.\n# Class 5 - Final Project - My English AI Workflow\n\nMy task:\n[write task]\n\nWhy this task matters:\n[write 2-3 sentences]\n\nPrompt I used:\n[paste prompt]\n\nAI helped me by:\n[write 2-3 sentences]\n\nI checked the answer by:\n[write method]\n\nImportant vocabulary:\n1.\n2.\n3.\n4.\n5.\n\nMy final decision or next step:\n[write decision]\n\nWhat I will do carefully:\n[privacy/safety rule]\n\nReflection:\nI can use AI in English to __________.\nI still need to practice __________.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#pair-speaking-or-presentation-task",
+    "href": "class-05-final-ai-decision-toolkit.html#pair-speaking-or-presentation-task",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "12.10 Pair Speaking or Presentation Task",
+    "text": "12.10 Pair Speaking or Presentation Task\nGive a 1-2 minute presentation or pair share.\nPresentation frame:\nHello, my name is __________.\nMy project is about __________.\nFirst, I used AI to __________.\nNext, I checked __________.\nThen, I changed __________.\nI learned the words __________, __________, and __________.\nI will use this workflow when __________.\nI need to be careful because __________.\nThank you.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#reflection",
+    "href": "class-05-final-ai-decision-toolkit.html#reflection",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "12.11 Reflection",
+    "text": "12.11 Reflection\nOne AI skill I learned is __________.\nOne English skill I practiced is __________.\nOne safety rule I will remember is __________.\nOne way I will use this after class is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "class-05-final-ai-decision-toolkit.html#exit-ticket",
+    "href": "class-05-final-ai-decision-toolkit.html#exit-ticket",
+    "title": "12  Class 5: Final English AI Decision Toolkit",
+    "section": "12.12 Exit Ticket",
+    "text": "12.12 Exit Ticket\nSubmit or save:\n\nCompleted English AI Decision Toolkit.\nClass 5 - My AI Decision Assistant Prompt.md.\nClass 5 - Final Project - My English AI Workflow.md.\nPersonal AI Safety Checklist.md.\n1-2 minute presentation or written reflection.\n\n\n\n\n\n\n\nTipOptional Colab Lab\n\n\n\nThis lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.\nOpen the Class 5 Toolkit Builder lab in Colab to assemble your portfolio checklist, safety checklist, decision assistant prompt, and final reflection:\nhttps://colab.research.google.com/github/zoni-group/E4A/blob/public-cdba759557f5/english-for-ai-course/interactives/class-05-toolkit-builder.ipynb\nUse safe examples only. Do not enter private information.\nThe lab uses Colab AI automatically when it is available in the Colab runtime. Colab AI can review your workflow prompt and reflection, but it must not write the final portfolio for you and must not certify your work as finished. If Colab AI is not available, the regular lab steps still work.\nAfter any AI answer, say: “I checked the AI answer before I used it.”\n\n\n\n\n\n\n\n\nNoteCheck Yourself\n\n\n\nYour final portfolio is ready when:\n\nAll required files are in your English AI Decision Toolkit folder with the correct names.\nYour workflow is clear: how you ask, check, compare, decide, and explain.\nYour reflection names one AI skill you learned AND one English skill you grew.\nYour personal AI safety checklist is in the folder.\nPrivate information has been removed; the final decision is yours.\n\n\n\n\n\n\n\n\n\nImportantRequired Portfolio Artifact\n\n\n\nSave your final project here:\nEnglish AI Decision Toolkit/Class 5 - Final Project - My English AI Workflow.md\nSave your reusable prompt here:\nEnglish AI Decision Toolkit/Class 5 - My AI Decision Assistant Prompt.md\nYour final submission should include:\nClass 1 - My First English AI Prompt.md\nSelf-Practice 1 - Prompt Practice and Vocabulary Log.md\nClass 2 - English Decision Matrix.md\nSelf-Practice 2 - Revised Prompt and Matrix.md\nClass 3 - Source-Grounded Answer in English.md\nSelf-Practice 3 - Source Check and Paraphrase.md\nClass 4 - Visual Description and 60-Second Script.md\nSelf-Practice 4 - Visual Speaking Practice.md\nSelf-Practice 5 - Presentation Draft and Checklist.md\nClass 5 - My AI Decision Assistant Prompt.md\nClass 5 - Final Project - My English AI Workflow.md\nVocabulary Log.md\nSentence Frames I Can Use.md\nPersonal AI Safety Checklist.md",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Class 5: Final English AI Decision Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "vocabulary-bank.html",
+    "href": "vocabulary-bank.html",
+    "title": "13  Vocabulary Bank",
+    "section": "",
+    "text": "13.1 How to Use This Bank\nStudents keep a personal vocabulary log during every class and self-practice assignment.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Vocabulary Bank</span>"
+    ]
+  },
+  {
+    "objectID": "vocabulary-bank.html#how-to-use-this-bank",
+    "href": "vocabulary-bank.html#how-to-use-this-bank",
+    "title": "13  Vocabulary Bank",
+    "section": "",
+    "text": "Read the word.\nRead the simple meaning.\nSay the example sentence.\nWrite your own sentence.\nAdd a translation or note if it helps you learn.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Vocabulary Bank</span>"
+    ]
+  },
+  {
+    "objectID": "vocabulary-bank.html#core-vocabulary-by-class",
+    "href": "vocabulary-bank.html#core-vocabulary-by-class",
+    "title": "13  Vocabulary Bank",
+    "section": "13.2 Core Vocabulary by Class",
+    "text": "13.2 Core Vocabulary by Class\n\n\n\n\n\n\n\n\n\nCourse Part\nWord\nSimple Meaning\nExample Sentence\n\n\n\n\nClass 1\nAI\nA computer system that can create answers, text, images, or other outputs\nI used AI to organize my ideas.\n\n\nClass 1\nprompt\nThe instruction or question you give AI\nMy prompt asks for a simple email.\n\n\nClass 1\noutput\nThe answer from AI\nThe output was too long.\n\n\nClass 1\ncontext\nBackground information\nI gave context about my schedule.\n\n\nClass 1\nrevise\nImprove after checking\nI revised my prompt.\n\n\nClass 1\nprivate\nNot for everyone to see\nMy address is private.\n\n\nSelf-Practice 1\nformat\nThe shape of the answer\nI asked for a table format.\n\n\nSelf-Practice 1\nvariation\nA different version\nI wrote three prompt variations.\n\n\nClass 2\noption\nA choice\nBus and train are two options.\n\n\nClass 2\ncompare\nLook at two or more things\nI compare the cost and time.\n\n\nClass 2\ncriteria\nThe things that matter\nMy criteria are cost and safety.\n\n\nClass 2\nrisk\nA possible problem\nThe risk is arriving late.\n\n\nClass 2\nevidence\nInformation that supports an answer\nThe price is evidence.\n\n\nClass 2\ndecision\nA choice after thinking\nMy decision is to take the bus.\n\n\nSelf-Practice 2\nmatrix\nA table for comparing choices\nI used a decision matrix.\n\n\nSelf-Practice 2\nassumption\nSomething I think is true but need to check\nMy assumption is that the bus is on time.\n\n\nClass 3\nsource\nThe original text or information\nThe source is a school policy.\n\n\nClass 3\ncitation\nA note that shows where information came from\nI need a citation for this answer.\n\n\nClass 3\nquote\nExact words from a source\nI used a short quote.\n\n\nClass 3\nparaphrase\nThe same idea in your own words\nI paraphrased the rule.\n\n\nClass 3\nhallucination\nAn AI answer that may be wrong or unsupported\nThe AI hallucinated a date.\n\n\nSelf-Practice 3\nsupported\nBacked up by a source\nThis answer is supported.\n\n\nSelf-Practice 3\nunsupported\nNot backed up by a source\nThis answer is unsupported.\n\n\nClass 4\nimage\nA picture\nThe image shows a classroom.\n\n\nClass 4\nlicense\nPermission to use something\nThe image has an open license.\n\n\nClass 4\nattribution\nGiving credit to the creator\nI wrote an attribution.\n\n\nClass 4\ncaption\nShort text near an image\nThe caption explains the picture.\n\n\nClass 4\nscript\nWritten words prepared before speaking\nI wrote a script for my call.\n\n\nClass 4\npronunciation\nHow words sound\nI practiced pronunciation.\n\n\nClass 4\nconsent\nPermission\nI need consent to use a voice recording.\n\n\nClass 4\nfeedback\nAdvice to improve\nMy partner gave feedback.\n\n\nSelf-Practice 5\nportfolio\nA collection of work\nMy portfolio shows my learning.\n\n\nSelf-Practice 5\npresentation\nA short talk\nI practiced my presentation.\n\n\nClass 5\nworkflow\nA repeatable process\nMy workflow helps me check AI answers.\n\n\nClass 5\ntemplate\nA reusable format\nI saved a prompt template.\n\n\nClass 5\nguardrail\nA safety rule\nMy guardrail is: do not share private data.\n\n\nClass 5\nreflection\nThinking about learning\nMy reflection explains what improved.\n\n\nClass 5\nfinal decision\nThe choice I make\nAI helps, but I make the final decision.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Vocabulary Bank</span>"
+    ]
+  },
+  {
+    "objectID": "vocabulary-bank.html#blank-vocabulary-log-template",
+    "href": "vocabulary-bank.html#blank-vocabulary-log-template",
+    "title": "13  Vocabulary Bank",
+    "section": "13.3 Blank Vocabulary Log Template",
+    "text": "13.3 Blank Vocabulary Log Template\nCopy this table into:\nEnglish AI Decision Toolkit/Vocabulary Log.md\n\n\n\n\n\n\n\n\n\n\nWord\nPart of Speech\nSimple Meaning\nMy Sentence\nTranslation or Note\n\n\n\n\nprompt\nnoun\ninstruction for AI\nMy prompt was clear.\n\n\n\nsource\nnoun\noriginal information\nI checked the source.\n\n\n\ncompare\nverb\nlook at differences\nI compare two options.\n\n\n\nevidence\nnoun\nproof or support\nThe evidence is in the text.\n\n\n\nprivacy\nnoun\nkeeping information safe\nI protect my privacy.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Vocabulary Bank</span>"
+    ]
+  },
+  {
+    "objectID": "vocabulary-bank.html#vocabulary-practice-routine",
+    "href": "vocabulary-bank.html#vocabulary-practice-routine",
+    "title": "13  Vocabulary Bank",
+    "section": "13.4 Vocabulary Practice Routine",
+    "text": "13.4 Vocabulary Practice Routine\nUse this routine for each new word:\n\nI can say the word.\nI can match the word to a simple meaning.\nI can write the word in a sentence.\nI can use the word in my portfolio.\nI can explain the word to a partner.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Vocabulary Bank</span>"
+    ]
+  },
+  {
+    "objectID": "sentence-frames.html",
+    "href": "sentence-frames.html",
+    "title": "14  Sentence Frames",
+    "section": "",
+    "text": "14.1 Asking AI for Help\nSentence frames help you write and speak in English. You can copy a frame and add your own words.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sentence Frames</span>"
+    ]
+  },
+  {
+    "objectID": "sentence-frames.html#asking-ai-for-help",
+    "href": "sentence-frames.html#asking-ai-for-help",
+    "title": "14  Sentence Frames",
+    "section": "",
+    "text": "I need help with __________.\nPlease explain __________ in simple English.\nGive me a list of __________.\nUse a table to show __________.\nAsk me questions before you answer.\nDo not include __________.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sentence Frames</span>"
+    ]
+  },
+  {
+    "objectID": "sentence-frames.html#using-the-zoni-clear-prompt-scaffold",
+    "href": "sentence-frames.html#using-the-zoni-clear-prompt-scaffold",
+    "title": "14  Sentence Frames",
+    "section": "14.2 Using the ZONI CLEAR Prompt Scaffold",
+    "text": "14.2 Using the ZONI CLEAR Prompt Scaffold\nContext: I am __________.\nLimit: Do not __________.\nExample: Use this style: __________.\nAsk: Please help me __________.\nReview: Before answering, check __________.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sentence Frames</span>"
+    ]
+  },
+  {
+    "objectID": "sentence-frames.html#comparing-options",
+    "href": "sentence-frames.html#comparing-options",
+    "title": "14  Sentence Frames",
+    "section": "14.3 Comparing Options",
+    "text": "14.3 Comparing Options\nOption A is cheaper than Option B.\nOption B is more convenient than Option A.\nThe best option for me is __________ because __________.\nBefore I decide, I need to check __________.\nAI helped me compare, but I chose __________.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sentence Frames</span>"
+    ]
+  },
+  {
+    "objectID": "sentence-frames.html#using-sources",
+    "href": "sentence-frames.html#using-sources",
+    "title": "14  Sentence Frames",
+    "section": "14.4 Using Sources",
+    "text": "14.4 Using Sources\nThe source says __________.\nAccording to the text, __________.\nThis means __________.\nThe answer is not in the source.\nI cannot answer from the provided source.\nI need more information about __________.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sentence Frames</span>"
+    ]
+  },
+  {
+    "objectID": "sentence-frames.html#describing-visuals",
+    "href": "sentence-frames.html#describing-visuals",
+    "title": "14  Sentence Frames",
+    "section": "14.5 Describing Visuals",
+    "text": "14.5 Describing Visuals\nThe image shows __________.\nThere is __________.\nThere are __________.\nThe purpose of the image is __________.\nThe caption says __________.\nThe source of this image is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sentence Frames</span>"
+    ]
+  },
+  {
+    "objectID": "sentence-frames.html#polite-speaking",
+    "href": "sentence-frames.html#polite-speaking",
+    "title": "14  Sentence Frames",
+    "section": "14.6 Polite Speaking",
+    "text": "14.6 Polite Speaking\nHello, my name is __________.\nI am calling/writing about __________.\nI would like to __________.\nCould you please __________?\nPlease let me know __________.\nThank you for your help.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sentence Frames</span>"
+    ]
+  },
+  {
+    "objectID": "sentence-frames.html#giving-feedback",
+    "href": "sentence-frames.html#giving-feedback",
+    "title": "14  Sentence Frames",
+    "section": "14.7 Giving Feedback",
+    "text": "14.7 Giving Feedback\nOne thing that is clear is __________.\nOne thing to improve is __________.\nOne word to practice is __________.\nOne question I have is __________.\nOne privacy concern is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sentence Frames</span>"
+    ]
+  },
+  {
+    "objectID": "sentence-frames.html#presenting",
+    "href": "sentence-frames.html#presenting",
+    "title": "14  Sentence Frames",
+    "section": "14.8 Presenting",
+    "text": "14.8 Presenting\nMy project is about __________.\nFirst, I __________.\nNext, I __________.\nThen, I __________.\nFinally, I __________.\nI learned __________.\nI will use this when __________.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sentence Frames</span>"
+    ]
+  },
+  {
+    "objectID": "sentence-frames.html#reflection-frames",
+    "href": "sentence-frames.html#reflection-frames",
+    "title": "14  Sentence Frames",
+    "section": "14.9 Reflection Frames",
+    "text": "14.9 Reflection Frames\nToday I learned __________.\nOne English skill I practiced is __________.\nOne AI skill I practiced is __________.\nOne safety rule I will remember is __________.\nOne thing I still need to practice is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sentence Frames</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html",
+    "href": "student-workbook.html",
+    "title": "15  Student Workbook",
+    "section": "",
+    "text": "15.1 Student Course Overview\nThis workbook collects the major student worksheets for the course. Your teacher may give you this as a website, PDF, Word file, or printed packet.\nIn this course, you will practice English while you learn safe AI skills. You will write prompts, compare options, check sources, describe visuals, write a speaking script, and present a final toolkit.\nYour final portfolio is called:",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#student-course-overview",
+    "href": "student-workbook.html#student-course-overview",
+    "title": "15  Student Workbook",
+    "section": "",
+    "text": "English AI Decision Toolkit",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#portfolio-setup-instructions",
+    "href": "student-workbook.html#portfolio-setup-instructions",
+    "title": "15  Student Workbook",
+    "section": "15.2 Portfolio Setup Instructions",
+    "text": "15.2 Portfolio Setup Instructions\n\nCreate a folder named English AI Decision Toolkit.\nSave every class and self-practice file in this folder.\nUse clear file names.\nSave important work outside the AI tool.\nDo not save private documents in the folder.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#class-1-worksheet-my-first-english-ai-prompt",
+    "href": "student-workbook.html#class-1-worksheet-my-first-english-ai-prompt",
+    "title": "15  Student Workbook",
+    "section": "15.3 Class 1 Worksheet: My First English AI Prompt",
+    "text": "15.3 Class 1 Worksheet: My First English AI Prompt\nSave as:\nEnglish AI Decision Toolkit/Class 1 - My First English AI Prompt.md\n# Class 1 - My First English AI Prompt\n\nMy task:\n\nMy prompt:\n\nAI answer summary:\n\nWords I learned:\n1.\n2.\n3.\n\nWhat I checked:\n\nWhat I should not share:",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#self-practice-1-worksheet-prompt-practice-and-vocabulary",
+    "href": "student-workbook.html#self-practice-1-worksheet-prompt-practice-and-vocabulary",
+    "title": "15  Student Workbook",
+    "section": "15.4 Self-Practice 1 Worksheet: Prompt Practice and Vocabulary",
+    "text": "15.4 Self-Practice 1 Worksheet: Prompt Practice and Vocabulary\nSave as:\nEnglish AI Decision Toolkit/Self-Practice 1 - Prompt Practice and Vocabulary Log.md\n# Self-Practice 1 - Prompt Practice and Vocabulary Log\n\n## Part 1: Prompt Review\n\nMy prompt asks AI to:\n\nMy context is:\n\nThe format I requested is:\n\nOne thing AI should avoid is:\n\n## Part 2: Three Prompt Variations\n\nTask:\n\nPrompt 1 - Short:\n\nPrompt 2 - More Context:\n\nPrompt 3 - Clear Format:\n\n## Part 3: Output Comparison\n\nPrompt 1 was useful because __________.\nPrompt 2 was better because __________.\nPrompt 3 was clearest because __________.\n\nThe best prompt was Prompt ___ because __________.\n\nOne answer I should verify is __________.\nOne private detail I did not share is __________.\n\n## Reflection\n\nOne prompt skill I practiced is __________.\nOne English word I understand better is __________.\nOne privacy rule I will remember is __________.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#class-2-worksheet-english-decision-matrix",
+    "href": "student-workbook.html#class-2-worksheet-english-decision-matrix",
+    "title": "15  Student Workbook",
+    "section": "15.5 Class 2 Worksheet: English Decision Matrix",
+    "text": "15.5 Class 2 Worksheet: English Decision Matrix\nSave as:\nEnglish AI Decision Toolkit/Class 2 - English Decision Matrix.md\n# Class 2 - English Decision Matrix\n\nDecision:\n\nOptions:\nA.\nB.\nC.\n\n| Criteria | Importance 1-5 | Option A | Option B | Option C | Evidence / Notes |\n|---|---:|---:|---:|---:|---|\n| Cost | | | | | |\n| Time | | | | | |\n| Convenience | | | | | |\n| Quality | | | | | |\n| Risk | | | | | |\n\nMy decision for now:\n\nMy reason:\nI chose __________ because __________.\n\nWhat I need to check:\n1.\n2.\n3.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#self-practice-2-worksheet-revised-prompt-and-matrix",
+    "href": "student-workbook.html#self-practice-2-worksheet-revised-prompt-and-matrix",
+    "title": "15  Student Workbook",
+    "section": "15.6 Self-Practice 2 Worksheet: Revised Prompt and Matrix",
+    "text": "15.6 Self-Practice 2 Worksheet: Revised Prompt and Matrix\nSave as:\nEnglish AI Decision Toolkit/Self-Practice 2 - Revised Prompt and Matrix.md\n# Self-Practice 2 - Revised Prompt and Matrix\n\n## Part 1: Revised English Prompt\n\nMy original prompt was:\n\nMy revised prompt is:\n\nI improved it by adding:\n- Context:\n- Limits:\n- Output format:\n- Review instruction:\n\n## Part 2: Practice Decision Matrix\n\nDecision:\n\nOptions:\nA.\nB.\n\n| Criteria | Option A | Option B | Notes |\n|---|---:|---:|---|\n| Cost | | | |\n| Time | | | |\n| Convenience | | | |\n| Risk | | | |\n\nMy choice for now:\n\nI chose this because __________.\nBefore I decide, I need to check __________.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#class-3-worksheet-source-grounded-answer",
+    "href": "student-workbook.html#class-3-worksheet-source-grounded-answer",
+    "title": "15  Student Workbook",
+    "section": "15.7 Class 3 Worksheet: Source-Grounded Answer",
+    "text": "15.7 Class 3 Worksheet: Source-Grounded Answer\nSave as:\nEnglish AI Decision Toolkit/Class 3 - Source-Grounded Answer in English.md\n# Class 3 - Source-Grounded Answer in English\n\nQuestion:\n\nKey words in the question:\n1.\n2.\n3.\n\nShort answer:\n\nEvidence:\nThe source says: \"[short quote]\"\n\nParaphrase:\nThis means __________.\n\nWhat is unclear:\n\nWhat I should check next:",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#self-practice-3-worksheet-source-check-and-paraphrase",
+    "href": "student-workbook.html#self-practice-3-worksheet-source-check-and-paraphrase",
+    "title": "15  Student Workbook",
+    "section": "15.8 Self-Practice 3 Worksheet: Source Check and Paraphrase",
+    "text": "15.8 Self-Practice 3 Worksheet: Source Check and Paraphrase\nSave as:\nEnglish AI Decision Toolkit/Self-Practice 3 - Source Check and Paraphrase.md\n# Self-Practice 3 - Source Check and Paraphrase\n\n## Part 1: Source Information\n\nSource title:\n\nSource type:\n\nThree key words:\n1.\n2.\n3.\n\n## Part 2: Source-Grounded Question\n\nMy question:\n\nPrompt I used:\nUse only the source text. If the answer is not in the source, say:\n\"I cannot answer from the provided source.\"\n\nShort answer:\n\n## Part 3: Evidence and Paraphrase\n\nEvidence:\nThe source says: \"[short quote]\"\n\nParaphrase:\nThis means __________.\n\n## Part 4: Unsupported Question Test\n\nQuestion not answered by the source:\n\nCorrect response:\nI cannot answer from the provided source.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#class-4-worksheet-visual-description-and-60-second-script",
+    "href": "student-workbook.html#class-4-worksheet-visual-description-and-60-second-script",
+    "title": "15  Student Workbook",
+    "section": "15.9 Class 4 Worksheet: Visual Description and 60-Second Script",
+    "text": "15.9 Class 4 Worksheet: Visual Description and 60-Second Script\nSave as:\nEnglish AI Decision Toolkit/Class 4 - Visual Description and 60-Second Script.md\n# Class 4 - Visual Description and 60-Second Script\n\n## Part 1: Visual Description\n\nVisual topic:\n\nPurpose:\nThis visual helps people understand __________.\n\nDescription:\nThe image shows __________.\nThere is/are __________.\nThe text says __________.\n\nVisual attribution:\n- Title:\n- Creator:\n- Source:\n- License or permission:\n- Changes made:\n- Attribution note:\n\n## Part 2: 60-Second Speaking Script\n\nPurpose:\n\nAudience:\n\nScript:\n\nImportant details:\n- Date/time:\n- Name:\n- Request:\n- Deadline:\n\nPronunciation focus:\n\nPrivacy check:",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#self-practice-4-worksheet-visual-speaking-practice",
+    "href": "student-workbook.html#self-practice-4-worksheet-visual-speaking-practice",
+    "title": "15  Student Workbook",
+    "section": "15.10 Self-Practice 4 Worksheet: Visual Speaking Practice",
+    "text": "15.10 Self-Practice 4 Worksheet: Visual Speaking Practice\nSave as:\nEnglish AI Decision Toolkit/Self-Practice 4 - Visual Speaking Practice.md\n# Self-Practice 4 - Visual Speaking Practice\n\n## Part 1: Visual Plan Review\n\nMy visual is for:\n\nThe audience is:\n\nThe image/source I can use safely is:\n\nVisual attribution:\n- Title:\n- Creator:\n- Source:\n- License or permission:\n- Changes made:\n- Attribution note:\n\n## Part 2: Improved Visual Description\n\nThe image shows __________.\nThere is __________.\nThere are __________.\nThe purpose of the image is __________.\nOne detail I should remove or change is __________.\n\n## Part 3: Revised Speaking Script\n\nHello, my name is __________.\nI want to explain __________.\nThe visual shows __________.\nThis is important because __________.\nOne thing to remember is __________.\nPlease __________.\nThank you.\n\n## Part 4: Pronunciation Practice\n\nMy script time was:\nAttempt 1: ___ seconds\nAttempt 2: ___ seconds\nAttempt 3: ___ seconds\n\nOne word I practiced is __________.\nOne sentence I can say more clearly is __________.\n\n## Part 5: Consent and Safety Check\n\n- [ ] I did not use private photos.\n- [ ] I did not record another person without permission.\n- [ ] I checked the image license or made the image myself.\n- [ ] I wrote the image title, creator, source, permission, and changes made.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#self-practice-5-worksheet-presentation-draft-and-checklist",
+    "href": "student-workbook.html#self-practice-5-worksheet-presentation-draft-and-checklist",
+    "title": "15  Student Workbook",
+    "section": "15.11 Self-Practice 5 Worksheet: Presentation Draft and Checklist",
+    "text": "15.11 Self-Practice 5 Worksheet: Presentation Draft and Checklist\nSave as:\nEnglish AI Decision Toolkit/Self-Practice 5 - Presentation Draft and Checklist.md\n# Self-Practice 5 - Presentation Draft and Checklist\n\n## Before Class 5 Checklist\n\n- [ ] I have my Class 1 prompt.\n- [ ] I completed Self-Practice 1.\n- [ ] I have my Class 2 decision matrix.\n- [ ] I completed Self-Practice 2.\n- [ ] I have my Class 3 source-grounded answer.\n- [ ] I completed Self-Practice 3.\n- [ ] I have my Class 4 visual description and script.\n- [ ] I completed Self-Practice 4.\n- [ ] I completed Self-Practice 5.\n- [ ] I updated my vocabulary log.\n- [ ] I drafted or updated my personal AI safety checklist.\n\n## Final Project Choice\n\nMy final project task is:\n\nThis task is safe for AI because:\n\nPrivate information I will not share:\n\n## Final Safety Checklist\n\n- [ ] My task is safe for AI practice.\n- [ ] I removed private information.\n- [ ] I know what I need to verify.\n- [ ] I can explain my decision in English.\n- [ ] I know that I make the final decision.\n\n## Presentation Draft\n\nHello, my name is __________.\nMy project is about __________.\nFirst, I used AI to __________.\nNext, I checked __________.\nThen, I changed __________.\nI learned the words __________, __________, and __________.\nI will use this workflow when __________.\nI need to be careful because __________.\nThank you.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#class-5-worksheet-my-ai-decision-assistant-prompt",
+    "href": "student-workbook.html#class-5-worksheet-my-ai-decision-assistant-prompt",
+    "title": "15  Student Workbook",
+    "section": "15.12 Class 5 Worksheet: My AI Decision Assistant Prompt",
+    "text": "15.12 Class 5 Worksheet: My AI Decision Assistant Prompt\nSave as:\nEnglish AI Decision Toolkit/Class 5 - My AI Decision Assistant Prompt.md\n# Class 5 - My AI Decision Assistant Prompt\n\nYou are helping me think through a decision.\nDo not make the decision for me.\nUse simple English.\nAsk questions if important information is missing.\nSeparate facts from assumptions.\nGive me a decision matrix.\nTell me what I should verify before acting.\n\nDecision:\n[write my decision]\n\nOptions:\n1.\n2.\n3.\n\nWhat matters most to me:\n1.\n2.\n3.\n\nLimits:\n- Do not invent facts.\n- Do not use private information.\n- Tell me when professional advice is needed.\n\nOutput format:\n1. Summary of my decision\n2. Decision matrix\n3. Pros and cons\n4. Missing information\n5. Risks\n6. Next best step\n7. Three useful English phrases for explaining my decision\n\nMissing information I need to check:\n1.\n2.\n3.\n\nFinal human decision reminder:\nAI can help me compare. I make the final decision.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#class-5-worksheet-final-project",
+    "href": "student-workbook.html#class-5-worksheet-final-project",
+    "title": "15  Student Workbook",
+    "section": "15.13 Class 5 Worksheet: Final Project",
+    "text": "15.13 Class 5 Worksheet: Final Project\nSave as:\nEnglish AI Decision Toolkit/Class 5 - Final Project - My English AI Workflow.md\n# Class 5 - Final Project - My English AI Workflow\n\nMy task:\n\nWhy this task matters:\n\nPrompt I used:\n\nAI helped me by:\n\nI checked the answer by:\n\nImportant vocabulary:\n1.\n2.\n3.\n4.\n5.\n\nMy final decision or next step:\n\nWhat I will do carefully:\n\nReflection:\nI can use AI in English to __________.\nI still need to practice __________.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#vocabulary-log",
+    "href": "student-workbook.html#vocabulary-log",
+    "title": "15  Student Workbook",
+    "section": "15.14 Vocabulary Log",
+    "text": "15.14 Vocabulary Log\n\n\n\n\n\n\n\n\n\n\nWord\nPart of Speech\nSimple Meaning\nMy Sentence\nTranslation or Note",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#sentence-frames-i-can-use",
+    "href": "student-workbook.html#sentence-frames-i-can-use",
+    "title": "15  Student Workbook",
+    "section": "15.15 Sentence Frames I Can Use",
+    "text": "15.15 Sentence Frames I Can Use\nI need help with __________.\nThe best option for me is __________ because __________.\nThe source says __________.\nThis means __________.\nThe image shows __________.\nFirst, I __________. Next, I __________. Finally, I __________.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#final-submission-checklist",
+    "href": "student-workbook.html#final-submission-checklist",
+    "title": "15  Student Workbook",
+    "section": "15.16 Final Submission Checklist",
+    "text": "15.16 Final Submission Checklist\n\nClass 1 - My First English AI Prompt.md\nSelf-Practice 1 - Prompt Practice and Vocabulary Log.md\nClass 2 - English Decision Matrix.md\nSelf-Practice 2 - Revised Prompt and Matrix.md\nClass 3 - Source-Grounded Answer in English.md\nSelf-Practice 3 - Source Check and Paraphrase.md\nClass 4 - Visual Description and 60-Second Script.md\nSelf-Practice 4 - Visual Speaking Practice.md\nSelf-Practice 5 - Presentation Draft and Checklist.md\nClass 5 - My AI Decision Assistant Prompt.md\nClass 5 - Final Project - My English AI Workflow.md\nVocabulary Log.md\nSentence Frames I Can Use.md\nPersonal AI Safety Checklist.md",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#final-safety-check",
+    "href": "student-workbook.html#final-safety-check",
+    "title": "15  Student Workbook",
+    "section": "15.17 Final Safety Check",
+    "text": "15.17 Final Safety Check\n\nI removed private information.\nI checked important information.\nI wrote my final decision in English.\nI practiced my presentation.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "student-workbook.html#personal-ai-safety-checklist",
+    "href": "student-workbook.html#personal-ai-safety-checklist",
+    "title": "15  Student Workbook",
+    "section": "15.18 Personal AI Safety Checklist",
+    "text": "15.18 Personal AI Safety Checklist\nBefore I use AI, I ask:\n\nIs this task safe for AI?\nAm I sharing private information?\nDo I need a source?\nCould this affect money, health, legal status, school, or work?\nWhat would happen if the AI is wrong?\nHow will I verify the answer?\nWhat final decision is still mine?\nCan I explain my answer in English?",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Student Workbook</span>"
+    ]
+  },
+  {
+    "objectID": "ai-safety-and-privacy.html",
+    "href": "ai-safety-and-privacy.html",
+    "title": "16  AI Safety and Privacy",
+    "section": "",
+    "text": "16.1 Student Privacy Rules\nDo not enter private information into AI tools.\nPrivate information includes:\nUse safe examples instead. Replace real names with names like “Student A” or “my teacher.”",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Safety and Privacy</span>"
+    ]
+  },
+  {
+    "objectID": "ai-safety-and-privacy.html#student-privacy-rules",
+    "href": "ai-safety-and-privacy.html#student-privacy-rules",
+    "title": "16  AI Safety and Privacy",
+    "section": "",
+    "text": "passwords\nbank information\nSocial Security numbers or national IDs\nimmigration documents\nprivate medical records\nprivate addresses\nschool records without approval\nemployer documents without approval\nphotos of other people without permission\nvoice recordings of other people without permission\nfull names of minors\nprivate family information",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Safety and Privacy</span>"
+    ]
+  },
+  {
+    "objectID": "ai-safety-and-privacy.html#high-stakes-topic-warnings",
+    "href": "ai-safety-and-privacy.html#high-stakes-topic-warnings",
+    "title": "16  AI Safety and Privacy",
+    "section": "16.2 High-Stakes Topic Warnings",
+    "text": "16.2 High-Stakes Topic Warnings\nHigh-stakes topics can affect health, legal status, money, safety, school, or work.\nExamples:\n\nmedical decisions\nlegal problems\nimmigration\nfinancial contracts\ntaxes\nsafety emergencies\nmental health crises\nschool discipline\nemployment contracts\n\nFor these topics, AI may help you:\n\nmake a question list\nlearn vocabulary\norganize notes\nprepare for a conversation\n\nAI should not be the final authority. Ask a qualified person.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Safety and Privacy</span>"
+    ]
+  },
+  {
+    "objectID": "ai-safety-and-privacy.html#safe-vs-unsafe-ai-use",
+    "href": "ai-safety-and-privacy.html#safe-vs-unsafe-ai-use",
+    "title": "16  AI Safety and Privacy",
+    "section": "16.3 Safe vs Unsafe AI Use",
+    "text": "16.3 Safe vs Unsafe AI Use\n\n\n\n\n\n\n\n\nSituation\nSafer Use\nUnsafe Use\n\n\n\n\nEnglish practice\nAsk for vocabulary practice.\nShare private school records.\n\n\nJob interview\nPractice common interview answers.\nUpload a private employer document.\n\n\nHealth\nLearn words to ask a doctor.\nAsk AI to diagnose a serious problem.\n\n\nMoney\nMake a simple budget example.\nAsk AI to choose a loan or contract for you.\n\n\nImmigration\nLearn vocabulary for an appointment.\nUpload immigration papers.\n\n\nImages\nUse ZONI-provided, open-license, or self-created images.\nUse a person’s photo without permission.\n\n\nAudio\nPractice your own script.\nClone or imitate another person’s voice.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Safety and Privacy</span>"
+    ]
+  },
+  {
+    "objectID": "ai-safety-and-privacy.html#source-checking-routine",
+    "href": "ai-safety-and-privacy.html#source-checking-routine",
+    "title": "16  AI Safety and Privacy",
+    "section": "16.4 Source-Checking Routine",
+    "text": "16.4 Source-Checking Routine\nUse this routine for important answers:\n\nAsk: What is the source?\nCheck the source title or link.\nFind the sentence that supports the answer.\nUse a short quote.\nParaphrase in simple English.\nAsk: What is missing?\nIf the source does not answer, write: I cannot answer from the provided source.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Safety and Privacy</span>"
+    ]
+  },
+  {
+    "objectID": "ai-safety-and-privacy.html#consent-rules-for-images-and-audio",
+    "href": "ai-safety-and-privacy.html#consent-rules-for-images-and-audio",
+    "title": "16  AI Safety and Privacy",
+    "section": "16.5 Consent Rules for Images and Audio",
+    "text": "16.5 Consent Rules for Images and Audio\nConsent means permission.\nFollow these rules:\n\nDo not use another person’s face without permission.\nDo not record another person’s voice without permission.\nDo not use full names of minors.\nDo not create misleading images of real people.\nDo not imitate or clone another real person’s voice.\nUse your own voice for practice if recording is allowed.\nUse ZONI-provided, open-license, self-created, or teacher-provided visuals.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Safety and Privacy</span>"
+    ]
+  },
+  {
+    "objectID": "ai-safety-and-privacy.html#using-colab-ai-safely",
+    "href": "ai-safety-and-privacy.html#using-colab-ai-safely",
+    "title": "16  AI Safety and Privacy",
+    "section": "16.6 Using Colab AI Safely",
+    "text": "16.6 Using Colab AI Safely\nSome Optional Colab Labs use Google’s built-in Colab AI when it is available in the Colab runtime. Follow these rules every time you use a Colab AI cell:\n\nDo not type private information. No real names, addresses, ID numbers, passwords, school records, medical, legal, immigration, financial, or employer documents.\nUse safe examples only. Replace real details with safe, public-style content such as Student A, my teacher, the public library, or a community event.\nAI may be wrong. Read every AI answer carefully and check it against a real source before you use it.\nAI is a helper, not the final author. Save your real work as Markdown in your portfolio folder, not inside the AI tool.\nYou make the final decision. AI can suggest, compare, and simplify; AI cannot decide for you.\nIf Colab AI is unavailable, continue with the regular lab steps. The lab will still finish your portfolio task. Successful AI output is never required for portfolio completion.\nThe labs load a small helper file at start-up. The first cell of every lab loads interactives/e4a_colab.py from this repository’s public GitHub raw URL. You do not need to read this file. If it cannot load (no network, GitHub outage), the cell shows a short friendly message and the rest of the lab still runs — you can finish your portfolio using the regular worksheet steps in this book. There are no API keys and no external AI SDKs. Colab AI is reached only through Google Colab’s built-in helper, and only when it is available.\n\n\nAvailable Colab AI models can change over time depending on account, region, runtime, or Colab limits. The lab will pick a working model if one is available.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Safety and Privacy</span>"
+    ]
+  },
+  {
+    "objectID": "ai-safety-and-privacy.html#vendor-lock-in-avoidance-guide",
+    "href": "ai-safety-and-privacy.html#vendor-lock-in-avoidance-guide",
+    "title": "16  AI Safety and Privacy",
+    "section": "16.7 Vendor Lock-In Avoidance Guide",
+    "text": "16.7 Vendor Lock-In Avoidance Guide\nVendor lock-in means your work is stuck inside one tool or platform.\nTo avoid lock-in:\n\nSave important work outside the AI tool.\nKeep prompts reusable.\nUse open or common formats.\nAvoid private uploads.\nKeep a copy of your final files.\nAsk: Can I export my work if this tool disappears?\nLearn the workflow, not only one brand name.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Safety and Privacy</span>"
+    ]
+  },
+  {
+    "objectID": "ai-safety-and-privacy.html#open-formats-guidance",
+    "href": "ai-safety-and-privacy.html#open-formats-guidance",
+    "title": "16  AI Safety and Privacy",
+    "section": "16.8 Open Formats Guidance",
+    "text": "16.8 Open Formats Guidance\nGood formats for this course:\n\n\n\nType\nRecommended Formats\n\n\n\n\nText\n.md, .txt, .docx, .pdf\n\n\nTables\n.csv, .ods, .xlsx if needed\n\n\nImages\n.png, .svg, .jpg\n\n\nAudio\n.wav, .ogg, .mp3 if required\n\n\nPortfolio archive\n.zip\n\n\n\nWhen possible, save both an editable version and a shareable version.\n\n\n\n\n\n\nImportantFinal Decision Rule\n\n\n\nAI helps. Sources help. Teachers help. The student still makes the final decision for their own work.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Safety and Privacy</span>"
+    ]
+  },
+  {
+    "objectID": "license-notice.html",
+    "href": "license-notice.html",
+    "title": "17  License Notice",
+    "section": "",
+    "text": "© 2026 ZONI®. All rights reserved.\nThis course is publicly visible for viewing, evaluation, and reference only.\nPublic access does not give permission to copy, reproduce, redistribute, adapt, publish, mirror, use for commercial training, use in competing educational programs, or use for model training without prior written permission from ZONI®.\nFor the full terms, see the repository root LICENSE.md.",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>License Notice</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "18  References and Learning Sources",
+    "section": "",
+    "text": "18.1 Course Method Map\nThis page shows where some course methods come from. References help us learn how to give credit. They also remind us that good classroom tools are often adapted from work by many people.\nYou do not need to memorize these sources. Use them as a map when you want to learn more, check a method, or model good attribution.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>References and Learning Sources</span>"
+    ]
+  },
+  {
+    "objectID": "references.html#course-method-map",
+    "href": "references.html#course-method-map",
+    "title": "18  References and Learning Sources",
+    "section": "",
+    "text": "Course idea\nLearning source\n\n\n\n\nZONI CLEAR prompt scaffold\nThis course uses a beginner English scaffold. It is different from Leo S. Lo’s CLEAR framework for prompt engineering (Lo 2023).\n\n\nDecision matrix\nThe Class 2 activity adapts the decision matrix, also called a Pugh matrix, decision grid, or selection matrix (American Society for Quality n.d.).\n\n\nSource-grounded answers\nClass 3 uses a simple classroom routine informed by research on hallucination, factuality, and retrieval-augmented generation (Maynez et al. 2020; Lewis et al. 2020).\n\n\nSource checking\nThe course’s “stop and check” habit connects to Mike Caulfield’s web literacy and SIFT work (Caulfield 2017, 2019).\n\n\nVisual attribution\nClass 4 uses Creative Commons attribution practices, especially TASL: Title, Author, Source, License (Creative Commons n.d.).\n\n\nESL scaffolding\nContent objectives, language objectives, sentence frames, vocabulary support, and sheltered instruction routines connect to SIOP-style teaching (Echevarria et al. 2017).\n\n\nAI literacy\nThe course focuses on practical AI literacy: recognizing AI, using it carefully, checking output, and thinking about social impact (Long and Magerko 2020).\n\n\nFeedback tools\nCourse feedback tools use clear criteria and performance descriptions (Brookhart 2013).\n\n\nCourse design\nThe 5-class sequence and portfolio use backward design: start with the final evidence, then plan learning steps (Wiggins and McTighe 2005).\n\n\nResponsible AI in education\nCourse safety guidance is informed by education and risk-management guidance (Miao and Holmes 2023; Tabassi 2023).",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>References and Learning Sources</span>"
+    ]
+  },
+  {
+    "objectID": "references.html#full-references",
+    "href": "references.html#full-references",
+    "title": "18  References and Learning Sources",
+    "section": "18.2 Full References",
+    "text": "18.2 Full References\n\n\nAmerican Society for Quality. n.d. What Is a Decision Matrix? Pugh,\nProblem, or Selection Grid. https://asq.org/quality-resources/decision-matrix.\n\n\nBrookhart, Susan M. 2013. How to Create and Use Rubrics for\nFormative Assessment and Grading. ASCD. https://www1.ascd.org/books/how-to-create-and-use-rubrics-for-formative-assessment-and-grading.\n\n\nCaulfield, Mike. 2017. Web Literacy for Student Fact-Checkers.\nMike Caulfield. https://open.umn.edu/opentextbooks/textbooks/454.\n\n\nCaulfield, Mike. 2019. Introducing SIFT, a Four Moves Acronym.\nhttps://hapgood.us/2019/05/12/sift-and-a-check-please-preview/.\n\n\nCreative Commons. n.d. Recommended Practices for Attribution.\nhttps://wiki.creativecommons.org/wiki/Best_practices_for_attribution.\n\n\nEchevarria, Jana, MaryEllen Vogt, and Deborah J. Short. 2017. Making\nContent Comprehensible for English Learners: The SIOP Model. 5th\ned. Pearson. https://www.pearson.com/us/higher-education/product/Echevarria-Making-Content-Comprehensible-for-English-Learners-The-SIOP-Model-5th-Edition/9780134045238.html.\n\n\nLewis, Patrick, Ethan Perez, Aleksandra Piktus, et al. 2020.\n“Retrieval-Augmented Generation for Knowledge-Intensive NLP\nTasks.” Advances in Neural Information Processing\nSystems 33: 9459–74. https://proceedings.neurips.cc/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html.\n\n\nLo, Leo S. 2023. “The CLEAR Path: A Framework for\nEnhancing Information Literacy Through Prompt Engineering.”\nThe Journal of Academic Librarianship 49 (4): 102720. https://doi.org/10.1016/j.acalib.2023.102720.\n\n\nLong, Duri, and Brian Magerko. 2020. “What Is AI\nLiteracy? Competencies and Design Considerations.”\nProceedings of the 2020 CHI Conference on Human Factors in Computing\nSystems (New York, NY), 1–16. https://doi.org/10.1145/3313831.3376727.\n\n\nMaynez, Joshua, Shashi Narayan, Bernd Bohnet, and Ryan McDonald. 2020.\n“On Faithfulness and Factuality in Abstractive\nSummarization.” Proceedings of the 58th Annual Meeting of the\nAssociation for Computational Linguistics (Online), 1906–19. https://doi.org/10.18653/v1/2020.acl-main.173.\n\n\nMiao, Fengchun, and Wayne Holmes. 2023. Guidance for Generative AI\nin Education and Research. UNESCO. https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research.\n\n\nTabassi, Elham. 2023. Artificial Intelligence Risk Management\nFramework (AI RMF 1.0). NIST AI 100-1. National Institute of\nStandards; Technology. https://doi.org/10.6028/NIST.AI.100-1.\n\n\nWiggins, Grant, and Jay McTighe. 2005. Understanding by Design.\nExpanded 2. ASCD. https://ascd.org/books/understanding-by-design-expanded-2nd-edition.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>References and Learning Sources</span>"
+    ]
+  }
+]
