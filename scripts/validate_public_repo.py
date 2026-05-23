@@ -57,6 +57,14 @@ ALLOWED_TOP_LEVEL_DIRS = {
     "site",
 }
 
+EXPECTED_PUBLIC_NOTEBOOKS = {
+    "class-01-prompt-playground.ipynb",
+    "class-02-decision-matrix-lab.ipynb",
+    "class-03-source-grounded-lab.ipynb",
+    "class-04-visual-script-lab.ipynb",
+    "class-05-toolkit-builder.ipynb",
+}
+
 FORBIDDEN_FILE_PATTERNS = [
     ("teacher guide source", re.compile(r"(^|/)teacher-guide\.qmd$", re.IGNORECASE)),
     ("answer key source", re.compile(r"(^|/)answer-key\.qmd$", re.IGNORECASE)),
@@ -230,13 +238,15 @@ def validate_required_public_files(root: Path, findings: list[Finding]) -> None:
         if not (root / rel).is_file():
             findings.append(Finding(rel, "missing required public artifact", "file is required"))
 
-    notebooks = sorted((root / "english-for-ai-course" / "interactives").glob("*.ipynb"))
-    if not notebooks:
+    notebook_dir = root / "english-for-ai-course" / "interactives"
+    notebooks = {path.name for path in notebook_dir.glob("*.ipynb")}
+    missing_notebooks = sorted(EXPECTED_PUBLIC_NOTEBOOKS - notebooks)
+    if missing_notebooks:
         findings.append(
             Finding(
                 "english-for-ai-course/interactives",
                 "missing public notebooks",
-                "expected at least one .ipynb file",
+                ", ".join(missing_notebooks),
             )
         )
 
@@ -266,6 +276,14 @@ def validate_allowed_path(rel: str, findings: list[Finding]) -> None:
             findings.append(Finding(rel, "unexpected course file", "only public Colab artifacts are allowed"))
             return
         name = parts[-1]
+        if name == "e4a_colab.py":
+            return
+        if name.endswith(".ipynb"):
+            if name not in EXPECTED_PUBLIC_NOTEBOOKS:
+                findings.append(
+                    Finding(rel, "unexpected public notebook", "not listed in the public notebook allowlist")
+                )
+            return
         if not (name == "e4a_colab.py" or name.endswith(".ipynb")):
             findings.append(Finding(rel, "unexpected interactive artifact", "only .ipynb files and e4a_colab.py are allowed"))
 
