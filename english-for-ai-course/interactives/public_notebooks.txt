@@ -1,0 +1,5 @@
+class-01-prompt-playground.ipynb
+class-02-decision-matrix-lab.ipynb
+class-03-source-grounded-lab.ipynb
+class-04-visual-script-lab.ipynb
+class-05-toolkit-builder.ipynb

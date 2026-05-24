@@ -57,13 +57,8 @@ ALLOWED_TOP_LEVEL_DIRS = {
     "site",
 }
 
-EXPECTED_PUBLIC_NOTEBOOKS = {
-    "class-01-prompt-playground.ipynb",
-    "class-02-decision-matrix-lab.ipynb",
-    "class-03-source-grounded-lab.ipynb",
-    "class-04-visual-script-lab.ipynb",
-    "class-05-toolkit-builder.ipynb",
-}
+PUBLIC_NOTEBOOK_MANIFEST = "english-for-ai-course/interactives/public_notebooks.txt"
+SAFE_NOTEBOOK_NAME = re.compile(r"^[A-Za-z0-9._-]+\.ipynb$")
 
 FORBIDDEN_FILE_PATTERNS = [
     ("teacher guide source", re.compile(r"(^|/)teacher-guide\.qmd$", re.IGNORECASE)),
@@ -210,10 +205,11 @@ def validate(root: Path) -> list[Finding]:
     if not root.is_dir():
         return [Finding(str(root), "invalid root", "path is not a directory")]
 
-    validate_required_public_files(root, findings)
+    expected_notebooks = load_public_notebook_manifest(root, findings)
+    validate_required_public_files(root, expected_notebooks, findings)
     for path in iter_files(root):
         rel = path.relative_to(root).as_posix()
-        validate_allowed_path(rel, findings)
+        validate_allowed_path(rel, expected_notebooks, findings)
         validate_forbidden_path(rel, findings)
         if not should_scan_text(path):
             continue
@@ -224,7 +220,54 @@ def validate(root: Path) -> list[Finding]:
     return findings
 
 
-def validate_required_public_files(root: Path, findings: list[Finding]) -> None:
+def load_public_notebook_manifest(root: Path, findings: list[Finding]) -> set[str]:
+    manifest_path = root / PUBLIC_NOTEBOOK_MANIFEST
+    if not manifest_path.is_file():
+        findings.append(
+            Finding(PUBLIC_NOTEBOOK_MANIFEST, "missing public notebook manifest", "file is required")
+        )
+        return set()
+
+    expected: set[str] = set()
+    text = read_text(manifest_path)
+    if text is None:
+        findings.append(Finding(PUBLIC_NOTEBOOK_MANIFEST, "invalid public notebook manifest", "not UTF-8 text"))
+        return set()
+
+    for lineno, raw_line in enumerate(text.splitlines(), start=1):
+        name = raw_line.strip()
+        if not name:
+            continue
+        if not SAFE_NOTEBOOK_NAME.fullmatch(name):
+            findings.append(
+                Finding(
+                    PUBLIC_NOTEBOOK_MANIFEST,
+                    "invalid public notebook name",
+                    f"line {lineno}: {short(name)}",
+                )
+            )
+            continue
+        if name in expected:
+            findings.append(
+                Finding(
+                    PUBLIC_NOTEBOOK_MANIFEST,
+                    "duplicate public notebook name",
+                    f"line {lineno}: {name}",
+                )
+            )
+            continue
+        expected.add(name)
+
+    if not expected:
+        findings.append(Finding(PUBLIC_NOTEBOOK_MANIFEST, "empty public notebook manifest", "no notebooks listed"))
+    return expected
+
+
+def validate_required_public_files(
+    root: Path,
+    expected_notebooks: set[str],
+    findings: list[Finding],
+) -> None:
     required = [
         "README.md",
         "LICENSE.md",
@@ -240,7 +283,7 @@ def validate_required_public_files(root: Path, findings: list[Finding]) -> None:
 
     notebook_dir = root / "english-for-ai-course" / "interactives"
     notebooks = {path.name for path in notebook_dir.glob("*.ipynb")}
-    missing_notebooks = sorted(EXPECTED_PUBLIC_NOTEBOOKS - notebooks)
+    missing_notebooks = sorted(expected_notebooks - notebooks)
     if missing_notebooks:
         findings.append(
             Finding(
@@ -251,7 +294,7 @@ def validate_required_public_files(root: Path, findings: list[Finding]) -> None:
         )
 
 
-def validate_allowed_path(rel: str, findings: list[Finding]) -> None:
+def validate_allowed_path(rel: str, expected_notebooks: set[str], findings: list[Finding]) -> None:
     parts = rel.split("/")
     if len(parts) == 1:
         if rel not in ALLOWED_ROOT_FILES:
@@ -276,16 +319,21 @@ def validate_allowed_path(rel: str, findings: list[Finding]) -> None:
             findings.append(Finding(rel, "unexpected course file", "only public Colab artifacts are allowed"))
             return
         name = parts[-1]
-        if name == "e4a_colab.py":
+        if name in {"e4a_colab.py", "public_notebooks.txt"}:
             return
         if name.endswith(".ipynb"):
-            if name not in EXPECTED_PUBLIC_NOTEBOOKS:
+            if name not in expected_notebooks:
                 findings.append(
-                    Finding(rel, "unexpected public notebook", "not listed in the public notebook allowlist")
+                    Finding(rel, "unexpected public notebook", "not listed in public_notebooks.txt")
                 )
             return
-        if not (name == "e4a_colab.py" or name.endswith(".ipynb")):
-            findings.append(Finding(rel, "unexpected interactive artifact", "only .ipynb files and e4a_colab.py are allowed"))
+        findings.append(
+            Finding(
+                rel,
+                "unexpected interactive artifact",
+                "only public_notebooks.txt, .ipynb files, and e4a_colab.py are allowed",
+            )
+        )
 
 
 def validate_forbidden_path(rel: str, findings: list[Finding]) -> None:
