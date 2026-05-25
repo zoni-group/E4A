@@ -1,0 +1,117 @@
+.e4a-workbook-notice {
+  margin-block: 1rem 1.25rem;
+  padding: 1rem;
+  border: 1px solid var(--bs-border-color);
+  border-inline-start: 0.35rem solid var(--bs-primary);
+  border-radius: 8px;
+  background: var(--bs-secondary-bg);
+  color: var(--bs-body-color);
+}
+
+.e4a-workbook-card {
+  margin-block: 1.25rem 2rem;
+  padding: 1.25rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 8px;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+.e4a-workbook-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-block-end: 1rem;
+}
+
+.e4a-workbook-card__title {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.e4a-workbook-card__filename {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+
+.e4a-workbook-status {
+  margin: 0;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.e4a-workbook-card[data-e4a-save-state="saved-on-this-device"] .e4a-workbook-status {
+  border-color: var(--bs-primary);
+}
+
+.e4a-workbook-card[data-e4a-save-state="save-failed"] .e4a-workbook-status {
+  border-style: dashed;
+}
+
+.e4a-workbook-field {
+  margin-block: 1rem;
+}
+
+.e4a-workbook-field label {
+  display: block;
+  margin-block-end: 0.35rem;
+  font-weight: 600;
+}
+
+.e4a-workbook-field textarea,
+.e4a-workbook-field input[type="text"] {
+  display: block;
+  width: 100%;
+  min-height: 7rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 8px;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  font: inherit;
+  line-height: 1.45;
+}
+
+.e4a-workbook-field textarea:focus,
+.e4a-workbook-field input[type="text"]:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--bs-primary) 24%, transparent);
+  outline: none;
+}
+
+.e4a-workbook-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-block-start: 1rem;
+}
+
+.e4a-workbook-actions .btn {
+  white-space: normal;
+}
+
+.e4a-workbook-action-status {
+  min-height: 1.5rem;
+  margin-block: 0.75rem 0;
+}
+
+@media (max-width: 575.98px) {
+  .e4a-workbook-card {
+    padding: 1rem;
+  }
+
+  .e4a-workbook-status {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .e4a-workbook-actions .btn {
+    width: 100%;
+  }
+}
