@@ -22,7 +22,11 @@
             store.createIndex("byUpdatedAt", "updatedAt", { unique: false });
           }
         };
-        request.onsuccess = () => resolve(request.result);
+        request.onsuccess = () => {
+          const db = request.result;
+          db.onversionchange = () => db.close();
+          resolve(db);
+        };
         request.onerror = () => reject(request.error ?? new Error("Could not open workbook database."));
         request.onblocked = () => reject(new Error("Workbook database upgrade is blocked by another tab."));
       }));
@@ -113,6 +117,10 @@
     };
   }
   function toFieldBinding(control, order) {
+    if (!isWorkbookControl(control)) {
+      console.warn("Ignoring unsupported E4A workbook field element.", control);
+      return void 0;
+    }
     const name = control.dataset.e4aField?.trim();
     if (!name) {
       return void 0;
@@ -126,6 +134,9 @@
         order
       }
     };
+  }
+  function isWorkbookControl(control) {
+    return control instanceof HTMLTextAreaElement || control instanceof HTMLInputElement;
   }
   function getFieldLabel(control) {
     const explicitLabel = control.dataset.e4aLabel?.trim();
@@ -234,11 +245,13 @@
     constructor(block, store) {
       this.block = block;
       this.store = store;
+      this.lastSavedSnapshot = "";
       this.abortController = new AbortController();
     }
     async initialize() {
       this.bindControls();
       this.bindActions();
+      this.bindLifecycleSaves();
       if (!this.store) {
         this.setSaveStatus("Save failed");
         this.setActionStatus("This browser is blocking local storage. You can still copy or download your work.");
@@ -249,8 +262,10 @@
         if (savedRecord) {
           this.latestRecord = savedRecord;
           this.writeRecordToControls(savedRecord);
+          this.lastSavedSnapshot = this.snapshotCurrentFields();
           this.setSaveStatus("Saved on this device");
         } else {
+          this.lastSavedSnapshot = this.snapshotCurrentFields();
           this.setSaveStatus("Not saved yet");
         }
       } catch {
@@ -268,6 +283,11 @@
       for (const field of this.block.fields) {
         const eventName = field.definition.type === "checkbox" ? "change" : "input";
         field.control.addEventListener(eventName, () => this.queueSave(), { signal: this.abortController.signal });
+        if (field.definition.type !== "checkbox") {
+          field.control.addEventListener("blur", () => void this.saveIfChanged(), {
+            signal: this.abortController.signal
+          });
+        }
       }
     }
     bindActions() {
@@ -281,30 +301,63 @@
         button.addEventListener("click", () => void this.clearCurrentWorksheet(), { signal: this.abortController.signal });
       }
     }
+    bindLifecycleSaves() {
+      document.addEventListener(
+        "visibilitychange",
+        () => {
+          if (document.visibilityState === "hidden") {
+            this.saveBeforeExit();
+          }
+        },
+        { signal: this.abortController.signal }
+      );
+      window.addEventListener("pagehide", () => this.saveBeforeExit(), { signal: this.abortController.signal });
+    }
     queueSave() {
-      this.setSaveStatus("Saving...");
       this.setActionStatus("");
+      if (!this.store) {
+        this.setSaveStatus("Save failed");
+        return;
+      }
+      if (!this.hasUnsavedChanges()) {
+        return;
+      }
+      this.setSaveStatus("Saving...");
+      if (this.autosaveTimer) {
+        window.clearTimeout(this.autosaveTimer);
+      }
+      this.autosaveTimer = window.setTimeout(() => void this.saveIfChanged(), AUTOSAVE_DELAY_MS);
+    }
+    async saveIfChanged() {
       if (!this.store) {
         this.setSaveStatus("Save failed");
         return;
       }
       if (this.autosaveTimer) {
         window.clearTimeout(this.autosaveTimer);
+        this.autosaveTimer = void 0;
       }
-      this.autosaveTimer = window.setTimeout(() => void this.saveNow(), AUTOSAVE_DELAY_MS);
-    }
-    async saveNow() {
-      if (!this.store) {
-        this.setSaveStatus("Save failed");
+      const snapshot = this.snapshotCurrentFields();
+      if (snapshot === this.lastSavedSnapshot) {
         return;
       }
       try {
         const draft = this.readDraftFromControls();
         const record = createWorkbookRecord(draft, this.latestRecord);
         this.latestRecord = await this.store.put(record);
-        this.setSaveStatus("Saved on this device");
+        this.lastSavedSnapshot = snapshot;
+        this.setSaveStatus(this.snapshotCurrentFields() === snapshot ? "Saved on this device" : "Saving...");
       } catch {
         this.setSaveStatus("Save failed");
+      }
+    }
+    saveBeforeExit() {
+      if (this.autosaveTimer) {
+        window.clearTimeout(this.autosaveTimer);
+        this.autosaveTimer = void 0;
+      }
+      if (this.hasUnsavedChanges()) {
+        void this.saveIfChanged();
       }
     }
     async copyCurrentWorksheet() {
@@ -339,6 +392,7 @@
           await this.store.delete(this.block.artifactId);
         }
         this.setSaveStatus("Not saved yet");
+        this.lastSavedSnapshot = this.snapshotCurrentFields();
         this.setActionStatus("This worksheet was cleared on this device.");
       } catch {
         this.setSaveStatus("Save failed");
@@ -349,7 +403,7 @@
       if (this.autosaveTimer) {
         window.clearTimeout(this.autosaveTimer);
         this.autosaveTimer = void 0;
-        await this.saveNow();
+        await this.saveIfChanged();
       }
     }
     getCurrentMarkdown() {
@@ -382,6 +436,14 @@
     }
     setActionStatus(status) {
       setText(this.block.actionStatus, status);
+    }
+    hasUnsavedChanges() {
+      return this.snapshotCurrentFields() !== this.lastSavedSnapshot;
+    }
+    snapshotCurrentFields() {
+      return JSON.stringify(
+        this.block.fields.map(({ definition, control }) => [definition.name, readControlValue(control)])
+      );
     }
   };
   function readControlValue(control) {
