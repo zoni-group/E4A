@@ -49,11 +49,11 @@ URL from ``interactives/_metadata.yml``.
 """
 
 LAB_TITLES = {
-    "class-01": "Class 1 Colab Lab: Prompt Playground",
-    "class-02": "Class 2 Colab Lab: English Decision Matrix",
-    "class-03": "Class 3 Colab Lab: Source-Grounded Answer",
-    "class-04": "Class 4 Colab Lab: Visual Description and 60-Second Script",
-    "class-05": "Class 5 Colab Lab: English AI Decision Toolkit Builder",
+    "class-01": "Lessons 1-2 Colab Lab: Prompt Playground",
+    "class-02": "Lessons 3-4 Colab Lab: English Decision Matrix",
+    "class-03": "Lessons 5-6 Colab Lab: Source-Grounded Answer",
+    "class-04": "Lessons 7-8 Colab Lab: Visual Description and Speaking Script",
+    "class-05": "Lessons 9-10 Colab Lab: English AI Decision Toolkit Builder",
 }
 
 PREFERRED_MODELS = [
@@ -190,7 +190,7 @@ def start_e4a_lab(lab_id):
 # student-facing notebook cell is short.
 
 def ai_review_prompt(prompt_text):
-    """Class 1: ask Colab AI for a short demo answer to the student's ZONI CLEAR prompt."""
+    """Lessons 1-2: ask Colab AI for a short demo answer to the student's ZONI CLEAR prompt."""
     task = (
         "A student wrote this ZONI CLEAR prompt for an AI tool. "
         "Give a short, simple demo answer that an AI tool might produce. "
@@ -202,7 +202,7 @@ def ai_review_prompt(prompt_text):
 
 
 def ai_review_decision_matrix(decision_question, options, criteria, scores):
-    """Class 2: ask Colab AI for missing criteria, assumptions, risks. Never picks the final option."""
+    """Lessons 3-4: ask Colab AI for missing criteria, assumptions, risks. Never picks the final option."""
     options_text = ", ".join(str(o) for o in options)
     criteria_text = ", ".join(str(c) for c in criteria)
     rows = []
@@ -228,7 +228,7 @@ def ai_review_decision_matrix(decision_question, options, criteria, scores):
 
 
 def ai_answer_from_source(source_text, question):
-    """Class 3: ask AI to answer using ONLY the source text. Replies with the unsupported phrase if not found."""
+    """Lessons 5-6: ask AI to answer using ONLY the source text. Replies with the unsupported phrase if not found."""
     if not source_text:
         return "No source loaded. Please load a source first."
     task = (
@@ -244,7 +244,7 @@ def ai_answer_from_source(source_text, question):
 
 
 def ai_review_script(script_text):
-    """Class 4: ask AI to suggest a simpler version of the script. Text-only, no real people."""
+    """Lessons 7-8: ask AI to suggest a simpler version of the script. Text-only, no real people."""
     task = (
         "Revise this English speaking script to be clearer and simpler. "
         "Keep the same meaning. Do NOT add facts. "
@@ -256,7 +256,7 @@ def ai_review_script(script_text):
 
 
 def ai_review_workflow(workflow_summary):
-    """Class 5: ask AI to review the student's workflow. Cannot write the final portfolio or certify completion."""
+    """Lessons 9-10: ask AI to review the student's workflow. Cannot write the final portfolio or certify completion."""
     task = (
         "Read this student's English AI workflow and give short, simple feedback. "
         "Use simple English. "
