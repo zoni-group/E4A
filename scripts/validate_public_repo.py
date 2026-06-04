@@ -59,6 +59,7 @@ ALLOWED_TOP_LEVEL_DIRS = {
 
 PUBLIC_NOTEBOOK_MANIFEST = "english-for-ai-course/interactives/public_notebooks.txt"
 SAFE_NOTEBOOK_NAME = re.compile(r"^[A-Za-z0-9._-]+\.ipynb$")
+CUSTOM_DOMAIN = "e4ai.zoni.edu"
 
 FORBIDDEN_FILE_PATTERNS = [
     ("teacher guide source", re.compile(r"(^|/)teacher-guide\.qmd$", re.IGNORECASE)),
@@ -274,6 +275,7 @@ def validate_required_public_files(
         "THIRD_PARTY_NOTICES.md",
         ".github/workflows/pages.yml",
         "scripts/validate_public_repo.py",
+        "site/CNAME",
         "site/index.html",
         "english-for-ai-course/interactives/e4a_colab.py",
     ]
@@ -290,6 +292,17 @@ def validate_required_public_files(
                 "english-for-ai-course/interactives",
                 "missing public notebooks",
                 ", ".join(missing_notebooks),
+            )
+        )
+
+    cname_path = root / "site" / "CNAME"
+    cname_text = read_text(cname_path) if cname_path.is_file() else None
+    if cname_text is not None and cname_text.strip() != CUSTOM_DOMAIN:
+        findings.append(
+            Finding(
+                "site/CNAME",
+                "unexpected Pages custom domain",
+                f"expected {CUSTOM_DOMAIN}",
             )
         )
 

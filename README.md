@@ -12,5 +12,6 @@ Public contents include:
 - GitHub Pages deployment and public safety validation
 
 The GitHub Pages site will be available after repository Pages is configured to deploy from GitHub Actions.
+Production custom domain: `https://e4ai.zoni.edu/`.
 
 See `LICENSE.md` and `THIRD_PARTY_NOTICES.md` for license and attribution information.
