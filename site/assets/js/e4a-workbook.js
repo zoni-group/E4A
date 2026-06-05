@@ -136,7 +136,7 @@
     };
   }
   function isWorkbookControl(control) {
-    return control instanceof HTMLTextAreaElement || control instanceof HTMLInputElement;
+    return control instanceof HTMLTextAreaElement || control instanceof HTMLInputElement || control instanceof HTMLSelectElement;
   }
   function getFieldLabel(control) {
     const explicitLabel = control.dataset.e4aLabel?.trim();
@@ -148,8 +148,11 @@
   }
   function getFieldType(control) {
     const requestedType = control.dataset.e4aFieldType;
-    if (requestedType === "checkbox" || requestedType === "text" || requestedType === "textarea") {
+    if (requestedType === "checkbox" || requestedType === "select" || requestedType === "text" || requestedType === "textarea") {
       return requestedType;
+    }
+    if (control instanceof HTMLSelectElement) {
+      return "select";
     }
     if (control instanceof HTMLInputElement && control.type === "checkbox") {
       return "checkbox";
@@ -167,7 +170,7 @@
   }
 
   // assets/ts/e4a-workbook-export.ts
-  function workbookRecordToMarkdown(record, fields) {
+  function workbookRecordToText(record, fields) {
     const lines = [`# ${record.artifactTitle}`, ""];
     const sortedFields = [...fields].sort((a, b) => a.order - b.order);
     for (const field of sortedFields) {
@@ -183,19 +186,19 @@
     return `${lines.join("\n").trimEnd()}
 `;
   }
-  async function copyMarkdown(markdown) {
+  async function copyWorkbookText(text) {
     if (navigator.clipboard?.writeText && window.isSecureContext) {
-      await navigator.clipboard.writeText(markdown);
+      await navigator.clipboard.writeText(text);
       return;
     }
-    fallbackCopy(markdown);
+    fallbackCopy(text);
   }
-  function downloadMarkdown(filename, markdown) {
-    const blob = new Blob([markdown], { type: "text/markdown;charset=utf-8" });
+  function downloadWorkbookText(filename, text) {
+    const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = filename;
+    anchor.download = filename.endsWith(".txt") ? filename : `${filename}.txt`;
     anchor.rel = "noopener";
     document.body.append(anchor);
     anchor.click();
@@ -208,9 +211,9 @@
     }
     return "";
   }
-  function fallbackCopy(markdown) {
+  function fallbackCopy(text) {
     const textarea = document.createElement("textarea");
-    textarea.value = markdown;
+    textarea.value = text;
     textarea.setAttribute("readonly", "true");
     textarea.style.position = "fixed";
     textarea.style.insetInlineStart = "-9999px";
@@ -226,13 +229,13 @@
 
   // assets/ts/e4a-workbook-model.ts
   var WORKBOOK_SCHEMA_VERSION = 1;
-  function createWorkbookRecord(draft, existing, now = /* @__PURE__ */ new Date()) {
+  function createWorkbookRecord(draft, existing, now = /* @__PURE__ */ new Date(), mergeFields = true) {
     const timestamp = now.toISOString();
     return {
       artifactId: draft.artifactId,
       artifactTitle: draft.artifactTitle,
       filename: draft.filename,
-      fields: draft.fields,
+      fields: mergeFields ? { ...existing?.fields, ...draft.fields } : draft.fields,
       createdAt: existing?.createdAt ?? timestamp,
       updatedAt: timestamp,
       schemaVersion: WORKBOOK_SCHEMA_VERSION
@@ -253,9 +256,11 @@
       this.bindControls();
       this.bindActions();
       this.bindLifecycleSaves();
+      normalizeExclusiveCheckboxGroups(this.block.root);
+      updateUniqueSelectOptions(this.block.root);
       if (!this.store) {
         this.setSaveStatus("Save failed");
-        this.setActionStatus("This browser is blocking local storage. You can still copy or download your work.");
+        this.setActionStatus("This browser is blocking local storage. You can still copy or download a backup.");
         return;
       }
       try {
@@ -263,15 +268,20 @@
         if (savedRecord) {
           this.latestRecord = savedRecord;
           this.writeRecordToControls(savedRecord);
+          normalizeExclusiveCheckboxGroups(this.block.root);
+          this.updateAnswerStates();
+          updateUniqueSelectOptions(this.block.root);
           this.lastSavedSnapshot = this.snapshotCurrentFields();
           this.setSaveStatus("Saved on this device");
         } else {
+          this.updateAnswerStates();
+          updateUniqueSelectOptions(this.block.root);
           this.lastSavedSnapshot = this.snapshotCurrentFields();
           this.setSaveStatus("Not saved yet");
         }
       } catch {
         this.setSaveStatus("Save failed");
-        this.setActionStatus("This browser could not open saved workbook data. You can still copy or download your work.");
+        this.setActionStatus("This browser could not open saved workbook data. You can still copy or download a backup.");
       }
     }
     destroy() {
@@ -282,8 +292,18 @@
     }
     bindControls() {
       for (const field of this.block.fields) {
-        const eventName = field.definition.type === "checkbox" ? "change" : "input";
-        field.control.addEventListener(eventName, () => this.queueSave(), { signal: this.abortController.signal });
+        updateAnswerState(field.control);
+        const eventName = field.definition.type === "checkbox" || field.definition.type === "select" ? "change" : "input";
+        field.control.addEventListener(
+          eventName,
+          () => {
+            enforceExclusiveCheckboxGroup(field.control, this.block.root);
+            this.updateAnswerStates();
+            updateUniqueSelectOptions(this.block.root);
+            this.queueSave();
+          },
+          { signal: this.abortController.signal }
+        );
         if (field.definition.type !== "checkbox") {
           field.control.addEventListener("blur", () => void this.saveIfChanged(), {
             signal: this.abortController.signal
@@ -293,12 +313,15 @@
     }
     bindActions() {
       for (const button of this.block.copyButtons) {
+        configureActionButton(button, "Copy answers");
         button.addEventListener("click", () => void this.copyCurrentWorksheet(), { signal: this.abortController.signal });
       }
       for (const button of this.block.downloadButtons) {
+        configureActionButton(button, "Download backup");
         button.addEventListener("click", () => void this.downloadCurrentWorksheet(), { signal: this.abortController.signal });
       }
       for (const button of this.block.clearButtons) {
+        configureActionButton(button, "Clear saved answers");
         button.addEventListener("click", () => void this.clearCurrentWorksheet(), { signal: this.abortController.signal });
       }
     }
@@ -376,19 +399,19 @@
     async copyCurrentWorksheet() {
       try {
         await this.flushPendingSave();
-        await copyMarkdown(this.getCurrentMarkdown());
-        this.setActionStatus("Markdown copied.");
+        await copyWorkbookText(this.getCurrentWorkbookText());
+        this.setActionStatus("Answers copied.");
       } catch {
-        this.setActionStatus("Copy failed. Download the Markdown file instead.");
+        this.setActionStatus("Copy failed. Download a backup instead.");
       }
     }
     async downloadCurrentWorksheet() {
       try {
         await this.flushPendingSave();
-        downloadMarkdown(this.block.filename, this.getCurrentMarkdown());
+        downloadWorkbookText(this.block.filename, this.getCurrentWorkbookText());
         this.setActionStatus("Download started.");
       } catch {
-        this.setActionStatus("Download failed. Copy the Markdown instead.");
+        this.setActionStatus("Download failed. Copy the answers instead.");
       }
     }
     async clearCurrentWorksheet() {
@@ -401,16 +424,35 @@
       this.clearAutosaveTimer();
       this.saveEpoch += 1;
       await this.waitForPendingSave();
-      this.clearControls();
-      this.latestRecord = void 0;
       try {
         if (this.store) {
-          await this.store.delete(this.block.artifactId);
+          const currentRecord = await this.store.get(this.block.artifactId) ?? this.latestRecord;
+          const remainingFields = currentRecord ? withoutCurrentBlockFields(currentRecord, this.block.fields) : {};
+          if (Object.keys(remainingFields).length > 0 && currentRecord) {
+            const draft = {
+              artifactId: currentRecord.artifactId,
+              artifactTitle: currentRecord.artifactTitle,
+              filename: currentRecord.filename,
+              fields: remainingFields
+            };
+            this.latestRecord = await this.store.put(createWorkbookRecord(draft, currentRecord, /* @__PURE__ */ new Date(), false));
+          } else {
+            await this.store.delete(this.block.artifactId);
+            this.latestRecord = void 0;
+          }
+        } else {
+          this.latestRecord = void 0;
         }
+        this.clearControls();
+        this.updateAnswerStates();
+        updateUniqueSelectOptions(this.block.root);
         this.setSaveStatus("Not saved yet");
         this.lastSavedSnapshot = this.snapshotCurrentFields();
-        this.setActionStatus("This worksheet was cleared on this device.");
+        this.setActionStatus("This activity was cleared on this device.");
       } catch {
+        this.clearControls();
+        this.updateAnswerStates();
+        updateUniqueSelectOptions(this.block.root);
         this.setSaveStatus("Save failed");
         this.setActionStatus("The fields were cleared, but saved data could not be removed.");
       }
@@ -445,9 +487,9 @@
         this.autosaveTimer = void 0;
       }
     }
-    getCurrentMarkdown() {
+    getCurrentWorkbookText() {
       const record = createWorkbookRecord(this.readDraftFromControls(), this.latestRecord);
-      return workbookRecordToMarkdown(record, this.block.fields.map((field) => field.definition));
+      return workbookRecordToText(record, this.block.fields.map((field) => field.definition));
     }
     readDraftFromControls() {
       return {
@@ -469,8 +511,14 @@
         writeControlValue(control, control instanceof HTMLInputElement && control.type === "checkbox" ? false : "");
       }
     }
+    updateAnswerStates() {
+      for (const { control } of this.block.fields) {
+        updateAnswerState(control);
+      }
+    }
     setSaveStatus(status) {
       setText(this.block.saveStatus, status);
+      setStatusLabel(this.block.saveStatus, status);
       this.block.root.dataset.e4aSaveState = status.toLowerCase().replace(/[^a-z]+/g, "-").replace(/-$/, "");
     }
     setActionStatus(status) {
@@ -497,6 +545,149 @@
       return;
     }
     control.value = typeof value === "string" ? value : "";
+  }
+  function withoutCurrentBlockFields(record, fields) {
+    const currentFieldNames = new Set(fields.map(({ definition }) => definition.name));
+    return Object.fromEntries(Object.entries(record.fields).filter(([name]) => !currentFieldNames.has(name)));
+  }
+  function configureActionButton(button, label) {
+    button.setAttribute("aria-label", label);
+    if (!button.title) {
+      button.title = label;
+    }
+  }
+  function setStatusLabel(element, label) {
+    if (!element) {
+      return;
+    }
+    element.setAttribute("aria-label", label);
+    element.title = label;
+  }
+  function updateAnswerState(control) {
+    const answer = control.dataset.e4aAnswer;
+    if (!answer) {
+      return;
+    }
+    const value = readControlValue(control);
+    const state = toAnswerState(control, value, answer);
+    control.dataset.e4aAnswerState = state;
+    control.setAttribute("aria-invalid", state === "incorrect" ? "true" : "false");
+    control.title = answerStateLabel(state);
+    updateAnswerGroup(control);
+  }
+  function toAnswerState(control, value, answer) {
+    if (control instanceof HTMLInputElement && control.type === "checkbox") {
+      if (!control.checked) {
+        return "empty";
+      }
+      return answer === "true" ? "correct" : "incorrect";
+    }
+    return value === "" ? "empty" : value === answer ? "correct" : "incorrect";
+  }
+  function answerStateLabel(state) {
+    if (state === "correct") {
+      return "Correct";
+    }
+    if (state === "incorrect") {
+      return "Try again";
+    }
+    return "Choose an answer";
+  }
+  function updateAnswerGroup(control) {
+    const group = control.closest("[data-e4a-answer-group], .e4a-vocab-match__row");
+    if (!group) {
+      return;
+    }
+    const controls = Array.from(group.querySelectorAll("[data-e4a-answer]"));
+    const states = controls.map((item) => item.dataset.e4aAnswerState ?? "empty");
+    const groupState = group.dataset.e4aAnswerMode === "single-choice" ? toSingleChoiceAnswerGroupState(states) : toAnswerGroupState(states);
+    group.dataset.e4aAnswerGroupState = groupState;
+    group.title = answerGroupStateLabel(groupState);
+  }
+  function toSingleChoiceAnswerGroupState(states) {
+    if (states.every((state) => state === "empty")) {
+      return "empty";
+    }
+    if (states.some((state) => state === "incorrect")) {
+      return "incorrect";
+    }
+    if (states.some((state) => state === "correct")) {
+      return "correct";
+    }
+    return "partial";
+  }
+  function toAnswerGroupState(states) {
+    if (states.every((state) => state === "empty")) {
+      return "empty";
+    }
+    if (states.every((state) => state === "correct")) {
+      return "correct";
+    }
+    if (states.some((state) => state === "incorrect")) {
+      return "incorrect";
+    }
+    return "partial";
+  }
+  function answerGroupStateLabel(state) {
+    if (state === "correct") {
+      return "All answers in this row are correct";
+    }
+    if (state === "incorrect") {
+      return "One or more answers in this row need another try";
+    }
+    if (state === "partial") {
+      return "Keep going";
+    }
+    return "Choose answers for this row";
+  }
+  function updateUniqueSelectOptions(root) {
+    const selects = Array.from(root.querySelectorAll("select[data-e4a-option-group]"));
+    const groups = /* @__PURE__ */ new Map();
+    for (const select of selects) {
+      const groupName = select.dataset.e4aOptionGroup?.trim();
+      if (!groupName) {
+        continue;
+      }
+      groups.set(groupName, [...groups.get(groupName) ?? [], select]);
+    }
+    for (const groupSelects of groups.values()) {
+      const selectedValues = new Set(groupSelects.map((select) => select.value).filter((value) => value !== ""));
+      for (const select of groupSelects) {
+        for (const option of Array.from(select.options)) {
+          option.disabled = option.value !== "" && option.value !== select.value && selectedValues.has(option.value);
+        }
+      }
+    }
+  }
+  function enforceExclusiveCheckboxGroup(control, root) {
+    if (!(control instanceof HTMLInputElement) || control.type !== "checkbox" || !control.checked) {
+      return;
+    }
+    const groupName = control.dataset.e4aExclusiveGroup?.trim();
+    if (!groupName) {
+      return;
+    }
+    const checkboxes = Array.from(root.querySelectorAll('input[type="checkbox"][data-e4a-exclusive-group]'));
+    for (const checkbox of checkboxes) {
+      if (checkbox !== control && checkbox.dataset.e4aExclusiveGroup?.trim() === groupName) {
+        checkbox.checked = false;
+      }
+    }
+  }
+  function normalizeExclusiveCheckboxGroups(root) {
+    const firstCheckedByGroup = /* @__PURE__ */ new Set();
+    const checkboxes = Array.from(root.querySelectorAll('input[type="checkbox"][data-e4a-exclusive-group]'));
+    for (const checkbox of checkboxes) {
+      const groupName = checkbox.dataset.e4aExclusiveGroup?.trim();
+      if (!checkbox.checked || !groupName) {
+        continue;
+      }
+      if (firstCheckedByGroup.has(groupName)) {
+        checkbox.checked = false;
+      } else {
+        firstCheckedByGroup.add(groupName);
+      }
+    }
   }
 
   // assets/ts/e4a-workbook.ts

@@ -10,7 +10,7 @@ the lab`). The cell looks like::
         exec(urllib.request.urlopen(HELPER_URL, timeout=10).read().decode("utf-8"))
     except Exception:
         # ... define tiny inline fallback stubs for show, show_ai_answer,
-        # show_portfolio_markdown, show_ai_check_block, verify_quote_in_source,
+        # show_ai_check_block, verify_quote_in_source,
         # safe_ai_response, ai_review_*, and start_e4a_lab, then display:
         # "The lab helper could not load. This may be a network problem.
         #  Ask your teacher, or use the regular worksheet steps.
@@ -20,7 +20,7 @@ the lab`). The cell looks like::
 The `exec` evaluates this file's top-level definitions in the notebook's
 namespace, so students never see helper code. They only call short, named
 functions: ``ai_review_prompt(...)``, ``show_ai_answer(...)``,
-``show_portfolio_markdown(...)``, ``verify_quote_in_source(...)``, and so on.
+``verify_quote_in_source(...)``, and so on.
 
 If the URL is unreachable (no network, GitHub outage, wrong fork), the
 `except` branch in the Step 1 cell defines compact fallback stubs with the
@@ -65,7 +65,7 @@ PREFERRED_MODELS = [
 
 
 def show(text):
-    """Render Markdown text inside the notebook."""
+    """Render answer text inside the notebook."""
     from IPython.display import Markdown, display
 
     display(Markdown(str(text)))
@@ -150,11 +150,6 @@ def show_ai_check_block():
         "4. What will I keep, change, or reject?\n"
         "5. I make the final decision."
     )
-
-
-def show_portfolio_markdown(portfolio_md):
-    """Display a portfolio Markdown block in a copy-friendly code fence."""
-    show("### Copy this to your portfolio\n\n```markdown\n" + str(portfolio_md) + "\n```")
 
 
 def verify_quote_in_source(quote, source_text):

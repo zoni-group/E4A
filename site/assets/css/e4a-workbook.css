@@ -32,6 +32,33 @@
   line-height: 1.4;
 }
 
+#quarto-document-content {
+  overflow-wrap: break-word;
+}
+
+#quarto-document-content a,
+#quarto-document-content :not(pre) > code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+#quarto-document-content :not(pre) > code {
+  white-space: normal;
+}
+
+#quarto-document-content pre,
+#quarto-document-content div.sourceCode {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+#quarto-document-content table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 .e4a-workbook-card {
   margin-block: 1.25rem 2rem;
   padding: 1.25rem;
@@ -50,6 +77,11 @@
   margin-block-end: 1rem;
 }
 
+.e4a-workbook-card__header > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
 .e4a-workbook-card__title {
   margin: 0;
   font-size: 1.2rem;
@@ -62,20 +94,68 @@
 }
 
 .e4a-workbook-status {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
   margin: 0;
-  padding: 0.35rem 0.55rem;
-  border: 1px solid var(--bs-border-color);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  white-space: nowrap;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  color: var(--bs-secondary-color);
+  font-size: 0;
+  line-height: 1;
+}
+
+.e4a-workbook-status::before {
+  content: "";
+  display: block;
+  width: 0.85rem;
+  height: 0.85rem;
+  background-color: currentColor;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+
+.e4a-workbook-card[data-e4a-save-state="not-saved-yet"] .e4a-workbook-status::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3C/svg%3E");
+}
+
+.e4a-workbook-card[data-e4a-save-state="saving"] .e4a-workbook-status {
+  color: var(--bs-primary);
+}
+
+.e4a-workbook-card[data-e4a-save-state="saving"] .e4a-workbook-status::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M21 12a9 9 0 0 1-9 9'/%3E%3Cpath d='M3 12a9 9 0 0 1 9-9'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M21 12a9 9 0 0 1-9 9'/%3E%3Cpath d='M3 12a9 9 0 0 1 9-9'/%3E%3C/svg%3E");
+  animation: e4a-save-spin 0.9s linear infinite;
 }
 
 .e4a-workbook-card[data-e4a-save-state="saved-on-this-device"] .e4a-workbook-status {
-  border-color: var(--bs-primary);
+  color: var(--bs-success);
+}
+
+.e4a-workbook-card[data-e4a-save-state="saved-on-this-device"] .e4a-workbook-status::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
 }
 
 .e4a-workbook-card[data-e4a-save-state="save-failed"] .e4a-workbook-status {
-  border-style: dashed;
+  color: var(--bs-danger);
+}
+
+.e4a-workbook-card[data-e4a-save-state="save-failed"] .e4a-workbook-status::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8v5'/%3E%3Cpath d='M12 17h.01'/%3E%3Cpath d='M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8v5'/%3E%3Cpath d='M12 17h.01'/%3E%3Cpath d='M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z'/%3E%3C/svg%3E");
+}
+
+@keyframes e4a-save-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .e4a-workbook-field {
@@ -89,7 +169,8 @@
 }
 
 .e4a-workbook-field textarea,
-.e4a-workbook-field input[type="text"] {
+.e4a-workbook-field input[type="text"],
+.e4a-workbook-field select {
   display: block;
   width: 100%;
   min-height: 7rem;
@@ -103,7 +184,8 @@
 }
 
 .e4a-workbook-field textarea:focus,
-.e4a-workbook-field input[type="text"]:focus {
+.e4a-workbook-field input[type="text"]:focus,
+.e4a-workbook-field select:focus {
   border-color: var(--bs-primary);
   box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--bs-primary) 24%, transparent);
   outline: none;
@@ -112,12 +194,47 @@
 .e4a-workbook-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.45rem;
   margin-block-start: 1rem;
 }
 
 .e4a-workbook-actions .btn {
-  white-space: normal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  min-width: 2.25rem;
+  padding: 0;
+  border-radius: 8px;
+  font-size: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.e4a-workbook-actions .btn::before {
+  content: "";
+  display: block;
+  width: 1.05rem;
+  height: 1.05rem;
+  background-color: currentColor;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+
+.e4a-workbook-actions .btn[data-e4a-copy]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='8' y='8' width='10' height='10' rx='2'/%3E%3Cpath d='M6 16H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='8' y='8' width='10' height='10' rx='2'/%3E%3Cpath d='M6 16H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/%3E%3C/svg%3E");
+}
+
+.e4a-workbook-actions .btn[data-e4a-download]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3Cpath d='M12 15V3'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3Cpath d='M12 15V3'/%3E%3C/svg%3E");
+}
+
+.e4a-workbook-actions .btn[data-e4a-clear]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'/%3E%3Cpath d='M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6'/%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'/%3E%3Cpath d='M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6'/%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3C/svg%3E");
 }
 
 .e4a-workbook-action-status {
@@ -125,9 +242,239 @@
   margin-block: 0.75rem 0;
 }
 
-.e4a-workbook-field input[type="text"] {
+.e4a-workbook-field input[type="text"],
+.e4a-workbook-field select {
   min-height: unset;
   height: 2.5rem;
+}
+
+.e4a-workbook-field select {
+  appearance: auto;
+  padding-block: 0.35rem;
+}
+
+.e4a-vocab-match {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.e4a-vocab-match__header,
+.e4a-vocab-match__row {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.45fr) minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.e4a-vocab-match__header {
+  padding-inline: 0.55rem;
+  color: var(--bs-secondary-color);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.e4a-vocab-match__row {
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--bs-border-color);
+  border-inline-start-width: 0.25rem;
+  border-radius: 8px;
+  background: var(--bs-body-bg);
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.e4a-vocab-match__row > div {
+  min-width: 0;
+}
+
+.e4a-vocab-match__word {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-weight: 700;
+}
+
+.e4a-vocab-match__text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+}
+
+.e4a-vocab-match__row[data-e4a-answer-group-state="partial"] {
+  border-inline-start-color: var(--bs-primary);
+  background: color-mix(in srgb, var(--bs-primary) 6%, var(--bs-body-bg));
+}
+
+.e4a-vocab-match__row[data-e4a-answer-group-state="correct"] {
+  border-color: color-mix(in srgb, var(--bs-success) 58%, var(--bs-border-color));
+  border-inline-start-color: var(--bs-success);
+  background: color-mix(in srgb, var(--bs-success) 8%, var(--bs-body-bg));
+}
+
+.e4a-vocab-match__row[data-e4a-answer-group-state="incorrect"] {
+  border-color: color-mix(in srgb, var(--bs-danger) 55%, var(--bs-border-color));
+  border-inline-start-color: var(--bs-danger);
+  background: color-mix(in srgb, var(--bs-danger) 7%, var(--bs-body-bg));
+}
+
+.e4a-vocab-match__row select {
+  min-width: 0;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 8px;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  font: inherit;
+  line-height: 1.35;
+  transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.e4a-vocab-match__row select:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--bs-primary) 24%, transparent);
+  outline: none;
+}
+
+.e4a-vocab-match__row select[data-e4a-answer-state="correct"] {
+  border-color: color-mix(in srgb, var(--bs-success) 68%, var(--bs-border-color));
+  background: color-mix(in srgb, var(--bs-success) 13%, var(--bs-body-bg));
+}
+
+.e4a-vocab-match__row select[data-e4a-answer-state="incorrect"] {
+  border-color: color-mix(in srgb, var(--bs-danger) 68%, var(--bs-border-color));
+  background: color-mix(in srgb, var(--bs-danger) 12%, var(--bs-body-bg));
+}
+
+.e4a-choice-grid {
+  --e4a-choice-grid-options: 3;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.e4a-choice-grid--two {
+  --e4a-choice-grid-options: 2;
+}
+
+.e4a-choice-grid__header,
+.e4a-choice-grid__row {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1.25fr) repeat(var(--e4a-choice-grid-options), minmax(8.5rem, 1fr));
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.e4a-choice-grid__header {
+  padding-inline: 0.55rem;
+  color: var(--bs-secondary-color);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.e4a-choice-grid__row {
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--bs-border-color);
+  border-inline-start-width: 0.25rem;
+  border-radius: 8px;
+  background: var(--bs-body-bg);
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.e4a-choice-grid__prompt {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-weight: 700;
+}
+
+.e4a-choice-grid__option {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.e4a-choice-grid__option input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  min-height: unset;
+  flex-shrink: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.e4a-choice-grid__option-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.e4a-choice-grid__row[data-e4a-answer-group-state="correct"] {
+  border-color: color-mix(in srgb, var(--bs-success) 58%, var(--bs-border-color));
+  border-inline-start-color: var(--bs-success);
+  background: color-mix(in srgb, var(--bs-success) 8%, var(--bs-body-bg));
+}
+
+.e4a-choice-grid__row[data-e4a-answer-group-state="incorrect"] {
+  border-color: color-mix(in srgb, var(--bs-danger) 55%, var(--bs-border-color));
+  border-inline-start-color: var(--bs-danger);
+  background: color-mix(in srgb, var(--bs-danger) 7%, var(--bs-body-bg));
+}
+
+@media (max-width: 767.98px) {
+  .e4a-choice-grid__header {
+    display: none;
+  }
+
+  .e4a-choice-grid__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+    padding: 0.65rem;
+  }
+}
+
+.e4a-activity-card {
+  margin-block: 1rem 1.5rem;
+}
+
+.e4a-phrase-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.e4a-phrase-row {
+  display: grid;
+  grid-template-columns: minmax(12rem, max-content) minmax(12rem, 1fr);
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.e4a-phrase-row label {
+  margin: 0;
+  font-weight: 600;
+}
+
+.e4a-phrase-row input[type="text"] {
+  display: block;
+  width: 100%;
+  height: 2.5rem;
+  min-height: unset;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 8px;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  font: inherit;
+  line-height: 1.35;
+}
+
+.e4a-phrase-row input[type="text"]:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--bs-primary) 24%, transparent);
+  outline: none;
 }
 
 .e4a-workbook-field--inline {
@@ -157,12 +504,29 @@
     padding: 1rem;
   }
 
-  .e4a-workbook-status {
-    width: 100%;
-    white-space: normal;
+  .e4a-phrase-row {
+    grid-template-columns: 1fr;
+    align-items: stretch;
   }
 
-  .e4a-workbook-actions .btn {
-    width: 100%;
+  .e4a-vocab-match__header {
+    display: none;
+  }
+
+  .e4a-vocab-match__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.45rem;
+    padding: 0.65rem;
+  }
+
+  .e4a-vocab-match__word {
+    grid-column: 1 / -1;
+    padding-block-end: 0.1rem;
+    font-size: 1rem;
+  }
+
+  .e4a-vocab-match__row select {
+    height: auto;
+    min-height: 2.6rem;
   }
 }
