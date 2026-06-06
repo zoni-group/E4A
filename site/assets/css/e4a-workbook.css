@@ -242,6 +242,26 @@
   margin-block: 0.75rem 0;
 }
 
+.e4a-copyable-template {
+  margin-block: 1rem 0.35rem;
+}
+
+.e4a-copyable-template__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.e4a-copyable-template__status {
+  min-height: 1.25rem;
+  margin-block: 0.25rem 0;
+  color: var(--bs-success);
+  font-size: 0.95rem;
+}
+
 .e4a-workbook-field input[type="text"],
 .e4a-workbook-field select {
   min-height: unset;

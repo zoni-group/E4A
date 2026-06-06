@@ -692,6 +692,7 @@
 
   // assets/ts/e4a-workbook.ts
   async function initializeWorkbook() {
+    initializeTemplateCopyButtons();
     const blocks = scanWorkbookBlocks();
     if (blocks.length === 0) {
       return;
@@ -710,6 +711,35 @@
       return db;
     } catch {
       return void 0;
+    }
+  }
+  function initializeTemplateCopyButtons(root = document) {
+    const buttons = Array.from(root.querySelectorAll("[data-e4a-copy-target]"));
+    for (const button of buttons) {
+      const targetId = button.dataset.e4aCopyTarget?.trim();
+      if (!targetId) {
+        continue;
+      }
+      const target = document.getElementById(targetId);
+      if (!target) {
+        continue;
+      }
+      const label = button.getAttribute("aria-label") || button.textContent?.trim() || "Copy";
+      button.setAttribute("aria-label", label);
+      if (!button.title) {
+        button.title = label;
+      }
+      button.addEventListener("click", () => void copyTemplateText(button, target));
+    }
+  }
+  async function copyTemplateText(button, target) {
+    const statusId = button.dataset.e4aCopyStatus?.trim();
+    const status = statusId ? document.getElementById(statusId) ?? void 0 : void 0;
+    try {
+      await copyWorkbookText(target.textContent?.trim() || "");
+      setText(status, "Copied.");
+    } catch {
+      setText(status, "Copy failed. Select and copy the text instead.");
     }
   }
   if (document.readyState === "loading") {
