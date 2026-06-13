@@ -1310,11 +1310,18 @@
     const statusId = button.dataset.e4aCopyStatus?.trim();
     const status = statusId ? document.getElementById(statusId) ?? void 0 : void 0;
     try {
-      await copyWorkbookText(target.textContent?.trim() || "");
+      await copyWorkbookText(getCopyableTemplateText(target));
       setText(status, "Copied.");
     } catch {
       setText(status, "Copy failed. Select and copy the text instead.");
     }
+  }
+  function getCopyableTemplateText(target) {
+    if (!target.classList.contains("e4a-readable-copy")) {
+      return target.textContent?.trim() || "";
+    }
+    const lines = Array.from(target.querySelectorAll("p, li")).map((element) => element.textContent?.trim() || "").filter(Boolean);
+    return lines.join("\n");
   }
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => void initializeWorkbook(), { once: true });

@@ -262,6 +262,36 @@
   font-size: 0.95rem;
 }
 
+.e4a-readable-copy {
+  display: grid;
+  gap: 0.45rem;
+  margin-block: 0.35rem 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--bs-primary) 18%, var(--bs-border-color));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--bs-primary) 4%, var(--bs-body-bg));
+  color: var(--bs-body-color);
+}
+
+.e4a-readable-copy--compact {
+  padding-block: 0.65rem;
+}
+
+.e4a-readable-copy p,
+.e4a-readable-copy ul,
+.e4a-readable-copy ol {
+  margin: 0;
+}
+
+.e4a-readable-copy ul,
+.e4a-readable-copy ol {
+  padding-inline-start: 1.25rem;
+}
+
+.e4a-readable-copy li + li {
+  margin-block-start: 0.25rem;
+}
+
 .e4a-kitchen-before-after {
   display: grid;
   gap: 1rem;
