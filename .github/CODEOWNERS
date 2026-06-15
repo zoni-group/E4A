@@ -1,7 +1,9 @@
 * @opereztuta
 
 /.github/workflows/ @opereztuta
+/functions/ @opereztuta
 /scripts/ @opereztuta
+/wrangler.jsonc @opereztuta
 /english-for-ai-course/interactives/e4a_colab.py @opereztuta
 /LICENSE.md @opereztuta
 /THIRD_PARTY_NOTICES.md @opereztuta

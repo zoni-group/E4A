@@ -33,6 +33,7 @@ TEXT_SUFFIXES = {
     ".html",
     ".ipynb",
     ".js",
+    ".jsonc",
     ".json",
     ".md",
     ".py",
@@ -43,16 +44,19 @@ TEXT_SUFFIXES = {
 }
 
 ALLOWED_ROOT_FILES = {
+    ".gitignore",
     "CONTRIBUTING.md",
     "LICENSE.md",
     "README.md",
     "SECURITY.md",
     "THIRD_PARTY_NOTICES.md",
+    "wrangler.jsonc",
 }
 
 ALLOWED_TOP_LEVEL_DIRS = {
     ".github",
     "english-for-ai-course",
+    "functions",
     "scripts",
     "site",
 }
@@ -274,9 +278,11 @@ def validate_required_public_files(
         "LICENSE.md",
         "THIRD_PARTY_NOTICES.md",
         ".github/workflows/pages.yml",
+        "functions/_middleware.js",
         "scripts/validate_public_repo.py",
         "site/CNAME",
         "site/index.html",
+        "wrangler.jsonc",
         "english-for-ai-course/interactives/e4a_colab.py",
     ]
     for rel in required:
@@ -326,6 +332,9 @@ def validate_allowed_path(rel: str, expected_notebooks: set[str], findings: list
     elif top == "scripts":
         if rel != "scripts/validate_public_repo.py":
             findings.append(Finding(rel, "unexpected script", "only the public repository validator is allowed"))
+    elif top == "functions":
+        if rel != "functions/_middleware.js":
+            findings.append(Finding(rel, "unexpected Pages Function", "only the auth middleware is allowed"))
     elif top == "english-for-ai-course":
         allowed_prefix = "english-for-ai-course/interactives/"
         if not rel.startswith(allowed_prefix):
