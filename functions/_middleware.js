@@ -7,6 +7,64 @@ const MAX_SESSION_SECONDS = 8 * 60 * 60;
 const AES_GCM_IV_BYTES = 12;
 const PROTECTED_DOCUMENT_CACHE_CONTROL = "private, no-store";
 const PROTECTED_ASSET_CACHE_CONTROL = "private, max-age=300, must-revalidate";
+const ALLOWED_SITE_METHODS = new Set(["GET", "HEAD", "OPTIONS"]);
+const BLOCKED_DYNAMIC_EXTENSIONS = new Set([
+  ".asp",
+  ".aspx",
+  ".cgi",
+  ".jsp",
+  ".jspx",
+  ".phar",
+  ".php",
+  ".php3",
+  ".php4",
+  ".php5",
+  ".php7",
+  ".phtml",
+  ".pl"
+]);
+const BLOCKED_SENSITIVE_EXTENSIONS = new Set([
+  ".bak",
+  ".conf",
+  ".config",
+  ".env",
+  ".ini",
+  ".log",
+  ".old",
+  ".orig",
+  ".save",
+  ".sql",
+  ".swp",
+  ".toml",
+  ".yaml",
+  ".yml"
+]);
+const BLOCKED_PROBE_PREFIXES = [
+  "/.git",
+  "/.hg",
+  "/.svn",
+  "/_profiler",
+  "/actuator",
+  "/adminer",
+  "/backup",
+  "/backups",
+  "/cgi-bin",
+  "/config",
+  "/debug",
+  "/phpmyadmin",
+  "/pma",
+  "/server-info",
+  "/server-status",
+  "/storage",
+  "/vendor",
+  "/wordpress"
+];
+const BLOCKED_PROBE_STRING_PREFIXES = ["/.env", "/wp-"];
+const BLOCKED_EXACT_PROBES = new Set([
+  "/phpinfo.php",
+  "/wp-login.php",
+  "/xmlrpc.php"
+]);
 const STATIC_ASSET_EXTENSIONS = new Set([
   ".css",
   ".ico",
@@ -28,6 +86,11 @@ const textDecoder = new TextDecoder();
 export async function onRequest(context) {
   const { request, env } = context;
   const url = new URL(request.url);
+
+  if (isBlockedProbeRequest(request, url)) {
+    return blockedProbeResponse();
+  }
+
   const sessionId = normalizeSessionId(url.searchParams.get(SESSION_QUERY_PARAM));
 
   if (sessionId) {
@@ -208,6 +271,12 @@ function redirectResponse(location) {
   });
 }
 
+function blockedProbeResponse() {
+  const response = new Response(null, { status: 404 });
+  applyProtectedHeaders(response);
+  return response;
+}
+
 function protectedAssetResponse(request, response, setCookie) {
   const protectedResponse = new Response(response.body, response);
   if (setCookie) {
@@ -234,6 +303,49 @@ function isStaticAssetRequest(request) {
     }
   }
   return false;
+}
+
+function isBlockedProbeRequest(request, url) {
+  if (!ALLOWED_SITE_METHODS.has(request.method.toUpperCase())) {
+    return true;
+  }
+
+  const pathname = url.pathname.toLowerCase();
+  if (BLOCKED_EXACT_PROBES.has(pathname)) {
+    return true;
+  }
+
+  for (const prefix of BLOCKED_PROBE_STRING_PREFIXES) {
+    if (pathname.startsWith(prefix)) {
+      return true;
+    }
+  }
+
+  for (const prefix of BLOCKED_PROBE_PREFIXES) {
+    if (pathname === prefix || pathname.startsWith(`${prefix}/`)) {
+      return true;
+    }
+  }
+
+  return hasBlockedPathExtension(pathname);
+}
+
+function hasBlockedPathExtension(pathname) {
+  for (const segment of pathname.split("/")) {
+    const extension = pathSegmentExtension(segment);
+    if (BLOCKED_DYNAMIC_EXTENSIONS.has(extension) || BLOCKED_SENSITIVE_EXTENSIONS.has(extension)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function pathSegmentExtension(segment) {
+  const index = segment.lastIndexOf(".");
+  if (index <= 0) {
+    return "";
+  }
+  return segment.slice(index);
 }
 
 function clearSessionCookie() {
