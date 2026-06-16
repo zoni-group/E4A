@@ -5,6 +5,22 @@ const COOKIE_VERSION = "v1";
 const REVALIDATE_AFTER_SECONDS = 5 * 60;
 const MAX_SESSION_SECONDS = 8 * 60 * 60;
 const AES_GCM_IV_BYTES = 12;
+const PROTECTED_DOCUMENT_CACHE_CONTROL = "private, no-store";
+const PROTECTED_ASSET_CACHE_CONTROL = "private, max-age=300, must-revalidate";
+const STATIC_ASSET_EXTENSIONS = new Set([
+  ".css",
+  ".ico",
+  ".jpeg",
+  ".jpg",
+  ".js",
+  ".json",
+  ".map",
+  ".png",
+  ".svg",
+  ".webp",
+  ".woff",
+  ".woff2"
+]);
 
 const textEncoder = new TextEncoder();
 const textDecoder = new TextDecoder();
@@ -54,7 +70,7 @@ async function handleSessionCookie(context, cookieValue) {
   }
 
   if (Number.isFinite(payload.nextCheck) && payload.nextCheck > now) {
-    return protectedAssetResponse(await context.next());
+    return protectedAssetResponse(context.request, await context.next());
   }
 
   const validation = await validatePortalSession(context.env, payload.sid);
@@ -67,7 +83,7 @@ async function handleSessionCookie(context, cookieValue) {
     return redirectToPortal(context.env, true);
   }
 
-  return protectedAssetResponse(await context.next(), refreshedCookie);
+  return protectedAssetResponse(context.request, await context.next(), refreshedCookie);
 }
 
 async function validatePortalSession(env, sessionId) {
@@ -192,19 +208,32 @@ function redirectResponse(location) {
   });
 }
 
-function protectedAssetResponse(response, setCookie) {
+function protectedAssetResponse(request, response, setCookie) {
   const protectedResponse = new Response(response.body, response);
   if (setCookie) {
     protectedResponse.headers.append("Set-Cookie", setCookie);
   }
-  applyProtectedHeaders(protectedResponse);
+  applyProtectedHeaders(protectedResponse, !setCookie && isStaticAssetRequest(request));
   return protectedResponse;
 }
 
-function applyProtectedHeaders(response) {
-  response.headers.set("Cache-Control", "private, no-store");
+function applyProtectedHeaders(response, allowPrivateAssetCache = false) {
+  response.headers.set(
+    "Cache-Control",
+    allowPrivateAssetCache ? PROTECTED_ASSET_CACHE_CONTROL : PROTECTED_DOCUMENT_CACHE_CONTROL
+  );
   response.headers.set("Referrer-Policy", "no-referrer");
   response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+}
+
+function isStaticAssetRequest(request) {
+  const pathname = new URL(request.url).pathname.toLowerCase();
+  for (const extension of STATIC_ASSET_EXTENSIONS) {
+    if (pathname.endsWith(extension)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function clearSessionCookie() {
