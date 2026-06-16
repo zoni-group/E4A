@@ -1,5 +1,5 @@
 const COOKIE_NAME = "__Host-e4a_session";
-const SESSION_QUERY_PARAM = "session_id";
+const SESSION_QUERY_PARAM = "link";
 const DEFAULT_PORTAL_LOGIN_URL = "https://www.zoni.edu/portal";
 const COOKIE_VERSION = "v1";
 const REVALIDATE_AFTER_SECONDS = 5 * 60;
