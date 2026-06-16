@@ -3,9 +3,10 @@
   "name": "e4a-protected-pages",
   "compatibility_date": "2026-06-15",
   "pages_build_output_dir": "./site",
-  // Configure VALIDATE_SESSION_URL, VALIDATE_SESSION_TOKEN, and
-  // AUTH_COOKIE_SECRET in Cloudflare Pages settings or Wrangler secrets.
+  // Configure VALIDATE_SESSION_TOKEN and AUTH_COOKIE_SECRET in Cloudflare
+  // Pages settings or Wrangler secrets.
   "vars": {
+    "VALIDATE_SESSION_URL": "https://stage.portal.zoni.edu/api/global/getSessionDetails",
     "PORTAL_LOGIN_URL": "https://www.zoni.edu/portal"
   }
 }
