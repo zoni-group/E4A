@@ -690,6 +690,712 @@
     }
   }
 
+  // assets/ts/e4a-decision-poll.ts
+  var feelingScale = [
+    { value: 1, label: "Very weak" },
+    { value: 2, label: "Weak" },
+    { value: 3, label: "Medium" },
+    { value: 4, label: "Strong" },
+    { value: 5, label: "Very strong" }
+  ];
+  var decisionSlides = [
+    {
+      variant: "intro",
+      eyebrow: "Interactive activity",
+      title: "Decision Poll: Are We Really in Control?",
+      copy: "Read each question, vote quickly, then move to the surprise slide."
+    },
+    {
+      variant: "vote-options",
+      title: "Poll 1",
+      prompt: "Would you take this medicine?",
+      details: ["This medicine saves 90 out of 100 people."],
+      options: ["Yes", "No", "I'm not sure"],
+      questionImage: {
+        imagePath: "assets/images/lesson-03/poll_1_question_would_you_take_this_medicine.png",
+        imageAlt: "A classroom medicine choice card says this medicine saves 90 out of 100 people while students prepare to vote."
+      }
+    },
+    {
+      variant: "surprise",
+      title: "The Framing Effect",
+      revealTitle: "Same facts, different feeling",
+      revealText: '"Saves 90 out of 100 people" means the same as "10 out of 100 people do not survive."',
+      mindBlowingIdea: "Words can change decisions.",
+      simpleEnglish: "People do not only react to facts. People react to how facts are presented.",
+      imagePath: "assets/images/lesson-03/01-framing_effect-same_facts_different_words.png",
+      imageAlt: "Two classroom medicine explanations show the same survival facts framed positively and negatively, with students reacting differently."
+    },
+    {
+      variant: "vote-options",
+      title: "Poll 2 - Question 1",
+      prompt: "Is this backpack more or less than $120?",
+      options: ["More than $120", "Less than $120"],
+      questionImage: {
+        imagePath: "assets/images/lesson-03/poll_2_question_1_question_is_this_backpack_more_or_less_than_120.png",
+        imageAlt: "A classroom shopping scene shows a backpack and a one hundred twenty dollar question."
+      }
+    },
+    {
+      variant: "vote-options",
+      title: "Poll 2 - Question 2",
+      prompt: "What is a fair price for this backpack?",
+      options: ["$20", "$40", "$60", "$80 or more"],
+      questionImage: {
+        imagePath: "assets/images/lesson-03/poll_2_question_2_question_what_is_a_fair_price_for_this_backpack.png",
+        imageAlt: "A backpack is shown with price choices of twenty, forty, sixty, and eighty dollars or more."
+      }
+    },
+    {
+      variant: "surprise",
+      title: "The Anchoring Effect",
+      revealTitle: "The first number can influence you",
+      revealText: "The number $120 may stay in your mind. Then your price guess may become higher.",
+      mindBlowingIdea: "Random numbers can affect decisions.",
+      simpleEnglish: "The first number you see can become an anchor.",
+      imagePath: "assets/images/lesson-03/02-anchoring_effect-the_first_number_sticks.png",
+      imageAlt: "A classroom backpack price example shows an early high number acting like an anchor for later price guesses."
+    },
+    {
+      variant: "vote-radio-submit",
+      title: "Poll 3",
+      prompt: "Choose your class snack.",
+      options: ["Apple", "Cookie", "I want to change the option"],
+      selectedIndex: 1,
+      questionImage: {
+        imagePath: "assets/images/lesson-03/poll_3_question_choose_your_class_snack.png",
+        imageAlt: "A classroom snack choice form shows Apple, Cookie, and a change option with Cookie selected."
+      }
+    },
+    {
+      variant: "surprise",
+      title: "The Default Effect",
+      revealTitle: "Many people keep the selected option",
+      revealText: "The checked option feels easy. Changing it takes more effort.",
+      mindBlowingIdea: "The default option is powerful.",
+      simpleEnglish: "Sometimes we choose something because it is already chosen for us.",
+      imagePath: "assets/images/lesson-03/03-default_effect-the_option_already_selected.png",
+      imageAlt: "A snack choice example shows an apple and a cookie, with the cookie already selected as the default option."
+    },
+    {
+      variant: "vote-menu-compare",
+      title: "Poll 4",
+      prompt: "Which menu is easier?",
+      menus: [
+        {
+          title: "Menu A",
+          items: ["Chocolate", "Vanilla", "Strawberry"]
+        },
+        {
+          title: "Menu B",
+          items: [
+            "Chocolate",
+            "Vanilla",
+            "Strawberry",
+            "Mango",
+            "Coffee",
+            "Pistachio",
+            "Coconut",
+            "Caramel",
+            "Mint",
+            "Banana",
+            "Lemon",
+            "Cherry",
+            "Blueberry",
+            "Peanut butter"
+          ]
+        }
+      ],
+      options: ["Menu A is easier", "Menu B is easier", "Both are easy"],
+      questionImage: {
+        imagePath: "assets/images/lesson-03/poll_4_question_which_menu_is_easier.png",
+        imageAlt: "Two ice cream menus compare a short flavor list and a longer flavor list."
+      }
+    },
+    {
+      variant: "surprise",
+      title: "Choice Overload",
+      revealTitle: "More choices are not always better",
+      revealText: "Many options can feel exciting. But too many options can make choosing harder.",
+      mindBlowingIdea: "Too many choices can make the brain freeze.",
+      simpleEnglish: "More options can make decisions more difficult.",
+      imagePath: "assets/images/lesson-03/04-choice_overload-too_many_options.png",
+      imageAlt: "An ice cream shop compares a simple three-flavor menu with a crowded menu that makes a student feel unsure."
+    },
+    {
+      variant: "vote-options",
+      title: "Poll 5 - Question 1",
+      prompt: "You own this pen. How much would you sell it for?",
+      options: ["$0.25", "$0.50", "$1.00", "More than $1.00"],
+      questionImage: {
+        imagePath: "assets/images/lesson-03/poll_5_question_1_how_much_would_you_sell_it_for.png",
+        imageAlt: "A student holds a simple blue pen and considers selling price choices."
+      }
+    },
+    {
+      variant: "vote-options",
+      title: "Poll 5 - Question 2",
+      prompt: "Now imagine someone is offering you the same pen. How much would you buy it for?",
+      options: ["$0.25", "$0.50", "$1.00", "More than $1.00"],
+      questionImage: {
+        imagePath: "assets/images/lesson-03/poll_5_question_2_how_much_would_you_buy_it_for.png",
+        imageAlt: "A simple blue pen is offered for sale while a student considers buying price choices."
+      }
+    },
+    {
+      variant: "surprise",
+      title: "The Endowment Effect",
+      revealTitle: '"My pen" feels more valuable',
+      revealText: "When something becomes mine, I may value it more.",
+      mindBlowingIdea: "Ownership changes value.",
+      simpleEnglish: "People often want more money to sell something they own than they would pay to buy it.",
+      imagePath: "assets/images/lesson-03/05-endowment_effect-my_pen_feels_more_valuable.png",
+      imageAlt: "A classroom pen example shows that a student may value a pen more after thinking of it as their own."
+    },
+    {
+      variant: "vote-scale",
+      title: "Poll 6 - Question 1",
+      prompt: "Imagine you find $20. How strong is the feeling?",
+      scale: feelingScale,
+      questionImage: {
+        imagePath: "assets/images/lesson-03/poll_6_question_1_how_strong_is_the_feeling.png",
+        imageAlt: "A student finds a twenty dollar bill and looks at a one to five feeling scale."
+      }
+    },
+    {
+      variant: "vote-scale",
+      title: "Poll 6 - Question 2",
+      prompt: "Imagine you lose $20. How strong is the feeling?",
+      scale: feelingScale,
+      questionImage: {
+        imagePath: "assets/images/lesson-03/poll_6_question_2_magine_you_lose_20.png",
+        imageAlt: "A student checks a bag for a missing twenty dollar bill and looks at a one to five feeling scale."
+      }
+    },
+    {
+      variant: "surprise",
+      title: "Loss Aversion",
+      revealTitle: "Losses often feel stronger than gains",
+      revealText: "For many people, losing money hurts more than winning the same amount feels good.",
+      mindBlowingIdea: "Losses feel bigger than gains.",
+      simpleEnglish: "People often work harder to avoid losing something than to get something new.",
+      imagePath: "assets/images/lesson-03/06-loss_aversion-losing_hurts_more.png",
+      imageAlt: "A classroom money example compares the feeling of finding twenty dollars with the stronger feeling of losing twenty dollars."
+    },
+    {
+      variant: "vote-options",
+      title: "Poll 7",
+      prompt: "You answer a question. Then five classmates give a different answer. What do you do?",
+      options: ["Keep my answer", "Change my answer", "Feel less sure"],
+      questionImage: {
+        imagePath: "assets/images/lesson-03/poll_7_question_five_classmates_give_a_different_answer.png",
+        imageAlt: "One student holds answer A while five classmates hold answer B in a calm classroom vote."
+      }
+    },
+    {
+      variant: "surprise",
+      title: "Social Influence",
+      revealTitle: "Groups can influence decisions",
+      revealText: "Sometimes people change their answers because they do not want to be different.",
+      mindBlowingIdea: "Other people can change our decisions.",
+      simpleEnglish: "We are influenced by the people around us.",
+      imagePath: "assets/images/lesson-03/07-social_influence-the_group_changes_your_mind.png",
+      imageAlt: "A classroom vote shows one student holding answer A while classmates hold answer B, making the student feel unsure."
+    },
+    {
+      variant: "summary"
+    },
+    {
+      variant: "transition",
+      text: "A decision matrix helps us compare options more clearly."
+    }
+  ];
+  var INTRO_SLIDE_COUNT = 1;
+  var LETTERS = ["A", "B", "C", "D"];
+  function initializeDecisionPollActivities(root = document) {
+    const activities = Array.from(root.querySelectorAll("[data-e4a-decision-poll]"));
+    for (const activity of activities) {
+      new DecisionPollActivity(activity).initialize();
+    }
+  }
+  var DecisionPollActivity = class {
+    constructor(root) {
+      this.root = root;
+      this.currentSlideIndex = 0;
+      this.isPresenting = false;
+      this.handlePresentationKeydown = (event) => {
+        if (event.key === "Escape" && this.isPresenting) {
+          this.exitPresentation();
+        }
+      };
+      this.handleFullscreenChange = () => {
+        if (this.isPresenting && document.fullscreenElement === null) {
+          this.exitPresentation(true);
+        }
+      };
+    }
+    initialize() {
+      this.root.innerHTML = this.renderShell();
+      const elements = this.queryElements();
+      if (!elements) {
+        return;
+      }
+      this.elements = elements;
+      elements.presentButton.addEventListener("click", () => this.enterPresentation());
+      elements.exitButton.addEventListener("click", () => this.exitPresentation());
+      elements.previousButton.addEventListener("click", () => this.goPrevious());
+      elements.primaryButton.addEventListener("click", () => this.goNext());
+      this.renderSlide();
+    }
+    renderShell() {
+      return `
+      <div class="e4a-decision-poll__inner">
+        <div class="e4a-decision-poll__header">
+          <div class="e4a-decision-poll__present-controls">
+            <button type="button" class="e4a-decision-poll__present btn btn-outline-primary" data-e4a-decision-poll-present>Present</button>
+            <button type="button" class="e4a-decision-poll__exit btn btn-outline-secondary" data-e4a-decision-poll-exit hidden>Exit</button>
+          </div>
+        </div>
+        <div class="e4a-decision-poll__poll" data-e4a-decision-poll-view>
+          <div class="e4a-decision-poll__progress-row" data-e4a-decision-poll-progress-row>
+            <p class="e4a-decision-poll__progress-text" data-e4a-decision-poll-progress-text></p>
+            <div class="e4a-decision-poll__progress-track" aria-hidden="true">
+              <div class="e4a-decision-poll__progress-bar" data-e4a-decision-poll-progress-bar></div>
+            </div>
+          </div>
+          <div class="e4a-decision-poll__slide" data-e4a-decision-poll-slide tabindex="-1"></div>
+          <div class="e4a-decision-poll__actions">
+            <button type="button" class="e4a-decision-poll__previous btn btn-outline-secondary" data-e4a-decision-poll-previous hidden>Previous slide</button>
+            <button type="button" class="e4a-decision-poll__primary btn btn-primary" data-e4a-decision-poll-primary>Next</button>
+          </div>
+        </div>
+      </div>
+    `;
+    }
+    queryElements() {
+      const progressRow = this.root.querySelector("[data-e4a-decision-poll-progress-row]");
+      const progressText = this.root.querySelector("[data-e4a-decision-poll-progress-text]");
+      const progressBar = this.root.querySelector("[data-e4a-decision-poll-progress-bar]");
+      const slide = this.root.querySelector("[data-e4a-decision-poll-slide]");
+      const previousButton = this.root.querySelector("[data-e4a-decision-poll-previous]");
+      const primaryButton = this.root.querySelector("[data-e4a-decision-poll-primary]");
+      const presentButton = this.root.querySelector("[data-e4a-decision-poll-present]");
+      const exitButton = this.root.querySelector("[data-e4a-decision-poll-exit]");
+      if (!progressRow || !progressText || !progressBar || !slide || !previousButton || !primaryButton || !presentButton || !exitButton) {
+        return void 0;
+      }
+      return { progressRow, progressText, progressBar, slide, previousButton, primaryButton, presentButton, exitButton };
+    }
+    renderSlide() {
+      if (!this.elements) {
+        return;
+      }
+      const slide = decisionSlides[this.currentSlideIndex];
+      const isIntroSlide = slide.variant === "intro";
+      const teachingSlideCount = decisionSlides.length - INTRO_SLIDE_COUNT;
+      const teachingSlideNumber = this.currentSlideIndex - INTRO_SLIDE_COUNT + 1;
+      this.elements.slide.replaceChildren();
+      this.elements.progressRow.hidden = isIntroSlide;
+      this.elements.progressText.textContent = isIntroSlide ? "" : `Slide ${teachingSlideNumber} of ${teachingSlideCount}`;
+      this.elements.progressBar.style.width = isIntroSlide ? "0%" : `${teachingSlideNumber / teachingSlideCount * 100}%`;
+      this.elements.previousButton.hidden = this.currentSlideIndex <= INTRO_SLIDE_COUNT;
+      this.setControlButtonLabel(this.elements.previousButton, "Previous slide");
+      this.renderPrimaryButton(slide);
+      if (slide.variant === "intro") {
+        this.renderIntroSlide(slide);
+      } else if (slide.variant === "vote-options") {
+        this.renderVoteOptionsSlide(slide);
+      } else if (slide.variant === "vote-radio-submit") {
+        this.renderVoteRadioSubmitSlide(slide);
+      } else if (slide.variant === "vote-menu-compare") {
+        this.renderVoteMenuCompareSlide(slide);
+      } else if (slide.variant === "vote-scale") {
+        this.renderVoteScaleSlide(slide);
+      } else if (slide.variant === "surprise") {
+        this.renderSurpriseSlide(slide);
+      } else if (slide.variant === "summary") {
+        this.renderSummarySlide();
+      } else {
+        this.renderTransitionSlide(slide);
+      }
+      focusWithoutScrolling(this.elements.slide);
+    }
+    renderPrimaryButton(slide) {
+      if (!this.elements) {
+        return;
+      }
+      if (slide.variant === "transition") {
+        this.elements.primaryButton.hidden = true;
+        return;
+      }
+      this.elements.primaryButton.hidden = false;
+      if (slide.variant === "intro") {
+        this.setControlButtonLabel(this.elements.primaryButton, "Start");
+      } else if (slide.variant === "vote-radio-submit") {
+        this.setControlButtonLabel(this.elements.primaryButton, "Submit vote");
+      } else if (slide.variant === "surprise") {
+        this.setControlButtonLabel(
+          this.elements.primaryButton,
+          decisionSlides[this.currentSlideIndex + 1]?.variant === "summary" ? "See summary" : "Next poll"
+        );
+      } else if (slide.variant === "summary") {
+        this.setControlButtonLabel(this.elements.primaryButton, "Finish");
+      } else {
+        this.setControlButtonLabel(this.elements.primaryButton, "Next");
+      }
+    }
+    renderIntroSlide(slide) {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.slide.className = "e4a-decision-poll__slide e4a-decision-poll__slide--intro";
+      const content = document.createElement("div");
+      content.className = "e4a-decision-poll__intro-slide";
+      const eyebrow = document.createElement("p");
+      eyebrow.className = "e4a-decision-poll__eyebrow";
+      eyebrow.textContent = slide.eyebrow;
+      const title = document.createElement("h3");
+      title.className = "e4a-decision-poll__title";
+      title.textContent = slide.title;
+      const copy = document.createElement("p");
+      copy.className = "e4a-decision-poll__copy";
+      copy.textContent = slide.copy;
+      content.append(eyebrow, title, copy);
+      this.elements.slide.append(content);
+    }
+    renderVoteOptionsSlide(slide) {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.slide.className = "e4a-decision-poll__slide e4a-decision-poll__slide--question";
+      const content = document.createElement("div");
+      content.className = "e4a-decision-poll__question-content";
+      content.append(this.renderSlideHeader(slide.title, slide.prompt));
+      if (slide.details && slide.details.length > 0) {
+        content.append(this.renderDetails(slide.details));
+      }
+      content.append(this.renderOptions(slide.options));
+      this.appendQuestionLayout(content, slide.questionImage);
+    }
+    renderVoteRadioSubmitSlide(slide) {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.slide.className = "e4a-decision-poll__slide e4a-decision-poll__slide--question";
+      const content = document.createElement("div");
+      content.className = "e4a-decision-poll__question-content";
+      content.append(this.renderSlideHeader(slide.title, slide.prompt));
+      const form = document.createElement("form");
+      form.className = "e4a-decision-poll__radio-form";
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        this.goNext();
+      });
+      slide.options.forEach((option, index) => {
+        const id = `e4a-decision-poll-default-${index}`;
+        const label = document.createElement("label");
+        label.className = "e4a-decision-poll__radio-option";
+        label.htmlFor = id;
+        const radio = document.createElement("input");
+        radio.id = id;
+        radio.type = "radio";
+        radio.name = "e4a-decision-poll-default-snack";
+        radio.value = option;
+        radio.checked = index === slide.selectedIndex;
+        const text = document.createElement("span");
+        text.textContent = option;
+        label.append(radio, text);
+        form.append(label);
+      });
+      content.append(form);
+      this.appendQuestionLayout(content, slide.questionImage);
+    }
+    renderVoteMenuCompareSlide(slide) {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.slide.className = "e4a-decision-poll__slide e4a-decision-poll__slide--question e4a-decision-poll__slide--question-menu";
+      const topLine = document.createElement("div");
+      topLine.className = "e4a-decision-poll__question-topline";
+      if (slide.questionImage) {
+        topLine.append(this.renderQuestionImage(slide.questionImage));
+      }
+      topLine.append(this.renderSlideHeader(slide.title, slide.prompt));
+      this.elements.slide.append(topLine);
+      this.elements.slide.append(this.renderMenuTable(slide.menus));
+      this.elements.slide.append(this.renderOptions(slide.options));
+    }
+    renderVoteScaleSlide(slide) {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.slide.className = "e4a-decision-poll__slide e4a-decision-poll__slide--question e4a-decision-poll__slide--scale";
+      const content = document.createElement("div");
+      content.className = "e4a-decision-poll__question-content";
+      content.append(this.renderSlideHeader(slide.title, slide.prompt));
+      content.append(this.renderScale(slide.scale));
+      this.appendQuestionLayout(content, slide.questionImage);
+    }
+    renderSurpriseSlide(slide) {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.slide.className = "e4a-decision-poll__slide e4a-decision-poll__slide--surprise";
+      const text = document.createElement("div");
+      text.className = "e4a-decision-poll__surprise-text";
+      text.append(this.renderSlideHeader(slide.title, slide.revealTitle));
+      const reveal = document.createElement("p");
+      reveal.className = "e4a-decision-poll__reveal-copy";
+      reveal.textContent = slide.revealText;
+      const idea = document.createElement("p");
+      idea.className = "e4a-decision-poll__idea";
+      idea.textContent = `Mind-blowing idea: ${slide.mindBlowingIdea}`;
+      const simple = document.createElement("p");
+      simple.className = "e4a-decision-poll__simple";
+      simple.textContent = `Simple English: ${slide.simpleEnglish}`;
+      text.append(reveal, idea, simple);
+      const figure = document.createElement("figure");
+      figure.className = "e4a-decision-poll__figure";
+      figure.append(this.renderResponsiveImage(slide.imagePath, slide.imageAlt));
+      this.elements.slide.append(text, figure);
+    }
+    renderSummarySlide() {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.slide.className = "e4a-decision-poll__slide e4a-decision-poll__slide--summary";
+      const title = document.createElement("h4");
+      title.className = "e4a-decision-poll__summary-title";
+      title.textContent = "What Influenced Our Decisions?";
+      const summary = document.createElement("div");
+      summary.className = "e4a-decision-poll__summary";
+      summary.setAttribute("aria-label", "Decision influences");
+      [
+        ["Medicine", "different words"],
+        ["Backpack", "first number"],
+        ["Snack", "selected option"],
+        ["Ice cream", "too many choices"],
+        ["Pen", "ownership"],
+        ["Money", "fear of losing"],
+        ["Classmates", "other people"]
+      ].forEach(([topic, influence]) => {
+        const item = document.createElement("p");
+        const strong = document.createElement("strong");
+        strong.textContent = `${topic}: `;
+        item.append(strong, influence);
+        summary.append(item);
+      });
+      this.elements.slide.append(title, summary);
+    }
+    renderTransitionSlide(slide) {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.slide.className = "e4a-decision-poll__slide e4a-decision-poll__slide--transition";
+      const text = document.createElement("p");
+      text.className = "e4a-decision-poll__transition-text";
+      text.textContent = slide.text;
+      this.elements.slide.append(text);
+    }
+    renderSlideHeader(title, heading) {
+      const header = document.createElement("div");
+      header.className = "e4a-decision-poll__slide-header";
+      const eyebrow = document.createElement("p");
+      eyebrow.className = "e4a-decision-poll__slide-eyebrow";
+      eyebrow.textContent = title;
+      const prompt = document.createElement("p");
+      prompt.className = "e4a-decision-poll__question";
+      prompt.textContent = heading;
+      header.append(eyebrow, prompt);
+      return header;
+    }
+    renderDetails(details) {
+      const container = document.createElement("div");
+      container.className = "e4a-decision-poll__details";
+      for (const detail of details) {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = detail;
+        container.append(paragraph);
+      }
+      return container;
+    }
+    appendQuestionLayout(content, questionImage) {
+      if (!this.elements) {
+        return;
+      }
+      if (!questionImage) {
+        this.elements.slide.append(content);
+        return;
+      }
+      const layout = document.createElement("div");
+      layout.className = "e4a-decision-poll__question-layout";
+      layout.append(this.renderQuestionImage(questionImage), content);
+      this.elements.slide.append(layout);
+    }
+    renderQuestionImage(questionImage) {
+      const figure = document.createElement("figure");
+      figure.className = "e4a-decision-poll__question-figure";
+      figure.append(this.renderResponsiveImage(questionImage.imagePath, questionImage.imageAlt));
+      return figure;
+    }
+    renderResponsiveImage(imagePath, imageAlt) {
+      const picture = document.createElement("picture");
+      const source = document.createElement("source");
+      source.srcset = imagePath.replace(/\.png$/i, ".webp");
+      source.type = "image/webp";
+      const image = document.createElement("img");
+      image.src = imagePath;
+      image.alt = imageAlt;
+      image.decoding = "async";
+      picture.append(source, image);
+      return picture;
+    }
+    renderOptions(options) {
+      const container = document.createElement("div");
+      container.className = "e4a-decision-poll__options";
+      container.setAttribute("role", "group");
+      container.setAttribute("aria-label", "Poll choices");
+      options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "e4a-decision-poll__option";
+        button.setAttribute("aria-pressed", "false");
+        const letter = document.createElement("span");
+        letter.className = "e4a-decision-poll__option-letter";
+        letter.textContent = LETTERS[index] ?? "";
+        const text = document.createElement("span");
+        text.className = "e4a-decision-poll__option-text";
+        text.textContent = option;
+        button.append(letter, text);
+        button.addEventListener("click", () => this.toggleOption(button));
+        container.append(button);
+      });
+      return container;
+    }
+    renderScale(scale) {
+      const container = document.createElement("div");
+      container.className = "e4a-decision-poll__scale";
+      container.setAttribute("role", "group");
+      container.setAttribute("aria-label", "Feeling strength scale");
+      for (const option of scale) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "e4a-decision-poll__scale-option";
+        button.setAttribute("aria-pressed", "false");
+        const value = document.createElement("span");
+        value.className = "e4a-decision-poll__scale-value";
+        value.textContent = String(option.value);
+        const label = document.createElement("span");
+        label.className = "e4a-decision-poll__scale-label";
+        label.textContent = option.label;
+        button.append(value, label);
+        button.addEventListener("click", () => this.toggleOption(button));
+        container.append(button);
+      }
+      return container;
+    }
+    renderMenuTable(menus) {
+      const table = document.createElement("div");
+      table.className = "e4a-decision-poll__menu-table";
+      table.setAttribute("role", "group");
+      table.setAttribute("aria-label", "Menu comparison");
+      menus.forEach((menu) => {
+        const card = document.createElement("section");
+        card.className = "e4a-decision-poll__menu-card";
+        const title = document.createElement("h5");
+        title.className = "e4a-decision-poll__menu-title";
+        title.textContent = menu.title;
+        const list = document.createElement("ul");
+        list.className = "e4a-decision-poll__menu-list";
+        if (menu.items.length > 6) {
+          list.classList.add("e4a-decision-poll__menu-list--compact");
+        }
+        menu.items.forEach((item) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = item;
+          list.append(listItem);
+        });
+        card.append(title, list);
+        table.append(card);
+      });
+      return table;
+    }
+    toggleOption(selectedButton) {
+      const group = selectedButton.parentElement;
+      if (!group) {
+        return;
+      }
+      const buttons = Array.from(group.querySelectorAll(".e4a-decision-poll__option"));
+      for (const button of buttons) {
+        const isSelected = button === selectedButton;
+        button.setAttribute("aria-pressed", isSelected ? "true" : "false");
+        button.dataset.e4aDecisionPollSelected = isSelected ? "true" : "";
+      }
+    }
+    goPrevious() {
+      if (!this.elements || this.currentSlideIndex <= INTRO_SLIDE_COUNT) {
+        return;
+      }
+      this.currentSlideIndex -= 1;
+      this.renderSlide();
+    }
+    goNext() {
+      if (!this.elements || this.currentSlideIndex >= decisionSlides.length - 1) {
+        return;
+      }
+      this.currentSlideIndex += 1;
+      this.renderSlide();
+    }
+    setControlButtonLabel(button, label) {
+      button.textContent = label;
+      button.setAttribute("aria-label", label);
+      button.title = label;
+    }
+    enterPresentation() {
+      if (!this.elements || this.isPresenting) {
+        return;
+      }
+      this.isPresenting = true;
+      this.root.dataset.e4aPresentationMode = "true";
+      this.root.setAttribute("role", "dialog");
+      this.root.setAttribute("aria-label", "Decision Poll presentation");
+      document.body.classList.add("e4a-decision-poll-presenting");
+      document.addEventListener("keydown", this.handlePresentationKeydown);
+      document.addEventListener("fullscreenchange", this.handleFullscreenChange);
+      this.elements.presentButton.hidden = true;
+      this.elements.exitButton.hidden = false;
+      focusWithoutScrolling(this.elements.exitButton);
+      if (typeof this.root.requestFullscreen === "function") {
+        void this.root.requestFullscreen().catch(() => void 0);
+      }
+    }
+    exitPresentation(skipFullscreenExit = false) {
+      if (!this.elements || !this.isPresenting) {
+        return;
+      }
+      this.isPresenting = false;
+      delete this.root.dataset.e4aPresentationMode;
+      this.root.removeAttribute("role");
+      this.root.removeAttribute("aria-label");
+      document.body.classList.remove("e4a-decision-poll-presenting");
+      document.removeEventListener("keydown", this.handlePresentationKeydown);
+      document.removeEventListener("fullscreenchange", this.handleFullscreenChange);
+      this.elements.presentButton.hidden = false;
+      this.elements.exitButton.hidden = true;
+      focusWithoutScrolling(this.elements.presentButton);
+      if (!skipFullscreenExit && document.fullscreenElement !== null && typeof document.exitFullscreen === "function") {
+        void document.exitFullscreen().catch(() => void 0);
+      }
+    }
+  };
+  function focusWithoutScrolling(element) {
+    try {
+      element.focus({ preventScroll: true });
+    } catch {
+      element.focus();
+    }
+  }
+
   // assets/ts/e4a-small-change-activity.ts
   var smallChangeQuestions = [
     {
@@ -697,6 +1403,7 @@
       options: ["I like dogs.", "I like dog."],
       correctAnswerIndex: 0,
       imagePath: "assets/images/lesson-02/01-dogs.png",
+      webpPath: "assets/images/lesson-02/01-dogs.webp",
       imageAlt: "A split-screen image showing liking dogs as animals versus a funny food misunderstanding.",
       correctFeedback: 'Correct. "Dogs" means dogs in general.',
       wrongFeedback: 'Not quite. "Dog" can sound like a type of food or meat.'
@@ -706,6 +1413,7 @@
       options: ["Let's eat, Grandma.", "Let's eat Grandma."],
       correctAnswerIndex: 0,
       imagePath: "assets/images/lesson-02/02-grandma.png",
+      webpPath: "assets/images/lesson-02/02-grandma.webp",
       imageAlt: "A split-screen image showing Grandma joining dinner versus a silly comma misunderstanding.",
       correctFeedback: "Correct. The comma shows Grandma is the person you are speaking to.",
       wrongFeedback: "Not quite. Without the comma, it sounds like Grandma is the food."
@@ -715,6 +1423,7 @@
       options: ["I have a few friends.", "I have few friends."],
       correctAnswerIndex: 0,
       imagePath: "assets/images/lesson-02/03-friends.png",
+      webpPath: "assets/images/lesson-02/03-friends.webp",
       imageAlt: "A split-screen image showing a person with several friends versus a person almost alone.",
       correctFeedback: 'Correct. "A few" means some.',
       wrongFeedback: 'Not quite. "Few" means almost none.'
@@ -724,6 +1433,7 @@
       options: ["I saw the woman move down quickly.", "I saw the duck that belongs to her."],
       correctAnswerIndex: 0,
       imagePath: "assets/images/lesson-02/04-duck.png",
+      webpPath: "assets/images/lesson-02/04-duck.webp",
       imageAlt: "A split-screen image showing duck as an action and duck as an animal.",
       correctFeedback: 'Correct. "Duck" can be a verb meaning move down quickly.',
       wrongFeedback: 'Not quite. That meaning uses "duck" as a noun: the animal.'
@@ -733,6 +1443,7 @@
       options: ["She is pretty smart.", "She is pretty, smart."],
       correctAnswerIndex: 0,
       imagePath: "assets/images/lesson-02/05-pretty-smart.png",
+      webpPath: "assets/images/lesson-02/05-pretty-smart.webp",
       imageAlt: "A split-screen image showing quite smart versus beautiful and smart.",
       correctFeedback: 'Correct. "Pretty smart" means quite smart.',
       wrongFeedback: 'Not quite. With a comma, "pretty" means beautiful.'
@@ -742,6 +1453,7 @@
       options: ["Write about New York.", "Write a 5-sentence paragraph about New York for beginner English students."],
       correctAnswerIndex: 1,
       imagePath: "assets/images/lesson-02/06-clear-prompt.png",
+      webpPath: "assets/images/lesson-02/06-clear-prompt.webp",
       imageAlt: "A split-screen image showing a vague AI prompt versus a clear AI prompt.",
       correctFeedback: "Correct. The second prompt gives length, topic, and student level.",
       wrongFeedback: "Not quite. The first prompt is very general."
@@ -754,6 +1466,7 @@
       ],
       correctAnswerIndex: 1,
       imagePath: "assets/images/lesson-02/07-read-only-limits.png",
+      webpPath: "assets/images/lesson-02/07-read-only-limits.webp",
       imageAlt: "A split-screen image showing an AI editing and damaging a document versus analyzing it safely in read-only mode.",
       correctFeedback: "Correct. The second prompt gives a clear limit: the AI can analyze, but it cannot change the document.",
       wrongFeedback: 'Not quite. The first prompt does not say "read-only," so the AI may start editing the document instead of only analyzing it.'
@@ -763,6 +1476,7 @@
       options: ["Explain commas.", "Explain commas in a table with 3 columns: sentence, meaning, and warning."],
       correctAnswerIndex: 1,
       imagePath: "assets/images/lesson-02/08-format.png.png",
+      webpPath: "assets/images/lesson-02/08-format.png.webp",
       imageAlt: "A split-screen image showing a messy AI answer versus a clear table-style answer.",
       correctFeedback: "Correct. The second prompt tells the AI the exact format to use.",
       wrongFeedback: "Not quite. The first prompt does not say how the answer should look."
@@ -850,7 +1564,10 @@
             <p class="e4a-small-change__feedback-text" data-e4a-small-change-feedback-text></p>
           </div>
           <figure class="e4a-small-change__figure" data-e4a-small-change-figure hidden>
-            <img data-e4a-small-change-image alt="">
+            <picture>
+              <source data-e4a-small-change-source type="image/webp">
+              <img data-e4a-small-change-image alt="">
+            </picture>
           </figure>
           <div class="e4a-small-change__actions">
             <button type="button" class="e4a-small-change__previous btn btn-outline-secondary" data-e4a-small-change-previous hidden>Previous question</button>
@@ -876,6 +1593,7 @@
       const feedbackStatus = this.root.querySelector("[data-e4a-small-change-feedback-status]");
       const feedbackText = this.root.querySelector("[data-e4a-small-change-feedback-text]");
       const figure = this.root.querySelector("[data-e4a-small-change-figure]");
+      const imageSource = this.root.querySelector("[data-e4a-small-change-source]");
       const image = this.root.querySelector("[data-e4a-small-change-image]");
       const previousButton = this.root.querySelector("[data-e4a-small-change-previous]");
       const retryButton = this.root.querySelector("[data-e4a-small-change-retry]");
@@ -886,7 +1604,7 @@
       const presentButton = this.root.querySelector("[data-e4a-small-change-present]");
       const exitButton = this.root.querySelector("[data-e4a-small-change-exit]");
       const restartButton = this.root.querySelector("[data-e4a-small-change-restart]");
-      if (!progressText || !progressBar || !questionPanel || !questionText || optionButtons.length !== 2 || !feedback || !feedbackStatus || !feedbackText || !figure || !image || !previousButton || !retryButton || !nextButton || !quizView || !finalView || !scoreText || !presentButton || !exitButton || !restartButton) {
+      if (!progressText || !progressBar || !questionPanel || !questionText || optionButtons.length !== 2 || !feedback || !feedbackStatus || !feedbackText || !figure || !imageSource || !image || !previousButton || !retryButton || !nextButton || !quizView || !finalView || !scoreText || !presentButton || !exitButton || !restartButton) {
         return void 0;
       }
       return {
@@ -899,6 +1617,7 @@
         feedbackStatus,
         feedbackText,
         figure,
+        imageSource,
         image,
         previousButton,
         retryButton,
@@ -967,13 +1686,14 @@
       this.elements.feedback.dataset.e4aSmallChangeState = isCorrect ? "correct" : "incorrect";
       this.elements.feedbackStatus.textContent = isCorrect ? "Correct" : "Not quite";
       this.elements.feedbackText.textContent = isCorrect ? question.correctFeedback : question.wrongFeedback;
+      this.elements.imageSource.srcset = question.webpPath;
       this.elements.image.src = question.imagePath;
       this.elements.image.alt = question.imageAlt;
       this.elements.figure.hidden = false;
       this.elements.retryButton.hidden = false;
       this.elements.nextButton.hidden = false;
       this.elements.progressBar.style.width = `${(this.currentQuestionIndex + 1) / smallChangeQuestions.length * 100}%`;
-      focusWithoutScrolling(this.elements.nextButton);
+      focusWithoutScrolling2(this.elements.nextButton);
     }
     retryCurrentQuestion() {
       if (!this.elements || !this.answered) {
@@ -1010,7 +1730,7 @@
       this.elements.quizView.hidden = true;
       this.elements.finalView.hidden = false;
       this.elements.scoreText.textContent = `Your first-try score: ${this.score} / ${smallChangeQuestions.length}`;
-      focusWithoutScrolling(this.elements.restartButton);
+      focusWithoutScrolling2(this.elements.restartButton);
     }
     restart() {
       this.currentQuestionIndex = 0;
@@ -1027,6 +1747,7 @@
       this.elements.feedbackStatus.textContent = "";
       this.elements.feedbackText.textContent = "";
       this.elements.figure.hidden = true;
+      this.elements.imageSource.removeAttribute("srcset");
       this.elements.image.removeAttribute("src");
       this.elements.image.alt = "";
       this.elements.retryButton.hidden = true;
@@ -1043,7 +1764,7 @@
       }
       const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
       this.elements.questionPanel.scrollIntoView({ behavior, block: "start", inline: "nearest" });
-      focusWithoutScrolling(this.elements.questionText);
+      focusWithoutScrolling2(this.elements.questionText);
     }
     setControlButtonLabel(button, label) {
       button.textContent = label;
@@ -1063,7 +1784,7 @@
       document.addEventListener("fullscreenchange", this.handleFullscreenChange);
       this.elements.presentButton.hidden = true;
       this.elements.exitButton.hidden = false;
-      focusWithoutScrolling(this.elements.exitButton);
+      focusWithoutScrolling2(this.elements.exitButton);
       if (typeof this.root.requestFullscreen === "function") {
         void this.root.requestFullscreen().catch(() => void 0);
       }
@@ -1081,13 +1802,13 @@
       document.removeEventListener("fullscreenchange", this.handleFullscreenChange);
       this.elements.presentButton.hidden = false;
       this.elements.exitButton.hidden = true;
-      focusWithoutScrolling(this.elements.presentButton);
+      focusWithoutScrolling2(this.elements.presentButton);
       if (!skipFullscreenExit && document.fullscreenElement !== null && typeof document.exitFullscreen === "function") {
         void document.exitFullscreen().catch(() => void 0);
       }
     }
   };
-  function focusWithoutScrolling(element) {
+  function focusWithoutScrolling2(element) {
     try {
       element.focus({ preventScroll: true });
     } catch {
@@ -1179,6 +1900,7 @@
     }
     activeClose?.();
     const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : void 0;
+    const webpSrc = button.dataset.e4aImageExpandWebpSrc?.trim();
     const alt = button.dataset.e4aImageExpandAlt?.trim() || "";
     const caption = button.dataset.e4aImageExpandCaption?.trim() || alt;
     const captionId = `e4a-expanded-image-caption-${++dialogCounter}`;
@@ -1196,11 +1918,19 @@
     closeButton.setAttribute("aria-label", "Close expanded image");
     const figure = document.createElement("figure");
     figure.className = "e4a-image-expand__figure";
+    const picture = document.createElement("picture");
     const image = document.createElement("img");
+    if (webpSrc) {
+      const source = document.createElement("source");
+      source.srcset = webpSrc;
+      source.type = "image/webp";
+      picture.append(source);
+    }
     image.src = src;
     image.alt = alt;
     image.decoding = "async";
-    figure.append(image);
+    picture.append(image);
+    figure.append(picture);
     if (caption) {
       const figcaption = document.createElement("figcaption");
       figcaption.id = captionId;
@@ -1264,6 +1994,7 @@
   // assets/ts/e4a-workbook.ts
   async function initializeWorkbook() {
     initializeTemplateCopyButtons();
+    initializeDecisionPollActivities();
     initializeSmallChangeActivities();
     initializePromptResultCompareActivities();
     initializeImageExpanders();
