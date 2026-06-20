@@ -256,6 +256,7 @@
       this.bindControls();
       this.bindActions();
       this.bindLifecycleSaves();
+      shuffleGroupedSelectOptions(this.block.root);
       normalizeExclusiveCheckboxGroups(this.block.root);
       updateUniqueSelectOptions(this.block.root);
       if (!this.store) {
@@ -659,6 +660,52 @@
       }
     }
   }
+  function shuffleGroupedSelectOptions(root) {
+    const selects = Array.from(root.querySelectorAll("select[data-e4a-option-group]"));
+    const groups = /* @__PURE__ */ new Map();
+    for (const select of selects) {
+      const groupName = select.dataset.e4aOptionGroup?.trim();
+      if (!groupName || select.dataset.e4aOptionsShuffled === "true") {
+        continue;
+      }
+      groups.set(groupName, [...groups.get(groupName) ?? [], select]);
+    }
+    for (const groupSelects of groups.values()) {
+      const shuffledValues = shuffleOptionValues(getAnswerOptionValues(groupSelects[0]));
+      for (const select of groupSelects) {
+        applySelectOptionOrder(select, shuffledValues);
+      }
+    }
+  }
+  function getAnswerOptionValues(select) {
+    return Array.from(select.options).filter((option) => option.value !== "").map((option) => option.value);
+  }
+  function shuffleOptionValues(values) {
+    if (values.length < 2) {
+      return values;
+    }
+    const shuffled = [...values];
+    for (let index = shuffled.length - 1; index > 0; index -= 1) {
+      const swapIndex = Math.floor(Math.random() * (index + 1));
+      [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+    }
+    if (shuffled.every((value, index) => value === values[index])) {
+      const [firstValue, ...remainingValues] = shuffled;
+      return [...remainingValues, firstValue];
+    }
+    return shuffled;
+  }
+  function applySelectOptionOrder(select, shuffledValues) {
+    const selectedValue = select.value;
+    const options = Array.from(select.options);
+    const placeholderOptions = options.filter((option) => option.value === "");
+    const answerOptions = options.filter((option) => option.value !== "");
+    const orderedAnswerOptions = shuffledValues.map((value) => answerOptions.find((option) => option.value === value)).filter((option) => option !== void 0);
+    const remainingAnswerOptions = answerOptions.filter((option) => !orderedAnswerOptions.includes(option));
+    select.replaceChildren(...placeholderOptions, ...orderedAnswerOptions, ...remainingAnswerOptions);
+    select.value = selectedValue;
+    select.dataset.e4aOptionsShuffled = "true";
+  }
   function enforceExclusiveCheckboxGroup(control, root) {
     if (!(control instanceof HTMLInputElement) || control.type !== "checkbox" || !control.checked) {
       return;
@@ -687,6 +734,130 @@
       } else {
         firstCheckedByGroup.add(groupName);
       }
+    }
+  }
+
+  // assets/ts/e4a-image-expand.ts
+  var activeClose;
+  var dialogCounter = 0;
+  var FOCUSABLE_SELECTOR = [
+    "a[href]",
+    "button:not([disabled])",
+    "input:not([disabled])",
+    "select:not([disabled])",
+    "textarea:not([disabled])",
+    "[tabindex]:not([tabindex='-1'])"
+  ].join(",");
+  function initializeImageExpanders(root = document) {
+    const buttons = Array.from(root.querySelectorAll("[data-e4a-image-expand]"));
+    for (const button of buttons) {
+      if (button.dataset.e4aImageExpandReady === "true") {
+        continue;
+      }
+      button.dataset.e4aImageExpandReady = "true";
+      button.setAttribute("aria-haspopup", "dialog");
+      if (!button.title) {
+        button.title = button.textContent?.trim() || "Expand image";
+      }
+      button.addEventListener("click", () => openExpandedImage(button));
+    }
+  }
+  function openExpandedImage(button) {
+    const src = button.dataset.e4aImageExpandSrc?.trim();
+    if (!src) {
+      return;
+    }
+    activeClose?.();
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : void 0;
+    const webpSrc = button.dataset.e4aImageExpandWebpSrc?.trim();
+    const alt = button.dataset.e4aImageExpandAlt?.trim() || "";
+    const caption = button.dataset.e4aImageExpandCaption?.trim() || alt;
+    const captionId = `e4a-expanded-image-caption-${++dialogCounter}`;
+    const overlay = document.createElement("div");
+    overlay.className = "e4a-image-expand";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", "Expanded image preview");
+    const dialog = document.createElement("div");
+    dialog.className = "e4a-image-expand__dialog";
+    const closeButton = document.createElement("button");
+    closeButton.type = "button";
+    closeButton.className = "btn btn-light btn-sm e4a-image-expand__close";
+    closeButton.textContent = "Close";
+    closeButton.setAttribute("aria-label", "Close expanded image");
+    const figure = document.createElement("figure");
+    figure.className = "e4a-image-expand__figure";
+    const picture = document.createElement("picture");
+    const image = document.createElement("img");
+    if (webpSrc) {
+      const source = document.createElement("source");
+      source.srcset = webpSrc;
+      source.type = "image/webp";
+      picture.append(source);
+    }
+    image.src = src;
+    image.alt = alt;
+    image.decoding = "async";
+    picture.append(image);
+    figure.append(picture);
+    if (caption) {
+      const figcaption = document.createElement("figcaption");
+      figcaption.id = captionId;
+      figcaption.textContent = caption;
+      figure.append(figcaption);
+      overlay.setAttribute("aria-describedby", captionId);
+    }
+    dialog.append(closeButton, figure);
+    overlay.append(dialog);
+    const close = () => {
+      if (!overlay.isConnected) {
+        return;
+      }
+      overlay.remove();
+      document.body.classList.remove("e4a-image-expand-open");
+      document.removeEventListener("keydown", handleKeyDown);
+      activeClose = void 0;
+      previousFocus?.focus({ preventScroll: true });
+    };
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close();
+        return;
+      }
+      if (event.key === "Tab") {
+        keepFocusInside(event, overlay);
+      }
+    };
+    closeButton.addEventListener("click", close);
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) {
+        close();
+      }
+    });
+    document.addEventListener("keydown", handleKeyDown);
+    activeClose = close;
+    const overlayHost = document.fullscreenElement ?? document.body;
+    document.body.classList.add("e4a-image-expand-open");
+    overlayHost.append(overlay);
+    closeButton.focus({ preventScroll: true });
+  }
+  function keepFocusInside(event, root) {
+    const focusable = Array.from(root.querySelectorAll(FOCUSABLE_SELECTOR)).filter(
+      (element) => element.offsetParent !== null
+    );
+    if (focusable.length === 0) {
+      event.preventDefault();
+      return;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
     }
   }
 
@@ -721,7 +892,7 @@
       title: "The Framing Effect",
       revealTitle: "Same facts, different feeling",
       revealText: '"Saves 90 out of 100 people" means the same as "10 out of 100 people do not survive."',
-      mindBlowingIdea: "Words can change decisions.",
+      bigIdea: "Words can change decisions.",
       simpleEnglish: "People do not only react to facts. People react to how facts are presented.",
       imagePath: "assets/images/lesson-03/01-framing_effect-same_facts_different_words.png",
       imageAlt: "Two classroom medicine explanations show the same survival facts framed positively and negatively, with students reacting differently."
@@ -751,7 +922,7 @@
       title: "The Anchoring Effect",
       revealTitle: "The first number can influence you",
       revealText: "The number $120 may stay in your mind. Then your price guess may become higher.",
-      mindBlowingIdea: "Random numbers can affect decisions.",
+      bigIdea: "Random numbers can affect decisions.",
       simpleEnglish: "The first number you see can become an anchor.",
       imagePath: "assets/images/lesson-03/02-anchoring_effect-the_first_number_sticks.png",
       imageAlt: "A classroom backpack price example shows an early high number acting like an anchor for later price guesses."
@@ -772,7 +943,7 @@
       title: "The Default Effect",
       revealTitle: "Many people keep the selected option",
       revealText: "The checked option feels easy. Changing it takes more effort.",
-      mindBlowingIdea: "The default option is powerful.",
+      bigIdea: "The default option is powerful.",
       simpleEnglish: "Sometimes we choose something because it is already chosen for us.",
       imagePath: "assets/images/lesson-03/03-default_effect-the_option_already_selected.png",
       imageAlt: "A snack choice example shows an apple and a cookie, with the cookie already selected as the default option."
@@ -817,7 +988,7 @@
       title: "Choice Overload",
       revealTitle: "More choices are not always better",
       revealText: "Many options can feel exciting. But too many options can make choosing harder.",
-      mindBlowingIdea: "Too many choices can make the brain freeze.",
+      bigIdea: "Too many choices can make people feel stuck.",
       simpleEnglish: "More options can make decisions more difficult.",
       imagePath: "assets/images/lesson-03/04-choice_overload-too_many_options.png",
       imageAlt: "An ice cream shop compares a simple three-flavor menu with a crowded menu that makes a student feel unsure."
@@ -847,7 +1018,7 @@
       title: "The Endowment Effect",
       revealTitle: '"My pen" feels more valuable',
       revealText: "When something becomes mine, I may value it more.",
-      mindBlowingIdea: "Ownership changes value.",
+      bigIdea: "Ownership changes value.",
       simpleEnglish: "People often want more money to sell something they own than they would pay to buy it.",
       imagePath: "assets/images/lesson-03/05-endowment_effect-my_pen_feels_more_valuable.png",
       imageAlt: "A classroom pen example shows that a student may value a pen more after thinking of it as their own."
@@ -877,7 +1048,7 @@
       title: "Loss Aversion",
       revealTitle: "Losses often feel stronger than gains",
       revealText: "For many people, losing money hurts more than winning the same amount feels good.",
-      mindBlowingIdea: "Losses feel bigger than gains.",
+      bigIdea: "Losses feel bigger than gains.",
       simpleEnglish: "People often work harder to avoid losing something than to get something new.",
       imagePath: "assets/images/lesson-03/06-loss_aversion-losing_hurts_more.png",
       imageAlt: "A classroom money example compares the feeling of finding twenty dollars with the stronger feeling of losing twenty dollars."
@@ -897,7 +1068,7 @@
       title: "Social Influence",
       revealTitle: "Groups can influence decisions",
       revealText: "Sometimes people change their answers because they do not want to be different.",
-      mindBlowingIdea: "Other people can change our decisions.",
+      bigIdea: "Other people can change our decisions.",
       simpleEnglish: "We are influenced by the people around us.",
       imagePath: "assets/images/lesson-03/07-social_influence-the_group_changes_your_mind.png",
       imageAlt: "A classroom vote shows one student holding answer A while classmates hold answer B, making the student feel unsure."
@@ -925,6 +1096,9 @@
       this.isPresenting = false;
       this.handlePresentationKeydown = (event) => {
         if (event.key === "Escape" && this.isPresenting) {
+          if (document.querySelector(".e4a-image-expand")) {
+            return;
+          }
           this.exitPresentation();
         }
       };
@@ -1018,6 +1192,7 @@
       } else {
         this.renderTransitionSlide(slide);
       }
+      initializeImageExpanders(this.elements.slide);
       focusWithoutScrolling(this.elements.slide);
     }
     renderPrimaryButton(slide) {
@@ -1075,7 +1250,7 @@
         content.append(this.renderDetails(slide.details));
       }
       content.append(this.renderOptions(slide.options));
-      this.appendQuestionLayout(content, slide.questionImage);
+      this.appendQuestionLayout(content, slide.questionImage, `${slide.title}: ${slide.prompt}`);
     }
     renderVoteRadioSubmitSlide(slide) {
       if (!this.elements) {
@@ -1108,7 +1283,7 @@
         form.append(label);
       });
       content.append(form);
-      this.appendQuestionLayout(content, slide.questionImage);
+      this.appendQuestionLayout(content, slide.questionImage, `${slide.title}: ${slide.prompt}`);
     }
     renderVoteMenuCompareSlide(slide) {
       if (!this.elements) {
@@ -1118,7 +1293,7 @@
       const topLine = document.createElement("div");
       topLine.className = "e4a-decision-poll__question-topline";
       if (slide.questionImage) {
-        topLine.append(this.renderQuestionImage(slide.questionImage));
+        topLine.append(this.renderQuestionImage(slide.questionImage, `${slide.title}: ${slide.prompt}`));
       }
       topLine.append(this.renderSlideHeader(slide.title, slide.prompt));
       this.elements.slide.append(topLine);
@@ -1134,7 +1309,7 @@
       content.className = "e4a-decision-poll__question-content";
       content.append(this.renderSlideHeader(slide.title, slide.prompt));
       content.append(this.renderScale(slide.scale));
-      this.appendQuestionLayout(content, slide.questionImage);
+      this.appendQuestionLayout(content, slide.questionImage, `${slide.title}: ${slide.prompt}`);
     }
     renderSurpriseSlide(slide) {
       if (!this.elements) {
@@ -1149,14 +1324,17 @@
       reveal.textContent = slide.revealText;
       const idea = document.createElement("p");
       idea.className = "e4a-decision-poll__idea";
-      idea.textContent = `Mind-blowing idea: ${slide.mindBlowingIdea}`;
+      idea.textContent = `Big idea: ${slide.bigIdea}`;
       const simple = document.createElement("p");
       simple.className = "e4a-decision-poll__simple";
       simple.textContent = `Simple English: ${slide.simpleEnglish}`;
       text.append(reveal, idea, simple);
       const figure = document.createElement("figure");
       figure.className = "e4a-decision-poll__figure";
-      figure.append(this.renderResponsiveImage(slide.imagePath, slide.imageAlt));
+      figure.append(
+        this.renderResponsiveImage(slide.imagePath, slide.imageAlt),
+        this.renderImageExpandButton(slide.imagePath, slide.imageAlt, `${slide.revealTitle}: ${slide.bigIdea}`)
+      );
       this.elements.slide.append(text, figure);
     }
     renderSummarySlide() {
@@ -1219,7 +1397,7 @@
       }
       return container;
     }
-    appendQuestionLayout(content, questionImage) {
+    appendQuestionLayout(content, questionImage, imageCaption) {
       if (!this.elements) {
         return;
       }
@@ -1229,13 +1407,20 @@
       }
       const layout = document.createElement("div");
       layout.className = "e4a-decision-poll__question-layout";
-      layout.append(this.renderQuestionImage(questionImage), content);
+      layout.append(this.renderQuestionImage(questionImage, imageCaption), content);
       this.elements.slide.append(layout);
     }
-    renderQuestionImage(questionImage) {
+    renderQuestionImage(questionImage, fallbackCaption) {
       const figure = document.createElement("figure");
       figure.className = "e4a-decision-poll__question-figure";
-      figure.append(this.renderResponsiveImage(questionImage.imagePath, questionImage.imageAlt));
+      figure.append(
+        this.renderResponsiveImage(questionImage.imagePath, questionImage.imageAlt),
+        this.renderImageExpandButton(
+          questionImage.imagePath,
+          questionImage.imageAlt,
+          questionImage.imageCaption ?? fallbackCaption ?? questionImage.imageAlt
+        )
+      );
       return figure;
     }
     renderResponsiveImage(imagePath, imageAlt) {
@@ -1249,6 +1434,19 @@
       image.decoding = "async";
       picture.append(source, image);
       return picture;
+    }
+    renderImageExpandButton(imagePath, imageAlt, imageCaption) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "btn btn-outline-primary btn-sm e4a-image-expand__trigger";
+      button.textContent = "Expand image";
+      button.dataset.e4aImageExpand = "";
+      button.dataset.e4aImageExpandSrc = imagePath;
+      button.dataset.e4aImageExpandWebpSrc = imagePath.replace(/\.png$/i, ".webp");
+      button.dataset.e4aImageExpandAlt = imageAlt;
+      button.dataset.e4aImageExpandCaption = imageCaption;
+      button.setAttribute("aria-label", `Expand image: ${imageCaption}`);
+      return button;
     }
     renderOptions(options) {
       const container = document.createElement("div");
@@ -1867,129 +2065,6 @@
       toggle.button.title = expanded ? HIDE_RESULT_LABEL : SHOW_RESULT_LABEL;
     }
   };
-
-  // assets/ts/e4a-image-expand.ts
-  var activeClose;
-  var dialogCounter = 0;
-  var FOCUSABLE_SELECTOR = [
-    "a[href]",
-    "button:not([disabled])",
-    "input:not([disabled])",
-    "select:not([disabled])",
-    "textarea:not([disabled])",
-    "[tabindex]:not([tabindex='-1'])"
-  ].join(",");
-  function initializeImageExpanders(root = document) {
-    const buttons = Array.from(root.querySelectorAll("[data-e4a-image-expand]"));
-    for (const button of buttons) {
-      if (button.dataset.e4aImageExpandReady === "true") {
-        continue;
-      }
-      button.dataset.e4aImageExpandReady = "true";
-      button.setAttribute("aria-haspopup", "dialog");
-      if (!button.title) {
-        button.title = button.textContent?.trim() || "Expand image";
-      }
-      button.addEventListener("click", () => openExpandedImage(button));
-    }
-  }
-  function openExpandedImage(button) {
-    const src = button.dataset.e4aImageExpandSrc?.trim();
-    if (!src) {
-      return;
-    }
-    activeClose?.();
-    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : void 0;
-    const webpSrc = button.dataset.e4aImageExpandWebpSrc?.trim();
-    const alt = button.dataset.e4aImageExpandAlt?.trim() || "";
-    const caption = button.dataset.e4aImageExpandCaption?.trim() || alt;
-    const captionId = `e4a-expanded-image-caption-${++dialogCounter}`;
-    const overlay = document.createElement("div");
-    overlay.className = "e4a-image-expand";
-    overlay.setAttribute("role", "dialog");
-    overlay.setAttribute("aria-modal", "true");
-    overlay.setAttribute("aria-label", "Expanded image preview");
-    const dialog = document.createElement("div");
-    dialog.className = "e4a-image-expand__dialog";
-    const closeButton = document.createElement("button");
-    closeButton.type = "button";
-    closeButton.className = "btn btn-light btn-sm e4a-image-expand__close";
-    closeButton.textContent = "Close";
-    closeButton.setAttribute("aria-label", "Close expanded image");
-    const figure = document.createElement("figure");
-    figure.className = "e4a-image-expand__figure";
-    const picture = document.createElement("picture");
-    const image = document.createElement("img");
-    if (webpSrc) {
-      const source = document.createElement("source");
-      source.srcset = webpSrc;
-      source.type = "image/webp";
-      picture.append(source);
-    }
-    image.src = src;
-    image.alt = alt;
-    image.decoding = "async";
-    picture.append(image);
-    figure.append(picture);
-    if (caption) {
-      const figcaption = document.createElement("figcaption");
-      figcaption.id = captionId;
-      figcaption.textContent = caption;
-      figure.append(figcaption);
-      overlay.setAttribute("aria-describedby", captionId);
-    }
-    dialog.append(closeButton, figure);
-    overlay.append(dialog);
-    const close = () => {
-      if (!overlay.isConnected) {
-        return;
-      }
-      overlay.remove();
-      document.body.classList.remove("e4a-image-expand-open");
-      document.removeEventListener("keydown", handleKeyDown);
-      activeClose = void 0;
-      previousFocus?.focus({ preventScroll: true });
-    };
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        close();
-        return;
-      }
-      if (event.key === "Tab") {
-        keepFocusInside(event, overlay);
-      }
-    };
-    closeButton.addEventListener("click", close);
-    overlay.addEventListener("click", (event) => {
-      if (event.target === overlay) {
-        close();
-      }
-    });
-    document.addEventListener("keydown", handleKeyDown);
-    activeClose = close;
-    document.body.classList.add("e4a-image-expand-open");
-    document.body.append(overlay);
-    closeButton.focus({ preventScroll: true });
-  }
-  function keepFocusInside(event, root) {
-    const focusable = Array.from(root.querySelectorAll(FOCUSABLE_SELECTOR)).filter(
-      (element) => element.offsetParent !== null
-    );
-    if (focusable.length === 0) {
-      event.preventDefault();
-      return;
-    }
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
-  }
 
   // assets/ts/e4a-workbook.ts
   async function initializeWorkbook() {
