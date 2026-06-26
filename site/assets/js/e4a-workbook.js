@@ -1594,6 +1594,316 @@
     }
   }
 
+  // assets/ts/e4a-first-checked-answer.ts
+  var firstCheckedQuestions = [
+    {
+      title: "Bat and ball",
+      question: "A bat and a ball cost $1.10 total. The bat costs $1 more than the ball. How much does the ball cost?",
+      answerHint: "Use cents",
+      correctAnswer: "5 cents",
+      acceptedAnswers: ["5 cents", "5 cent", "5c", "$0.05", "0.05", ".05", "five cents", "five cent", "5"],
+      explanation: "If the ball is 5 cents, the bat is $1.05. Together, they cost $1.10."
+    },
+    {
+      title: "Five machines",
+      question: "Five machines make five T-shirts in five minutes. How long do 100 machines take to make 100 T-shirts?",
+      answerHint: "Use minutes",
+      correctAnswer: "5 minutes",
+      acceptedAnswers: ["5 minutes", "5 minute", "5 min", "5 mins", "five minutes", "five minute", "five min", "5"],
+      explanation: "Each machine makes one T-shirt in five minutes. So 100 machines make 100 T-shirts in five minutes."
+    },
+    {
+      title: "Three pills",
+      question: "A doctor gives you three pills. You must take one pill every 30 minutes. How long will it take to finish all three pills?",
+      answerHint: "Use minutes",
+      correctAnswer: "60 minutes",
+      acceptedAnswers: [
+        "60 minutes",
+        "60 minute",
+        "60 min",
+        "60 mins",
+        "sixty minutes",
+        "sixty minute",
+        "1 hour",
+        "one hour",
+        "an hour",
+        "60"
+      ],
+      explanation: "You take the first pill now, the second after 30 minutes, and the third after 60 minutes."
+    },
+    {
+      title: "Running race",
+      question: "You are running a race. You pass the person in second place. What place are you in now?",
+      answerHint: "Use a place or position number",
+      correctAnswer: "Second place",
+      acceptedAnswers: ["second place", "second", "2nd place", "2nd", "2"],
+      explanation: "If you pass the person in second place, you take second place."
+    },
+    {
+      title: "Maria's father",
+      question: "Maria's father has five daughters: Nana, Nene, Nini, Nono, and ______. What is the fifth daughter's name?",
+      answerHint: "Write a name",
+      correctAnswer: "Maria",
+      acceptedAnswers: ["maria"],
+      explanation: `The question says "Maria's father," so Maria is one of the daughters.`
+    },
+    {
+      title: "Months with 28 days",
+      question: "How many months have at least 28 days?",
+      answerHint: "Use months",
+      correctAnswer: "12 months",
+      acceptedAnswers: ["12 months", "12 month", "twelve months", "twelve month", "all months", "every month", "all 12 months", "12"],
+      explanation: "Every month has at least 28 days."
+    }
+  ];
+  function initializeFirstCheckedAnswerActivities(root = document) {
+    const activities = Array.from(root.querySelectorAll("[data-e4a-first-checked-answer]"));
+    for (const activity of activities) {
+      new FirstCheckedAnswerActivity(activity).initialize();
+    }
+  }
+  var FirstCheckedAnswerActivity = class {
+    constructor(root) {
+      this.root = root;
+      this.currentQuestionIndex = 0;
+      this.checkedCorrectCount = 0;
+      this.completedCount = 0;
+    }
+    initialize() {
+      this.root.innerHTML = this.renderShell();
+      const elements = this.queryElements();
+      if (!elements) {
+        return;
+      }
+      this.elements = elements;
+      elements.startButton.addEventListener("click", () => this.start());
+      elements.checkButton.addEventListener("click", () => this.checkAnswer());
+      elements.nextButton.addEventListener("click", () => this.goNext());
+      elements.restartButton.addEventListener("click", () => this.restart());
+      elements.firstAnswerInput.addEventListener("input", () => this.updateCheckButton());
+      elements.checkedAnswerInput.addEventListener("input", () => this.updateCheckButton());
+      this.showIntro();
+    }
+    renderShell() {
+      return `
+      <div class="e4a-first-checked__inner">
+        <div class="e4a-first-checked__intro" data-e4a-first-checked-intro>
+          <p class="e4a-first-checked__eyebrow">Warm-up activity</p>
+          <h3 class="e4a-first-checked__title">First Answer vs. Checked Answer</h3>
+          <p class="e4a-first-checked__copy">Your brain wants to answer fast. First, write your quick answer. Then stop, read again, and write your checked answer.</p>
+          <button type="button" class="btn btn-primary e4a-first-checked__start" data-e4a-first-checked-start>Start Activity</button>
+        </div>
+
+        <div class="e4a-first-checked__activity" data-e4a-first-checked-activity hidden>
+          <div class="e4a-first-checked__progress-row">
+            <p class="e4a-first-checked__progress-text" data-e4a-first-checked-progress-text></p>
+            <div class="e4a-first-checked__progress-track" aria-hidden="true">
+              <div class="e4a-first-checked__progress-bar" data-e4a-first-checked-progress-bar></div>
+            </div>
+          </div>
+
+          <div class="e4a-first-checked__question-panel">
+            <p class="e4a-first-checked__question-title" data-e4a-first-checked-question-title></p>
+            <p class="e4a-first-checked__question" data-e4a-first-checked-question tabindex="-1"></p>
+          </div>
+
+          <div class="e4a-first-checked__answers">
+            <div class="e4a-first-checked__field">
+              <label for="e4a-first-checked-first-answer">My first answer</label>
+              <input id="e4a-first-checked-first-answer" type="text" autocomplete="off" data-e4a-first-checked-first-answer>
+            </div>
+            <div class="e4a-first-checked__field">
+              <label for="e4a-first-checked-checked-answer">My checked answer</label>
+              <input id="e4a-first-checked-checked-answer" type="text" autocomplete="off" data-e4a-first-checked-checked-answer>
+            </div>
+          </div>
+
+          <div class="e4a-first-checked__feedback" data-e4a-first-checked-feedback hidden aria-live="polite">
+            <p class="e4a-first-checked__feedback-status" data-e4a-first-checked-feedback-status></p>
+            <p class="e4a-first-checked__correct-answer" data-e4a-first-checked-correct-answer></p>
+            <p class="e4a-first-checked__explanation" data-e4a-first-checked-explanation></p>
+          </div>
+
+          <div class="e4a-first-checked__actions">
+            <button type="button" class="btn btn-primary e4a-first-checked__check" data-e4a-first-checked-check disabled>Check Answer</button>
+            <button type="button" class="btn btn-primary e4a-first-checked__next" data-e4a-first-checked-next hidden>Next Question</button>
+          </div>
+        </div>
+
+        <div class="e4a-first-checked__final" data-e4a-first-checked-final hidden>
+          <p class="e4a-first-checked__summary" data-e4a-first-checked-completed></p>
+          <p class="e4a-first-checked__score" data-e4a-first-checked-score></p>
+          <p class="e4a-first-checked__final-message">A fast answer can feel correct, but a checked answer is often better.</p>
+          <button type="button" class="btn btn-primary e4a-first-checked__restart" data-e4a-first-checked-restart>Restart activity</button>
+        </div>
+      </div>
+    `;
+    }
+    queryElements() {
+      const introView = this.root.querySelector("[data-e4a-first-checked-intro]");
+      const activityView = this.root.querySelector("[data-e4a-first-checked-activity]");
+      const finalView = this.root.querySelector("[data-e4a-first-checked-final]");
+      const startButton = this.root.querySelector("[data-e4a-first-checked-start]");
+      const progressText = this.root.querySelector("[data-e4a-first-checked-progress-text]");
+      const progressBar = this.root.querySelector("[data-e4a-first-checked-progress-bar]");
+      const questionTitle = this.root.querySelector("[data-e4a-first-checked-question-title]");
+      const questionText = this.root.querySelector("[data-e4a-first-checked-question]");
+      const firstAnswerInput = this.root.querySelector("[data-e4a-first-checked-first-answer]");
+      const checkedAnswerInput = this.root.querySelector("[data-e4a-first-checked-checked-answer]");
+      const checkButton = this.root.querySelector("[data-e4a-first-checked-check]");
+      const nextButton = this.root.querySelector("[data-e4a-first-checked-next]");
+      const feedback = this.root.querySelector("[data-e4a-first-checked-feedback]");
+      const feedbackStatus = this.root.querySelector("[data-e4a-first-checked-feedback-status]");
+      const correctAnswerText = this.root.querySelector("[data-e4a-first-checked-correct-answer]");
+      const explanationText = this.root.querySelector("[data-e4a-first-checked-explanation]");
+      const completedText = this.root.querySelector("[data-e4a-first-checked-completed]");
+      const scoreText = this.root.querySelector("[data-e4a-first-checked-score]");
+      const restartButton = this.root.querySelector("[data-e4a-first-checked-restart]");
+      if (!introView || !activityView || !finalView || !startButton || !progressText || !progressBar || !questionTitle || !questionText || !firstAnswerInput || !checkedAnswerInput || !checkButton || !nextButton || !feedback || !feedbackStatus || !correctAnswerText || !explanationText || !completedText || !scoreText || !restartButton) {
+        return void 0;
+      }
+      return {
+        introView,
+        activityView,
+        finalView,
+        startButton,
+        progressText,
+        progressBar,
+        questionTitle,
+        questionText,
+        firstAnswerInput,
+        checkedAnswerInput,
+        checkButton,
+        nextButton,
+        feedback,
+        feedbackStatus,
+        correctAnswerText,
+        explanationText,
+        completedText,
+        scoreText,
+        restartButton
+      };
+    }
+    showIntro() {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.introView.hidden = false;
+      this.elements.activityView.hidden = true;
+      this.elements.finalView.hidden = true;
+    }
+    start() {
+      this.currentQuestionIndex = 0;
+      this.checkedCorrectCount = 0;
+      this.completedCount = 0;
+      this.renderQuestion();
+    }
+    renderQuestion() {
+      if (!this.elements) {
+        return;
+      }
+      const question = firstCheckedQuestions[this.currentQuestionIndex];
+      this.elements.introView.hidden = true;
+      this.elements.activityView.hidden = false;
+      this.elements.finalView.hidden = true;
+      this.elements.progressText.textContent = `Question ${this.currentQuestionIndex + 1} of ${firstCheckedQuestions.length}`;
+      this.elements.progressBar.style.width = `${(this.currentQuestionIndex + 1) / firstCheckedQuestions.length * 100}%`;
+      this.elements.questionTitle.textContent = question.title;
+      this.elements.questionText.textContent = question.question;
+      this.elements.firstAnswerInput.value = "";
+      this.elements.checkedAnswerInput.value = "";
+      this.elements.firstAnswerInput.placeholder = question.answerHint;
+      this.elements.checkedAnswerInput.placeholder = question.answerHint;
+      this.elements.firstAnswerInput.disabled = false;
+      this.elements.checkedAnswerInput.disabled = false;
+      this.elements.feedback.hidden = true;
+      this.elements.feedback.dataset.e4aFirstCheckedState = "";
+      this.elements.feedbackStatus.textContent = "";
+      this.elements.correctAnswerText.textContent = "";
+      this.elements.explanationText.textContent = "";
+      this.elements.checkButton.hidden = false;
+      this.elements.nextButton.hidden = true;
+      this.elements.nextButton.textContent = this.currentQuestionIndex === firstCheckedQuestions.length - 1 ? "See Summary" : "Next Question";
+      this.updateCheckButton();
+      focusWithoutScrolling2(this.elements.questionText);
+    }
+    updateCheckButton() {
+      if (!this.elements) {
+        return;
+      }
+      const hasFirstAnswer = this.elements.firstAnswerInput.value.trim().length > 0;
+      const hasCheckedAnswer = this.elements.checkedAnswerInput.value.trim().length > 0;
+      this.elements.checkButton.disabled = !hasFirstAnswer || !hasCheckedAnswer;
+    }
+    checkAnswer() {
+      if (!this.elements || this.elements.checkButton.disabled) {
+        return;
+      }
+      const question = firstCheckedQuestions[this.currentQuestionIndex];
+      const isCorrect = isAcceptedAnswer(this.elements.checkedAnswerInput.value, question);
+      this.completedCount += 1;
+      if (isCorrect) {
+        this.checkedCorrectCount += 1;
+      }
+      this.elements.firstAnswerInput.disabled = true;
+      this.elements.checkedAnswerInput.disabled = true;
+      this.elements.feedback.hidden = false;
+      this.elements.feedback.dataset.e4aFirstCheckedState = isCorrect ? "correct" : "incorrect";
+      this.elements.feedbackStatus.textContent = isCorrect ? "Your checked answer is correct." : "Not quite. Check the explanation.";
+      this.elements.correctAnswerText.textContent = `Correct answer: ${question.correctAnswer}`;
+      this.elements.explanationText.textContent = question.explanation;
+      this.elements.checkButton.hidden = true;
+      this.elements.nextButton.hidden = false;
+      focusWithoutScrolling2(this.elements.nextButton);
+    }
+    goNext() {
+      if (!this.elements) {
+        return;
+      }
+      if (this.currentQuestionIndex >= firstCheckedQuestions.length - 1) {
+        this.showFinal();
+        return;
+      }
+      this.currentQuestionIndex += 1;
+      this.renderQuestion();
+    }
+    showFinal() {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.introView.hidden = true;
+      this.elements.activityView.hidden = true;
+      this.elements.finalView.hidden = false;
+      this.elements.completedText.textContent = `Questions completed: ${this.completedCount} of ${firstCheckedQuestions.length}`;
+      this.elements.scoreText.textContent = `Checked answers correct: ${this.checkedCorrectCount} of ${firstCheckedQuestions.length}`;
+      focusWithoutScrolling2(this.elements.restartButton);
+    }
+    restart() {
+      this.currentQuestionIndex = 0;
+      this.checkedCorrectCount = 0;
+      this.completedCount = 0;
+      this.showIntro();
+      focusWithoutScrolling2(this.elements?.startButton);
+    }
+  };
+  function isAcceptedAnswer(answer, question) {
+    const normalizedAnswer = normalizeAnswer(answer);
+    return question.acceptedAnswers.some((acceptedAnswer) => normalizeAnswer(acceptedAnswer) === normalizedAnswer);
+  }
+  function normalizeAnswer(answer) {
+    return answer.trim().toLowerCase().replace(/\$/g, "").replace(/\bmins?\b/g, "minutes").replace(/\bmin\b/g, "minutes").replace(/\bhrs?\b/g, "hours").replace(/\bhr\b/g, "hour").replace(/[^a-z0-9.]+/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function focusWithoutScrolling2(element) {
+    if (!element) {
+      return;
+    }
+    try {
+      element.focus({ preventScroll: true });
+    } catch {
+      element.focus();
+    }
+  }
+
   // assets/ts/e4a-small-change-activity.ts
   var smallChangeQuestions = [
     {
@@ -1891,7 +2201,7 @@
       this.elements.retryButton.hidden = false;
       this.elements.nextButton.hidden = false;
       this.elements.progressBar.style.width = `${(this.currentQuestionIndex + 1) / smallChangeQuestions.length * 100}%`;
-      focusWithoutScrolling2(this.elements.nextButton);
+      focusWithoutScrolling3(this.elements.nextButton);
     }
     retryCurrentQuestion() {
       if (!this.elements || !this.answered) {
@@ -1928,7 +2238,7 @@
       this.elements.quizView.hidden = true;
       this.elements.finalView.hidden = false;
       this.elements.scoreText.textContent = `Your first-try score: ${this.score} / ${smallChangeQuestions.length}`;
-      focusWithoutScrolling2(this.elements.restartButton);
+      focusWithoutScrolling3(this.elements.restartButton);
     }
     restart() {
       this.currentQuestionIndex = 0;
@@ -1962,7 +2272,7 @@
       }
       const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
       this.elements.questionPanel.scrollIntoView({ behavior, block: "start", inline: "nearest" });
-      focusWithoutScrolling2(this.elements.questionText);
+      focusWithoutScrolling3(this.elements.questionText);
     }
     setControlButtonLabel(button, label) {
       button.textContent = label;
@@ -1982,7 +2292,7 @@
       document.addEventListener("fullscreenchange", this.handleFullscreenChange);
       this.elements.presentButton.hidden = true;
       this.elements.exitButton.hidden = false;
-      focusWithoutScrolling2(this.elements.exitButton);
+      focusWithoutScrolling3(this.elements.exitButton);
       if (typeof this.root.requestFullscreen === "function") {
         void this.root.requestFullscreen().catch(() => void 0);
       }
@@ -2000,13 +2310,13 @@
       document.removeEventListener("fullscreenchange", this.handleFullscreenChange);
       this.elements.presentButton.hidden = false;
       this.elements.exitButton.hidden = true;
-      focusWithoutScrolling2(this.elements.presentButton);
+      focusWithoutScrolling3(this.elements.presentButton);
       if (!skipFullscreenExit && document.fullscreenElement !== null && typeof document.exitFullscreen === "function") {
         void document.exitFullscreen().catch(() => void 0);
       }
     }
   };
-  function focusWithoutScrolling2(element) {
+  function focusWithoutScrolling3(element) {
     try {
       element.focus({ preventScroll: true });
     } catch {
@@ -2070,6 +2380,7 @@
   async function initializeWorkbook() {
     initializeTemplateCopyButtons();
     initializeDecisionPollActivities();
+    initializeFirstCheckedAnswerActivities();
     initializeSmallChangeActivities();
     initializePromptResultCompareActivities();
     initializeImageExpanders();
