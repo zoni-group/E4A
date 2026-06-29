@@ -2376,6 +2376,486 @@
     }
   };
 
+  // assets/ts/e4a-source-check-warmup.ts
+  var INTRO_SLIDE_COUNT2 = 1;
+  var sourceCheckItems = [
+    {
+      statement: "Chocolate can contain caffeine.",
+      answer: "Mostly True",
+      explanation: "Chocolate can have caffeine. Dark chocolate usually has more.",
+      imagePath: "assets/images/lesson-05/01-chocolate-caffeine.png",
+      imageAlt: "Chocolate pieces, a warm drink, and a gentle energy cue on a classroom table.",
+      sourceLabel: "USDA FoodData Central caffeine data",
+      sourceUrl: "https://www.nal.usda.gov/sites/default/files/page-files/caffeine.pdf?utm_source=openai"
+    },
+    {
+      statement: "Sugar makes most children hyperactive.",
+      answer: "Mostly False",
+      explanation: "Sugar does not usually make children hyperactive. Parties, games, and excitement may be the reason.",
+      imagePath: "assets/images/lesson-05/02-sugar-hyperactive.png",
+      imageAlt: "Candy, party objects, and game items in a classroom-style illustration.",
+      sourceLabel: "JAMA/PubMed sugar behavior meta-analysis",
+      sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/7474248/?utm_source=openai"
+    },
+    {
+      statement: "Dogs can see some colors.",
+      answer: "Mostly True",
+      explanation: "Dogs do not see colors like humans, but they can see some colors.",
+      imagePath: "assets/images/lesson-05/03-dogs-colors.png",
+      imageAlt: "A friendly dog looks at blue and yellow objects on a classroom table.",
+      sourceLabel: "AKC dog color vision explainer",
+      sourceUrl: "https://www.akc.org/expert-advice/health/can-dogs-see-color/?utm_source=openai"
+    },
+    {
+      statement: "Bats are blind.",
+      answer: "Mostly False",
+      explanation: "Bats are not blind. They have eyes and can see.",
+      imagePath: "assets/images/lesson-05/04-bats-blind.png",
+      imageAlt: "A friendly bat with visible eyes in a gentle classroom nature-study scene.",
+      sourceLabel: "Bat Conservation International bat vision explainer",
+      sourceUrl: "https://www.batcon.org/blind-as-a-bat-no-such-thing/?utm_source=openai"
+    },
+    {
+      statement: "Washing hands with soap can help stop illness.",
+      answer: "Mostly True",
+      explanation: "Soap and water help remove germs from your hands.",
+      imagePath: "assets/images/lesson-05/05-handwashing-soap.png",
+      imageAlt: "Hands, soap bubbles, and abstract germs being washed away at a sink.",
+      sourceLabel: "CDC clean hands guidance",
+      sourceUrl: "https://www.cdc.gov/clean-hands/about/index.html?utm_source=openai"
+    },
+    {
+      statement: "Antibiotics usually help with a cold.",
+      answer: "Mostly False",
+      explanation: "Colds are usually caused by viruses. Antibiotics fight bacteria, not viruses.",
+      imagePath: "assets/images/lesson-05/06-antibiotics-cold.png",
+      imageAlt: "Cold-care objects, abstract virus shapes, and pills separated in a health literacy illustration.",
+      sourceLabel: "CDC antibiotic use guidance",
+      sourceUrl: "https://www.cdc.gov/antibiotic-use/about/index.html?utm_source=openai"
+    },
+    {
+      statement: "Lightning can hit the same place more than once.",
+      answer: "Mostly True",
+      explanation: "Lightning can hit the same place many times.",
+      imagePath: "assets/images/lesson-05/07-lightning-same-place.png",
+      imageAlt: "A tall tower safely receiving repeated stylized lightning strikes in a city skyline.",
+      sourceLabel: "NOAA/NSSL lightning FAQ",
+      sourceUrl: "https://www.nssl.noaa.gov/education/svrwx101/lightning/faq/?utm_source=openai"
+    },
+    {
+      statement: "People use only 10% of their brain.",
+      answer: "Mostly False",
+      explanation: "People use much more than 10% of the brain.",
+      imagePath: "assets/images/lesson-05/08-brain-ten-percent.png",
+      imageAlt: "A colorful brain model with many active regions and simple idea symbols around it.",
+      sourceLabel: "BrainFacts 10 percent myth explainer",
+      sourceUrl: "https://www.brainfacts.org/thinking-sensing-and-behaving/thinking-and-awareness/2014/the-ten-percent-myth?utm_source=openai"
+    },
+    {
+      statement: "A tomato is a fruit in science.",
+      answer: "Mostly True",
+      explanation: "In science, a tomato is a fruit. In cooking, people often call it a vegetable.",
+      imagePath: "assets/images/lesson-05/09-tomato-fruit.png",
+      imageAlt: "A tomato on a vine and a sliced tomato showing seeds on a classroom science table.",
+      sourceLabel: "University of Illinois Extension plant-parts explainer",
+      sourceUrl: "https://web.extension.illinois.edu/gpe/case1/c1facts2e.html?utm_source=openai"
+    },
+    {
+      statement: "A confident AI answer is always correct.",
+      answer: "Mostly False",
+      explanation: "AI can sound confident and still be wrong. We need to check sources.",
+      imagePath: "assets/images/lesson-05/10-ai-confident-wrong.png",
+      imageAlt: "A laptop with a generic AI chat image beside a magnifying glass checking source documents.",
+      sourceLabel: "OpenAI Help Center truthfulness note",
+      sourceUrl: "https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth?utm_source=openai"
+    }
+  ];
+  var sourceCheckSlides = [
+    { variant: "intro" },
+    ...sourceCheckItems.flatMap((_, itemIndex) => [
+      { variant: "statement", itemIndex },
+      { variant: "explanation", itemIndex }
+    ]),
+    { variant: "closing" },
+    { variant: "conclusion" }
+  ];
+  function initializeSourceCheckWarmupActivities(root = document) {
+    const activities = Array.from(root.querySelectorAll("[data-e4a-source-check-warmup]"));
+    for (const activity of activities) {
+      new SourceCheckWarmupActivity(activity).initialize();
+    }
+  }
+  var SourceCheckWarmupActivity = class {
+    constructor(root) {
+      this.root = root;
+      this.currentSlideIndex = 0;
+      this.isPresenting = false;
+      this.voteCounts = sourceCheckItems.map(() => ({ mostlyTrue: 0, mostlyFalse: 0 }));
+      this.handlePresentationKeydown = (event) => {
+        if (event.key === "Escape" && this.isPresenting) {
+          if (document.querySelector(".e4a-image-expand")) {
+            return;
+          }
+          this.exitPresentation();
+        }
+      };
+      this.handleFullscreenChange = () => {
+        if (this.isPresenting && document.fullscreenElement === null) {
+          this.exitPresentation(true);
+        }
+      };
+    }
+    initialize() {
+      this.root.innerHTML = this.renderShell();
+      const elements = this.queryElements();
+      if (!elements) {
+        return;
+      }
+      this.elements = elements;
+      elements.presentButton.addEventListener("click", () => this.enterPresentation());
+      elements.exitButton.addEventListener("click", () => this.exitPresentation());
+      elements.previousButton.addEventListener("click", () => this.goPrevious());
+      elements.primaryButton.addEventListener("click", () => this.goNext());
+      this.renderSlide();
+    }
+    renderShell() {
+      return `
+      <div class="e4a-source-check-warmup__inner">
+        <div class="e4a-source-check-warmup__header">
+          <div class="e4a-source-check-warmup__present-controls">
+            <button type="button" class="e4a-source-check-warmup__present btn btn-outline-primary" data-e4a-source-check-present>Present</button>
+            <button type="button" class="e4a-source-check-warmup__exit btn btn-outline-secondary" data-e4a-source-check-exit hidden>Exit</button>
+          </div>
+        </div>
+        <div class="e4a-source-check-warmup__activity">
+          <div class="e4a-source-check-warmup__progress-row" data-e4a-source-check-progress-row>
+            <p class="e4a-source-check-warmup__progress-text" data-e4a-source-check-progress-text></p>
+            <div class="e4a-source-check-warmup__progress-track" aria-hidden="true">
+              <div class="e4a-source-check-warmup__progress-bar" data-e4a-source-check-progress-bar></div>
+            </div>
+          </div>
+          <div class="e4a-source-check-warmup__slide" data-e4a-source-check-slide tabindex="-1"></div>
+          <div class="e4a-source-check-warmup__actions">
+            <button type="button" class="e4a-source-check-warmup__previous btn btn-outline-secondary" data-e4a-source-check-previous hidden>Previous slide</button>
+            <button type="button" class="e4a-source-check-warmup__primary btn btn-primary" data-e4a-source-check-primary>Next</button>
+          </div>
+        </div>
+      </div>
+    `;
+    }
+    queryElements() {
+      const progressRow = this.root.querySelector("[data-e4a-source-check-progress-row]");
+      const progressText = this.root.querySelector("[data-e4a-source-check-progress-text]");
+      const progressBar = this.root.querySelector("[data-e4a-source-check-progress-bar]");
+      const slide = this.root.querySelector("[data-e4a-source-check-slide]");
+      const previousButton = this.root.querySelector("[data-e4a-source-check-previous]");
+      const primaryButton = this.root.querySelector("[data-e4a-source-check-primary]");
+      const presentButton = this.root.querySelector("[data-e4a-source-check-present]");
+      const exitButton = this.root.querySelector("[data-e4a-source-check-exit]");
+      if (!progressRow || !progressText || !progressBar || !slide || !previousButton || !primaryButton || !presentButton || !exitButton) {
+        return void 0;
+      }
+      return { progressRow, progressText, progressBar, slide, previousButton, primaryButton, presentButton, exitButton };
+    }
+    renderSlide() {
+      if (!this.elements) {
+        return;
+      }
+      const slide = sourceCheckSlides[this.currentSlideIndex];
+      const isIntroSlide = slide.variant === "intro";
+      const teachingSlideCount = sourceCheckSlides.length - INTRO_SLIDE_COUNT2;
+      const teachingSlideNumber = this.currentSlideIndex - INTRO_SLIDE_COUNT2 + 1;
+      this.elements.slide.replaceChildren();
+      this.elements.progressRow.hidden = isIntroSlide;
+      this.elements.progressText.textContent = isIntroSlide ? "" : `Slide ${teachingSlideNumber} of ${teachingSlideCount}`;
+      this.elements.progressBar.style.width = isIntroSlide ? "0%" : `${teachingSlideNumber / teachingSlideCount * 100}%`;
+      this.elements.previousButton.hidden = this.currentSlideIndex <= INTRO_SLIDE_COUNT2;
+      this.setControlButtonLabel(this.elements.previousButton, "Previous slide");
+      this.renderPrimaryButton(slide);
+      if (slide.variant === "intro") {
+        this.renderIntroSlide();
+      } else if (slide.variant === "statement") {
+        this.renderStatementSlide(slide);
+      } else if (slide.variant === "explanation") {
+        this.renderExplanationSlide(slide);
+      } else if (slide.variant === "closing") {
+        this.renderClosingSlide();
+      } else {
+        this.renderConclusionSlide();
+      }
+      initializeImageExpanders(this.elements.slide);
+      focusWithoutScrolling4(this.elements.slide);
+    }
+    renderPrimaryButton(slide) {
+      if (!this.elements) {
+        return;
+      }
+      if (slide.variant === "conclusion") {
+        this.elements.primaryButton.hidden = true;
+        return;
+      }
+      this.elements.primaryButton.hidden = false;
+      if (slide.variant === "intro") {
+        this.setControlButtonLabel(this.elements.primaryButton, "Start");
+      } else if (slide.variant === "statement") {
+        this.setControlButtonLabel(this.elements.primaryButton, "Show explanation");
+      } else if (slide.variant === "explanation") {
+        this.setControlButtonLabel(
+          this.elements.primaryButton,
+          slide.itemIndex === sourceCheckItems.length - 1 ? "Closing sentence" : "Next statement"
+        );
+      } else {
+        this.setControlButtonLabel(this.elements.primaryButton, "Conclusion");
+      }
+    }
+    renderIntroSlide() {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.slide.className = "e4a-source-check-warmup__slide e4a-source-check-warmup__slide--intro";
+      const content = document.createElement("div");
+      content.className = "e4a-source-check-warmup__intro-slide";
+      const eyebrow = document.createElement("p");
+      eyebrow.className = "e4a-source-check-warmup__eyebrow";
+      eyebrow.textContent = "Warm-up activity";
+      const title = document.createElement("h3");
+      title.className = "e4a-source-check-warmup__title";
+      title.textContent = "Mostly True or Mostly False?";
+      const copy = document.createElement("p");
+      copy.className = "e4a-source-check-warmup__copy";
+      copy.textContent = "Read each statement, vote, then check a source before you decide.";
+      content.append(eyebrow, title, copy);
+      this.elements.slide.append(content);
+    }
+    renderStatementSlide(slide) {
+      if (!this.elements) {
+        return;
+      }
+      const item = sourceCheckItems[slide.itemIndex];
+      this.elements.slide.className = "e4a-source-check-warmup__slide e4a-source-check-warmup__slide--statement";
+      const layout = document.createElement("div");
+      layout.className = "e4a-source-check-warmup__statement-layout";
+      layout.append(this.renderQuestionImage(item), this.renderStatementContent(item, slide.itemIndex));
+      this.elements.slide.append(layout);
+    }
+    renderStatementContent(item, itemIndex) {
+      const content = document.createElement("div");
+      content.className = "e4a-source-check-warmup__statement-content";
+      content.append(this.renderSlideHeader(`Statement ${itemIndex + 1}`, item.statement), this.renderVoteButtons(itemIndex));
+      return content;
+    }
+    renderVoteButtons(itemIndex) {
+      const group = document.createElement("div");
+      group.className = "e4a-source-check-warmup__vote-buttons";
+      group.setAttribute("role", "group");
+      group.setAttribute("aria-label", "Vote choices");
+      group.append(
+        this.renderVoteButton(itemIndex, "mostlyTrue", "Mostly True"),
+        this.renderVoteButton(itemIndex, "mostlyFalse", "Mostly False")
+      );
+      return group;
+    }
+    renderVoteButton(itemIndex, key, label) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "e4a-source-check-warmup__vote-button";
+      button.dataset.e4aSourceCheckVote = key;
+      this.updateVoteButton(button, itemIndex, key, label);
+      button.addEventListener("click", () => {
+        this.voteCounts[itemIndex][key] += 1;
+        this.updateVoteButton(button, itemIndex, key, label);
+      });
+      return button;
+    }
+    updateVoteButton(button, itemIndex, key, label) {
+      const count = this.voteCounts[itemIndex][key];
+      button.replaceChildren();
+      const text = document.createElement("span");
+      text.className = "e4a-source-check-warmup__vote-label";
+      text.textContent = label;
+      const countElement = document.createElement("span");
+      countElement.className = "e4a-source-check-warmup__vote-count";
+      countElement.textContent = String(count);
+      countElement.setAttribute("aria-hidden", "true");
+      button.append(text, countElement);
+      button.setAttribute("aria-label", `${label}, ${count} votes`);
+    }
+    renderExplanationSlide(slide) {
+      if (!this.elements) {
+        return;
+      }
+      const item = sourceCheckItems[slide.itemIndex];
+      this.elements.slide.className = "e4a-source-check-warmup__slide e4a-source-check-warmup__slide--explanation";
+      const content = document.createElement("div");
+      content.className = "e4a-source-check-warmup__explanation";
+      content.append(this.renderSlideHeader(`Source Check ${slide.itemIndex + 1}`, item.statement));
+      const answer = document.createElement("p");
+      answer.className = "e4a-source-check-warmup__answer";
+      const answerLabel = document.createElement("span");
+      answerLabel.className = "e4a-source-check-warmup__answer-label";
+      answerLabel.textContent = "Answer";
+      const answerText = document.createElement("strong");
+      answerText.textContent = item.answer;
+      answer.append(answerLabel, answerText);
+      const explanation = document.createElement("p");
+      explanation.className = "e4a-source-check-warmup__explanation-text";
+      explanation.textContent = item.explanation;
+      const source = document.createElement("p");
+      source.className = "e4a-source-check-warmup__source";
+      const sourcePrefix = document.createElement("span");
+      sourcePrefix.textContent = "Source: ";
+      const link = document.createElement("a");
+      link.href = item.sourceUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = item.sourceLabel;
+      source.append(sourcePrefix, link);
+      content.append(answer, explanation, source);
+      this.elements.slide.append(content);
+    }
+    renderClosingSlide() {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.slide.className = "e4a-source-check-warmup__slide e4a-source-check-warmup__slide--closing";
+      const content = document.createElement("div");
+      content.className = "e4a-source-check-warmup__closing";
+      const eyebrow = document.createElement("p");
+      eyebrow.className = "e4a-source-check-warmup__eyebrow";
+      eyebrow.textContent = "Speaking frame";
+      const frame = document.createElement("p");
+      frame.className = "e4a-source-check-warmup__frame";
+      frame.textContent = "At first, I thought it was ______. After reading the source, I think it is ______ because ______.";
+      content.append(eyebrow, frame);
+      this.elements.slide.append(content);
+    }
+    renderConclusionSlide() {
+      if (!this.elements) {
+        return;
+      }
+      this.elements.slide.className = "e4a-source-check-warmup__slide e4a-source-check-warmup__slide--conclusion";
+      const content = document.createElement("div");
+      content.className = "e4a-source-check-warmup__conclusion";
+      const title = document.createElement("h3");
+      title.className = "e4a-source-check-warmup__conclusion-title";
+      title.textContent = "Always Check the Source";
+      const copy = document.createElement("p");
+      copy.className = "e4a-source-check-warmup__conclusion-copy";
+      copy.textContent = "AI can sound confident and still be wrong. Always check the source.";
+      content.append(title, copy);
+      this.elements.slide.append(content);
+    }
+    renderSlideHeader(title, heading) {
+      const header = document.createElement("div");
+      header.className = "e4a-source-check-warmup__slide-header";
+      const eyebrow = document.createElement("p");
+      eyebrow.className = "e4a-source-check-warmup__slide-eyebrow";
+      eyebrow.textContent = title;
+      const prompt = document.createElement("p");
+      prompt.className = "e4a-source-check-warmup__statement";
+      prompt.textContent = heading;
+      header.append(eyebrow, prompt);
+      return header;
+    }
+    renderQuestionImage(item) {
+      const figure = document.createElement("figure");
+      figure.className = "e4a-source-check-warmup__figure";
+      figure.append(
+        this.renderResponsiveImage(item.imagePath, item.imageAlt),
+        this.renderImageExpandButton(item.imagePath, item.imageAlt, item.statement)
+      );
+      return figure;
+    }
+    renderResponsiveImage(imagePath, imageAlt) {
+      const picture = document.createElement("picture");
+      const source = document.createElement("source");
+      source.srcset = imagePath.replace(/\.png$/i, ".webp");
+      source.type = "image/webp";
+      const image = document.createElement("img");
+      image.src = imagePath;
+      image.alt = imageAlt;
+      image.decoding = "async";
+      image.loading = "lazy";
+      picture.append(source, image);
+      return picture;
+    }
+    renderImageExpandButton(imagePath, imageAlt, imageCaption) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "btn btn-outline-primary btn-sm e4a-image-expand__trigger";
+      button.textContent = "Expand image";
+      button.dataset.e4aImageExpand = "";
+      button.dataset.e4aImageExpandSrc = imagePath;
+      button.dataset.e4aImageExpandWebpSrc = imagePath.replace(/\.png$/i, ".webp");
+      button.dataset.e4aImageExpandAlt = imageAlt;
+      button.dataset.e4aImageExpandCaption = imageCaption;
+      button.setAttribute("aria-label", `Expand image: ${imageCaption}`);
+      return button;
+    }
+    goPrevious() {
+      if (!this.elements || this.currentSlideIndex <= INTRO_SLIDE_COUNT2) {
+        return;
+      }
+      this.currentSlideIndex -= 1;
+      this.renderSlide();
+    }
+    goNext() {
+      if (!this.elements || this.currentSlideIndex >= sourceCheckSlides.length - 1) {
+        return;
+      }
+      this.currentSlideIndex += 1;
+      this.renderSlide();
+    }
+    setControlButtonLabel(button, label) {
+      button.textContent = label;
+      button.setAttribute("aria-label", label);
+      button.title = label;
+    }
+    enterPresentation() {
+      if (!this.elements || this.isPresenting) {
+        return;
+      }
+      this.isPresenting = true;
+      this.root.dataset.e4aPresentationMode = "true";
+      this.root.setAttribute("role", "dialog");
+      this.root.setAttribute("aria-label", "Mostly True or Mostly False presentation");
+      document.body.classList.add("e4a-source-check-warmup-presenting");
+      document.addEventListener("keydown", this.handlePresentationKeydown);
+      document.addEventListener("fullscreenchange", this.handleFullscreenChange);
+      this.elements.presentButton.hidden = true;
+      this.elements.exitButton.hidden = false;
+      focusWithoutScrolling4(this.elements.exitButton);
+      if (typeof this.root.requestFullscreen === "function") {
+        void this.root.requestFullscreen().catch(() => void 0);
+      }
+    }
+    exitPresentation(skipFullscreenExit = false) {
+      if (!this.elements || !this.isPresenting) {
+        return;
+      }
+      this.isPresenting = false;
+      delete this.root.dataset.e4aPresentationMode;
+      this.root.removeAttribute("role");
+      this.root.removeAttribute("aria-label");
+      document.body.classList.remove("e4a-source-check-warmup-presenting");
+      document.removeEventListener("keydown", this.handlePresentationKeydown);
+      document.removeEventListener("fullscreenchange", this.handleFullscreenChange);
+      this.elements.presentButton.hidden = false;
+      this.elements.exitButton.hidden = true;
+      focusWithoutScrolling4(this.elements.presentButton);
+      if (!skipFullscreenExit && document.fullscreenElement !== null && typeof document.exitFullscreen === "function") {
+        void document.exitFullscreen().catch(() => void 0);
+      }
+    }
+  };
+  function focusWithoutScrolling4(element) {
+    try {
+      element.focus({ preventScroll: true });
+    } catch {
+      element.focus();
+    }
+  }
+
   // assets/ts/e4a-workbook.ts
   async function initializeWorkbook() {
     initializeTemplateCopyButtons();
@@ -2383,6 +2863,7 @@
     initializeFirstCheckedAnswerActivities();
     initializeSmallChangeActivities();
     initializePromptResultCompareActivities();
+    initializeSourceCheckWarmupActivities();
     initializeImageExpanders();
     const blocks = scanWorkbookBlocks();
     if (blocks.length === 0) {
