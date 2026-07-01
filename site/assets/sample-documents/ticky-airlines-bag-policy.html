@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tricky Airlines | Carry-On Bags, Maybe</title>
+  <style>
+    :root {
+      --navy:#17213b;
+      --blue:#235d8f;
+      --sky:#d9ecff;
+      --fog:#f4f7fb;
+      --warning:#fff5cc;
+      --border:#c9d6e3;
+      --text:#1d2733;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #ffffff;
+      line-height: 1.55;
+    }
+    header {
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+      color: white;
+      padding: 20px 36px;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+    .brand {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: .5px;
+    }
+    .tagline {
+      font-size: 14px;
+      opacity: .9;
+      margin-top: 4px;
+    }
+    .top-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+    .top-links a {
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px dotted white;
+    }
+    .hero {
+      padding: 42px 36px;
+      background: linear-gradient(180deg, var(--sky), #fff);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 {
+      font-size: 46px;
+      margin: 0 0 12px 0;
+      line-height: 1.05;
+    }
+    .hero .sub {
+      font-size: 20px;
+      max-width: 900px;
+    }
+    .alert {
+      margin-top: 24px;
+      background: var(--warning);
+      border: 1px solid #e1c766;
+      padding: 18px;
+      max-width: 1000px;
+    }
+    main {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      padding: 28px 36px 80px;
+    }
+    aside {
+      position: sticky;
+      top: 118px;
+      align-self: start;
+      border: 1px solid var(--border);
+      background: var(--fog);
+      padding: 18px;
+      max-height: calc(100vh - 140px);
+      overflow: auto;
+    }
+    aside h2 {
+      font-size: 17px;
+      margin-top: 0;
+    }
+    aside a {
+      display: block;
+      color: var(--blue);
+      text-decoration: none;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+    section {
+      border: 1px solid var(--border);
+      padding: 28px;
+      margin-bottom: 24px;
+      background: #fff;
+    }
+    h2 {
+      font-size: 30px;
+      margin: 0 0 18px;
+      color: var(--navy);
+    }
+    h3 {
+      font-size: 22px;
+      margin-top: 26px;
+      color: #22324e;
+    }
+    .mini-note {
+      font-size: 13px;
+      color: #576574;
+      background: #f7f7f7;
+      border-left: 4px solid var(--border);
+      padding: 10px 12px;
+      margin: 14px 0;
+    }
+    .important {
+      background: #fff9e8;
+      border: 1px solid #edd583;
+      padding: 14px;
+      margin: 16px 0;
+    }
+    .confusing {
+      background: #f8fbff;
+      border: 1px dashed #9cb5d0;
+      padding: 14px;
+      margin: 16px 0;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 18px 0;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #e9f2fb;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 7px;
+      background: #e6f1ff;
+      border: 1px solid #aac9eb;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-right: 4px;
+    }
+    .faq details {
+      border-top: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .faq summary {
+      font-weight: bold;
+      cursor: pointer;
+      color: var(--blue);
+    }
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 36px;
+      font-size: 13px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .footer-grid a {
+      display: block;
+      color: white;
+      margin: 7px 0;
+      text-decoration: none;
+      opacity: .85;
+    }
+    .lesson-banner {
+      background: #331b4d;
+      color: white;
+      padding: 14px 36px;
+      font-size: 15px;
+    }
+    .print-button {
+      background: white;
+      border: 1px solid white;
+      color: var(--navy);
+      padding: 10px 14px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 14px;
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; }
+      aside { position: static; max-height: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Tricky Airlines</div>
+    <div class="tagline">The airline that makes you read the fine print twice.</div>
+    <nav class="top-links" aria-label="Main navigation">
+      <a href="#summary">Carry-on summary</a>
+      <a href="#fares">Fare types</a>
+      <a href="#size">Size rules</a>
+      <a href="#extras">Extra items</a>
+      <a href="#exceptions">Exceptions</a>
+      <a href="#faq">FAQ</a>
+      <a href="#legal">Legal-ish notes</a>
+    </nav>
+  </header>
+
+  <div class="lesson-banner">
+    Fictional lesson page: This page is intentionally long, repetitive, and confusing. Students should verify the answer using evidence from the page.
+  </div>
+
+  <div class="hero">
+    <h1>Carry-On Bags, Personal Items, Almost-Free Items, and Other Things You Might Be Holding</h1>
+    <p class="sub">
+      Welcome to Tricky Airlines bag information. Most travelers may bring a bag. Some travelers may bring two bags.
+      A few travelers may bring one bag that is not the bag they expected. The rules depend on your fare, route,
+      aircraft, boarding group, loyalty sparkle level, moonlight exceptions, and whether the bag is really a bag.
+    </p>
+    <div class="alert">
+      <strong>Important:</strong> This page explains general rules. Your exact allowance may appear in your ticket receipt,
+      mobile boarding pass, pre-flight email, airport screen, gate announcement, or a small gray sentence under “Trip Details.”
+      If these sources disagree, the most recent one probably wins, except when it does not.
+    </div>
+    <button class="print-button" onclick="window.print()">Print 29 pages of bag clarity</button>
+  </div>
+
+  <main>
+    <aside>
+      <h2>On this extremely helpful page</h2>
+      <a href="#summary">1. Simple answer, but not simple</a>
+      <a href="#basic">2. Basic-ish tickets</a>
+      <a href="#fares">3. Fare comparison</a>
+      <a href="#size">4. Size and measurement rules</a>
+      <a href="#personal">5. Personal items</a>
+      <a href="#extras">6. Items that may not count</a>
+      <a href="#gate">7. Gate checking</a>
+      <a href="#partners">8. Partner flights</a>
+      <a href="#families">9. Family and medical items</a>
+      <a href="#sports">10. Sports, music, fish, and gifts</a>
+      <a href="#faq">11. FAQ</a>
+      <a href="#legal">12. Fine print</a>
+      <a href="#footer">13. More unrelated links</a>
+    </aside>
+
+    <div>
+      <section id="summary">
+        <h2>Simple answer: Can I bring a carry-on bag?</h2>
+        <p>
+          In many cases, yes. In some cases, no. In several cases, yes, but only if your ticket, route, status,
+          aircraft, boarding group, or payment method says yes. On most Tricky Airlines flights, customers may bring
+          one personal item. Many customers may also bring one standard carry-on bag. However, Basic-ish Blueberry Saver
+          customers on selected short flights may not bring a standard carry-on bag unless they qualify for an exception.
+        </p>
+
+        <div class="important">
+          <strong>Most important clue:</strong> A personal item is not the same as a carry-on bag. A small backpack under the seat
+          is usually a personal item. A suitcase for the overhead bin is usually a carry-on bag.
+        </div>
+
+        <p>
+          Customers should not assume that the word “bag” always means “carry-on bag.” On this page, “bag” can mean:
+          a carry-on bag, a personal item, a checked bag, a shopping bag, a diaper bag, a musical instrument, a duty-free bag,
+          a bag inside another bag, or a bag that becomes a checked bag because the overhead bins are full.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Fast answer</th>
+              <th>Slow answer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Does every ticket include a personal item?</td>
+              <td>Usually yes.</td>
+              <td>It must fit under the seat in front of you and may be your only included item on some fares.</td>
+            </tr>
+            <tr>
+              <td>Does every ticket include a full-size carry-on?</td>
+              <td>No.</td>
+              <td>Many tickets include one, but some Basic-ish fares do not unless an exception applies.</td>
+            </tr>
+            <tr>
+              <td>Can I pay later if my bag is too big?</td>
+              <td>Maybe.</td>
+              <td>You may need to check the bag, pay a fee, wait at baggage claim, or calmly repack in public.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="basic">
+        <h2>Basic-ish Blueberry Saver tickets</h2>
+        <p>
+          Basic-ish Blueberry Saver is our lowest fare and our highest reading-comprehension challenge.
+          It includes transportation from one place to another place, subject to the plane going to that place.
+          It includes one personal item that fits under the seat. It does not include a standard overhead-bin carry-on
+          on selected domestic, near-domestic, almost-domestic, and “we-feel-this-is-domestic” routes.
+        </p>
+
+        <h3>When Basic-ish does not include an overhead carry-on</h3>
+        <p>
+          If you purchased Basic-ish Blueberry Saver for a flight inside the Tricky Zone, you may bring only one personal item.
+          If you arrive at the gate with an overhead-bin suitcase, the suitcase may be checked and a gate service fee may apply.
+          The fee may be higher than the fee you did not pay earlier because the airport is an expensive place to change your mind.
+        </p>
+
+        <h3>When Basic-ish may include an overhead carry-on</h3>
+        <p>
+          Basic-ish customers may bring one overhead carry-on when the itinerary includes a long international ocean-crossing segment
+          operated by Tricky Airlines, or when the customer has TwinklePlus Elite Status, or when the customer purchased the
+          “Bin Maybe Bundle,” or when the booking confirmation specifically says “carry-on included.”
+        </p>
+
+        <div class="confusing">
+          <strong>Careful:</strong> If your ticket says “carry-on available,” that may mean available for purchase, available for eligible
+          customers, available on some aircraft, or available in the emotional sense that we hope bins are available.
+        </div>
+      </section>
+
+      <section id="fares">
+        <h2>Fare comparison chart</h2>
+        <p>
+          This chart is meant to help. It may also create questions, which is part of your journey.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Fare type</th>
+              <th>Personal item</th>
+              <th>Standard carry-on</th>
+              <th>Important tiny detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Basic-ish Blueberry Saver</td>
+              <td><span class="badge">Included</span> 1 under-seat item</td>
+              <td><span class="badge">Maybe</span> Not included on selected short routes</td>
+              <td>Read your ticket receipt, not your hopes.</td>
+            </tr>
+            <tr>
+              <td>Regular Economy-ish</td>
+              <td>1 under-seat item</td>
+              <td>1 overhead-bin item</td>
+              <td>Overhead space is not guaranteed if the bins are full.</td>
+            </tr>
+            <tr>
+              <td>Stretchy Economy</td>
+              <td>1 under-seat item</td>
+              <td>1 overhead-bin item</td>
+              <td>You may board earlier, but your bag still needs to fit.</td>
+            </tr>
+            <tr>
+              <td>Business-ish</td>
+              <td>1 under-seat item</td>
+              <td>1 overhead-bin item</td>
+              <td>You may feel important, but gravity still applies.</td>
+            </tr>
+            <tr>
+              <td>Cloud Sofa First</td>
+              <td>1 under-seat item</td>
+              <td>1 overhead-bin item</td>
+              <td>Extra comfort does not create extra dimensions.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="mini-note">
+          Note: “Included” means included before exceptions, after limitations, and subject to available space, aircraft type,
+          safety rules, and the final decision of trained airport employees.
+        </p>
+      </section>
+
+      <section id="size">
+        <h2>Size and measurement rules</h2>
+        <p>
+          Your standard carry-on bag must fit in the overhead bin. For planning, use the maximum size below.
+          Measurements include wheels, handles, side pockets, decorative charms, emotional support keychains,
+          expandable zippers, and any part of the bag that makes the bag larger.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item type</th>
+              <th>Maximum size</th>
+              <th>Where it goes</th>
+              <th>What happens if it does not fit?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Standard carry-on</td>
+              <td>22 x 14 x 9 inches</td>
+              <td>Overhead bin</td>
+              <td>It may be checked, tagged, measured, admired, rejected, or discussed.</td>
+            </tr>
+            <tr>
+              <td>Personal item</td>
+              <td>17 x 13 x 8 inches</td>
+              <td>Under the seat in front of you</td>
+              <td>You may need to remove items, check another bag, or reorganize your life.</td>
+            </tr>
+            <tr>
+              <td>Coat, umbrella, book, snack</td>
+              <td>Reasonable size</td>
+              <td>With you, under seat, or overhead if space exists</td>
+              <td>If it looks like a second personal item, it might be treated like one.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Weight limits</h3>
+        <p>
+          Tricky Airlines does not publish a normal carry-on weight limit for most routes. However, you must be able to lift
+          your carry-on into the overhead bin without injuring yourself, another customer, a crew member, the bin, or the mood.
+          Crew members are not required to lift your bag.
+        </p>
+
+        <h3>Expandable bags</h3>
+        <p>
+          A bag that fits at home may not fit after you expand it, sit on it, add souvenirs, or place one more sweater inside
+          because the weather app made you nervous. Measure the final shape, not the original dream.
+        </p>
+      </section>
+
+      <section id="personal">
+        <h2>Personal items: small but powerful</h2>
+        <p>
+          A personal item may be a purse, laptop bag, small backpack, camera bag, briefcase, or another small item that fits
+          completely under the seat in front of you. It must not block the aisle, your feet area, emergency equipment,
+          or the patience of the boarding group behind you.
+        </p>
+
+        <div class="important">
+          <strong>Important:</strong> A personal item is allowed on Basic-ish tickets, but a personal item is not an overhead-bin suitcase.
+          If your “personal item” has wheels, a hard shell, three handles, and a vacation sticker from 2017, it might not be personal enough.
+        </div>
+
+        <p>
+          Small purses, sling bags, waist packs, and crossbody bags may count as your personal item if you also have a carry-on.
+          You may be asked to place smaller bags inside your larger personal item before boarding.
+        </p>
+      </section>
+
+      <section id="extras">
+        <h2>Items that may not count toward your bag limit</h2>
+        <p>
+          In addition to your allowed items, you may bring certain necessary or common items. These items generally do not count
+          toward your limit when they are reasonable, safe, and not being used as a clever way to bring a third suitcase.
+        </p>
+
+        <ul>
+          <li>Assistive devices, such as canes, walkers, crutches, or medical mobility devices.</li>
+          <li>A jacket or coat.</li>
+          <li>An umbrella that is not pretending to be a golf club case.</li>
+          <li>Food purchased at the airport for the flight, in a reasonable amount.</li>
+          <li>Duty-free items in a reasonable and limited quantity.</li>
+          <li>A diaper bag for a lap infant traveling with you.</li>
+          <li>A child safety seat or stroller, subject to aircraft and safety rules.</li>
+          <li>Reading material, if it does not become a box of books.</li>
+        </ul>
+
+        <p class="mini-note">
+          “Reasonable” means reasonable to Tricky Airlines, not necessarily reasonable to you, your aunt, or a travel influencer.
+        </p>
+      </section>
+
+      <section id="gate">
+        <h2>Gate checking and overhead-bin drama</h2>
+        <p>
+          Even if your ticket includes a carry-on, overhead-bin space may run out. If the bins are full, Tricky Airlines may ask
+          customers to gate-check carry-on bags. This may happen for safety, aircraft size, boarding speed, bin space, mysterious
+          operational reasons, or because everyone brought a bag that is technically “small” but collectively enormous.
+        </p>
+
+        <h3>Will I pay if my included carry-on is gate-checked?</h3>
+        <p>
+          If your carry-on is allowed and fits the size rules, gate checking because of bin space is usually free.
+          If your bag is not allowed for your fare or is oversized, fees may apply. These two situations look similar at the gate
+          but feel different in your wallet.
+        </p>
+
+        <h3>Can I keep valuables?</h3>
+        <p>
+          Yes. Remove medicine, keys, documents, electronics, batteries, jewelry, small fragile items, and anything you need during
+          the flight before your bag is checked. Do not leave your passport in the bag unless you enjoy dramatic airport exercise.
+        </p>
+      </section>
+
+      <section id="partners">
+        <h2>Partner flights and mixed-airline trips</h2>
+        <p>
+          If your trip includes Tricky Airlines and another airline, your carry-on rules may depend on the airline operating the flight,
+          the first airline in each direction, the airline that checked you in, the ticketing airline, the airport employee helping you,
+          or the rule printed in your confirmation email.
+        </p>
+
+        <div class="confusing">
+          <strong>Example:</strong> If your ticket says Tricky Airlines but your first flight is operated by JetBlur Regional Express,
+          you may need to follow JetBlur Regional Express rules, unless Tricky Airlines rules apply at check-in, unless the airport
+          says otherwise, unless your confirmation email already solved this and you did not scroll far enough.
+        </div>
+
+        <p>
+          Always check the operating airline for each flight segment. A Tricky Airlines flight number does not always mean a Tricky
+          Airlines aircraft, crew, bin, seat, or bag mood.
+        </p>
+      </section>
+
+      <section id="families">
+        <h2>Families, infants, medical needs, and accessibility</h2>
+        <p>
+          Customers traveling with infants, children, or medical devices may be allowed additional items. These items must still pass
+          security screening and fit safely on the aircraft. Some items may be carried on, some may be gate-checked, and some may need
+          to travel as checked baggage.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Does it count?</th>
+              <th>Special note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Diaper bag for lap infant</td>
+              <td>Usually no</td>
+              <td>Only when traveling with the infant.</td>
+            </tr>
+            <tr>
+              <td>Stroller</td>
+              <td>Usually no</td>
+              <td>May need to be gate-checked.</td>
+            </tr>
+            <tr>
+              <td>Assistive device</td>
+              <td>No</td>
+              <td>Must be needed by the customer.</td>
+            </tr>
+            <tr>
+              <td>Medical device</td>
+              <td>Usually no</td>
+              <td>Tell us early if it needs power, space, or special handling.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="sports">
+        <h2>Sports gear, musical instruments, gifts, and oddly shaped objects</h2>
+        <p>
+          Musical instruments may travel as carry-on items if they fit safely in the overhead bin or under the seat and space is available.
+          If the instrument does not fit, you may need to check it or buy a seat for it in advance. The instrument may have talent,
+          but it does not automatically receive a free extra seat.
+        </p>
+
+        <p>
+          Sports equipment often does not qualify as a standard carry-on because it may be too long, sharp, bulky, heavy, strange,
+          or emotionally important. Golf clubs, hockey sticks, ski equipment, fishing rods, and similar items usually need special
+          handling or checked-bag arrangements.
+        </p>
+
+        <p>
+          Wrapped gifts may be opened by security. Pack gifts so they can be inspected without causing family disappointment.
+          Cakes may be allowed, but if your cake needs its own overhead bin, we need to talk.
+        </p>
+      </section>
+
+      <section id="faq" class="faq">
+        <h2>Frequently asked questions that may or may not answer your question</h2>
+
+        <details open>
+          <summary>Can Maria bring a carry-on bag?</summary>
+          <p>
+            It depends on Maria’s fare and route. If Maria has Regular Economy-ish, Stretchy Economy, Business-ish, or Cloud Sofa First,
+            she can usually bring one standard carry-on and one personal item. If Maria has Basic-ish Blueberry Saver on a selected short
+            Tricky Zone route, she may only bring one personal item unless she has an exception. Maria should check her ticket receipt for
+            the words “carry-on included.”
+          </p>
+        </details>
+
+        <details>
+          <summary>What if Maria’s backpack fits under the seat?</summary>
+          <p>
+            Then it is probably a personal item, not a standard carry-on. This matters because Basic-ish tickets may include a personal
+            item even when they do not include an overhead-bin carry-on.
+          </p>
+        </details>
+
+        <details>
+          <summary>What if Maria bought Basic-ish but is flying across the ocean?</summary>
+          <p>
+            She may be allowed one standard carry-on if the itinerary includes a qualifying long international ocean-crossing flight
+            operated by Tricky Airlines. She should verify the exact allowance in her confirmation email.
+          </p>
+        </details>
+
+        <details>
+          <summary>What if Maria has a small purse and a backpack?</summary>
+          <p>
+            The small purse may count as an additional personal item. She may need to place the purse inside the backpack before boarding.
+            A “tiny bag” is still sometimes a bag.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can I bring a carry-on if I board last?</summary>
+          <p>
+            Your ticket may allow a carry-on, but the overhead bins may be full. Your bag may be gate-checked. This does not mean your ticket
+            stopped allowing the bag; it means the airplane stopped having space.
+          </p>
+        </details>
+
+        <details>
+          <summary>Does Tricky Airlines weigh carry-ons?</summary>
+          <p>
+            Usually we focus on size, not weight. However, the bag must be safe and liftable. If your bag makes three people stare silently,
+            it may receive additional attention.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can I bring airport food?</summary>
+          <p>
+            Yes, in a reasonable amount. A sandwich is food. A shopping bag full of seventeen containers may become a philosophical question.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can I bring duty-free items?</summary>
+          <p>
+            Usually yes, in a reasonable and limited amount, subject to security and customs rules. “Duty-free” does not mean “dimension-free.”
+          </p>
+        </details>
+
+        <details>
+          <summary>What happens if my bag is one inch too large?</summary>
+          <p>
+            It may still be too large. Soft bags sometimes compress. Hard bags usually do not care about your feelings.
+          </p>
+        </details>
+
+        <details>
+          <summary>Where can I see the final rule for my trip?</summary>
+          <p>
+            Check your booking confirmation, trip details page, mobile app, boarding pass, pre-flight email, airport signage, and any message
+            we send after you already packed.
+          </p>
+        </details>
+      </section>
+
+      <section id="legal">
+        <h2>Legal-ish notes and operational clarifications</h2>
+        <p>
+          Tricky Airlines may revise baggage rules, fees, examples, exceptions, definitions, aircraft assignments, boarding groups,
+          gate procedures, and the emotional tone of this page without notice. Safety rules always come first. Airport employees may make
+          final decisions based on aircraft size, overhead-bin space, flight load, weather, security requirements, regulatory requirements,
+          and whether your bag can physically fit where you want it to fit.
+        </p>
+
+        <p>
+          The examples on this page are examples. They do not create a promise, contract, coupon, apology, free checked bag, upgrade,
+          sandwich, or guaranteed overhead-bin space. The word “usually” appears many times because air travel is a complicated group project.
+        </p>
+
+        <p>
+          If you need a simple rule, use this one: bring one small personal item that fits under the seat, and only bring an overhead-bin
+          carry-on if your ticket clearly says it is included or you qualify for an exception.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-grid">
+      <div>
+        <strong>Tricky Airlines</strong>
+        <a href="#">About our clouds</a>
+        <a href="#">Careers in confusion</a>
+        <a href="#">Investor maybes</a>
+        <a href="#">Sustainability-ish</a>
+      </div>
+      <div>
+        <strong>Travel help</strong>
+        <a href="#">Checked bags</a>
+        <a href="#">Lost bags</a>
+        <a href="#">Found bags</a>
+        <a href="#">Bags we are still thinking about</a>
+      </div>
+      <div>
+        <strong>Policies</strong>
+        <a href="#">Contract of Carriage</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Tiny print archive</a>
+      </div>
+      <div>
+        <strong>Stay connected</strong>
+        <a href="#">Download the Tricky app</a>
+        <a href="#">Join our 47-email sequence</a>
+        <a href="#">Search help topics</a>
+        <a href="#">Ask a chatbot named Gary</a>
+      </div>
+    </div>
+    <p style="margin-top:28px; opacity:.75;">
+      © 2026 Tricky Airlines. This is a fictional educational page created for source-grounded reading practice.
+      No real airline policy is represented here.
+    </p>
+  </footer>
+</body>
+</html>
