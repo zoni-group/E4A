@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; Lesson 6: Source Check and Paraphrase Workshop – English for AI: Student Book</title>
+<title>8&nbsp; Lesson 6: Source-Grounded Data Stories – English for AI: Student Book</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,7 +26,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -46,9 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3f70bac5631458d474a321d4182f9338.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-55a580e7bc5665bba36b581d73774111.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-3f70bac5631458d474a321d4182f9338.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-9c42ed6baed5871d395e4db15611d42f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,6 +76,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="assets/generated/plotly/plotly-3.7.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="assets/css/e4a-workbook.css">
@@ -261,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lesson-06-source-check-paraphrase-workshop.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lesson 6: Source Check and Paraphrase Workshop</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lesson-06-source-check-paraphrase-workshop.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lesson 6: Source-Grounded Data Stories</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -334,7 +338,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lesson-06-source-check-paraphrase-workshop.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lesson 6: Source Check and Paraphrase Workshop</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lesson 6: Source-Grounded Data Stories</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -409,21 +413,55 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#start-here" id="toc-start-here" class="nav-link active" data-scroll-target="#start-here"><span class="header-section-number">8.1</span> Start Here</a></li>
   <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link" data-scroll-target="#why-this-matters"><span class="header-section-number">8.2</span> Why This Matters</a></li>
-  <li><a href="#today-you-will" id="toc-today-you-will" class="nav-link" data-scroll-target="#today-you-will"><span class="header-section-number">8.3</span> Today You Will</a></li>
-  <li><a href="#core-idea" id="toc-core-idea" class="nav-link" data-scroll-target="#core-idea"><span class="header-section-number">8.4</span> Core Idea</a></li>
+  <li><a href="#core-idea" id="toc-core-idea" class="nav-link" data-scroll-target="#core-idea"><span class="header-section-number">8.3</span> Core Idea</a>
+  <ul class="collapse">
+  <li><a href="#the-c.h.a.r.t.-check" id="toc-the-c.h.a.r.t.-check" class="nav-link" data-scroll-target="#the-c.h.a.r.t.-check"><span class="header-section-number">8.3.1</span> The C.H.A.R.T. Check</a></li>
+  </ul></li>
+  <li><a href="#today-you-will" id="toc-today-you-will" class="nav-link" data-scroll-target="#today-you-will"><span class="header-section-number">8.4</span> Today You Will</a></li>
   <li><a href="#key-vocabulary" id="toc-key-vocabulary" class="nav-link" data-scroll-target="#key-vocabulary"><span class="header-section-number">8.5</span> Key Vocabulary</a></li>
   <li><a href="#sentence-frames" id="toc-sentence-frames" class="nav-link" data-scroll-target="#sentence-frames"><span class="header-section-number">8.6</span> Sentence Frames</a></li>
   <li><a href="#lesson-agenda" id="toc-lesson-agenda" class="nav-link" data-scroll-target="#lesson-agenda"><span class="header-section-number">8.7</span> Lesson Agenda</a></li>
-  <li><a href="#guided-practice" id="toc-guided-practice" class="nav-link" data-scroll-target="#guided-practice"><span class="header-section-number">8.8</span> Guided Practice</a>
+  <li><a href="#part-1-visual-foundations-and-chart-choice" id="toc-part-1-visual-foundations-and-chart-choice" class="nav-link" data-scroll-target="#part-1-visual-foundations-and-chart-choice"><span class="header-section-number">8.8</span> Part 1 — Visual Foundations and Chart Choice</a>
   <ul class="collapse">
-  <li><a href="#supported-and-unsupported" id="toc-supported-and-unsupported" class="nav-link" data-scroll-target="#supported-and-unsupported"><span class="header-section-number">8.8.1</span> Supported and Unsupported</a></li>
-  <li><a href="#paraphrase-practice" id="toc-paraphrase-practice" class="nav-link" data-scroll-target="#paraphrase-practice"><span class="header-section-number">8.8.2</span> Paraphrase Practice</a></li>
+  <li><a href="#what-is-a-data-visualization" id="toc-what-is-a-data-visualization" class="nav-link" data-scroll-target="#what-is-a-data-visualization"><span class="header-section-number">8.8.1</span> What Is a Data Visualization?</a></li>
+  <li><a href="#e4a-l6-practice-bar-title" id="toc-e4a-l6-practice-bar-title" class="nav-link" data-scroll-target="#e4a-l6-practice-bar-title"><span class="header-section-number">8.8.2</span> Bar Chart: Compare Categories</a></li>
+  <li><a href="#e4a-l6-practice-line-title" id="toc-e4a-l6-practice-line-title" class="nav-link" data-scroll-target="#e4a-l6-practice-line-title"><span class="header-section-number">8.8.3</span> Line Chart: Show Change in Order</a></li>
+  <li><a href="#e4a-l6-practice-donut-title" id="toc-e4a-l6-practice-donut-title" class="nav-link" data-scroll-target="#e4a-l6-practice-donut-title"><span class="header-section-number">8.8.4</span> Donut Chart: Show Exclusive Parts</a></li>
+  <li><a href="#e4a-l6-practice-scatter-title" id="toc-e4a-l6-practice-scatter-title" class="nav-link" data-scroll-target="#e4a-l6-practice-scatter-title"><span class="header-section-number">8.8.5</span> Scatter Plot: Explore Two Numbers</a></li>
+  <li><a href="#choose-a-chart-for-the-question" id="toc-choose-a-chart-for-the-question" class="nav-link" data-scroll-target="#choose-a-chart-for-the-question"><span class="header-section-number">8.8.6</span> Choose a Chart for the Question</a></li>
   </ul></li>
-  <li><a href="#independent-practice" id="toc-independent-practice" class="nav-link" data-scroll-target="#independent-practice"><span class="header-section-number">8.9</span> Independent Practice</a></li>
-  <li><a href="#pair-speaking-or-presentation-task" id="toc-pair-speaking-or-presentation-task" class="nav-link" data-scroll-target="#pair-speaking-or-presentation-task"><span class="header-section-number">8.10</span> Pair Speaking or Presentation Task</a></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">8.11</span> Reflection</a></li>
-  <li><a href="#exit-ticket" id="toc-exit-ticket" class="nav-link" data-scroll-target="#exit-ticket"><span class="header-section-number">8.12</span> Exit Ticket</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">8.13</span> Homework</a></li>
+  <li><a href="#part-2-meet-the-source" id="toc-part-2-meet-the-source" class="nav-link" data-scroll-target="#part-2-meet-the-source"><span class="header-section-number">8.9</span> Part 2 — Meet the Source</a>
+  <ul class="collapse">
+  <li><a href="#download-and-upload" id="toc-download-and-upload" class="nav-link" data-scroll-target="#download-and-upload"><span class="header-section-number">8.9.1</span> Download and Upload</a></li>
+  <li><a href="#source-check" id="toc-source-check" class="nav-link" data-scroll-target="#source-check"><span class="header-section-number">8.9.2</span> Source Check</a></li>
+  <li><a href="#copilot-master-prompt" id="toc-copilot-master-prompt" class="nav-link" data-scroll-target="#copilot-master-prompt"><span class="header-section-number">8.9.3</span> Copilot Master Prompt</a></li>
+  </ul></li>
+  <li><a href="#guided-practice" id="toc-guided-practice" class="nav-link" data-scroll-target="#guided-practice"><span class="header-section-number">8.10</span> Guided Practice</a></li>
+  <li><a href="#independent-practice" id="toc-independent-practice" class="nav-link" data-scroll-target="#independent-practice"><span class="header-section-number">8.11</span> Independent Practice</a>
+  <ul class="collapse">
+  <li><a href="#challenge-a-find-the-newest-record" id="toc-challenge-a-find-the-newest-record" class="nav-link" data-scroll-target="#challenge-a-find-the-newest-record"><span class="header-section-number">8.11.1</span> Challenge A: Find the Newest Record</a></li>
+  <li><a href="#challenge-b-brand-is-not-product" id="toc-challenge-b-brand-is-not-product" class="nav-link" data-scroll-target="#challenge-b-brand-is-not-product"><span class="header-section-number">8.11.2</span> Challenge B: Brand Is Not Product</a></li>
+  <li><a href="#challenge-c-how-many-recalls-are-active" id="toc-challenge-c-how-many-recalls-are-active" class="nav-link" data-scroll-target="#challenge-c-how-many-recalls-are-active"><span class="header-section-number">8.11.3</span> Challenge C: How Many Recalls Are Active?</a></li>
+  <li><a href="#challenge-d-is-my-exact-package-recalled" id="toc-challenge-d-is-my-exact-package-recalled" class="nav-link" data-scroll-target="#challenge-d-is-my-exact-package-recalled"><span class="header-section-number">8.11.4</span> Challenge D: Is My Exact Package Recalled?</a></li>
+  </ul></li>
+  <li><a href="#part-5-chart-laboratory" id="toc-part-5-chart-laboratory" class="nav-link" data-scroll-target="#part-5-chart-laboratory"><span class="header-section-number">8.12</span> Part 5 — Chart Laboratory</a>
+  <ul class="collapse">
+  <li><a href="#chart-1-bar-chart" id="toc-chart-1-bar-chart" class="nav-link" data-scroll-target="#chart-1-bar-chart"><span class="header-section-number">8.12.1</span> Chart 1: Bar Chart</a></li>
+  <li><a href="#chart-2-line-chart" id="toc-chart-2-line-chart" class="nav-link" data-scroll-target="#chart-2-line-chart"><span class="header-section-number">8.12.2</span> Chart 2: Line Chart</a></li>
+  <li><a href="#chart-3-pie-or-donut-chart" id="toc-chart-3-pie-or-donut-chart" class="nav-link" data-scroll-target="#chart-3-pie-or-donut-chart"><span class="header-section-number">8.12.3</span> Chart 3: Pie or Donut Chart</a></li>
+  </ul></li>
+  <li><a href="#why-is-a-product-types-pie-chart-misleading" id="toc-why-is-a-product-types-pie-chart-misleading" class="nav-link" data-scroll-target="#why-is-a-product-types-pie-chart-misleading"><span class="header-section-number">8.13</span> Why Is a Product-Types Pie Chart Misleading?</a></li>
+  <li><a href="#chart-4-scatter-plot" id="toc-chart-4-scatter-plot" class="nav-link" data-scroll-target="#chart-4-scatter-plot"><span class="header-section-number">8.13.1</span> Chart 4: Scatter Plot</a></li>
+  <li><a href="#part-6-chart-detective" id="toc-part-6-chart-detective" class="nav-link" data-scroll-target="#part-6-chart-detective"><span class="header-section-number">8.14</span> Part 6 — Chart Detective</a></li>
+  <li><a href="#part-7-repair-a-misleading-chart" id="toc-part-7-repair-a-misleading-chart" class="nav-link" data-scroll-target="#part-7-repair-a-misleading-chart"><span class="header-section-number">8.15</span> Part 7 — Repair a Misleading Chart</a></li>
+  <li><a href="#part-8-final-data-investigation" id="toc-part-8-final-data-investigation" class="nav-link" data-scroll-target="#part-8-final-data-investigation"><span class="header-section-number">8.16</span> Part 8 — Final Data Investigation</a>
+  <ul class="collapse">
+  <li><a href="#assessment-rubric" id="toc-assessment-rubric" class="nav-link" data-scroll-target="#assessment-rubric"><span class="header-section-number">8.16.1</span> Assessment Rubric</a></li>
+  </ul></li>
+  <li><a href="#pair-speaking-or-presentation-task" id="toc-pair-speaking-or-presentation-task" class="nav-link" data-scroll-target="#pair-speaking-or-presentation-task"><span class="header-section-number">8.17</span> Pair Speaking or Presentation Task</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">8.18</span> Reflection</a></li>
+  <li><a href="#exit-ticket" id="toc-exit-ticket" class="nav-link" data-scroll-target="#exit-ticket"><span class="header-section-number">8.19</span> Exit Ticket</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">8.20</span> Homework</a></li>
   </ul>
 </nav>
     </div>
@@ -433,7 +471,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lesson 6: Source Check and Paraphrase Workshop</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lesson 6: Source-Grounded Data Stories</span></h1>
 </div>
 
 
@@ -450,6 +488,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><em>Ask questions, check evidence, and create honest charts with Copilot</em></p>
 <p><strong>Duration:</strong> 2 hours</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -464,41 +503,72 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>You are in:</strong> Lesson 6</p>
 <p><strong>Before this:</strong> Lesson 5</p>
 <p><strong>After this:</strong> Lesson 7</p>
-<p><strong>Workbook page:</strong> <code>Student Workbook -&gt; Lesson 6 - Source Check and Paraphrase</code></p>
+<p><strong>Workbook page:</strong> <code>Student Workbook -&gt; Lesson 6 - Source-Grounded Data Report</code></p>
 </div>
 </div>
 <section id="start-here" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="start-here"><span class="header-section-number">8.1</span> Start Here</h2>
-<p>In Lesson 5 you answered from a source. Today you will practice checking supported and unsupported questions. You will also paraphrase in your own simple English.</p>
-<p>You can use the same source from Lesson 5 or a teacher-provided sample source.</p>
+<p>In Lesson 5, you answered questions from a written source. Today, you will use the same careful reading skills with a spreadsheet.</p>
 </section>
 <section id="why-this-matters" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="why-this-matters"><span class="header-section-number">8.2</span> Why This Matters</h2>
-<p>Source checking helps you avoid unsupported AI answers. Paraphrasing helps you show that you understand the source. Together, these skills help you read more carefully and use English more confidently.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<p>Maria sees this social-media post:</p>
+<blockquote class="blockquote">
+<p><strong>“Food recalls are increasing, and packaged food is becoming more dangerous.”</strong></p>
+</blockquote>
+<p>The post has an attractive chart. It does not explain:</p>
+<ul>
+<li>where the data came from;</li>
+<li>whether the current year is complete;</li>
+<li>whether one row means one separate incident;</li>
+<li>whether categories overlap;</li>
+<li>whether the list contains every FDA recall; or</li>
+<li>whether more records mean more danger.</li>
+</ul>
+<p>Maria opens the official FDA recall page. She downloads the spreadsheet and asks Microsoft Copilot Chat to help her check the claim.</p>
+<p><strong>Your mission:</strong> Be a data detective. Do not only make a chart. Decide whether the chart supports the claim.</p>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Write in the Book
+<span class="screen-reader-only">Important</span>Central Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Some exercises in the website version are interactive. You can type your answers directly on the page, and you can copy or download a backup if your teacher asks.</p>
-<p>The main task is to write in the book, not to create separate files.</p>
+<p><strong>How can we use real data without creating a misleading answer?</strong></p>
+<p>A chart can be mathematically correct but still communicate a misleading conclusion.</p>
 </div>
 </div>
 </section>
-<section id="today-you-will" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="today-you-will"><span class="header-section-number">8.3</span> Today You Will</h2>
+<section id="core-idea" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="core-idea"><span class="header-section-number">8.3</span> Core Idea</h2>
+<section id="the-c.h.a.r.t.-check" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="the-c.h.a.r.t.-check"><span class="header-section-number">8.3.1</span> The C.H.A.R.T. Check</h3>
+<div class="e4a-chart-framework" aria-label="C.H.A.R.T. source-grounding framework">
+  <div class="e4a-chart-framework__item"><span class="e4a-chart-framework__letter">C</span><strong>Check the source</strong><p>Name it and record the date.</p></div>
+  <div class="e4a-chart-framework__item"><span class="e4a-chart-framework__letter">H</span><strong>Highlight the evidence</strong><p>Name the rows, columns, and counts.</p></div>
+  <div class="e4a-chart-framework__item"><span class="e4a-chart-framework__letter">A</span><strong>Ask what is missing</strong><p>Look for blanks and limits.</p></div>
+  <div class="e4a-chart-framework__item"><span class="e4a-chart-framework__letter">R</span><strong>Represent honestly</strong><p>Choose and label the right chart.</p></div>
+  <div class="e4a-chart-framework__item"><span class="e4a-chart-framework__letter">T</span><strong>Tell only what the data supports</strong><p>Do not guess causes.</p></div>
+</div>
+</section>
+</section>
+<section id="today-you-will" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="today-you-will"><span class="header-section-number">8.4</span> Today You Will</h2>
 <p>By the end of this lesson, you will:</p>
 <ol type="1">
-<li>Ask one supported question and one unsupported question.</li>
-<li>Match answers to evidence.</li>
-<li>Write a short quote and a simple paraphrase.</li>
-<li>Keep the source title or link with your work.</li>
-<li>Complete the matching Student Workbook page.</li>
+<li>explain why data visualizations are useful;</li>
+<li>read chart titles, axes, values, units, sources, and limitations;</li>
+<li>identify a dataset’s source, title, date range, rows, and columns;</li>
+<li>ask Copilot to use only an uploaded dataset;</li>
+<li>separate a dataset fact from an interpretation;</li>
+<li>find missing or unclear information;</li>
+<li>choose an appropriate bar, line, pie, or scatter chart;</li>
+<li>explain what a chart shows and does not prove;</li>
+<li>repair a misleading conclusion; and</li>
+<li>produce a short source-grounded data report.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -512,89 +582,88 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Theme:</strong> Good readers check support and do not guess.</p>
-<p><strong>AI Focus:</strong> Supported vs.&nbsp;unsupported answer checks.</p>
-<p><strong>ESL Focus:</strong> Key words, short quotes, paraphrase, and source-title habits.</p>
-<p><strong>Content Objective:</strong> Students will check whether an answer is supported by a source.</p>
-<p><strong>Language Objective:</strong> Students will use source and paraphrase frames:</p>
-<pre class="text"><code>The source says...
-This means...
-The source does not answer...
-I cannot answer from the provided source.</code></pre>
+<p><strong>Theme:</strong> Honest data stories need a source, evidence, and a limitation.</p>
+<p><strong>AI Focus:</strong> Inspecting, filtering, summarizing, and charting an uploaded public dataset.</p>
+<p><strong>ESL Focus:</strong> Describing charts, explaining evidence, and correcting strong claims.</p>
+<p><strong>Content Objective:</strong> Students will create and evaluate source-grounded answers from structured data.</p>
+<p><strong>Language Objective:</strong> Students will use frames such as <code>The chart shows...</code>, <code>The dataset does not include...</code>, and <code>A more accurate conclusion is...</code>.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="core-idea" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="core-idea"><span class="header-section-number">8.4</span> Core Idea</h2>
-<p>A question is <strong>supported</strong> when the answer is in the source. A question is <strong>unsupported</strong> when the answer is not in the source.</p>
-<p>When the source does not answer, do not guess. Write:</p>
-<pre class="text"><code>I cannot answer from the provided source.</code></pre>
-<p>A <strong>paraphrase</strong> uses your own simple English to explain the same idea.</p>
 </section>
 <section id="key-vocabulary" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="key-vocabulary"><span class="header-section-number">8.5</span> Key Vocabulary</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Word</th>
-<th>Simple Meaning</th>
-<th>Example Sentence</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>supported</td>
-<td>Backed up by a source</td>
-<td>This answer is supported.</td>
-</tr>
-<tr class="even">
-<td>unsupported</td>
-<td>Not backed up by a source</td>
-<td>This answer is unsupported.</td>
-</tr>
-<tr class="odd">
-<td>evidence</td>
-<td>Words from the source</td>
-<td>My evidence is a short quote.</td>
-</tr>
-<tr class="even">
-<td>quote</td>
-<td>Exact words from a source</td>
-<td>I used one quote.</td>
-</tr>
-<tr class="odd">
-<td>paraphrase</td>
-<td>The same idea in my own words</td>
-<td>I paraphrased the rule.</td>
-</tr>
-<tr class="even">
-<td>source title</td>
-<td>The name of the source</td>
-<td>I wrote the source title.</td>
-</tr>
-<tr class="odd">
-<td>verify</td>
-<td>Check if something is true</td>
-<td>I verify the answer.</td>
-</tr>
-</tbody>
-</table>
+<section class="e4a-workbook-card e4a-activity-card e4a-vocabulary-practice" data-e4a-workbook="" data-e4a-vocabulary-practice="" data-e4a-artifact-id="lesson-06-key-vocabulary-match" data-e4a-artifact-title="Lesson 6 - Key Vocabulary Match" data-e4a-filename="Lesson 6 - Key Vocabulary Match">
+  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Key Vocabulary Match</h3><p class="e4a-workbook-card__filename">Complete two short rounds. Choose the word that matches each meaning and example.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
+  <noscript><p class="e4a-vocabulary-practice__noscript">The matching feedback needs JavaScript, but every word, meaning, and example remains available below.</p></noscript>
+
+  <fieldset class="e4a-vocabulary-round" data-e4a-vocabulary-round="">
+    <legend>Round 1: Spreadsheet words</legend>
+    <p>Match the words that describe how spreadsheet information is organized.</p>
+    <div class="e4a-vocabulary-round__progress">
+      <p data-e4a-vocabulary-progress-text="" aria-live="polite">0 of 7 matched correctly</p>
+      <div class="e4a-vocabulary-round__progress-track"><span data-e4a-vocabulary-progress-bar="" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="7" aria-valuetext="0 of 7 matched correctly"></span></div>
+    </div>
+    <div class="e4a-vocab-match">
+      <div class="e4a-vocab-match__header" aria-hidden="true"><span>Word</span><span>Simple meaning</span><span>Example sentence</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-dataset-word">Word for dataset meaning</label><select id="e4a-l6-vocab-dataset-word" data-e4a-field="datasetWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-spreadsheet-word" data-e4a-label="Word for: A collection of organized information" data-e4a-answer="dataset"><option value="">Choose word</option><option>dataset</option><option>row</option><option>column</option><option>record</option><option>blank value</option><option>filter</option><option>category</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">A collection of organized information</span><span class="e4a-vocab-match__text">The FDA spreadsheet is a dataset.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-row-word">Word for row meaning</label><select id="e4a-l6-vocab-row-word" data-e4a-field="rowWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-spreadsheet-word" data-e4a-label="Word for: One horizontal line across a spreadsheet" data-e4a-answer="row"><option value="">Choose word</option><option>dataset</option><option>row</option><option>column</option><option>record</option><option>blank value</option><option>filter</option><option>category</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">One horizontal line across a spreadsheet</span><span class="e4a-vocab-match__text">I looked across the row to read one entry.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-column-word">Word for column meaning</label><select id="e4a-l6-vocab-column-word" data-e4a-field="columnWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-spreadsheet-word" data-e4a-label="Word for: One type of information from top to bottom" data-e4a-answer="column"><option value="">Choose word</option><option>dataset</option><option>row</option><option>column</option><option>record</option><option>blank value</option><option>filter</option><option>category</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">One type of information from top to bottom</span><span class="e4a-vocab-match__text">The Date column contains dates.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-record-word">Word for record meaning</label><select id="e4a-l6-vocab-record-word" data-e4a-field="recordWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-spreadsheet-word" data-e4a-label="Word for: The information represented by one row" data-e4a-answer="record"><option value="">Choose word</option><option>dataset</option><option>row</option><option>column</option><option>record</option><option>blank value</option><option>filter</option><option>category</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">The information represented by one row</span><span class="e4a-vocab-match__text">One record is not always one separate incident.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-blank-value-word">Word for blank value meaning</label><select id="e4a-l6-vocab-blank-value-word" data-e4a-field="blankValueWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-spreadsheet-word" data-e4a-label="Word for: A cell where information is not provided" data-e4a-answer="blank value"><option value="">Choose word</option><option>dataset</option><option>row</option><option>column</option><option>record</option><option>blank value</option><option>filter</option><option>category</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">A cell where information is not provided</span><span class="e4a-vocab-match__text">A blank value does not automatically mean “No” or “Active.”</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-filter-word">Word for filter meaning</label><select id="e4a-l6-vocab-filter-word" data-e4a-field="filterWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-spreadsheet-word" data-e4a-label="Word for: Show only rows that match a rule" data-e4a-answer="filter"><option value="">Choose word</option><option>dataset</option><option>row</option><option>column</option><option>record</option><option>blank value</option><option>filter</option><option>category</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">Show only rows that match a rule</span><span class="e4a-vocab-match__text">I filtered for the GreenWise brand.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-category-word">Word for category meaning</label><select id="e4a-l6-vocab-category-word" data-e4a-field="categoryWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-spreadsheet-word" data-e4a-label="Word for: A group or label" data-e4a-answer="category"><option value="">Choose word</option><option>dataset</option><option>row</option><option>column</option><option>record</option><option>blank value</option><option>filter</option><option>category</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">A group or label</span><span class="e4a-vocab-match__text">One record can have several product-type categories.</span></div>
+    </div>
+    <button type="button" class="btn btn-outline-primary btn-sm e4a-vocabulary-round__restart" data-e4a-vocabulary-restart="">Restart Round 1</button>
+  </fieldset>
+
+  <fieldset class="e4a-vocabulary-round" data-e4a-vocabulary-round="">
+    <legend>Round 2: Charts and evidence</legend>
+    <p>Match the words that help you read a chart and explain a careful conclusion.</p>
+    <div class="e4a-vocabulary-round__progress">
+      <p data-e4a-vocabulary-progress-text="" aria-live="polite">0 of 7 matched correctly</p>
+      <div class="e4a-vocabulary-round__progress-track"><span data-e4a-vocabulary-progress-bar="" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="7" aria-valuetext="0 of 7 matched correctly"></span></div>
+    </div>
+    <div class="e4a-vocab-match">
+      <div class="e4a-vocab-match__header" aria-hidden="true"><span>Word</span><span>Simple meaning</span><span>Example sentence</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-chart-word">Word for chart meaning</label><select id="e4a-l6-vocab-chart-word" data-e4a-field="chartWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-chart-word" data-e4a-label="Word for: One visual that uses bars, lines, slices, or points to show data" data-e4a-answer="chart"><option value="">Choose word</option><option>chart</option><option>data visualization</option><option>axis</option><option>unit</option><option>interpretation</option><option>limitation</option><option>verify</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">One visual that uses bars, lines, slices, or points to show data</span><span class="e4a-vocab-match__text">A bar chart compares categories.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-data-visualization-word">Word for data visualization meaning</label><select id="e4a-l6-vocab-data-visualization-word" data-e4a-field="dataVisualizationWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-chart-word" data-e4a-label="Word for: Information shown visually to make a pattern easier to notice" data-e4a-answer="data visualization"><option value="">Choose word</option><option>chart</option><option>data visualization</option><option>axis</option><option>unit</option><option>interpretation</option><option>limitation</option><option>verify</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">Information shown visually to make a pattern easier to notice</span><span class="e4a-vocab-match__text">A chart is one type of data visualization.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-axis-word">Word for axis meaning</label><select id="e4a-l6-vocab-axis-word" data-e4a-field="axisWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-chart-word" data-e4a-label="Word for: A line that shows categories or numbers" data-e4a-answer="axis"><option value="">Choose word</option><option>chart</option><option>data visualization</option><option>axis</option><option>unit</option><option>interpretation</option><option>limitation</option><option>verify</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">A line that shows categories or numbers</span><span class="e4a-vocab-match__text">The horizontal axis shows the class days.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-unit-word">Word for unit meaning</label><select id="e4a-l6-vocab-unit-word" data-e4a-field="unitWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-chart-word" data-e4a-label="Word for: What a number measures" data-e4a-answer="unit"><option value="">Choose word</option><option>chart</option><option>data visualization</option><option>axis</option><option>unit</option><option>interpretation</option><option>limitation</option><option>verify</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">What a number measures</span><span class="e4a-vocab-match__text">The unit on this axis is minutes.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-interpretation-word">Word for interpretation meaning</label><select id="e4a-l6-vocab-interpretation-word" data-e4a-field="interpretationWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-chart-word" data-e4a-label="Word for: What a person thinks the data means" data-e4a-answer="interpretation"><option value="">Choose word</option><option>chart</option><option>data visualization</option><option>axis</option><option>unit</option><option>interpretation</option><option>limitation</option><option>verify</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">What a person thinks the data means</span><span class="e4a-vocab-match__text">My interpretation must match the evidence.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-limitation-word">Word for limitation meaning</label><select id="e4a-l6-vocab-limitation-word" data-e4a-field="limitationWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-chart-word" data-e4a-label="Word for: Something the data cannot show or prove" data-e4a-answer="limitation"><option value="">Choose word</option><option>chart</option><option>data visualization</option><option>axis</option><option>unit</option><option>interpretation</option><option>limitation</option><option>verify</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">Something the data cannot show or prove</span><span class="e4a-vocab-match__text">An incomplete year is a limitation.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l6-vocab-verify-word">Word for verify meaning</label><select id="e4a-l6-vocab-verify-word" data-e4a-field="verifyWord" data-e4a-field-type="select" data-e4a-option-group="lesson-06-vocab-chart-word" data-e4a-label="Word for: Check whether something is true" data-e4a-answer="verify"><option value="">Choose word</option><option>chart</option><option>data visualization</option><option>axis</option><option>unit</option><option>interpretation</option><option>limitation</option><option>verify</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">Check whether something is true</span><span class="e4a-vocab-match__text">I verified the count in the spreadsheet.</span></div>
+    </div>
+    <button type="button" class="btn btn-outline-primary btn-sm e4a-vocabulary-round__restart" data-e4a-vocabulary-restart="">Restart Round 2</button>
+  </fieldset>
+
+  <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
+</section>
 </section>
 <section id="sentence-frames" class="level2" data-number="8.6">
 <h2 data-number="8.6" class="anchored" data-anchor-id="sentence-frames"><span class="header-section-number">8.6</span> Sentence Frames</h2>
-<pre class="text"><code>My source title is __________.
-My supported question is __________.
-The source says __________.
-This means __________.
-My unsupported question is __________.
-The source does not answer __________.
-I cannot answer from the provided source.</code></pre>
+<p><strong>Describe a chart</strong></p>
+<pre class="text"><code>A data visualization helps me see __________.
+The chart shows __________.
+The horizontal axis shows __________.
+The unit is __________.
+The highest category is __________.
+The number increased from __________ to __________.
+The number decreased from __________ to __________.</code></pre>
+<p><strong>Explain evidence</strong></p>
+<pre class="text"><code>The source contains __________ records.
+I used the __________ column.
+The evidence for my answer is __________.
+I verified the result by __________.</code></pre>
+<p><strong>Explain a limitation</strong></p>
+<pre class="text"><code>The dataset does not include __________.
+A blank value does not mean __________.
+One record may belong to more than one category.
+The chart cannot prove that __________.</code></pre>
+<p><strong>Correct a conclusion</strong></p>
+<pre class="text"><code>The original conclusion was too strong because __________.
+A more accurate conclusion is __________.
+The source supports __________, but it does not support __________.</code></pre>
 </section>
 <section id="lesson-agenda" class="level2" data-number="8.7">
 <h2 data-number="8.7" class="anchored" data-anchor-id="lesson-agenda"><span class="header-section-number">8.7</span> Lesson Agenda</h2>
@@ -613,57 +682,548 @@ I cannot answer from the provided source.</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">10 min</td>
-<td>Warm-up: source title and key words</td>
-<td>Build the source-title habit.</td>
+<td style="text-align: right;">20 min</td>
+<td>Vocabulary, visual foundations, and chart choice</td>
+<td>Match key words, read a chart, and choose one for a question.</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">20 min</td>
-<td>Mini-lesson: supported vs.&nbsp;unsupported</td>
-<td>Learn how to classify questions.</td>
+<td>Meet and inspect the FDA source</td>
+<td>Download, upload, and check the file.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">25 min</td>
-<td>Guided practice: evidence match</td>
-<td>Match answers to short quotes.</td>
+<td style="text-align: right;">20 min</td>
+<td>Four source-grounded challenges</td>
+<td>Find evidence and missing details.</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">25 min</td>
-<td>Paraphrase workshop</td>
-<td>Turn quotes into simple English.</td>
+<td style="text-align: right;">20 min</td>
+<td>Chart laboratory</td>
+<td>Apply four chart types honestly.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">30 min</td>
-<td>Independent practice: source check page</td>
-<td>Complete the workbook evidence.</td>
+<td style="text-align: right;">15 min</td>
+<td>Chart Detective and repair</td>
+<td>Find and correct misleading claims.</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">10 min</td>
-<td>Pair review and exit ticket</td>
-<td>Check evidence and save.</td>
+<td style="text-align: right;">20 min</td>
+<td>Final investigation and partner report</td>
+<td>Create a grounded data story.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5 min</td>
+<td>Exit ticket</td>
+<td>Show the key habits.</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="guided-practice" class="level2" data-number="8.8">
-<h2 data-number="8.8" class="anchored" data-anchor-id="guided-practice"><span class="header-section-number">8.8</span> Guided Practice</h2>
-<section id="supported-and-unsupported" class="level3" data-number="8.8.1">
-<h3 data-number="8.8.1" class="anchored" data-anchor-id="supported-and-unsupported"><span class="header-section-number">8.8.1</span> Supported and Unsupported</h3>
-<p>Sample source:</p>
-<pre class="text"><code>Library books may be borrowed for 21 days. Students may renew books one time if no other person is waiting. A library card is required.</code></pre>
-<p>Supported question:</p>
-<pre class="text"><code>How long can students borrow library books?</code></pre>
-<p>Answer:</p>
-<pre class="text"><code>Students can borrow library books for 21 days.</code></pre>
-<p>Evidence:</p>
-<pre class="text"><code>The source says: "Library books may be borrowed for 21 days."</code></pre>
-<p>Unsupported question:</p>
-<pre class="text"><code>What is the librarian's home phone number?</code></pre>
-<p>Correct response:</p>
-<pre class="text"><code>I cannot answer from the provided source.</code></pre>
-<p>Now write your own questions for the sample library source above.</p>
-<section class="e4a-workbook-card e4a-activity-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-supported-unsupported" data-e4a-artifact-title="Lesson 6 - Supported and Unsupported" data-e4a-filename="Lesson 6 - Supported and Unsupported">
-  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Your Turn: Supported and Unsupported</h3><p class="e4a-workbook-card__filename">Write in the book. Your answers save on this device.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
+<section id="part-1-visual-foundations-and-chart-choice" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="part-1-visual-foundations-and-chart-choice"><span class="header-section-number">8.8</span> Part 1 — Visual Foundations and Chart Choice</h2>
+<section id="what-is-a-data-visualization" class="level3" data-number="8.8.1">
+<h3 data-number="8.8.1" class="anchored" data-anchor-id="what-is-a-data-visualization"><span class="header-section-number">8.8.1</span> What Is a Data Visualization?</h3>
+<p>A <strong>data visualization</strong> shows data in a visual form. Charts can help us:</p>
+<ul>
+<li>compare categories;</li>
+<li>see change over time;</li>
+<li>understand parts of one total; and</li>
+<li>notice a possible relationship between two numbers.</li>
+</ul>
+<p>Visualizations are important because a reader can often notice a pattern faster in a chart than in a long list of numbers. However, a chart can be accurate and still support a misleading conclusion. We must read the chart and its limits.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Five Checks for Any Chart
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Question or title:</strong> What question is the chart answering?</li>
+<li><strong>Labels and axes:</strong> What does each category or axis show?</li>
+<li><strong>Values and units:</strong> What do the numbers measure?</li>
+<li><strong>Source and date:</strong> Where did the data come from, and when?</li>
+<li><strong>Limitation:</strong> What can the chart not show or prove?</li>
+</ol>
+</div>
+</div>
+<p>The four examples below use <strong>fictional practice data</strong>. They do not describe this class, the FDA spreadsheet, or all students.</p>
+<p><strong>Practice source:</strong> Lesson 6 fictional data created for chart-reading practice. <strong>Date:</strong> Not applicable; these values are fixed examples, not a live dataset.</p>
+</section>
+<section id="e4a-l6-practice-bar-title" class="level3" data-number="8.8.2">
+<h3 data-number="8.8.2" class="anchored" data-anchor-id="e4a-l6-practice-bar-title"><span class="header-section-number">8.8.2</span> Bar Chart: Compare Categories</h3>
+<p><strong>Question:</strong> Which vocabulary-practice activity received the most votes?</p>
+<div id="cell-fig-l6-practice-bar" class="cell" data-execution_count="2">
+<div id="fig-l6-practice-bar" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l6-practice-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="e4a-plotly-chart" role="img" aria-label="Bar chart comparing fictional vocabulary-practice votes." aria-labelledby="e4a-l6-practice-bar-title" aria-describedby="e4a-l6-practice-bar-description"><div style="height:420px; width:100%;">                            <div id="e4a-l6-practice-bar" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e4a-l6-practice-bar")) {                    Plotly.newPlot(                        "e4a-l6-practice-bar",                        [{"cliponaxis":false,"hovertemplate":"%{x}: %{y} votes\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#176b87"},"text":["7","6","4","3"],"textposition":"outside","x":["Flashcards","Practice quiz","Partner talk","Notes"],"y":[7,6,4,3],"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"yaxis":{"title":{"text":"Votes"},"range":[0,8.5],"rangemode":"tozero"},"title":{"text":"Which vocabulary-practice activity received the most votes?"},"xaxis":{"title":{"text":"Practice activity"}},"font":{"family":"Arial, sans-serif","size":16,"color":"#17212b"},"margin":{"l":70,"r":35,"t":75,"b":70},"transition":{"duration":0},"autosize":true,"height":420,"paper_bgcolor":"#ffffff","plot_bgcolor":"#ffffff"},                        {"displayModeBar": false, "displaylogo": false, "responsive": true, "scrollZoom": false, "staticPlot": false}                    )                };            </script>        </div><noscript><p>The interactive chart needs JavaScript. Use the chart description and data table below.</p></noscript></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l6-practice-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: Bar chart of 20 fictional votes for vocabulary-practice activities.
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="e4a-l6-practice-bar-description">
+<p><strong>What to notice:</strong> Flashcards received the most votes. A bar chart makes the four independent categories easy to compare.</p>
+<p><strong>Limitation:</strong> These fictional votes do not prove that flashcards are the best learning activity.</p>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Practice activity</th>
+<th style="text-align: right;">Votes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Flashcards</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td>Practice quiz</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td>Partner talk</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td>Notes</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Your observation:</strong> The highest category is ______________________________.</p>
+</section>
+<section id="e4a-l6-practice-line-title" class="level3" data-number="8.8.3">
+<h3 data-number="8.8.3" class="anchored" data-anchor-id="e4a-l6-practice-line-title"><span class="header-section-number">8.8.3</span> Line Chart: Show Change in Order</h3>
+<p><strong>Question:</strong> How did the number of words reviewed change over five class days?</p>
+<div id="cell-fig-l6-practice-line" class="cell" data-execution_count="3">
+<div id="fig-l6-practice-line" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l6-practice-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="e4a-plotly-chart" role="img" aria-label="Line chart showing fictional words reviewed across five class days." aria-labelledby="e4a-l6-practice-line-title" aria-describedby="e4a-l6-practice-line-description"><div style="height:420px; width:100%;">                            <div id="e4a-l6-practice-line" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e4a-l6-practice-line")) {                    Plotly.newPlot(                        "e4a-l6-practice-line",                        [{"hovertemplate":"%{x}: %{y} words\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#8b3a62","width":4},"marker":{"color":"#8b3a62","size":11},"mode":"lines+markers+text","text":["4","7","6","10","12"],"textposition":"top center","x":["Day 1","Day 2","Day 3","Day 4","Day 5"],"y":[4,7,6,10,12],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"title":{"text":"Class day"},"categoryorder":"array","categoryarray":["Day 1","Day 2","Day 3","Day 4","Day 5"]},"yaxis":{"title":{"text":"Words reviewed"},"range":[0,14],"rangemode":"tozero"},"title":{"text":"How did vocabulary review change over five class days?"},"font":{"family":"Arial, sans-serif","size":16,"color":"#17212b"},"margin":{"l":70,"r":35,"t":75,"b":70},"transition":{"duration":0},"autosize":true,"height":420,"paper_bgcolor":"#ffffff","plot_bgcolor":"#ffffff"},                        {"displayModeBar": false, "displaylogo": false, "responsive": true, "scrollZoom": false, "staticPlot": false}                    )                };            </script>        </div><noscript><p>The interactive chart needs JavaScript. Use the chart description and data table below.</p></noscript></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l6-practice-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2: Line chart of fictional vocabulary-review counts over five ordered class days.
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="e4a-l6-practice-line-description">
+<p><strong>What to notice:</strong> The count decreased from Day 2 to Day 3, then increased through Day 5. A line chart keeps the days in order.</p>
+<p><strong>Limitation:</strong> Five fictional days cannot show a long-term learning trend.</p>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Class day</th>
+<th style="text-align: right;">Words reviewed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Day 1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td>Day 2</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td>Day 3</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td>Day 4</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td>Day 5</td>
+<td style="text-align: right;">12</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Your observation:</strong> The number increased from __________ to __________.</p>
+</section>
+<section id="e4a-l6-practice-donut-title" class="level3" data-number="8.8.4">
+<h3 data-number="8.8.4" class="anchored" data-anchor-id="e4a-l6-practice-donut-title"><span class="header-section-number">8.8.4</span> Donut Chart: Show Exclusive Parts</h3>
+<p><strong>Question:</strong> How did 20 fictional learners choose one final-practice activity?</p>
+<div id="cell-fig-l6-practice-donut" class="cell" data-execution_count="4">
+<div id="fig-l6-practice-donut" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l6-practice-donut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="e4a-plotly-chart" role="img" aria-label="Donut chart showing fictional exclusive final-practice choices." aria-labelledby="e4a-l6-practice-donut-title" aria-describedby="e4a-l6-practice-donut-description"><div style="height:420px; width:100%;">                            <div id="e4a-l6-practice-donut" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e4a-l6-practice-donut")) {                    Plotly.newPlot(                        "e4a-l6-practice-donut",                        [{"automargin":true,"direction":"clockwise","hole":0.45,"hovertemplate":"%{label}: %{value} votes (%{percent})\u003cextra\u003e\u003c\u002fextra\u003e","labels":["Chart practice","Source check","Partner explanation"],"marker":{"colors":["#176b87","#a44a3f","#6b5b95"]},"sort":false,"textinfo":"label+value+percent","textposition":"outside","values":[9,6,5],"type":"pie"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"margin":{"l":70,"r":35,"t":75,"b":70},"title":{"text":"Which one final-practice activity did each learner choose?"},"showlegend":false,"font":{"family":"Arial, sans-serif","size":16,"color":"#17212b"},"transition":{"duration":0},"autosize":true,"height":420,"paper_bgcolor":"#ffffff","plot_bgcolor":"#ffffff"},                        {"displayModeBar": false, "displaylogo": false, "responsive": true, "scrollZoom": false, "staticPlot": false}                    )                };            </script>        </div><noscript><p>The interactive chart needs JavaScript. Use the chart description and data table below.</p></noscript></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l6-practice-donut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.3: Donut chart of 20 fictional, mutually exclusive final-practice choices.
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="e4a-l6-practice-donut-description">
+<p><strong>What to notice:</strong> The three choices total 20 votes, and every learner chose only one activity. The slices are exclusive parts of one total.</p>
+<p><strong>Limitation:</strong> A donut chart would be misleading if learners could choose more than one activity.</p>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Final-practice choice</th>
+<th style="text-align: right;">Votes</th>
+<th style="text-align: right;">Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chart practice</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">45%</td>
+</tr>
+<tr class="even">
+<td>Source check</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">30%</td>
+</tr>
+<tr class="odd">
+<td>Partner explanation</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">25%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Your observation:</strong> The largest part of the total is ______________________.</p>
+</section>
+<section id="e4a-l6-practice-scatter-title" class="level3" data-number="8.8.5">
+<h3 data-number="8.8.5" class="anchored" data-anchor-id="e4a-l6-practice-scatter-title"><span class="header-section-number">8.8.5</span> Scatter Plot: Explore Two Numbers</h3>
+<p><strong>Question:</strong> Is there an association between practice minutes and correct answers?</p>
+<div id="cell-fig-l6-practice-scatter" class="cell" data-execution_count="5">
+<div id="fig-l6-practice-scatter" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l6-practice-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="e4a-plotly-chart" role="img" aria-label="Scatter plot comparing fictional practice minutes and correct answers." aria-labelledby="e4a-l6-practice-scatter-title" aria-describedby="e4a-l6-practice-scatter-description"><div style="height:420px; width:100%;">                            <div id="e4a-l6-practice-scatter" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e4a-l6-practice-scatter")) {                    Plotly.newPlot(                        "e4a-l6-practice-scatter",                        [{"customdata":["A","B","C","D","E","F","G","H"],"hovertemplate":"Learner %{customdata}\u003cbr\u003e%{x} minutes\u003cbr\u003e%{y} correct answers\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#176b87","line":{"color":"#17212b","width":1.5},"size":13},"mode":"markers+text","text":["A","B","C","D","E","F","G","H"],"textposition":"top center","x":[5,8,12,15,18,22,26,30],"y":[4,3,5,6,5,7,8,7],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"title":{"text":"Practice time (minutes)"},"range":[0,33],"rangemode":"tozero"},"yaxis":{"title":{"text":"Correct answers (out of 10)"},"range":[0,10],"rangemode":"tozero"},"title":{"text":"Practice minutes and correct answers"},"font":{"family":"Arial, sans-serif","size":16,"color":"#17212b"},"margin":{"l":70,"r":35,"t":75,"b":70},"transition":{"duration":0},"autosize":true,"height":420,"paper_bgcolor":"#ffffff","plot_bgcolor":"#ffffff"},                        {"displayModeBar": false, "displaylogo": false, "responsive": true, "scrollZoom": false, "staticPlot": false}                    )                };            </script>        </div><noscript><p>The interactive chart needs JavaScript. Use the chart description and data table below.</p></noscript></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l6-practice-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.4: Scatter plot of fictional practice minutes and correct answers for eight learners.
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="e4a-l6-practice-scatter-description">
+<p><strong>What to notice:</strong> The points show a generally positive association, with variation. Each point represents one fictional learner and two numeric values.</p>
+<p><strong>Limitation:</strong> The chart does not prove that practice time caused the scores. Other information is missing.</p>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Learner</th>
+<th style="text-align: right;">Practice time (minutes)</th>
+<th style="text-align: right;">Correct answers (out of 10)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td>H</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">7</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Your observation:</strong> The points show ____________________, but they do not prove ________________________________.</p>
+</section>
+<section id="choose-a-chart-for-the-question" class="level3" data-number="8.8.6">
+<h3 data-number="8.8.6" class="anchored" data-anchor-id="choose-a-chart-for-the-question"><span class="header-section-number">8.8.6</span> Choose a Chart for the Question</h3>
+<p>Use the research question to choose a chart.</p>
+<ul>
+<li><strong>Bar chart:</strong> Compare categories.</li>
+<li><strong>Line chart:</strong> Show change over time.</li>
+<li><strong>Pie or donut chart:</strong> Show exclusive parts of one total.</li>
+<li><strong>Scatter plot:</strong> Explore the relationship between two numbers.</li>
+</ul>
+<section class="e4a-data-workshop e4a-activity-card" data-e4a-data-workshop="" aria-labelledby="e4a-l6-chart-choice-title">
+  <h3 id="e4a-l6-chart-choice-title" class="anchored">Chart-Selection Challenge</h3>
+  <div class="e4a-data-workshop__progress-row">
+    <p class="e4a-data-workshop__progress-text" data-e4a-data-workshop-progress-text="" aria-live="polite">0 of 4 questions checked</p>
+    <div class="e4a-data-workshop__progress-track"><div class="e4a-data-workshop__progress-bar" data-e4a-data-workshop-progress-bar="" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="4"></div></div>
+  </div>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="bar" data-e4a-correct-label="a bar chart">
+    <legend>1. Which recall categories appear most frequently?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="bar">Bar chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="line">Line chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="pie">Pie chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="scatter">Scatter plot</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>A bar chart compares independent categories and can rank them from most to least frequent.</p></details>
+  </fieldset>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="line" data-e4a-correct-label="a line chart">
+    <legend>2. How did the number of records change by year?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="bar">Bar chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="line">Line chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="pie">Pie chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="scatter">Scatter plot</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>A line chart shows change across ordered time periods.</p></details>
+  </fieldset>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="pie" data-e4a-correct-label="a pie chart">
+    <legend>3. What percentage of records are explicitly marked “Terminated”?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="bar">Bar chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="line">Line chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="pie">Pie chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="scatter">Scatter plot</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>A pie chart can show this part of the complete set when the two labels are accurate and exclusive.</p></details>
+  </fieldset>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="scatter" data-e4a-correct-label="a scatter plot">
+    <legend>4. Is there a relationship between two meaningful numeric variables?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="bar">Bar chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="line">Line chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="pie">Pie chart</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="scatter">Scatter plot</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>A scatter plot needs two meaningful numbers for every observation. The FDA file does not provide a good pair.</p></details>
+  </fieldset>
+
+  <div class="e4a-data-workshop__actions"><button type="button" class="btn btn-outline-secondary e4a-data-workshop__restart" data-e4a-data-workshop-restart="">Restart challenge</button></div>
+</section>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not every dataset supports every chart. Do not force a scatter plot from the FDA file only because Copilot can make one.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-2-meet-the-source" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="part-2-meet-the-source"><span class="header-section-number">8.9</span> Part 2 — Meet the Source</h2>
+<section id="download-and-upload" class="level3" data-number="8.9.1">
+<h3 data-number="8.9.1" class="anchored" data-anchor-id="download-and-upload"><span class="header-section-number">8.9.1</span> Download and Upload</h3>
+<ol type="1">
+<li>Open the <a href="https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts">FDA Recalls, Market Withdrawals, &amp; Safety Alerts page</a>.</li>
+<li>Find <strong>Download XLSX</strong> below the recall table.</li>
+<li>Download the Excel file.</li>
+<li>Save it with a clear name.</li>
+<li>Open Microsoft Copilot Chat and start a new conversation.</li>
+<li>Upload the spreadsheet.</li>
+<li>Tell Copilot to use only the uploaded source.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Keep Private Information Private
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not upload personal, private, medical, school, or company-confidential information. This FDA spreadsheet is public.</p>
+</div>
+</div>
+</section>
+<section id="source-check" class="level3" data-number="8.9.2">
+<h3 data-number="8.9.2" class="anchored" data-anchor-id="source-check"><span class="header-section-number">8.9.2</span> Source Check</h3>
+<section class="e4a-workbook-card e4a-activity-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-source-log" data-e4a-artifact-title="Lesson 6 - FDA Source Check" data-e4a-filename="Lesson 6 - FDA Source Check">
+  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Meet the Source</h3><p class="e4a-workbook-card__filename">Record what you see in your downloaded file.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-source-organization">Source organization</label><input id="e4a-l6-source-organization" type="text" data-e4a-field="sourceOrganization" data-e4a-field-type="text" data-e4a-label="Source organization"></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-dataset-title">Dataset title and file type</label><input id="e4a-l6-dataset-title" type="text" data-e4a-field="datasetTitle" data-e4a-field-type="text" data-e4a-label="Dataset title and file type"></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-download-date">My download date</label><input id="e4a-l6-download-date" type="text" data-e4a-field="downloadDate" data-e4a-field-type="text" data-e4a-label="My download date"></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-file-range">Earliest and latest date in my file</label><input id="e4a-l6-file-range" type="text" data-e4a-field="dateRange" data-e4a-field-type="text" data-e4a-label="Earliest and latest date in my file"></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-file-size">Number of data rows and columns</label><input id="e4a-l6-file-size" type="text" data-e4a-field="rowColumnCount" data-e4a-field-type="text" data-e4a-label="Number of data rows and columns"></div>
+  <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
+</section>
+</section>
+<section id="copilot-master-prompt" class="level3" data-number="8.9.3">
+<h3 data-number="8.9.3" class="anchored" data-anchor-id="copilot-master-prompt"><span class="header-section-number">8.9.3</span> Copilot Master Prompt</h3>
+<div class="e4a-copyable-template">
+<div class="e4a-copyable-template__header"><span>Source-grounded data master prompt</span><button type="button" class="btn btn-outline-primary btn-sm" data-e4a-copy-target="e4a-l6-master-prompt" data-e4a-copy-status="e4a-l6-master-prompt-status">Copy prompt</button></div>
+<pre id="e4a-l6-master-prompt" class="text"><code>Use only the uploaded dataset.
+
+For every answer:
+
+1. identify the columns used;
+2. explain any filters or grouping rules;
+3. distinguish facts from interpretation;
+4. identify blank, missing, duplicated, or inconsistent values;
+5. state the date range;
+6. state what the dataset cannot answer;
+7. do not use outside knowledge unless I explicitly ask for it;
+8. do not invent causes for patterns;
+9. do not treat correlation as causation;
+10. ask me before making assumptions.
+
+When creating a chart:
+
+- recommend the most appropriate chart type;
+- explain why it is appropriate;
+- label the axes and units;
+- use a neutral title;
+- include a source note;
+- include important limitations;
+- provide the summary table used to create the chart.</code></pre>
+<p id="e4a-l6-master-prompt-status" class="e4a-copy-status" aria-live="polite"></p>
+</div>
+</section>
+</section>
+<section id="guided-practice" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="guided-practice"><span class="header-section-number">8.10</span> Guided Practice</h2>
+<p><strong>Part 3 — First Copilot Inspection</strong></p>
+<div class="e4a-copyable-template">
+<div class="e4a-copyable-template__header"><span>First inspection prompt</span><button type="button" class="btn btn-outline-primary btn-sm" data-e4a-copy-target="e4a-l6-inspection-prompt" data-e4a-copy-status="e4a-l6-inspection-prompt-status">Copy prompt</button></div>
+<pre id="e4a-l6-inspection-prompt" class="text"><code>Use only the uploaded FDA recall spreadsheet.
+
+Before answering questions, inspect the file and report:
+
+1. the worksheet names;
+2. the column names;
+3. the number of data rows;
+4. the earliest and latest recall dates;
+5. the number of blank values in each column;
+6. any columns that contain multiple categories in one cell;
+7. any values that appear inconsistent or duplicated.
+
+Do not make conclusions about safety yet.</code></pre>
+<p id="e4a-l6-inspection-prompt-status" class="e4a-copy-status" aria-live="polite"></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Trust, but Verify
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Copilot may make a mistake. Check at least two results directly in the spreadsheet. Check a cell, a count, or a date.</p>
+</div>
+</div>
+<section class="e4a-workbook-card e4a-activity-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-trust-verify" data-e4a-artifact-title="Lesson 6 - Trust but Verify" data-e4a-filename="Lesson 6 - Trust but Verify">
+  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Verify Two Results</h3><p class="e4a-workbook-card__filename">Record the result, your spreadsheet evidence, and any correction.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-verify-one">Check 1</label><textarea id="e4a-l6-verify-one" data-e4a-field="checkOne" data-e4a-field-type="textarea" data-e4a-label="Check 1" rows="5" placeholder="Result I checked:
+Spreadsheet evidence:
+Copilot was correct / needs revision:
+My correction:"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-verify-two">Check 2</label><textarea id="e4a-l6-verify-two" data-e4a-field="checkTwo" data-e4a-field-type="textarea" data-e4a-label="Check 2" rows="5" placeholder="Result I checked:
+Spreadsheet evidence:
+Copilot was correct / needs revision:
+My correction:"></textarea></div>
+  <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
+</section>
+</section>
+<section id="independent-practice" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="independent-practice"><span class="header-section-number">8.11</span> Independent Practice</h2>
+<p><strong>Part 4 — Source-Grounded Questions</strong></p>
+<section id="challenge-a-find-the-newest-record" class="level3" data-number="8.11.1">
+<h3 data-number="8.11.1" class="anchored" data-anchor-id="challenge-a-find-the-newest-record"><span class="header-section-number">8.11.1</span> Challenge A: Find the Newest Record</h3>
+<div class="e4a-copyable-template">
+<div class="e4a-copyable-template__header"><span>Newest record prompt</span><button type="button" class="btn btn-outline-primary btn-sm" data-e4a-copy-target="e4a-l6-newest-prompt" data-e4a-copy-status="e4a-l6-newest-prompt-status">Copy prompt</button></div>
+<pre id="e4a-l6-newest-prompt" class="text"><code>Use only the uploaded FDA recall spreadsheet.
+
+What is the newest recall record in the file?
+
+Do not assume the first row is the newest.
+
+Include:
+- recall date;
+- brand;
+- product description;
+- company;
+- recall reason.</code></pre>
+<p id="e4a-l6-newest-prompt-status" class="e4a-copy-status" aria-live="polite"></p>
+</div>
+<p><strong>Teaching point:</strong> Row order is not evidence. Sort or calculate the latest date.</p>
+</section>
+<section id="challenge-b-brand-is-not-product" class="level3" data-number="8.11.2">
+<h3 data-number="8.11.2" class="anchored" data-anchor-id="challenge-b-brand-is-not-product"><span class="header-section-number">8.11.2</span> Challenge B: Brand Is Not Product</h3>
+<div class="e4a-copyable-template">
+<div class="e4a-copyable-template__header"><span>GreenWise prompt</span><button type="button" class="btn btn-outline-primary btn-sm" data-e4a-copy-target="e4a-l6-greenwise-prompt" data-e4a-copy-status="e4a-l6-greenwise-prompt-status">Copy prompt</button></div>
+<pre id="e4a-l6-greenwise-prompt" class="text"><code>Use only the uploaded FDA recall spreadsheet.
+
+Find every record containing the brand GreenWise.
+
+Answer: “Are all GreenWise products recalled?”
+
+Use the exact product descriptions and dates.
+Explain why a brand match does not prove that every product from the brand is affected.</code></pre>
+<p id="e4a-l6-greenwise-prompt-status" class="e4a-copy-status" aria-live="polite"></p>
+</div>
+<p><strong>Teaching point:</strong> Similar names are not exact matches. In the classroom copy, the two GreenWise rows describe different products.</p>
+</section>
+<section id="challenge-c-how-many-recalls-are-active" class="level3" data-number="8.11.3">
+<h3 data-number="8.11.3" class="anchored" data-anchor-id="challenge-c-how-many-recalls-are-active"><span class="header-section-number">8.11.3</span> Challenge C: How Many Recalls Are Active?</h3>
+<div class="e4a-copyable-template">
+<div class="e4a-copyable-template__header"><span>Termination status prompt</span><button type="button" class="btn btn-outline-primary btn-sm" data-e4a-copy-target="e4a-l6-status-prompt" data-e4a-copy-status="e4a-l6-status-prompt-status">Copy prompt</button></div>
+<pre id="e4a-l6-status-prompt" class="text"><code>Use only the uploaded FDA recall spreadsheet.
+
+How many active recalls are in this spreadsheet?
+
+Do not assume that a blank Terminated Recall field means active.
+
+Explain:
+1. how many records are marked Terminated;
+2. how many records are blank;
+3. why the spreadsheet may not contain enough information to calculate the active total.</code></pre>
+<p id="e4a-l6-status-prompt-status" class="e4a-copy-status" aria-live="polite"></p>
+</div>
+<p><strong>Teaching point:</strong> Blank does not automatically mean “No,” “active,” or zero.</p>
+</section>
+<section id="challenge-d-is-my-exact-package-recalled" class="level3" data-number="8.11.4">
+<h3 data-number="8.11.4" class="anchored" data-anchor-id="challenge-d-is-my-exact-package-recalled"><span class="header-section-number">8.11.4</span> Challenge D: Is My Exact Package Recalled?</h3>
+<div class="e4a-copyable-template">
+<div class="e4a-copyable-template__header"><span>Exact package prompt</span><button type="button" class="btn btn-outline-primary btn-sm" data-e4a-copy-target="e4a-l6-package-prompt" data-e4a-copy-status="e4a-l6-package-prompt-status">Copy prompt</button></div>
+<pre id="e4a-l6-package-prompt" class="text"><code>Use only the uploaded FDA recall spreadsheet.
+
+I have a product with the same brand and description as one row in the spreadsheet.
+
+Can this spreadsheet confirm that my exact package is recalled?
+
+List information that may be missing, such as:
+- lot code;
+- UPC;
+- package size;
+- expiration or best-by date;
+- distribution location.
+
+Explain whether the complete FDA recall notice is necessary.</code></pre>
+<p id="e4a-l6-package-prompt-status" class="e4a-copy-status" aria-live="polite"></p>
+</div>
+<p><strong>Teaching point:</strong> An index record may identify a notice but may not identify one exact package.</p>
+<section class="e4a-workbook-card e4a-activity-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-supported-unsupported" data-e4a-artifact-title="Lesson 6 - Supported and Unsupported Data Questions" data-e4a-filename="Lesson 6 - Supported and Unsupported Data Questions">
+  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Can the File Answer It?</h3><p class="e4a-workbook-card__filename">Your existing Lesson 6 answers remain saved here.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
   <div class="e4a-phrase-list">
     <div class="e4a-phrase-row"><label for="e4a-l6-supported-q">One supported question is</label><input id="e4a-l6-supported-q" type="text" data-e4a-field="supportedQuestion" data-e4a-field-type="text" data-e4a-label="One supported question is"></div>
     <div class="e4a-phrase-row"><label for="e4a-l6-unsupported-q">One unsupported question is</label><input id="e4a-l6-unsupported-q" type="text" data-e4a-field="unsupportedQuestion" data-e4a-field-type="text" data-e4a-label="One unsupported question is"></div>
@@ -671,89 +1231,386 @@ I cannot answer from the provided source.</code></pre>
   <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
 </section>
 </section>
-<section id="paraphrase-practice" class="level3" data-number="8.8.2">
-<h3 data-number="8.8.2" class="anchored" data-anchor-id="paraphrase-practice"><span class="header-section-number">8.8.2</span> Paraphrase Practice</h3>
-<p>Quote:</p>
-<pre class="text"><code>"Students may renew books one time if no other person is waiting."</code></pre>
-<p>Paraphrase:</p>
-<pre class="text"><code>This means a student can keep the book longer one time, but only if nobody else needs it.</code></pre>
+</section>
+<section id="part-5-chart-laboratory" class="level2" data-number="8.12">
+<h2 data-number="8.12" class="anchored" data-anchor-id="part-5-chart-laboratory"><span class="header-section-number">8.12</span> Part 5 — Chart Laboratory</h2>
+<p>You have practiced reading four chart types with simple fictional data. Now apply the same chart-reading checks to a real public source. For every chart, name the question, labels, values, units, source, date, and limitation.</p>
+<section id="chart-1-bar-chart" class="level3" data-number="8.12.1">
+<h3 data-number="8.12.1" class="anchored" data-anchor-id="chart-1-bar-chart"><span class="header-section-number">8.12.1</span> Chart 1: Bar Chart</h3>
+<p><strong>Good for:</strong> Comparing or ranking categories.</p>
+<p><strong>Avoid:</strong> Counting a comma-separated cell as one category or silently merging different meanings.</p>
+<div class="e4a-copyable-template">
+<div class="e4a-copyable-template__header"><span>Product-type bar chart prompt</span><button type="button" class="btn btn-outline-primary btn-sm" data-e4a-copy-target="e4a-l6-bar-prompt" data-e4a-copy-status="e4a-l6-bar-prompt-status">Copy prompt</button></div>
+<pre id="e4a-l6-bar-prompt" class="text"><code>Use only the uploaded FDA recall spreadsheet.
+
+The Product-Types column may contain more than one comma-separated category in one cell.
+
+1. Split the categories.
+2. Normalize extra spaces.
+3. Show the grouping rules.
+4. Do not silently merge categories with different meanings.
+5. Create a horizontal bar chart of the 10 most frequent individual labels.
+6. Provide the count for each bar and the summary table.
+
+Explain why the category totals can add up to more than the total number of records.
+State what the chart shows and what it does not prove.</code></pre>
+<p id="e4a-l6-bar-prompt-status" class="e4a-copy-status" aria-live="polite"></p>
+</div>
+<p><strong>Misleading:</strong> “Food &amp; Beverages causes most recalls.”</p>
+<p><strong>Better:</strong> “Food &amp; Beverages is the most frequently assigned product-type label in this dataset.”</p>
+<p><strong>Why:</strong> Categories overlap. A label count does not measure danger or prove a cause.</p>
+</section>
+<section id="chart-2-line-chart" class="level3" data-number="8.12.2">
+<h3 data-number="8.12.2" class="anchored" data-anchor-id="chart-2-line-chart"><span class="header-section-number">8.12.2</span> Chart 2: Line Chart</h3>
+<p><strong>Good for:</strong> Showing change across dates, months, or years.</p>
+<p><strong>Avoid:</strong> Comparing a partial current year with complete years without a clear warning.</p>
+<div class="e4a-copyable-template">
+<div class="e4a-copyable-template__header"><span>Records-over-time line chart prompt</span><button type="button" class="btn btn-outline-primary btn-sm" data-e4a-copy-target="e4a-l6-line-prompt" data-e4a-copy-status="e4a-l6-line-prompt-status">Copy prompt</button></div>
+<pre id="e4a-l6-line-prompt" class="text"><code>Use only the uploaded FDA recall spreadsheet.
+
+Count the records by month and create a line chart.
+
+Requirements:
+1. sort the months chronologically;
+2. include every month in the dataset range;
+3. display zero when a month has no records;
+4. clearly mark incomplete years;
+5. do not claim that the dataset contains every FDA recall;
+6. provide the summary table.
+
+Describe the largest increases and decreases without inventing causes.</code></pre>
+<p id="e4a-l6-line-prompt-status" class="e4a-copy-status" aria-live="polite"></p>
+</div>
+<p><strong>Misleading:</strong> “Recalls decreased in 2026.”</p>
+<p><strong>Better:</strong> “The file contains fewer 2026 records through its latest date, but 2026 is incomplete. The chart does not establish a full-year decrease.”</p>
+</section>
+<section id="chart-3-pie-or-donut-chart" class="level3" data-number="8.12.3">
+<h3 data-number="8.12.3" class="anchored" data-anchor-id="chart-3-pie-or-donut-chart"><span class="header-section-number">8.12.3</span> Chart 3: Pie or Donut Chart</h3>
+<p><strong>Good for:</strong> A few mutually exclusive parts that form one meaningful total.</p>
+<p><strong>Avoid:</strong> Product-type slices. Those labels overlap, so the slices are not exclusive parts of one whole.</p>
+<div class="e4a-copyable-template">
+<div class="e4a-copyable-template__header"><span>Termination-status pie chart prompt</span><button type="button" class="btn btn-outline-primary btn-sm" data-e4a-copy-target="e4a-l6-pie-prompt" data-e4a-copy-status="e4a-l6-pie-prompt-status">Copy prompt</button></div>
+<pre id="e4a-l6-pie-prompt" class="text"><code>Use only the uploaded FDA recall spreadsheet.
+
+Create a pie or donut chart with two categories:
+
+- Explicitly marked Terminated
+- Termination status not provided in this spreadsheet
+
+Do not label the blank category “Active.”
+Display both counts and percentages.
+Provide the summary table.
+Explain why “status not provided” is not the same as “active.”</code></pre>
+<p id="e4a-l6-pie-prompt-status" class="e4a-copy-status" aria-live="polite"></p>
+</div>
 </section>
 </section>
-<section id="independent-practice" class="level2" data-number="8.9">
-<h2 data-number="8.9" class="anchored" data-anchor-id="independent-practice"><span class="header-section-number">8.9</span> Independent Practice</h2>
-<p>Write directly in this workbook page. It is your Lesson 6 evidence.</p>
-<section class="e4a-workbook-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-source-check-paraphrase" data-e4a-artifact-title="Lesson 6 - Source Check and Paraphrase" data-e4a-filename="Lesson 6 - Source Check and Paraphrase">
-  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Source Check and Paraphrase</h3><p class="e4a-workbook-card__filename">Write directly in this workbook page.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
-  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-supported">Source and supported question</label><textarea id="e4a-l6-lesson-supported" data-e4a-field="supportedQuestion" data-e4a-field-type="textarea" data-e4a-label="Source and supported question" rows="11" placeholder="Source title:
-Source type: (library rule / school notice / public announcement / other)
-Source link or location:
-Three key words: 1. 2. 3.
+<section id="why-is-a-product-types-pie-chart-misleading" class="level2 callout-question" data-number="8.13">
+<h2 data-number="8.13" class="anchored" data-anchor-id="why-is-a-product-types-pie-chart-misleading"><span class="header-section-number">8.13</span> Why Is a Product-Types Pie Chart Misleading?</h2>
+<p>One record may belong to several product types. The slices would not represent exclusive parts of one whole.</p>
+</section>
+<section id="chart-4-scatter-plot" class="level3" data-number="8.13.1">
+<h3 data-number="8.13.1" class="anchored" data-anchor-id="chart-4-scatter-plot"><span class="header-section-number">8.13.1</span> Chart 4: Scatter Plot</h3>
+<p>A scatter plot needs <strong>two meaningful numeric variables for every observation</strong>. The FDA spreadsheet does not have a good pair. Do not create artificial row numbers only to make a chart.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Optional Public Dataset
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the <a href="https://www.fueleconomy.gov/feg/download.shtml">FuelEconomy.gov download page</a> and the 2025 vehicle data. The official field definitions describe <code>city08</code> as city MPG and <code>fuelCost08</code> as annual fuel cost.</p>
+</div>
+</div>
+<div class="e4a-copyable-template">
+<div class="e4a-copyable-template__header"><span>Optional fuel-economy scatter prompt</span><button type="button" class="btn btn-outline-primary btn-sm" data-e4a-copy-target="e4a-l6-scatter-prompt" data-e4a-copy-status="e4a-l6-scatter-prompt-status">Copy prompt</button></div>
+<pre id="e4a-l6-scatter-prompt" class="text"><code>Use only the uploaded 2025 FuelEconomy.gov vehicle data.
 
-My supported question:
-Short answer:
-Evidence — the source says: &quot;[short quote]&quot;
-Paraphrase — this means:"></textarea></div>
-  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-unsupported">Unsupported question</label><textarea id="e4a-l6-lesson-unsupported" data-e4a-field="unsupportedQuestion" data-e4a-field-type="textarea" data-e4a-label="Unsupported question" rows="5" placeholder="Question not answered by the source:
+Create a scatter plot with:
+- x-axis: city08, city fuel economy in MPG;
+- y-axis: fuelCost08, estimated annual fuel cost in dollars;
+- one point per vehicle record.
 
-Correct response: I cannot answer from the provided source.
-
-Why this is safer: It is safer because ___."></textarea></div>
-  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-check">Source check</label><textarea id="e4a-l6-lesson-check" data-e4a-field="sourceCheck" data-e4a-field-type="textarea" data-e4a-label="Source check" rows="5" placeholder="- I included the source title or link.
-- My quote is short.
-- My paraphrase uses my own simple English.
-- I did not use a private document."></textarea></div>
+Identify the source and columns.
+Explain missing or invalid values and any rows removed.
+Label both axes and units.
+Identify notable outliers.
+Describe association only. Do not claim that one variable causes the other.</code></pre>
+<p id="e4a-l6-scatter-prompt-status" class="e4a-copy-status" aria-live="polite"></p>
+</div>
+<section class="e4a-workbook-card e4a-activity-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-chart-lab" data-e4a-artifact-title="Lesson 6 - Chart Laboratory" data-e4a-filename="Lesson 6 - Chart Laboratory">
+  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Interpret and Limit Each Chart</h3><p class="e4a-workbook-card__filename">For each chart, say what it shows and what it cannot prove.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-bar-interpretation">Bar chart</label><textarea id="e4a-l6-bar-interpretation" data-e4a-field="barInterpretation" data-e4a-field-type="textarea" data-e4a-label="Bar chart interpretation and limitation" rows="4" placeholder="The chart shows...
+The chart cannot prove..."></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-line-interpretation">Line chart</label><textarea id="e4a-l6-line-interpretation" data-e4a-field="lineInterpretation" data-e4a-field-type="textarea" data-e4a-label="Line chart interpretation and limitation" rows="4" placeholder="The chart shows...
+The current year...
+The chart cannot prove..."></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-pie-interpretation">Pie or donut chart</label><textarea id="e4a-l6-pie-interpretation" data-e4a-field="pieInterpretation" data-e4a-field-type="textarea" data-e4a-label="Pie chart interpretation and limitation" rows="4" placeholder="The chart shows...
+A blank value does not mean..."></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-scatter-interpretation">Scatter plot</label><textarea id="e4a-l6-scatter-interpretation" data-e4a-field="scatterInterpretation" data-e4a-field-type="textarea" data-e4a-label="Scatter plot interpretation and limitation" rows="4" placeholder="The points show...
+This association does not prove..."></textarea></div>
   <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
 </section>
 </section>
-<section id="pair-speaking-or-presentation-task" class="level2" data-number="8.10">
-<h2 data-number="8.10" class="anchored" data-anchor-id="pair-speaking-or-presentation-task"><span class="header-section-number">8.10</span> Pair Speaking or Presentation Task</h2>
-<p>Read your supported question and evidence to a partner.</p>
-<pre class="text"><code>My supported question is __________.
-The evidence is __________.
-My paraphrase is __________.
-My unsupported question is __________.
-The safe answer is __________.</code></pre>
+<section id="part-6-chart-detective" class="level2" data-number="8.14">
+<h2 data-number="8.14" class="anchored" data-anchor-id="part-6-chart-detective"><span class="header-section-number">8.14</span> Part 6 — Chart Detective</h2>
+<p>Classify each conclusion as <strong>Supported</strong>, <strong>Partly supported</strong>, <strong>Misleading</strong>, or <strong>Not supported</strong>.</p>
+<section class="e4a-data-workshop e4a-activity-card" data-e4a-data-workshop="" aria-labelledby="e4a-l6-detective-title">
+  <h3 id="e4a-l6-detective-title" class="anchored">Two Rounds of Four Claims</h3>
+  <div class="e4a-data-workshop__progress-row">
+    <p class="e4a-data-workshop__progress-text" data-e4a-data-workshop-progress-text="" aria-live="polite">0 of 8 questions checked</p>
+    <div class="e4a-data-workshop__progress-track"><div class="e4a-data-workshop__progress-bar" data-e4a-data-workshop-progress-bar="" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="8"></div></div>
+  </div>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="supported" data-e4a-correct-label="supported">
+    <legend>1. “The dataset contains more Food &amp; Beverages labels than Medical Devices labels.”</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="supported">Supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="partly">Partly supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="misleading">Misleading</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="not">Not supported</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>The split label counts support this comparison. It does not say which products are more dangerous.</p></details>
+  </fieldset>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="not" data-e4a-correct-label="not supported">
+    <legend>2. “Food products are objectively more dangerous than medical devices.”</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="supported">Supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="partly">Partly supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="misleading">Misleading</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="not">Not supported</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>The file does not provide a numeric measure of danger.</p></details>
+  </fieldset>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="supported" data-e4a-correct-label="supported">
+    <legend>3. “The classroom copy contains fewer records dated 2026 than 2025.”</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="supported">Supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="partly">Partly supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="misleading">Misleading</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="not">Not supported</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>The record counts support this narrow statement. Add that the 2026 period ends on July 16.</p></details>
+  </fieldset>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="misleading" data-e4a-correct-label="misleading">
+    <legend>4. “Annual recalls decreased in 2026.”</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="supported">Supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="partly">Partly supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="misleading">Misleading</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="not">Not supported</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>The claim compares a partial year with full years and changes “records in this file” into “annual recalls.”</p></details>
+  </fieldset>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="supported" data-e4a-correct-label="supported">
+    <legend>5. “284 records in the classroom copy are explicitly marked Terminated.”</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="supported">Supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="partly">Partly supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="misleading">Misleading</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="not">Not supported</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>This is a direct count from the labeled classroom copy inspected July 17, 2026.</p></details>
+  </fieldset>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="not" data-e4a-correct-label="not supported">
+    <legend>6. “All other records are active.”</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="supported">Supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="partly">Partly supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="misleading">Misleading</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="not">Not supported</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>A blank cell does not supply an active status.</p></details>
+  </fieldset>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="supported" data-e4a-correct-label="supported">
+    <legend>7. “The GreenWise brand has more than one record in the classroom copy.”</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="supported">Supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="partly">Partly supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="misleading">Misleading</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="not">Not supported</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>Two records match the brand, but they describe different products and dates.</p></details>
+  </fieldset>
+
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="not" data-e4a-correct-label="not supported">
+    <legend>8. “Every GreenWise product is unsafe.”</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="supported">Supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="partly">Partly supported</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="misleading">Misleading</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="not">Not supported</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>A brand match does not apply to every product made or sold under that brand.</p></details>
+  </fieldset>
+
+  <div class="e4a-data-workshop__actions"><button type="button" class="btn btn-outline-secondary e4a-data-workshop__restart" data-e4a-data-workshop-restart="">Restart detective activity</button></div>
 </section>
-<section id="reflection" class="level2" data-number="8.11">
-<h2 data-number="8.11" class="anchored" data-anchor-id="reflection"><span class="header-section-number">8.11</span> Reflection</h2>
+</section>
+<section id="part-7-repair-a-misleading-chart" class="level2" data-number="8.15">
+<h2 data-number="8.15" class="anchored" data-anchor-id="part-7-repair-a-misleading-chart"><span class="header-section-number">8.15</span> Part 7 — Repair a Misleading Chart</h2>
+<p>Copilot creates a chart titled <strong>“FDA recalls are falling in 2026.”</strong></p>
+<figure class="e4a-data-chart figure" aria-labelledby="e4a-l6-misleading-chart-title">
+  <figcaption id="e4a-l6-misleading-chart-title" class="e4a-data-chart__title">FDA recalls are falling in 2026</figcaption>
+  <div class="e4a-data-chart__bars" role="img" aria-label="Bar chart showing 320 records for 2024, 310 for 2025, and 146 through July 16, 2026">
+    <div class="e4a-data-chart__bar-row"><span>2024</span><span class="e4a-data-chart__bar-track"><span class="e4a-data-chart__bar-fill" style="width:100%"></span></span><strong>320</strong></div>
+    <div class="e4a-data-chart__bar-row"><span>2025</span><span class="e4a-data-chart__bar-track"><span class="e4a-data-chart__bar-fill" style="width:96.9%"></span></span><strong>310</strong></div>
+    <div class="e4a-data-chart__bar-row"><span>2026</span><span class="e4a-data-chart__bar-track"><span class="e4a-data-chart__bar-fill" style="width:45.6%"></span></span><strong>146</strong></div>
+  </div>
+  <p class="e4a-data-chart__note">The original chart did not state that 2026 ends on July 16 in the classroom copy.</p>
+</figure>
+<p>Find the problems:</p>
+<ul>
+<li>unequal time periods;</li>
+<li>incomplete 2026 data;</li>
+<li>a source that does not claim complete recall coverage;</li>
+<li>a title that states more than the chart proves;</li>
+<li>no source note; and</li>
+<li>no date-range note.</li>
+</ul>
+<section class="e4a-workbook-card e4a-activity-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-chart-repair" data-e4a-artifact-title="Lesson 6 - Repair a Misleading Chart" data-e4a-filename="Lesson 6 - Repair a Misleading Chart">
+  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Repair the Chart</h3><p class="e4a-workbook-card__filename">Make every label and conclusion match the evidence.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-repair-title">Neutral chart title</label><input id="e4a-l6-repair-title" type="text" data-e4a-field="chartTitle" data-e4a-field-type="text" data-e4a-label="Neutral chart title" placeholder="Recall records in the downloaded FDA file by year"></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-repair-subtitle">Date-range subtitle</label><textarea id="e4a-l6-repair-subtitle" data-e4a-field="chartSubtitle" data-e4a-field-type="textarea" data-e4a-label="Date-range subtitle" rows="3"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-repair-source">Source note</label><textarea id="e4a-l6-repair-source" data-e4a-field="sourceNote" data-e4a-field-type="textarea" data-e4a-label="Source note" rows="3"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-repair-conclusion">Revised conclusion</label><textarea id="e4a-l6-repair-conclusion" data-e4a-field="revisedConclusion" data-e4a-field-type="textarea" data-e4a-label="Revised conclusion" rows="5" placeholder="The file currently contains fewer records dated 2026, but..."></textarea></div>
+  <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
+</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check a Careful Repair
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Title:</strong> Recall records in the downloaded FDA file by year</p>
+<p><strong>Subtitle:</strong> The 2026 value includes records only through the latest date available in the downloaded file.</p>
+<p><strong>Conclusion:</strong> The file currently contains fewer records dated 2026, but the year is incomplete. The chart does not establish that full-year recalls decreased.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-8-final-data-investigation" class="level2" data-number="8.16">
+<h2 data-number="8.16" class="anchored" data-anchor-id="part-8-final-data-investigation"><span class="header-section-number">8.16</span> Part 8 — Final Data Investigation</h2>
+<p>Choose one question:</p>
+<ol type="1">
+<li>Which product-type labels appear most frequently?</li>
+<li>Which companies have multiple records?</li>
+<li>Which brands appear in more than one record?</li>
+<li>How have record counts changed over time?</li>
+<li>Which recall-reason descriptions appear most frequently?</li>
+<li>What percentage of records is explicitly marked Terminated?</li>
+<li>Which values need cleaning or normalization?</li>
+</ol>
+<section class="e4a-workbook-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-source-check-paraphrase" data-e4a-artifact-title="Lesson 6 - Source-Grounded Data Report" data-e4a-filename="Lesson 6 - Source-Grounded Data Report">
+  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Source-Grounded Data Report</h3><p class="e4a-workbook-card__filename">Your existing Lesson 6 source-check fields remain compatible. New fields complete the data report.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-source-check">Source details and columns</label><textarea id="e4a-l6-lesson-source-check" data-e4a-field="sourceCheck" data-e4a-field-type="textarea" data-e4a-label="Source details and columns" rows="7" placeholder="Source organization:
+Dataset title:
+Download date:
+Date range:
+Rows and columns:
+Columns I used:"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-supported">Research question</label><textarea id="e4a-l6-lesson-supported" data-e4a-field="supportedQuestion" data-e4a-field-type="textarea" data-e4a-label="Research question" rows="3"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-prompt">Copilot prompt</label><textarea id="e4a-l6-lesson-prompt" data-e4a-field="copilotPrompt" data-e4a-field-type="textarea" data-e4a-label="Copilot prompt" rows="8" placeholder="Use only the uploaded dataset..."></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-chart-plan">Chart type, filters, grouping rules, and why the chart fits</label><textarea id="e4a-l6-lesson-chart-plan" data-e4a-field="chartPlan" data-e4a-field-type="textarea" data-e4a-label="Chart type, filters, grouping rules, and reason" rows="6"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-chart-note">Chart or screenshot submission note and accessible description</label><textarea id="e4a-l6-lesson-chart-note" data-e4a-field="chartSubmissionNote" data-e4a-field-type="textarea" data-e4a-label="Chart or screenshot submission note and accessible description" rows="5" placeholder="File name or class submission location:
+The chart shows..."></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-findings">Three source-grounded findings</label><textarea id="e4a-l6-lesson-findings" data-e4a-field="findings" data-e4a-field-type="textarea" data-e4a-label="Three source-grounded findings" rows="7" placeholder="1.
+2.
+3."></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-limitation">One limitation</label><textarea id="e4a-l6-lesson-limitation" data-e4a-field="limitation" data-e4a-field-type="textarea" data-e4a-label="One limitation" rows="4"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-unsupported">One statement the dataset cannot support</label><textarea id="e4a-l6-lesson-unsupported" data-e4a-field="unsupportedQuestion" data-e4a-field-type="textarea" data-e4a-label="One statement the dataset cannot support" rows="4"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-verification">One manual verification</label><textarea id="e4a-l6-lesson-verification" data-e4a-field="manualVerification" data-e4a-field-type="textarea" data-e4a-label="One manual verification" rows="5" placeholder="Result checked:
+Spreadsheet evidence:
+Correction, if needed:"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-conclusion">Revised final conclusion</label><textarea id="e4a-l6-lesson-conclusion" data-e4a-field="revisedConclusion" data-e4a-field-type="textarea" data-e4a-label="Revised final conclusion" rows="5" placeholder="The source supports..., but it does not support..."></textarea></div>
+  <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
+</section>
+<section id="assessment-rubric" class="level3" data-number="8.16.1">
+<h3 data-number="8.16.1" class="anchored" data-anchor-id="assessment-rubric"><span class="header-section-number">8.16.1</span> Assessment Rubric</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>2 points</th>
+<th>1 point</th>
+<th>0 points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source</td>
+<td>Correct source and date</td>
+<td>One source detail missing</td>
+<td>Source not named</td>
+</tr>
+<tr class="even">
+<td>Question</td>
+<td>Dataset can reasonably answer it</td>
+<td>Needs a small revision</td>
+<td>Dataset cannot answer it</td>
+</tr>
+<tr class="odd">
+<td>Chart</td>
+<td>Appropriate and clearly labeled</td>
+<td>Mostly appropriate</td>
+<td>Inappropriate or unlabeled</td>
+</tr>
+<tr class="even">
+<td>Evidence</td>
+<td>Correct columns, filters, and counts</td>
+<td>Some evidence is unclear</td>
+<td>Evidence is missing or incorrect</td>
+</tr>
+<tr class="odd">
+<td>Interpretation</td>
+<td>Careful conclusion and limitation</td>
+<td>One is incomplete</td>
+<td>Exaggerated or unsupported</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total:</strong> 10 points</p>
+</section>
+</section>
+<section id="pair-speaking-or-presentation-task" class="level2" data-number="8.17">
+<h2 data-number="8.17" class="anchored" data-anchor-id="pair-speaking-or-presentation-task"><span class="header-section-number">8.17</span> Pair Speaking or Presentation Task</h2>
+<p>Tell a partner:</p>
+<pre class="text"><code>My research question is __________.
+I used the __________ column.
+My chart shows __________.
+I verified the result by __________.
+One limitation is __________.
+The chart cannot prove that __________.</code></pre>
+</section>
+<section id="reflection" class="level2" data-number="8.18">
+<h2 data-number="8.18" class="anchored" data-anchor-id="reflection"><span class="header-section-number">8.18</span> Reflection</h2>
 <section class="e4a-workbook-card e4a-activity-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-reflection" data-e4a-artifact-title="Lesson 6 - Reflection" data-e4a-filename="Lesson 6 - Reflection">
-  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Reflection</h3><p class="e4a-workbook-card__filename">Write two short sentences.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
+  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Reflection</h3><p class="e4a-workbook-card__filename">Connect your old source-check habit to today’s data work.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
   <div class="e4a-phrase-list">
-    <div class="e4a-phrase-row"><label for="e4a-l6-reflection-paraphrase">One paraphrase skill I practiced is</label><input id="e4a-l6-reflection-paraphrase" type="text" data-e4a-field="paraphraseSkill" data-e4a-field-type="text" data-e4a-label="One paraphrase skill I practiced is"></div>
+    <div class="e4a-phrase-row"><label for="e4a-l6-reflection-paraphrase">One paraphrase or revision skill I practiced is</label><input id="e4a-l6-reflection-paraphrase" type="text" data-e4a-field="paraphraseSkill" data-e4a-field-type="text" data-e4a-label="One paraphrase or revision skill I practiced is"></div>
     <div class="e4a-phrase-row"><label for="e4a-l6-reflection-not-guess">One thing I will not guess is</label><input id="e4a-l6-reflection-not-guess" type="text" data-e4a-field="willNotGuess" data-e4a-field-type="text" data-e4a-label="One thing I will not guess is"></div>
   </div>
   <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
 </section>
 </section>
-<section id="exit-ticket" class="level2" data-number="8.12">
-<h2 data-number="8.12" class="anchored" data-anchor-id="exit-ticket"><span class="header-section-number">8.12</span> Exit Ticket</h2>
-<p>Show your teacher:</p>
+<section id="exit-ticket" class="level2" data-number="8.19">
+<h2 data-number="8.19" class="anchored" data-anchor-id="exit-ticket"><span class="header-section-number">8.19</span> Exit Ticket</h2>
 <section class="e4a-workbook-card e4a-activity-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-exit-ticket" data-e4a-artifact-title="Lesson 6 - Exit Ticket" data-e4a-filename="Lesson 6 - Exit Ticket">
-  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Exit Ticket</h3><p class="e4a-workbook-card__filename">Show these four answers to your teacher.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
+  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Exit Ticket</h3><p class="e4a-workbook-card__filename">Show your six answers and source title to your teacher.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
   <div class="e4a-workbook-field"><label for="e4a-l6-exit-source">Source title or link</label><input id="e4a-l6-exit-source" type="text" data-e4a-field="sourceTitle" data-e4a-field-type="text" data-e4a-label="Source title or link"></div>
-  <div class="e4a-workbook-field"><label for="e4a-l6-exit-supported">One supported question</label><input id="e4a-l6-exit-supported" type="text" data-e4a-field="supportedQuestion" data-e4a-field-type="text" data-e4a-label="One supported question"></div>
-  <div class="e4a-workbook-field"><label for="e4a-l6-exit-unsupported">One unsupported question</label><input id="e4a-l6-exit-unsupported" type="text" data-e4a-field="unsupportedQuestion" data-e4a-field-type="text" data-e4a-label="One unsupported question"></div>
-  <div class="e4a-workbook-field"><label for="e4a-l6-exit-quote">One quote and paraphrase</label><textarea id="e4a-l6-exit-quote" data-e4a-field="quoteAndParaphrase" data-e4a-field-type="textarea" data-e4a-label="One quote and paraphrase" rows="4"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-exit-supported">1. One question the FDA spreadsheet can answer</label><input id="e4a-l6-exit-supported" type="text" data-e4a-field="supportedQuestion" data-e4a-field-type="text" data-e4a-label="One question the FDA spreadsheet can answer"></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-exit-unsupported">2. One question it cannot answer</label><input id="e4a-l6-exit-unsupported" type="text" data-e4a-field="unsupportedQuestion" data-e4a-field-type="text" data-e4a-label="One question the FDA spreadsheet cannot answer"></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-exit-category">3. Best chart for comparing categories</label><input id="e4a-l6-exit-category" type="text" data-e4a-field="categoryChart" data-e4a-field-type="text" data-e4a-label="Best chart for comparing categories"></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-exit-time">4. Best chart for showing change over time</label><input id="e4a-l6-exit-time" type="text" data-e4a-field="timeChart" data-e4a-field-type="text" data-e4a-label="Best chart for showing change over time"></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-exit-misleading">5. One way a correct chart can still mislead</label><textarea id="e4a-l6-exit-misleading" data-e4a-field="misleadingWay" data-e4a-field-type="textarea" data-e4a-label="One way a correct chart can still mislead" rows="3"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-exit-quote">6. One sentence I revised after checking evidence</label><textarea id="e4a-l6-exit-quote" data-e4a-field="quoteAndParaphrase" data-e4a-field-type="textarea" data-e4a-label="One sentence revised after checking evidence" rows="4"></textarea></div>
   <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
 </section>
 </section>
-<section id="homework" class="level2" data-number="8.13">
-<h2 data-number="8.13" class="anchored" data-anchor-id="homework"><span class="header-section-number">8.13</span> Homework</h2>
+<section id="homework" class="level2" data-number="8.20">
+<h2 data-number="8.20" class="anchored" data-anchor-id="homework"><span class="header-section-number">8.20</span> Homework</h2>
 <p><strong>Estimated time:</strong> 30-45 minutes.</p>
 <p>Tasks:</p>
+<p>Find another public CSV or XLSX dataset from an approved source such as FDA, Data.gov, NYC Open Data, New York State Open Data, the Bureau of Labor Statistics, College Scorecard, FuelEconomy.gov, or NOAA.</p>
 <ol type="1">
-<li>Finish the Lesson 6 - Source Check and Paraphrase page in the Student Workbook.</li>
-<li>Add five source-checking words to <code>Vocabulary Log</code>.</li>
-<li>Review the high-stakes warning in <code>ai-safety-and-privacy.qmd</code>.</li>
-<li>Bring or choose one safe visual topic for Lesson 7.</li>
+<li>Record the source and download date.</li>
+<li>Upload the public file to Copilot.</li>
+<li>Inspect its columns and limitations.</li>
+<li>Ask one practical question.</li>
+<li>Create one appropriate visualization.</li>
+<li>Verify one result manually.</li>
+<li>Write three grounded findings.</li>
+<li>Identify one unsupported conclusion.</li>
+<li>Explain what another source would be needed to confirm.</li>
 </ol>
 <p>What to complete:</p>
 <ul>
-<li>Student Workbook page: Lesson 6 - Source Check and Paraphrase</li>
-<li>updated <code>Vocabulary Log</code></li>
+<li>Student Workbook page: Lesson 6 - Source-Grounded Data Report</li>
+<li>one chart or screenshot submission note with an accessible description</li>
+<li>three grounded findings, one limitation, and one revised conclusion</li>
 </ul>
-<p>Privacy reminder: Do not save private source documents in your toolkit. Use sample documents or public-style practice texts.</p>
-<p>Optional extension: Open the Lessons 5-6 Source-Grounded Lab and practice with built-in sample sources.</p>
+<p>Privacy reminder: Do not upload personal or confidential data.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -766,9 +1623,9 @@ The safe answer is __________.</code></pre>
 <div class="callout-body-container callout-body">
 <p>This lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.</p>
 <p>Open the <strong>Lessons 5-6 Source-Grounded Lab</strong> in Colab:</p>
-<p><a href="https://colab.research.google.com/github/zoni-group/E4A/blob/public-5eccd45f2caf/english-for-ai-course/interactives/class-03-source-grounded-lab.ipynb" class="uri">https://colab.research.google.com/github/zoni-group/E4A/blob/public-5eccd45f2caf/english-for-ai-course/interactives/class-03-source-grounded-lab.ipynb</a></p>
-<p>Use the built-in safe sample sources only. Do not paste private documents.</p>
-<p>The lab uses <strong>Colab AI</strong> automatically when it is available in the Colab runtime. Colab AI is asked to answer only from the source you load. If Colab AI is not available, the regular lab steps still work, and you can finish your portfolio without AI.</p>
+<p><a href="https://colab.research.google.com/github/zoni-group/E4A/blob/public-54945515718d/english-for-ai-course/interactives/class-03-source-grounded-lab.ipynb" class="uri">https://colab.research.google.com/github/zoni-group/E4A/blob/public-54945515718d/english-for-ai-course/interactives/class-03-source-grounded-lab.ipynb</a></p>
+<p>Use the built-in safe sample sources only. Do not paste private documents or upload personal data.</p>
+<p>The lab uses <strong>Colab AI</strong> automatically when it is available. If it is unavailable, the regular lab steps still work.</p>
 <p>After any AI answer, say: <em>“I checked the AI answer before I used it.”</em></p>
 </div>
 </div>
@@ -782,8 +1639,8 @@ The safe answer is __________.</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Complete this workbook evidence:</p>
-<pre class="text"><code>Student Workbook -&gt; Lesson 6 - Source Check and Paraphrase</code></pre>
+<p>Complete:</p>
+<pre class="text"><code>Student Workbook -&gt; Lesson 6 - Source-Grounded Data Report</code></pre>
 </div>
 </div>
 

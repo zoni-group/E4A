@@ -173,6 +173,13 @@ EMAIL_ALLOWLIST_EXACT = {
     "noreply@github.com",
 }
 
+# These files are pinned, generated third-party dependencies. Their upstream
+# source may contain public maintainer addresses, which are not private course
+# data. Keep this list exact and versioned so authored assets are still scanned.
+THIRD_PARTY_EMAIL_ALLOWLIST_PATHS = {
+    "site/assets/generated/plotly/plotly-3.7.0.min.js",
+}
+
 
 @dataclass(frozen=True)
 class Finding:
@@ -378,6 +385,8 @@ def validate_text(rel: str, text: str, findings: list[Finding]) -> None:
         for match in pattern.finditer(text):
             value = match.group(0)
             if label == "possible email address" and email_is_allowed(value):
+                continue
+            if label == "possible email address" and rel in THIRD_PARTY_EMAIL_ALLOWLIST_PATHS:
                 continue
             if label == "possible email address" and rel.startswith("site/site_libs/"):
                 continue

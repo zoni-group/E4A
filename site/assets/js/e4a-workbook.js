@@ -2856,6 +2856,202 @@
     }
   }
 
+  // assets/ts/e4a-data-workshop.ts
+  function initializeDataWorkshopActivities(root = document) {
+    const activities = Array.from(root.querySelectorAll("[data-e4a-data-workshop]"));
+    for (const activity of activities) {
+      new DataWorkshopActivity(activity).initialize();
+    }
+  }
+  var DataWorkshopActivity = class {
+    constructor(root) {
+      this.root = root;
+      this.questions = [];
+      this.progress = { text: void 0, bar: void 0 };
+    }
+    initialize() {
+      this.questions = Array.from(
+        this.root.querySelectorAll("[data-e4a-data-workshop-question]")
+      ).map((question) => this.toQuestion(question)).filter((question) => question !== void 0);
+      if (this.questions.length === 0) {
+        return;
+      }
+      this.progress = {
+        text: this.root.querySelector("[data-e4a-data-workshop-progress-text]") ?? void 0,
+        bar: this.root.querySelector("[data-e4a-data-workshop-progress-bar]") ?? void 0
+      };
+      for (const question of this.questions) {
+        question.options.forEach((option) => {
+          option.setAttribute("aria-pressed", "false");
+          option.addEventListener("click", () => this.answer(question, option));
+        });
+      }
+      this.root.querySelector("[data-e4a-data-workshop-restart]")?.addEventListener("click", () => this.restart());
+      this.updateProgress();
+    }
+    toQuestion(root) {
+      const correctAnswer = root.dataset.e4aCorrectAnswer?.trim();
+      const options = Array.from(root.querySelectorAll("[data-e4a-data-workshop-option]"));
+      if (!correctAnswer || options.length === 0) {
+        return void 0;
+      }
+      return {
+        root,
+        options,
+        feedback: root.querySelector("[data-e4a-data-workshop-feedback]") ?? void 0,
+        feedbackStatus: root.querySelector("[data-e4a-data-workshop-feedback-status]") ?? void 0,
+        correctAnswer,
+        correctLabel: root.dataset.e4aCorrectLabel?.trim() || correctAnswer,
+        answered: false
+      };
+    }
+    answer(question, selected) {
+      const selectedAnswer = selected.dataset.e4aDataWorkshopOption?.trim() || "";
+      const isCorrect = selectedAnswer === question.correctAnswer;
+      for (const option of question.options) {
+        const isSelected = option === selected;
+        option.setAttribute("aria-pressed", isSelected ? "true" : "false");
+        delete option.dataset.e4aAnswerState;
+        if (isSelected) {
+          option.dataset.e4aAnswerState = isCorrect ? "correct" : "incorrect";
+        }
+      }
+      question.root.dataset.e4aAnswerState = isCorrect ? "correct" : "incorrect";
+      if (question.feedbackStatus) {
+        question.feedbackStatus.textContent = isCorrect ? `Correct. The answer is ${question.correctLabel}.` : `Try again. The best answer is ${question.correctLabel}.`;
+      }
+      if (question.feedback) {
+        question.feedback.open = true;
+      }
+      question.answered = true;
+      this.updateProgress();
+    }
+    restart() {
+      for (const question of this.questions) {
+        question.answered = false;
+        delete question.root.dataset.e4aAnswerState;
+        for (const option of question.options) {
+          option.setAttribute("aria-pressed", "false");
+          delete option.dataset.e4aAnswerState;
+        }
+        if (question.feedbackStatus) {
+          question.feedbackStatus.textContent = "Choose an answer, then open this panel to check it.";
+        }
+        if (question.feedback) {
+          question.feedback.open = false;
+        }
+      }
+      this.updateProgress();
+      this.questions[0]?.root.scrollIntoView({ behavior: this.prefersReducedMotion() ? "auto" : "smooth", block: "center" });
+      this.questions[0]?.options[0]?.focus();
+    }
+    updateProgress() {
+      const answered = this.questions.filter((question) => question.answered).length;
+      const total = this.questions.length;
+      const percent = Math.round(answered / total * 100);
+      if (this.progress.text) {
+        this.progress.text.textContent = `${answered} of ${total} questions checked`;
+      }
+      if (this.progress.bar) {
+        this.progress.bar.style.width = `${percent}%`;
+        this.progress.bar.setAttribute("aria-valuenow", String(answered));
+        this.progress.bar.setAttribute("aria-valuemax", String(total));
+        this.progress.bar.setAttribute("aria-label", `${answered} of ${total} questions checked`);
+      }
+    }
+    prefersReducedMotion() {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+  };
+
+  // assets/ts/e4a-vocabulary-practice.ts
+  function initializeVocabularyPracticeActivities(root = document) {
+    const activities = Array.from(root.querySelectorAll("[data-e4a-vocabulary-practice]"));
+    for (const activity of activities) {
+      new VocabularyPracticeActivity(activity).initialize();
+    }
+  }
+  var VocabularyPracticeActivity = class {
+    constructor(root) {
+      this.root = root;
+    }
+    initialize() {
+      const rounds = Array.from(this.root.querySelectorAll("[data-e4a-vocabulary-round]")).map((round) => this.toRound(round)).filter((round) => round !== void 0);
+      for (const round of rounds) {
+        round.restartButton?.addEventListener("click", () => this.restart(round));
+        const observer = new MutationObserver((mutations) => {
+          if (mutations.some((mutation) => mutation.target instanceof HTMLSelectElement)) {
+            this.queueUpdate(round);
+          }
+        });
+        observer.observe(round.root, {
+          attributes: true,
+          attributeFilter: ["data-e4a-answer-state"],
+          subtree: true
+        });
+        this.update(round);
+      }
+    }
+    toRound(root) {
+      const selects = Array.from(root.querySelectorAll("select[data-e4a-answer]"));
+      if (selects.length === 0) {
+        return void 0;
+      }
+      return {
+        root,
+        selects,
+        progressText: root.querySelector("[data-e4a-vocabulary-progress-text]") ?? void 0,
+        progressBar: root.querySelector("[data-e4a-vocabulary-progress-bar]") ?? void 0,
+        restartButton: root.querySelector("[data-e4a-vocabulary-restart]") ?? void 0,
+        updateQueued: false
+      };
+    }
+    queueUpdate(round) {
+      if (round.updateQueued) {
+        return;
+      }
+      round.updateQueued = true;
+      window.queueMicrotask(() => {
+        round.updateQueued = false;
+        this.update(round);
+      });
+    }
+    update(round) {
+      let correct = 0;
+      for (const select of round.selects) {
+        const state = select.dataset.e4aAnswerState ?? "empty";
+        if (state === "correct") {
+          correct += 1;
+        }
+        const feedback = select.closest(".e4a-vocab-match__row")?.querySelector("[data-e4a-vocabulary-feedback]");
+        if (feedback) {
+          feedback.textContent = state === "correct" ? "\u2713 Correct" : state === "incorrect" ? "\xD7 Try again" : "";
+          feedback.dataset.e4aVocabularyFeedbackState = state;
+        }
+      }
+      const total = round.selects.length;
+      const progressLabel = correct === total ? `Round complete: ${correct} of ${total} matched correctly` : `${correct} of ${total} matched correctly`;
+      if (round.progressText) {
+        round.progressText.textContent = progressLabel;
+      }
+      if (round.progressBar) {
+        round.progressBar.style.width = `${Math.round(correct / total * 100)}%`;
+        round.progressBar.setAttribute("role", "progressbar");
+        round.progressBar.setAttribute("aria-valuemin", "0");
+        round.progressBar.setAttribute("aria-valuenow", String(correct));
+        round.progressBar.setAttribute("aria-valuemax", String(total));
+        round.progressBar.setAttribute("aria-valuetext", progressLabel);
+      }
+    }
+    restart(round) {
+      for (const select of round.selects) {
+        select.value = "";
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+      round.selects[0]?.focus();
+    }
+  };
+
   // assets/ts/e4a-workbook.ts
   async function initializeWorkbook() {
     initializeTemplateCopyButtons();
@@ -2865,13 +3061,16 @@
     initializePromptResultCompareActivities();
     initializeSourceCheckWarmupActivities();
     initializeImageExpanders();
+    initializeDataWorkshopActivities();
     const blocks = scanWorkbookBlocks();
     if (blocks.length === 0) {
+      initializeVocabularyPracticeActivities();
       return;
     }
     const store = await getWorkbookStore(blocks.length > 0);
     const editors = blocks.map((block) => new WorkbookEditor(block, store));
     await Promise.all(editors.map((editor) => editor.initialize()));
+    initializeVocabularyPracticeActivities();
   }
   async function getWorkbookStore(hasWorkbookBlocks) {
     if (!hasWorkbookBlocks || !isIndexedDBAvailable()) {
