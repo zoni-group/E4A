@@ -77,6 +77,33 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <script src="assets/generated/plotly/plotly-3.7.0.min.js"></script>
+<script>
+  (() => {
+    const resizePlotlyCharts = (container) => {
+      if (!window.Plotly) return;
+      if (!container) return;
+      window.requestAnimationFrame(() => {
+        container.querySelectorAll(".js-plotly-plot").forEach((plot) => {
+          if (plot.offsetWidth > 0) window.Plotly.Plots.resize(plot);
+        });
+      });
+    };
+
+    document.addEventListener(
+      "toggle",
+      (event) => {
+        if (event.target instanceof HTMLDetailsElement && event.target.open) {
+          resizePlotlyCharts(event.target);
+        }
+      },
+      true
+    );
+
+    document.addEventListener("shown.bs.collapse", (event) => {
+      resizePlotlyCharts(event.target);
+    });
+  })();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -456,7 +483,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#part-7-repair-a-misleading-chart" id="toc-part-7-repair-a-misleading-chart" class="nav-link" data-scroll-target="#part-7-repair-a-misleading-chart"><span class="header-section-number">8.15</span> Part 7 — Repair a Misleading Chart</a></li>
   <li><a href="#part-8-final-data-investigation" id="toc-part-8-final-data-investigation" class="nav-link" data-scroll-target="#part-8-final-data-investigation"><span class="header-section-number">8.16</span> Part 8 — Final Data Investigation</a>
   <ul class="collapse">
-  <li><a href="#assessment-rubric" id="toc-assessment-rubric" class="nav-link" data-scroll-target="#assessment-rubric"><span class="header-section-number">8.16.1</span> Assessment Rubric</a></li>
+  <li><a href="#return-to-marias-claim" id="toc-return-to-marias-claim" class="nav-link" data-scroll-target="#return-to-marias-claim"><span class="header-section-number">8.16.1</span> Return to Maria’s Claim</a></li>
+  <li><a href="#assessment-rubric" id="toc-assessment-rubric" class="nav-link" data-scroll-target="#assessment-rubric"><span class="header-section-number">8.16.2</span> Assessment Rubric</a></li>
   </ul></li>
   <li><a href="#pair-speaking-or-presentation-task" id="toc-pair-speaking-or-presentation-task" class="nav-link" data-scroll-target="#pair-speaking-or-presentation-task"><span class="header-section-number">8.17</span> Pair Speaking or Presentation Task</a></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">8.18</span> Reflection</a></li>
@@ -1259,6 +1287,103 @@ State what the chart shows and what it does not prove.</code></pre>
 <p><strong>Misleading:</strong> “Food &amp; Beverages causes most recalls.”</p>
 <p><strong>Better:</strong> “Food &amp; Beverages is the most frequently assigned product-type label in this dataset.”</p>
 <p><strong>Why:</strong> Categories overlap. A label count does not measure danger or prove a cause.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check Your Graph — Product Types
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Try the exercise before opening this panel.</strong> This reference uses the supplied FDA snapshot. Hover over a bar to check its exact count.</p>
+<div id="cell-fig-l6-reference-bar" class="cell" data-execution_count="7">
+<div id="fig-l6-reference-bar" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l6-reference-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="e4a-plotly-chart" role="img" aria-label="Horizontal bar chart of the ten most frequent product-type labels in the supplied FDA snapshot." aria-labelledby="e4a-l6-reference-bar-title" aria-describedby="e4a-l6-reference-bar-description"><div style="height:560px; width:100%;">                            <div id="e4a-l6-reference-bar" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e4a-l6-reference-bar")) {                    Plotly.newPlot(                        "e4a-l6-reference-bar",                        [{"cliponaxis":false,"hovertemplate":"%{y}: %{x} labels\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#176b87"},"orientation":"h","text":["19","20","33","36","57","61","158","200","236","713"],"textposition":"outside","x":[19,20,33,36,57,61,158,200,236,713],"y":["Produce","Pet Food","Contaminants","Dietary Supplements","Animal & Veterinary","Medical Devices","Drugs","Allergens","Foodborne Illness","Food & Beverages"],"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"title":{"text":"Number of label assignments"},"range":[0,800],"rangemode":"tozero"},"margin":{"l":175,"r":55,"t":85,"b":70},"title":{"text":"Most frequent product-type labels in the supplied FDA file"},"yaxis":{"title":{"text":"Individual product-type label"}},"height":560,"font":{"family":"Arial, sans-serif","size":16,"color":"#17212b"},"transition":{"duration":0},"autosize":true,"paper_bgcolor":"#ffffff","plot_bgcolor":"#ffffff"},                        {"displayModeBar": false, "displaylogo": false, "responsive": true, "scrollZoom": false, "staticPlot": false}                    )                };            </script>        </div><noscript><p>The interactive chart needs JavaScript. Use the chart description and data table below.</p></noscript></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l6-reference-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.5: The ten most frequent individual product-type labels in the supplied FDA snapshot.
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="e4a-l6-reference-bar-description">
+<p><strong>What to notice:</strong> Food &amp; Beverages has 713 label assignments. One record can have several labels, so the label totals can be greater than 981 records.</p>
+<p><strong>Limitation:</strong> The chart counts labels in this file. It does not measure danger, severity, or the number of separate incidents.</p>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Individual product-type label</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Food &amp; Beverages</td>
+<td style="text-align: right;">713</td>
+</tr>
+<tr class="even">
+<td>Foodborne Illness</td>
+<td style="text-align: right;">236</td>
+</tr>
+<tr class="odd">
+<td>Allergens</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr class="even">
+<td>Drugs</td>
+<td style="text-align: right;">158</td>
+</tr>
+<tr class="odd">
+<td>Medical Devices</td>
+<td style="text-align: right;">61</td>
+</tr>
+<tr class="even">
+<td>Animal &amp; Veterinary</td>
+<td style="text-align: right;">57</td>
+</tr>
+<tr class="odd">
+<td>Dietary Supplements</td>
+<td style="text-align: right;">36</td>
+</tr>
+<tr class="even">
+<td>Contaminants</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr class="odd">
+<td>Pet Food</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td>Produce</td>
+<td style="text-align: right;">19</td>
+</tr>
+</tbody>
+</table>
+<section class="e4a-data-workshop" data-e4a-data-workshop="" aria-labelledby="e4a-l6-reference-bar-check-title">
+  <h3 id="e4a-l6-reference-bar-check-title" class="anchored">Quick Graph Check</h3>
+  <div class="e4a-data-workshop__progress-row"><p class="e4a-data-workshop__progress-text" data-e4a-data-workshop-progress-text="" aria-live="polite">0 of 2 questions checked</p><div class="e4a-data-workshop__progress-track"><div class="e4a-data-workshop__progress-bar" data-e4a-data-workshop-progress-bar="" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="2"></div></div></div>
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="food" data-e4a-correct-label="Food &amp; Beverages">
+    <legend>1. Which individual label appears most frequently?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="food">Food &amp; Beverages</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="illness">Foodborne Illness</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="devices">Medical Devices</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>Food &amp; Beverages has 713 label assignments.</p></details>
+  </fieldset>
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="multiple" data-e4a-correct-label="one record can have several labels">
+    <legend>2. Why can the label counts add up to more than 981?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="multiple">One record can have several labels</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="missing">The missing rows count twice</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="danger">Danger adds extra records</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>The Product-Types cell can contain several comma-separated labels.</p></details>
+  </fieldset>
+  <div class="e4a-data-workshop__actions"><button type="button" class="btn btn-outline-secondary e4a-data-workshop__restart" data-e4a-data-workshop-restart="">Restart check</button></div>
+</section>
+</div>
+</div>
+</div>
 </section>
 <section id="chart-2-line-chart" class="level3" data-number="8.12.2">
 <h3 data-number="8.12.2" class="anchored" data-anchor-id="chart-2-line-chart"><span class="header-section-number">8.12.2</span> Chart 2: Line Chart</h3>
@@ -1283,6 +1408,557 @@ Describe the largest increases and decreases without inventing causes.</code></p
 </div>
 <p><strong>Misleading:</strong> “Recalls decreased in 2026.”</p>
 <p><strong>Better:</strong> “The file contains fewer 2026 records through its latest date, but 2026 is incomplete. The chart does not establish a full-year decrease.”</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check Your Graph — Records by Month
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Try the exercise before opening this panel.</strong> Hover over the line to check a month. Drag across the chart to zoom. Double-click the chart to reset it.</p>
+<div class="cell" data-execution_count="8">
+<div id="fig-l6-reference-line" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="8">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l6-reference-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-l6-reference-line-1" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-l6-reference-line-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="e4a-plotly-chart" role="img" aria-label="Line chart of monthly record counts in the supplied FDA snapshot, with incomplete 2026 shaded." aria-labelledby="e4a-l6-reference-line-title" aria-describedby="e4a-l6-reference-line-description"><div style="height:500px; width:100%;">                            <div id="e4a-l6-reference-line" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e4a-l6-reference-line")) {                    Plotly.newPlot(                        "e4a-l6-reference-line",                        [{"hovertemplate":"%{x|%B %Y}: %{y} records\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#8b3a62","width":3},"marker":{"color":"#8b3a62","size":6},"mode":"lines+markers","x":["2017-10-01","2017-11-01","2017-12-01","2018-01-01","2018-02-01","2018-03-01","2018-04-01","2018-05-01","2018-06-01","2018-07-01","2018-08-01","2018-09-01","2018-10-01","2018-11-01","2018-12-01","2019-01-01","2019-02-01","2019-03-01","2019-04-01","2019-05-01","2019-06-01","2019-07-01","2019-08-01","2019-09-01","2019-10-01","2019-11-01","2019-12-01","2020-01-01","2020-02-01","2020-03-01","2020-04-01","2020-05-01","2020-06-01","2020-07-01","2020-08-01","2020-09-01","2020-10-01","2020-11-01","2020-12-01","2021-01-01","2021-02-01","2021-03-01","2021-04-01","2021-05-01","2021-06-01","2021-07-01","2021-08-01","2021-09-01","2021-10-01","2021-11-01","2021-12-01","2022-01-01","2022-02-01","2022-03-01","2022-04-01","2022-05-01","2022-06-01","2022-07-01","2022-08-01","2022-09-01","2022-10-01","2022-11-01","2022-12-01","2023-01-01","2023-02-01","2023-03-01","2023-04-01","2023-05-01","2023-06-01","2023-07-01","2023-08-01","2023-09-01","2023-10-01","2023-11-01","2023-12-01","2024-01-01","2024-02-01","2024-03-01","2024-04-01","2024-05-01","2024-06-01","2024-07-01","2024-08-01","2024-09-01","2024-10-01","2024-11-01","2024-12-01","2025-01-01","2025-02-01","2025-03-01","2025-04-01","2025-05-01","2025-06-01","2025-07-01","2025-08-01","2025-09-01","2025-10-01","2025-11-01","2025-12-01","2026-01-01","2026-02-01","2026-03-01","2026-04-01","2026-05-01","2026-06-01","2026-07-01"],"y":[1,0,1,0,1,1,0,0,0,0,0,0,0,0,1,1,1,0,0,4,4,5,2,2,4,0,1,2,1,1,3,0,3,13,18,3,2,0,1,0,1,2,1,0,1,1,0,2,2,3,2,4,2,2,3,3,5,4,2,6,2,0,4,3,2,7,4,4,6,6,5,6,4,15,15,31,40,21,28,23,29,27,24,16,25,24,32,22,17,23,23,32,24,25,26,25,34,26,33,23,18,12,18,43,24,8],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"shapes":[{"fillcolor":"#f2c14e","line":{"width":0},"opacity":0.2,"type":"rect","x0":"2026-01-01","x1":"2026-08-01","xref":"x","y0":0,"y1":1,"yref":"y domain"}],"annotations":[{"showarrow":false,"text":"Partial 2026","x":"2026-01-01","xanchor":"left","xref":"x","y":1,"yanchor":"top","yref":"y domain"}],"xaxis":{"rangeslider":{"visible":true,"thickness":0.1},"title":{"text":"Recall month"},"tickformat":"%Y","dtick":"M12","range":["2017-10-01","2026-08-01"]},"yaxis":{"title":{"text":"Records in this file"},"range":[0,48],"rangemode":"tozero"},"title":{"text":"Records in the supplied FDA file by month"},"font":{"family":"Arial, sans-serif","size":16,"color":"#17212b"},"margin":{"l":75,"r":35,"t":85,"b":95},"transition":{"duration":0},"autosize":true,"height":500,"paper_bgcolor":"#ffffff","plot_bgcolor":"#ffffff"},                        {"displayModeBar": false, "displaylogo": false, "responsive": true, "scrollZoom": false, "staticPlot": false}                    )                };            </script>        </div><noscript><p>The interactive chart needs JavaScript. Use the chart description and data table below.</p></noscript></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-l6-reference-line-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Monthly record counts in the supplied FDA snapshot from October 2017 through July 2026.
+</figcaption>
+</figure>
+</div>
+<div id="fig-l6-reference-line-2" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-l6-reference-line-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<details class="e4a-data-workshop__feedback"><summary>Open the complete monthly reference table</summary><div class="table-responsive">
+<table class="table table-striped caption-top table-sm small">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" scope="col">Month</th>
+<th data-quarto-table-cell-role="th" scope="col">Records</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>October 2017</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>November 2017</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>December 2017</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>January 2018</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>February 2018</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>March 2018</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>April 2018</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>May 2018</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>June 2018</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>July 2018</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>August 2018</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>September 2018</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>October 2018</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>November 2018</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>December 2018</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>January 2019</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>February 2019</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>March 2019</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>April 2019</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>May 2019</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>June 2019</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>July 2019</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>August 2019</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>September 2019</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>October 2019</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>November 2019</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>December 2019</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>January 2020</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>February 2020</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>March 2020</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>April 2020</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>May 2020</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>June 2020</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>July 2020</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>August 2020</td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td>September 2020</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>October 2020</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>November 2020</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>December 2020</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>January 2021</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>February 2021</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>March 2021</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>April 2021</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>May 2021</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>June 2021</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>July 2021</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>August 2021</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>September 2021</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>October 2021</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>November 2021</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>December 2021</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>January 2022</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>February 2022</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>March 2022</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>April 2022</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>May 2022</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>June 2022</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>July 2022</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>August 2022</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>September 2022</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>October 2022</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>November 2022</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>December 2022</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>January 2023</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>February 2023</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>March 2023</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>April 2023</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>May 2023</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>June 2023</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>July 2023</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>August 2023</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>September 2023</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>October 2023</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>November 2023</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>December 2023</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>January 2024</td>
+<td>31</td>
+</tr>
+<tr class="odd">
+<td>February 2024</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<td>March 2024</td>
+<td>21</td>
+</tr>
+<tr class="odd">
+<td>April 2024</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td>May 2024</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>June 2024</td>
+<td>29</td>
+</tr>
+<tr class="even">
+<td>July 2024</td>
+<td>27</td>
+</tr>
+<tr class="odd">
+<td>August 2024</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td>September 2024</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>October 2024</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>November 2024</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>December 2024</td>
+<td>32</td>
+</tr>
+<tr class="even">
+<td>January 2025</td>
+<td>22</td>
+</tr>
+<tr class="odd">
+<td>February 2025</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>March 2025</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>April 2025</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td>May 2025</td>
+<td>32</td>
+</tr>
+<tr class="odd">
+<td>June 2025</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td>July 2025</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td>August 2025</td>
+<td>26</td>
+</tr>
+<tr class="even">
+<td>September 2025</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td>October 2025</td>
+<td>34</td>
+</tr>
+<tr class="even">
+<td>November 2025</td>
+<td>26</td>
+</tr>
+<tr class="odd">
+<td>December 2025</td>
+<td>33</td>
+</tr>
+<tr class="even">
+<td>January 2026</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>February 2026</td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td>March 2026</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>April 2026</td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td>May 2026</td>
+<td>43</td>
+</tr>
+<tr class="odd">
+<td>June 2026</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td>July 2026</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div></details>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-l6-reference-line-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b)
+</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l6-reference-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.6: Monthly records in the supplied FDA snapshot
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="e4a-l6-reference-line-description">
+<p><strong>What to notice:</strong> May 2026 has the highest monthly count, 43. The supplied file ends on July 16, 2026, so the last month and year are incomplete.</p>
+<p><strong>Limitation:</strong> These are records in one downloaded file. The chart does not prove a cause, a complete annual change, or a change in danger.</p>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Year in supplied snapshot</th>
+<th style="text-align: right;">Records</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2017, beginning October 19</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2018</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2019</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2020</td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2022</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">77</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2024</td>
+<td style="text-align: right;">320</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2025</td>
+<td style="text-align: right;">310</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2026, through July 16</td>
+<td style="text-align: right;">146</td>
+</tr>
+</tbody>
+</table>
+<section class="e4a-data-workshop" data-e4a-data-workshop="" aria-labelledby="e4a-l6-reference-line-check-title">
+  <h3 id="e4a-l6-reference-line-check-title" class="anchored">Quick Graph Check</h3>
+  <div class="e4a-data-workshop__progress-row"><p class="e4a-data-workshop__progress-text" data-e4a-data-workshop-progress-text="" aria-live="polite">0 of 2 questions checked</p><div class="e4a-data-workshop__progress-track"><div class="e4a-data-workshop__progress-bar" data-e4a-data-workshop-progress-bar="" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="2"></div></div></div>
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="may" data-e4a-correct-label="May 2026">
+    <legend>1. Which month has the highest count in this snapshot?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="may">May 2026</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="february">February 2024</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="july">July 2026</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>May 2026 contains 43 records, the highest monthly count in the supplied snapshot.</p></details>
+  </fieldset>
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="incomplete" data-e4a-correct-label="No, 2026 is incomplete">
+    <legend>2. Can this graph establish a full-year decrease in 2026?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="incomplete">No, 2026 is incomplete</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="yes">Yes, the line is lower</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="cause">Yes, fewer records prove greater safety</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>The file stops on July 16, so 2026 cannot be compared as a complete year.</p></details>
+  </fieldset>
+  <div class="e4a-data-workshop__actions"><button type="button" class="btn btn-outline-secondary e4a-data-workshop__restart" data-e4a-data-workshop-restart="">Restart check</button></div>
+</section>
+</div>
+</div>
+</div>
 </section>
 <section id="chart-3-pie-or-donut-chart" class="level3" data-number="8.12.3">
 <h3 data-number="8.12.3" class="anchored" data-anchor-id="chart-3-pie-or-donut-chart"><span class="header-section-number">8.12.3</span> Chart 3: Pie or Donut Chart</h3>
@@ -1309,6 +1985,79 @@ Explain why “status not provided” is not the same as “active.”</code></p
 <h2 data-number="8.13" class="anchored" data-anchor-id="why-is-a-product-types-pie-chart-misleading"><span class="header-section-number">8.13</span> Why Is a Product-Types Pie Chart Misleading?</h2>
 <p>One record may belong to several product types. The slices would not represent exclusive parts of one whole.</p>
 </section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check Your Graph — Termination Field
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Try the exercise before opening this panel.</strong> Hover over a slice to check both the count and percentage. Read the category names carefully.</p>
+<div id="cell-fig-l6-reference-donut" class="cell" data-execution_count="9">
+<div id="fig-l6-reference-donut" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l6-reference-donut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="e4a-plotly-chart" role="img" aria-label="Donut chart comparing explicitly terminated records with records whose termination status is not provided." aria-labelledby="e4a-l6-reference-donut-title" aria-describedby="e4a-l6-reference-donut-description"><div style="height:480px; width:100%;">                            <div id="e4a-l6-reference-donut" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e4a-l6-reference-donut")) {                    Plotly.newPlot(                        "e4a-l6-reference-donut",                        [{"automargin":true,"hole":0.48,"hovertemplate":"%{label}\u003cbr\u003e%{value} records\u003cbr\u003e%{percent}\u003cextra\u003e\u003c\u002fextra\u003e","labels":["Explicitly marked Terminated","Termination status not provided"],"marker":{"colors":["#176b87","#d9a441"]},"sort":false,"textinfo":"label+value+percent","textposition":"outside","values":[284,697],"type":"pie"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"title":{"text":"What does the Terminated Recall field explicitly report?"},"showlegend":false,"font":{"family":"Arial, sans-serif","size":16,"color":"#17212b"},"margin":{"l":60,"r":60,"t":85,"b":55},"transition":{"duration":0},"autosize":true,"height":480,"paper_bgcolor":"#ffffff","plot_bgcolor":"#ffffff"},                        {"displayModeBar": false, "displaylogo": false, "responsive": true, "scrollZoom": false, "staticPlot": false}                    )                };            </script>        </div><noscript><p>The interactive chart needs JavaScript. Use the chart description and data table below.</p></noscript></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l6-reference-donut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.7: Values in the Terminated Recall field of the supplied FDA snapshot.
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="e4a-l6-reference-donut-description">
+<p><strong>What to notice:</strong> 284 of 981 records are explicitly marked Terminated. The other 697 cells are blank, so the status is not provided in this spreadsheet.</p>
+<p><strong>Limitation:</strong> A blank cell does not mean active. This chart cannot calculate the number of active recalls.</p>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Terminated Recall field</th>
+<th style="text-align: right;">Records</th>
+<th style="text-align: right;">Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Explicitly marked Terminated</td>
+<td style="text-align: right;">284</td>
+<td style="text-align: right;">29.0%</td>
+</tr>
+<tr class="even">
+<td>Termination status not provided</td>
+<td style="text-align: right;">697</td>
+<td style="text-align: right;">71.0%</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>981</strong></td>
+<td style="text-align: right;"><strong>100.0%</strong></td>
+</tr>
+</tbody>
+</table>
+<section class="e4a-data-workshop" data-e4a-data-workshop="" aria-labelledby="e4a-l6-reference-donut-check-title">
+  <h3 id="e4a-l6-reference-donut-check-title" class="anchored">Quick Graph Check</h3>
+  <div class="e4a-data-workshop__progress-row"><p class="e4a-data-workshop__progress-text" data-e4a-data-workshop-progress-text="" aria-live="polite">0 of 2 questions checked</p><div class="e4a-data-workshop__progress-track"><div class="e4a-data-workshop__progress-bar" data-e4a-data-workshop-progress-bar="" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="2"></div></div></div>
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="284" data-e4a-correct-label="284">
+    <legend>1. How many records are explicitly marked Terminated?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="284">284</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="697">697</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="981">981</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>The supplied file contains 284 explicit Terminated values.</p></details>
+  </fieldset>
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="unknown" data-e4a-correct-label="the status is not provided">
+    <legend>2. What does a blank termination cell mean here?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="unknown">The status is not provided</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="active">The recall is active</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="safe">The product is safe</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>A blank value supplies no status. Another source is needed to verify whether a recall is active.</p></details>
+  </fieldset>
+  <div class="e4a-data-workshop__actions"><button type="button" class="btn btn-outline-secondary e4a-data-workshop__restart" data-e4a-data-workshop-restart="">Restart check</button></div>
+</section>
+</div>
+</div>
+</div>
 <section id="chart-4-scatter-plot" class="level3" data-number="8.13.1">
 <h3 data-number="8.13.1" class="anchored" data-anchor-id="chart-4-scatter-plot"><span class="header-section-number">8.13.1</span> Chart 4: Scatter Plot</h3>
 <p>A scatter plot needs <strong>two meaningful numeric variables for every observation</strong>. The FDA spreadsheet does not have a good pair. Do not create artificial row numbers only to make a chart.</p>
@@ -1322,24 +2071,108 @@ Explain why “status not provided” is not the same as “active.”</code></p
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Use the <a href="https://www.fueleconomy.gov/feg/download.shtml">FuelEconomy.gov download page</a> and the 2025 vehicle data. The official field definitions describe <code>city08</code> as city MPG and <code>fuelCost08</code> as annual fuel cost.</p>
+<p>Use the <a href="https://www.fueleconomy.gov/feg/download.shtml">FuelEconomy.gov download page</a> for the public source. The reference graph below uses the supplied fixed 2025 workbook snapshot and its <code>FEguide</code> worksheet. Ask your teacher for the classroom copy if you need an exact match. A newer official file may have different rows.</p>
 </div>
 </div>
 <div class="e4a-copyable-template">
 <div class="e4a-copyable-template__header"><span>Optional fuel-economy scatter prompt</span><button type="button" class="btn btn-outline-primary btn-sm" data-e4a-copy-target="e4a-l6-scatter-prompt" data-e4a-copy-status="e4a-l6-scatter-prompt-status">Copy prompt</button></div>
-<pre id="e4a-l6-scatter-prompt" class="text"><code>Use only the uploaded 2025 FuelEconomy.gov vehicle data.
+<pre id="e4a-l6-scatter-prompt" class="text"><code>Use only the uploaded 2025 FuelEconomy.gov workbook snapshot.
+
+Use only the FEguide worksheet.
 
 Create a scatter plot with:
-- x-axis: city08, city fuel economy in MPG;
-- y-axis: fuelCost08, estimated annual fuel cost in dollars;
-- one point per vehicle record.
+- x-axis: City FE (Guide) - Conventional Fuel;
+- x-axis unit: miles per gallon;
+- y-axis: Annual Fuel1 Cost - Conventional Fuel;
+- y-axis unit: dollars per year;
+- one point per usable 2025 FEguide row.
 
 Identify the source and columns.
-Explain missing or invalid values and any rows removed.
+Keep only rows where Model Year is 2025 and both numeric values are present.
+Verify that Fuel Unit Desc - Conventional Fuel is “miles per gallon.”
+Show manufacturer, division, and carline when I hover over a point.
+Explain any rows removed.
 Label both axes and units.
 Identify notable outliers.
 Describe association only. Do not claim that one variable causes the other.</code></pre>
 <p id="e4a-l6-scatter-prompt-status" class="e4a-copy-status" aria-live="polite"></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check Your Graph — City MPG and Annual Fuel Cost
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Try the exercise before opening this panel.</strong> Hover over a point to see the manufacturer, division, carline, city MPG, and estimated annual fuel cost.</p>
+<div id="cell-fig-l6-reference-scatter" class="cell" data-execution_count="10">
+<div id="fig-l6-reference-scatter" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l6-reference-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="e4a-plotly-chart" role="img" aria-label="Scatter plot of city miles per gallon and estimated annual fuel cost for 868 conventional-fuel vehicle rows." aria-labelledby="e4a-l6-reference-scatter-title" aria-describedby="e4a-l6-reference-scatter-description"><div style="height:520px; width:100%;">                            <div id="e4a-l6-reference-scatter" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e4a-l6-reference-scatter")) {                    Plotly.newPlot(                        "e4a-l6-reference-scatter",                        [{"customdata":[["Honda","Acura","ADX AWD"],["Honda","Acura","ADX FWD"],["Honda","Acura","INTEGRA"],["Honda","Acura","INTEGRA"],["Honda","Acura","INTEGRA A-SPEC"],["Honda","Acura","INTEGRA A-SPEC"],["Honda","Acura","MDX AWD"],["Honda","Acura","MDX AWD Type-S"],["Honda","Acura","MDX FWD"],["Honda","Acura","RDX AWD"],["Honda","Acura","RDX AWD A-SPEC"],["Honda","Acura","TLX AWD A-SPEC"],["Honda","Acura","TLX FWD"],["Honda","Acura","TLX Type-S"],["FCA US LLC","ALFA ROMEO","Giulia"],["FCA US LLC","ALFA ROMEO","Giulia AWD"],["FCA US LLC","ALFA ROMEO","Stelvio AWD"],["FCA US LLC","ALFA ROMEO","Tonale AWD"],["aston martin","Aston Martin Lagonda Ltd","DB12 V8"],["aston martin","Aston Martin Lagonda Ltd","DBX 707"],["aston martin","Aston Martin Lagonda Ltd","Vanquish"],["aston martin","Aston Martin Lagonda Ltd","Vantage"],["Volkswagen Group of","Audi","A3 quattro"],["Volkswagen Group of","Audi","A4 allroad quattro"],["Volkswagen Group of","Audi","A4 quattro"],["Volkswagen Group of","Audi","A4 S line quattro"],["Volkswagen Group of","Audi","A5 quattro"],["Volkswagen Group of","Audi","A5 Sportback quattro"],["Volkswagen Group of","Audi","A5 Sportback S line quattro"],["Volkswagen Group of","Audi","A6 allroad quattro"],["Volkswagen Group of","Audi","A6 quattro"],["Volkswagen Group of","Audi","A6 quattro"],["Volkswagen Group of","Audi","A7 quattro"],["Volkswagen Group of","Audi","A8 quattro"],["Volkswagen Group of","Audi","Q3"],["Volkswagen Group of","Audi","Q3 S line"],["Volkswagen Group of","Audi","Q5 quattro"],["Volkswagen Group of","Audi","Q5 S line quattro"],["Volkswagen Group of","Audi","Q5 Sportback S line quattro"],["Volkswagen Group of","Audi","Q5 Sportback TFSI quattro"],["Volkswagen Group of","Audi","Q5 TFSI quattro"],["Volkswagen Group of","Audi","Q7"],["Volkswagen Group of","Audi","Q7"],["Volkswagen Group of","Audi","Q8 quattro"],["Volkswagen Group of","Audi","RS 3"],["Volkswagen Group of","Audi","RS 5 Sportback"],["Volkswagen Group of","Audi","RS 6 Avant"],["Volkswagen Group of","Audi","RS 7"],["Volkswagen Group of","Audi","RS Q8 Performance"],["Volkswagen Group of","Audi","S3"],["Volkswagen Group of","Audi","S4"],["Volkswagen Group of","Audi","S5"],["Volkswagen Group of","Audi","S5 Sportback"],["Volkswagen Group of","Audi","S6"],["Volkswagen Group of","Audi","S7"],["Volkswagen Group of","Audi","S8"],["Volkswagen Group of","Audi","SQ5"],["Volkswagen Group of","Audi","SQ5"],["Volkswagen Group of","Audi","SQ5 Sportback"],["Volkswagen Group of","Audi","SQ5 Sportback"],["Volkswagen Group of","Audi","SQ7"],["Volkswagen Group of","Audi","SQ8"],["Volkswagen Group of","Bentley","Bentayga"],["Volkswagen Group of","Bentley","Bentayga EWB"],["BMW","BMW","228 xDrive Gran Coupe"],["BMW","BMW","230i Coupe"],["BMW","BMW","230i xDrive Coupe"],["BMW","BMW","330i Sedan"],["BMW","BMW","330i xDrive Sedan"],["BMW","BMW","430i Convertible"],["BMW","BMW","430i Coupe"],["BMW","BMW","430i Gran Coupe"],["BMW","BMW","430i xDrive Convertible"],["BMW","BMW","430i xDrive Coupe"],["BMW","BMW","430i xDrive Gran Coupe"],["BMW","BMW","530i Sedan"],["BMW","BMW","530i xDrive Sedan"],["BMW","BMW","540i xDrive Sedan"],["BMW","BMW","740i Sedan"],["BMW","BMW","740i xDrive Sedan"],["BMW","BMW","760i xDrive Sedan"],["BMW","BMW","840i Convertible"],["BMW","BMW","840i Coupe"],["BMW","BMW","840i Gran Coupe"],["BMW","BMW","840i xDrive Convertible"],["BMW","BMW","840i xDrive Coupe"],["BMW","BMW","840i xDrive Gran Coupe"],["BMW","BMW","ALPINA B8 Gran Coupe"],["BMW","BMW","M2 Coupe"],["BMW","BMW","M2 Coupe"],["BMW","BMW","M235 xDrive Gran Coupe"],["BMW","BMW","M240i Coupe"],["BMW","BMW","M240i xDrive Coupe"],["BMW","BMW","M3 Competition M xDrive Sedan"],["BMW","BMW","M3 Competition Sedan"],["BMW","BMW","M3 Sedan"],["BMW","BMW","M340i Sedan"],["BMW","BMW","M340i xDrive Sedan"],["BMW","BMW","M4 Competition Coupe"],["BMW","BMW","M4 Competition M xDrive Coupe"],["BMW","BMW","M4 Coupe"],["BMW","BMW","M4 CS Coupe"],["BMW","BMW","M440i Convertible"],["BMW","BMW","M440i Coupe"],["BMW","BMW","M440i Gran Coupe"],["BMW","BMW","M440i xDrive Convertible"],["BMW","BMW","M440i xDrive Coupe"],["BMW","BMW","M440i xDrive Gran Coupe"],["BMW","BMW","M4CompetitionMxDriveConvertible"],["BMW","BMW","M8 Competition Convertible"],["BMW","BMW","M8 Competition Coupe"],["BMW","BMW","M8 Competition Gran Coupe"],["BMW","BMW","M850i xDrive Convertible"],["BMW","BMW","M850i xDrive Coupe"],["BMW","BMW","M850i xDrive Gran Coupe"],["BMW","BMW","X1 M35i"],["BMW","BMW","X1 xDrive28i"],["BMW","BMW","X2 M35i"],["BMW","BMW","X2 xDrive28i"],["BMW","BMW","X3 M50i xDrive"],["BMW","BMW","X3 xDrive30i"],["BMW","BMW","X4 M"],["BMW","BMW","X4 M Competition"],["BMW","BMW","X4 M40i"],["BMW","BMW","X4 xDrive30i"],["BMW","BMW","X5 M Competition"],["BMW","BMW","X5 M60i xDrive"],["BMW","BMW","X5 sDrive40i"],["BMW","BMW","X5 xDrive40i"],["BMW","BMW","X6 M Competition"],["BMW","BMW","X6 M60i xDrive"],["BMW","BMW","X6 xDrive40i"],["BMW","BMW","X7 M60i xDrive"],["BMW","BMW","X7 xDrive40i"],["BMW","BMW","Z4 M40i"],["BMW","BMW","Z4 M40i"],["BMW","BMW","Z4 sDrive30i"],["Volkswagen Group of","Bugatti","Mistral"],["General Motors","Buick","ENCLAVE AWD"],["General Motors","Buick","ENCLAVE FWD"],["General Motors","Buick","ENCORE GX AWD"],["General Motors","Buick","ENCORE GX FWD"],["General Motors","Buick","ENCORE GX FWD"],["General Motors","Buick","ENVISION AWD"],["General Motors","Buick","ENVISTA"],["General Motors","Buick","ENVISTA"],["General Motors","Cadillac","CT4"],["General Motors","Cadillac","CT4 AWD"],["General Motors","Cadillac","CT4 AWD"],["General Motors","Cadillac","CT4 V"],["General Motors","Cadillac","CT4 V"],["General Motors","Cadillac","CT4 V"],["General Motors","Cadillac","CT4 V AWD"],["General Motors","Cadillac","CT5"],["General Motors","Cadillac","CT5"],["General Motors","Cadillac","CT5 AWD"],["General Motors","Cadillac","CT5 AWD"],["General Motors","Cadillac","CT5 V"],["General Motors","Cadillac","CT5 V"],["General Motors","Cadillac","CT5 V"],["General Motors","Cadillac","CT5 V AWD"],["General Motors","Cadillac","ESCALADE 2WD"],["General Motors","Cadillac","ESCALADE 4WD"],["General Motors","Cadillac","ESCALADE V AWD"],["General Motors","Cadillac","XT4 AWD"],["General Motors","Cadillac","XT4 FWD"],["General Motors","Cadillac","XT5 AWD"],["General Motors","Cadillac","XT5 AWD"],["General Motors","Cadillac","XT5 FWD"],["General Motors","Cadillac","XT5 FWD"],["General Motors","Cadillac","XT6 AWD"],["General Motors","Cadillac","XT6 AWD"],["General Motors","Cadillac","XT6 FWD"],["General Motors","Cadillac","XT6 FWD"],["General Motors","Chevrolet","BLAZER AWD"],["General Motors","Chevrolet","BLAZER AWD"],["General Motors","Chevrolet","BLAZER FWD"],["General Motors","Chevrolet","BLAZER FWD"],["General Motors","Chevrolet","COLORADO 2WD"],["General Motors","Chevrolet","COLORADO 4WD"],["General Motors","Chevrolet","COLORADO 4WD MUD TERRAIN TIRES"],["General Motors","Chevrolet","COLORADO ZR2 4WD"],["General Motors","Chevrolet","COLORADO ZR2 BISON 4WD"],["General Motors","Chevrolet","CORVETTE"],["General Motors","Chevrolet","CORVETTE E-RAY"],["General Motors","Chevrolet","CORVETTE Z06"],["General Motors","Chevrolet","CORVETTE Z06 CARBON AERO"],["General Motors","Chevrolet","CORVETTE ZR1"],["General Motors","Chevrolet","EQUINOX AWD"],["General Motors","Chevrolet","EQUINOX FWD"],["General Motors","Chevrolet","MALIBU"],["General Motors","Chevrolet","SILVERADO 2WD"],["General Motors","Chevrolet","SILVERADO 2WD"],["General Motors","Chevrolet","SILVERADO 2WD"],["General Motors","Chevrolet","SILVERADO 2WD"],["General Motors","Chevrolet","SILVERADO 2WD"],["General Motors","Chevrolet","SILVERADO 2WD CAB CHASSIS"],["General Motors","Chevrolet","SILVERADO 4WD"],["General Motors","Chevrolet","SILVERADO 4WD"],["General Motors","Chevrolet","SILVERADO 4WD"],["General Motors","Chevrolet","SILVERADO 4WD"],["General Motors","Chevrolet","SILVERADO 4WD"],["General Motors","Chevrolet","SILVERADO 4WD"],["General Motors","Chevrolet","SILVERADO 4WD"],["General Motors","Chevrolet","SILVERADO 4WD"],["General Motors","Chevrolet","SILVERADO 4WD"],["General Motors","Chevrolet","SILVERADO 4WD CAB CHASSIS"],["General Motors","Chevrolet","SILVERADO 4WD MUD TERRAIN TIRES"],["General Motors","Chevrolet","SILVERADO 4WD MUD TERRAIN TIRES"],["General Motors","Chevrolet","SILVERADO 4WD MUD TERRAIN TIRES"],["General Motors","Chevrolet","SILVERADO 4WD MUD TERRAIN TIRES"],["General Motors","Chevrolet","SILVERADO 4WD MUD TERRAIN TIRES"],["General Motors","Chevrolet","SILVERADO 4WD MUD TERRAIN TIRES"],["General Motors","Chevrolet","SILVERADO 4WD MUD TERRAIN TIRES"],["General Motors","Chevrolet","SILVERADO 4WD MUD TERRAIN TIRES"],["General Motors","Chevrolet","SILVERADO 4WD MUD TERRAIN TIRES"],["General Motors","Chevrolet","SILVERADO 4WD ZR2"],["General Motors","Chevrolet","SILVERADO 4WD ZR2"],["General Motors","Chevrolet","SUBURBAN 2WD"],["General Motors","Chevrolet","SUBURBAN 2WD"],["General Motors","Chevrolet","SUBURBAN 2WD"],["General Motors","Chevrolet","SUBURBAN 4WD"],["General Motors","Chevrolet","SUBURBAN 4WD"],["General Motors","Chevrolet","SUBURBAN 4WD"],["General Motors","Chevrolet","TAHOE 2WD"],["General Motors","Chevrolet","TAHOE 2WD"],["General Motors","Chevrolet","TAHOE 2WD"],["General Motors","Chevrolet","TAHOE 4WD"],["General Motors","Chevrolet","TAHOE 4WD"],["General Motors","Chevrolet","TAHOE 4WD"],["General Motors","Chevrolet","TAHOE 4WD"],["General Motors","Chevrolet","TRAILBLAZER AWD"],["General Motors","Chevrolet","TRAILBLAZER FWD"],["General Motors","Chevrolet","TRAILBLAZER FWD"],["General Motors","Chevrolet","TRAVERSE AWD"],["General Motors","Chevrolet","TRAVERSE FWD"],["General Motors","Chevrolet","TRAX"],["General Motors","Chevrolet","TRAX"],["FCA US LLC","Chrysler","Pacifica"],["FCA US LLC","Chrysler","Pacifica AWD"],["FCA US LLC","Chrysler","Voyager"],["FCA US LLC","Dodge","Durango AWD"],["FCA US LLC","Dodge","Durango AWD"],["FCA US LLC","Dodge","Durango RWD"],["FCA US LLC","Dodge","Durango RWD"],["FCA US LLC","Dodge","Durango SRT AWD"],["FCA US LLC","Dodge","Hornet AWD"],["Ferrari","Ferrari North America, Inc.","F167 ABA"],["Ferrari","Ferrari North America, Inc.","Ferrari Daytona SP3"],["Ferrari","Ferrari North America, Inc.","Roma Spider"],["Ford Motor Company","Ford","BRONCO 4WD"],["Ford Motor Company","Ford","BRONCO 4WD"],["Ford Motor Company","Ford","BRONCO 4WD"],["Ford Motor Company","Ford","BRONCO 4WD"],["Ford Motor Company","Ford","BRONCO BADLANDS 4WD"],["Ford Motor Company","Ford","BRONCO BADLANDS 4WD"],["Ford Motor Company","Ford","BRONCO OUTER BANKS 4WD"],["Ford Motor Company","Ford","BRONCO RAPTOR 4WD"],["Ford Motor Company","Ford","BRONCO SASQUATCH 4WD"],["Ford Motor Company","Ford","BRONCO SASQUATCH 4WD"],["Ford Motor Company","Ford","BRONCO SPORT 4WD"],["Ford Motor Company","Ford","BRONCO SPORT 4WD"],["Ford Motor Company","Ford","BRONCO SPORT SASQUATCH"],["Ford Motor Company","Ford","ESCAPE AWD"],["Ford Motor Company","Ford","ESCAPE AWD"],["Ford Motor Company","Ford","ESCAPE AWD HEV"],["Ford Motor Company","Ford","ESCAPE FWD"],["Ford Motor Company","Ford","ESCAPE FWD HEV"],["Ford Motor Company","Ford","EXPEDITION 2WD"],["Ford Motor Company","Ford","EXPEDITION 4WD"],["Ford Motor Company","Ford","EXPLORER AWD"],["Ford Motor Company","Ford","EXPLORER AWD"],["Ford Motor Company","Ford","EXPLORER AWD"],["Ford Motor Company","Ford","EXPLORER RWD"],["Ford Motor Company","Ford","EXPLORER RWD"],["Ford Motor Company","Ford","EXPLORER RWD"],["Ford Motor Company","Ford","F150 PICKUP 2WD"],["Ford Motor Company","Ford","F150 PICKUP 2WD"],["Ford Motor Company","Ford","F150 PICKUP 2WD"],["Ford Motor Company","Ford","F150 PICKUP 4WD"],["Ford Motor Company","Ford","F150 PICKUP 4WD"],["Ford Motor Company","Ford","F150 PICKUP 4WD"],["Ford Motor Company","Ford","F150 PICKUP 4WD HEV"],["Ford Motor Company","Ford","F150 PICKUP TREMOR 4WD"],["Ford Motor Company","Ford","F150 PICKUP TREMOR 4WD"],["Ford Motor Company","Ford","F150 RAPTOR 4WD"],["Ford Motor Company","Ford","F150 RAPTOR R 4WD"],["Ford Motor Company","Ford","MAVERICK AWD"],["Ford Motor Company","Ford","MAVERICK HEV AWD"],["Ford Motor Company","Ford","MAVERICK HEV FWD"],["Ford Motor Company","Ford","MAVERICK LOBO AWD"],["Ford Motor Company","Ford","MAVERICK TREMOR AWD"],["Ford Motor Company","Ford","MUSTANG"],["Ford Motor Company","Ford","MUSTANG"],["Ford Motor Company","Ford","MUSTANG"],["Ford Motor Company","Ford","MUSTANG DARK HORSE"],["Ford Motor Company","Ford","MUSTANG DARK HORSE"],["Ford Motor Company","Ford","MUSTANG GTD"],["Ford Motor Company","Ford","RANGER 2WD"],["Ford Motor Company","Ford","RANGER 4WD"],["Ford Motor Company","Ford","RANGER 4WD"],["Ford Motor Company","Ford","RANGER RAPTOR 4WD"],["Hyundai","GENESIS","G70 AWD"],["Hyundai","GENESIS","G70 AWD"],["Hyundai","GENESIS","G70 RWD"],["Hyundai","GENESIS","G70 RWD"],["Hyundai","GENESIS","G80 AWD"],["Hyundai","GENESIS","G80 AWD"],["Hyundai","GENESIS","G90 AWD"],["Hyundai","GENESIS","G90 MHEV"],["Hyundai","GENESIS","GV70 AWD"],["Hyundai","GENESIS","GV70 AWD"],["Hyundai","GENESIS","GV70 AWD"],["Hyundai","GENESIS","GV80 AWD"],["Hyundai","GENESIS","GV80 AWD"],["Hyundai","GENESIS","GV80 MHEV"],["General Motors","GMC","ACADIA AWD"],["General Motors","GMC","ACADIA FWD"],["General Motors","GMC","CANYON 2WD"],["General Motors","GMC","CANYON 4WD"],["General Motors","GMC","CANYON AT4X 4WD"],["General Motors","GMC","CANYON AT4X AEV 4WD"],["General Motors","GMC","SIERRA 2WD"],["General Motors","GMC","SIERRA 2WD"],["General Motors","GMC","SIERRA 2WD"],["General Motors","GMC","SIERRA 2WD"],["General Motors","GMC","SIERRA 2WD"],["General Motors","GMC","SIERRA 2WD CAB CHASSIS"],["General Motors","GMC","SIERRA 4WD"],["General Motors","GMC","SIERRA 4WD"],["General Motors","GMC","SIERRA 4WD"],["General Motors","GMC","SIERRA 4WD"],["General Motors","GMC","SIERRA 4WD"],["General Motors","GMC","SIERRA 4WD"],["General Motors","GMC","SIERRA 4WD"],["General Motors","GMC","SIERRA 4WD"],["General Motors","GMC","SIERRA 4WD AT4X"],["General Motors","GMC","SIERRA 4WD AT4X"],["General Motors","GMC","SIERRA 4WD CAB CHASSIS"],["General Motors","GMC","SIERRA 4WD MUD TERRAIN TIRES"],["General Motors","GMC","SIERRA 4WD MUD TERRAIN TIRES"],["General Motors","GMC","SIERRA 4WD MUD TERRAIN TIRES"],["General Motors","GMC","SIERRA 4WD MUD TERRAIN TIRES"],["General Motors","GMC","SIERRA 4WD MUD TERRAIN TIRES"],["General Motors","GMC","SIERRA 4WD MUD TERRAIN TIRES"],["General Motors","GMC","SIERRA 4WD MUD TERRAIN TIRES"],["General Motors","GMC","TERRAIN AWD"],["General Motors","GMC","TERRAIN FWD"],["General Motors","GMC","YUKON 2WD"],["General Motors","GMC","YUKON 2WD"],["General Motors","GMC","YUKON 2WD"],["General Motors","GMC","YUKON 4WD"],["General Motors","GMC","YUKON 4WD"],["General Motors","GMC","YUKON 4WD"],["General Motors","GMC","YUKON XL 2WD"],["General Motors","GMC","YUKON XL 2WD"],["General Motors","GMC","YUKON XL 2WD"],["General Motors","GMC","YUKON XL 4WD"],["General Motors","GMC","YUKON XL 4WD"],["General Motors","GMC","YUKON XL 4WD"],["Honda","Honda","ACCORD"],["Honda","Honda","ACCORD"],["Honda","Honda","ACCORD SPORT\u002fTOURING"],["Honda","Honda","CIVIC 4Dr"],["Honda","Honda","CIVIC 4Dr"],["Honda","Honda","CIVIC 4Dr"],["Honda","Honda","CIVIC 4Dr"],["Honda","Honda","CIVIC 5Dr"],["Honda","Honda","CIVIC 5Dr"],["Honda","Honda","CIVIC 5Dr"],["Honda","Honda","CR-V AWD"],["Honda","Honda","CR-V AWD"],["Honda","Honda","CR-V FWD"],["Honda","Honda","CR-V FWD"],["Honda","Honda","HR-V AWD"],["Honda","Honda","HR-V FWD"],["Honda","Honda","ODYSSEY FWD"],["Honda","Honda","PASSPORT AWD"],["Honda","Honda","PILOT AWD"],["Honda","Honda","Pilot AWD Touring\u002fElite\u002fBlack"],["Honda","Honda","Pilot AWD TRAILSPORT"],["Honda","Honda","PILOT FWD"],["Honda","Honda","RIDGELINE AWD"],["Honda","Honda","RIDGELINE AWD TrailSport"],["Hyundai","HYUNDAI MOTOR COMPANY","Elantra"],["Hyundai","HYUNDAI MOTOR COMPANY","Elantra"],["Hyundai","HYUNDAI MOTOR COMPANY","Elantra"],["Hyundai","HYUNDAI MOTOR COMPANY","Elantra Hybrid"],["Hyundai","HYUNDAI MOTOR COMPANY","Elantra Hybrid Blue"],["Hyundai","HYUNDAI MOTOR COMPANY","Elantra N"],["Hyundai","HYUNDAI MOTOR COMPANY","Elantra N"],["Hyundai","HYUNDAI MOTOR COMPANY","Kona AWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Kona AWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Kona AWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Kona FWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Kona FWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Kona FWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Palisade AWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Palisade FWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Santa Cruz AWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Santa Cruz AWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Santa Cruz FWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Santa Cruz XRT AWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Santa Fe AWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Santa Fe AWD XRT"],["Hyundai","HYUNDAI MOTOR COMPANY","Santa Fe FWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Santa Fe Hybrid AWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Santa Fe Hybrid FWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Sonata AWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Sonata FWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Sonata FWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Sonata FWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Sonata Hybrid"],["Hyundai","HYUNDAI MOTOR COMPANY","Tucson AWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Tucson FWD"],["Hyundai","HYUNDAI MOTOR COMPANY","Tucson Hybrid"],["Hyundai","HYUNDAI MOTOR COMPANY","Tucson Hybrid Blue"],["Hyundai","HYUNDAI MOTOR COMPANY","Venue"],["Ineos Automotive Li","INEOS Automotive Limited","Grenadier Station Wagon"],["Ineos Automotive Li","INEOS Automotive Limited","Grenadier Trialmaster Edition"],["Nissan","INFINITI","QX50"],["Nissan","INFINITI","QX50 AWD"],["Nissan","INFINITI","QX60 AWD"],["Nissan","INFINITI","QX60 FWD"],["Nissan","INFINITI","QX80 2WD"],["Nissan","INFINITI","QX80 4WD"],["Jaguar Land Rover L","Jaguar","F-PACE"],["Jaguar Land Rover L","Jaguar","F-PACE MHEV"],["Jaguar Land Rover L","Jaguar","F-PACE SVR"],["FCA US LLC","Jeep","Compass 4X4"],["FCA US LLC","Jeep","Gladiator 4X4"],["FCA US LLC","Jeep","Grand Cherokee 4X2"],["FCA US LLC","Jeep","Grand Cherokee 4X4"],["FCA US LLC","Jeep","Grand Cherokee L 4X2"],["FCA US LLC","Jeep","Grand Cherokee L 4X4"],["FCA US LLC","Jeep","Grand Wagoneer 4x4"],["FCA US LLC","Jeep","Grand Wagoneer L 4x4"],["FCA US LLC","Jeep","Wagoneer 4x2"],["FCA US LLC","Jeep","Wagoneer 4x4"],["FCA US LLC","Jeep","Wagoneer L 4x2"],["FCA US LLC","Jeep","Wagoneer L 4x4"],["FCA US LLC","Jeep","Wrangler 2dr 4X4"],["FCA US LLC","Jeep","Wrangler 2dr 4X4"],["FCA US LLC","Jeep","Wrangler 4dr 4X4"],["FCA US LLC","Jeep","Wrangler 4dr 4X4"],["FCA US LLC","Jeep","Wrangler 4dr 4X4"],["FCA US LLC","Jeep","Wrangler 4dr 4X4"],["Kia","KIA","Carnival"],["Kia","KIA","Carnival Hybrid"],["Kia","KIA","K4"],["Kia","KIA","K4"],["Kia","KIA","K4"],["Kia","KIA","K5"],["Kia","KIA","K5"],["Kia","KIA","K5"],["Kia","KIA","K5 AWD"],["Kia","KIA","Niro"],["Kia","KIA","Niro FE"],["Kia","KIA","Seltos AWD"],["Kia","KIA","Seltos AWD"],["Kia","KIA","Seltos FWD"],["Kia","KIA","Sorento AWD"],["Kia","KIA","Sorento AWD"],["Kia","KIA","Sorento FWD"],["Kia","KIA","Sorento FWD"],["Kia","KIA","Sorento Hybrid AWD"],["Kia","KIA","Sorento Hybrid FWD"],["Kia","KIA","Soul"],["Kia","KIA","Soul Eco dynamics"],["Kia","KIA","Sportage AWD"],["Kia","KIA","Sportage FWD"],["Kia","KIA","Sportage Hybrid AWD"],["Kia","KIA","Sportage Hybrid FWD"],["Kia","KIA","Sportage X-pro"],["Kia","KIA","Telluride AWD"],["Kia","KIA","Telluride FWD"],["Jaguar Land Rover L","Land Rover","Defender 110"],["Jaguar Land Rover L","Land Rover","Defender 110"],["Jaguar Land Rover L","Land Rover","Defender 110 MHEV"],["Jaguar Land Rover L","Land Rover","Defender 130"],["Jaguar Land Rover L","Land Rover","Defender 130 Outbound"],["Jaguar Land Rover L","Land Rover","Defender 130 P300 MHEV"],["Jaguar Land Rover L","Land Rover","Defender 130 P400 MHEV"],["Jaguar Land Rover L","Land Rover","Defender 90"],["Jaguar Land Rover L","Land Rover","Defender 90"],["Jaguar Land Rover L","Land Rover","Defender 90 MHEV"],["Jaguar Land Rover L","Land Rover","Discovery"],["Jaguar Land Rover L","Land Rover","Discovery Sport"],["Jaguar Land Rover L","Land Rover","Range Rover Evoque"],["Jaguar Land Rover L","Land Rover","Range Rover LWB MHEV"],["Jaguar Land Rover L","Land Rover","Range Rover MHEV"],["Jaguar Land Rover L","Land Rover","Range Rover P400 LWB MHEV"],["Jaguar Land Rover L","Land Rover","Range Rover P400 MHEV"],["Jaguar Land Rover L","Land Rover","Range Rover Sport MHEV"],["Jaguar Land Rover L","Land Rover","Range Rover Sport P360 MHEV"],["Jaguar Land Rover L","Land Rover","Range Rover Sport P400 MHEV"],["Jaguar Land Rover L","Land Rover","Range Rover Sport SVR MHEV"],["Jaguar Land Rover L","Land Rover","Range Rover SV LWB MHEV"],["Jaguar Land Rover L","Land Rover","Range Rover SV MHEV"],["Jaguar Land Rover L","Land Rover","Range Rover Velar"],["Jaguar Land Rover L","Land Rover","Range Rover Velar P340 MHEV"],["Jaguar Land Rover L","Land Rover","Range Rover Velar P400 MHEV"],["Toyota","LEXUS","ES 250 AWD"],["Toyota","LEXUS","ES 300h"],["Toyota","LEXUS","ES 350"],["Toyota","LEXUS","ES 350 F SPORT"],["Toyota","LEXUS","GX 550"],["Toyota","LEXUS","IS 300"],["Toyota","LEXUS","IS 300 AWD"],["Toyota","LEXUS","IS 350"],["Toyota","LEXUS","IS 350 AWD"],["Toyota","LEXUS","IS 500"],["Toyota","LEXUS","LC 500"],["Toyota","LEXUS","LC 500 CONVERTIBLE"],["Toyota","LEXUS","LC 500h"],["Toyota","LEXUS","LS 500"],["Toyota","LEXUS","LS 500 AWD"],["Toyota","LEXUS","LS 500h AWD"],["Toyota","LEXUS","LS 500h AWD"],["Toyota","LEXUS","LX 600"],["Toyota","LEXUS","LX 700h"],["Toyota","LEXUS","NX 250"],["Toyota","LEXUS","NX 250 AWD"],["Toyota","LEXUS","NX 350 AWD"],["Toyota","LEXUS","NX 350 AWD F SPORT"],["Toyota","LEXUS","NX 350h AWD"],["Toyota","LEXUS","RC 300"],["Toyota","LEXUS","RC 300 AWD"],["Toyota","LEXUS","RC 350"],["Toyota","LEXUS","RC 350 AWD"],["Toyota","LEXUS","RC F"],["Toyota","LEXUS","RX 350"],["Toyota","LEXUS","RX 350 AWD"],["Toyota","LEXUS","RX 350h AWD"],["Toyota","LEXUS","RX 500h AWD"],["Toyota","LEXUS","TX 350"],["Toyota","LEXUS","TX 350 AWD"],["Toyota","LEXUS","TX 500h AWD"],["Toyota","LEXUS","UX 300h"],["Toyota","LEXUS","UX 300h"],["Toyota","LEXUS","UX 300h AWD"],["Toyota","LEXUS","UX 300h AWD"],["Ford Motor Company","Lincoln","AVIATOR AWD"],["Ford Motor Company","Lincoln","AVIATOR RWD"],["Ford Motor Company","Lincoln","CORSAIR AWD"],["Ford Motor Company","Lincoln","CORSAIR FWD"],["Ford Motor Company","Lincoln","NAUTILUS AWD"],["Ford Motor Company","Lincoln","NAUTILUS HEV AWD"],["Ford Motor Company","Lincoln","NAVIGATOR 4WD"],["Lotus","Lotus Cars Ltd","Emira"],["Lotus","Lotus Cars Ltd","Emira"],["Maserati","MASERATI","Grancabrio"],["Maserati","MASERATI","Grancabrio Trofeo"],["Maserati","MASERATI","Granturismo"],["Maserati","MASERATI","Granturismo Trofeo"],["Maserati","MASERATI","Grecale"],["Maserati","MASERATI","Grecale Modena"],["Maserati","MASERATI","Grecale Trofeo"],["Maserati","MASERATI","GT2 Stradale"],["Maserati","MASERATI","MC20"],["Maserati","MASERATI","MC20 Spyder"],["MAZDA","MAZDA","CX-30 4WD"],["MAZDA","MAZDA","CX-30 4WD"],["MAZDA","MAZDA","CX-5 4WD"],["MAZDA","MAZDA","CX-5 4WD"],["MAZDA","MAZDA","CX-5 4WD"],["MAZDA","MAZDA","MAZDA CX-50 4WD"],["MAZDA","MAZDA","MAZDA CX-50 4WD"],["MAZDA","MAZDA","MAZDA CX-50 4WD"],["MAZDA","MAZDA","MAZDA CX-50 4WD"],["MAZDA","MAZDA","MAZDA CX-70 4WD"],["MAZDA","MAZDA","MAZDA CX-70 4WD"],["MAZDA","MAZDA","MAZDA CX-90 4WD"],["MAZDA","MAZDA","MAZDA CX-90 4WD"],["MAZDA","MAZDA","MAZDA3 4-Door 2WD"],["MAZDA","MAZDA","MAZDA3 4-Door 4WD"],["MAZDA","MAZDA","MAZDA3 4-Door 4WD"],["MAZDA","MAZDA","MAZDA3 5-Door 2WD"],["MAZDA","MAZDA","MAZDA3 5-Door 2WD"],["MAZDA","MAZDA","MAZDA3 5-Door 4WD"],["MAZDA","MAZDA","MAZDA3 5-Door 4WD"],["MAZDA","MAZDA","MX-5"],["MAZDA","MAZDA","MX-5"],["Mercedes-Benz","Mercedes-Benz","AMG C 43 4MATIC"],["Mercedes-Benz","Mercedes-Benz","AMG CLA 35 4MATIC"],["Mercedes-Benz","Mercedes-Benz","AMG CLA 45 S 4MATIC"],["Mercedes-Benz","Mercedes-Benz","AMG CLE 53 4MATIC+ (convertible)"],["Mercedes-Benz","Mercedes-Benz","AMG CLE 53 4MATIC+ (coupe)"],["Mercedes-Benz","Mercedes-Benz","AMG G 63"],["Mercedes-Benz","Mercedes-Benz","AMG GLA 35 4MATIC"],["Mercedes-Benz","Mercedes-Benz","AMG GLB 35 4MATIC"],["Mercedes-Benz","Mercedes-Benz","AMG GLC 43 4MATIC"],["Mercedes-Benz","Mercedes-Benz","AMG GLC 43 4MATIC (coupe)"],["Mercedes-Benz","Mercedes-Benz","AMG GLE 53 4MATIC+"],["Mercedes-Benz","Mercedes-Benz","AMG GLE 53 4MATIC+ (coupe)"],["Mercedes-Benz","Mercedes-Benz","AMG GLE 63 S 4MATIC+"],["Mercedes-Benz","Mercedes-Benz","AMG GLE 63 S 4MATIC+ (coupe)"],["Mercedes-Benz","Mercedes-Benz","AMG GLS 63 4MATIC+"],["Mercedes-Benz","Mercedes-Benz","AMG GT 43 (coupe)"],["Mercedes-Benz","Mercedes-Benz","AMG GT 43 4MATIC+"],["Mercedes-Benz","Mercedes-Benz","AMG GT 53 4MATIC+"],["Mercedes-Benz","Mercedes-Benz","AMG GT 55 4MATIC+ (coupe)"],["Mercedes-Benz","Mercedes-Benz","AMG GT 63 4MATIC+"],["Mercedes-Benz","Mercedes-Benz","AMG GT 63 4MATIC+ (coupe)"],["Mercedes-Benz","Mercedes-Benz","AMG GT 63 PRO 4MATIC+ (coupe)"],["Mercedes-Benz","Mercedes-Benz","AMG SL 43"],["Mercedes-Benz","Mercedes-Benz","AMG SL 55 4MATIC+"],["Mercedes-Benz","Mercedes-Benz","AMG SL 63 4MATIC+"],["Mercedes-Benz","Mercedes-Benz","C 300"],["Mercedes-Benz","Mercedes-Benz","C 300 4MATIC"],["Mercedes-Benz","Mercedes-Benz","CLA 250"],["Mercedes-Benz","Mercedes-Benz","CLA 250 4MATIC"],["Mercedes-Benz","Mercedes-Benz","CLE 300 4MATIC (convertible)"],["Mercedes-Benz","Mercedes-Benz","CLE 300 4MATIC (Coupe)"],["Mercedes-Benz","Mercedes-Benz","CLE 450 4MATIC (Convertible)"],["Mercedes-Benz","Mercedes-Benz","CLE 450 4MATIC (Coupe)"],["Mercedes-Benz","Mercedes-Benz","E 350"],["Mercedes-Benz","Mercedes-Benz","E 350 4MATIC"],["Mercedes-Benz","Mercedes-Benz","E 450 4MATIC"],["Mercedes-Benz","Mercedes-Benz","E 450 4MATIC All-Terrain Wagon"],["Mercedes-Benz","Mercedes-Benz","G 550"],["Mercedes-Benz","Mercedes-Benz","GLA 250"],["Mercedes-Benz","Mercedes-Benz","GLA 250 4MATIC"],["Mercedes-Benz","Mercedes-Benz","GLB 250"],["Mercedes-Benz","Mercedes-Benz","GLB 250 4MATIC"],["Mercedes-Benz","Mercedes-Benz","GLC 300"],["Mercedes-Benz","Mercedes-Benz","GLC 300 4MATIC"],["Mercedes-Benz","Mercedes-Benz","GLC 300 4MATIC (Coupe)"],["Mercedes-Benz","Mercedes-Benz","GLE 350"],["Mercedes-Benz","Mercedes-Benz","GLE 350 4MATIC"],["Mercedes-Benz","Mercedes-Benz","GLE 450 4MATIC"],["Mercedes-Benz","Mercedes-Benz","GLE 450 4MATIC (coupe)"],["Mercedes-Benz","Mercedes-Benz","GLE 580 4MATIC"],["Mercedes-Benz","Mercedes-Benz","GLS 450 4MATIC"],["Mercedes-Benz","Mercedes-Benz","GLS 580 4MATIC"],["Mercedes-Benz","Mercedes-Benz","GLS 600 4MATIC Maybach"],["Mercedes-Benz","Mercedes-Benz","S 500 4MATIC"],["Mercedes-Benz","Mercedes-Benz","S 580 4MATIC"],["Mercedes-Benz","Mercedes-Benz","S 580 4MATIC Maybach"],["Mercedes-Benz","Mercedes-Benz","S 680 4MATIC Maybach"],["BMW","Mini","Cooper Convertible"],["BMW","Mini","Cooper Hardtop 2 Door"],["BMW","Mini","Cooper Hardtop 4 Door"],["BMW","Mini","Cooper S Convertible"],["BMW","Mini","COOPER S HARDTOP 2 DOOR"],["BMW","Mini","Cooper S Hardtop 4 Door"],["BMW","Mini","Countryman S ALL4"],["BMW","Mini","JCW Convertible"],["BMW","Mini","JCW Countryman ALL4"],["BMW","Mini","JCW Hardtop 2 Door"],["Nissan","MITSUBISHI MOTORS","Outlander 2WD"],["Nissan","MITSUBISHI MOTORS","Outlander 4WD"],["Mitsubishi Motors Co","Mitsubishi Motors Corporation","ECLIPSE CROSS 2WD"],["Mitsubishi Motors Co","Mitsubishi Motors Corporation","ECLIPSE CROSS 4WD"],["Mitsubishi Motors Co","Mitsubishi Motors Corporation","ECLIPSE CROSS ES 4WD"],["Mitsubishi Motors Co","Mitsubishi Motors Corporation","Outlander Sport 4WD"],["Mitsubishi Motors Co","Mitsubishi Motors Corporation","Outlander Sport 4WD"],["Nissan","NISSAN","ALTIMA"],["Nissan","NISSAN","ALTIMA AWD"],["Nissan","NISSAN","ALTIMA SL\u002fSR"],["Nissan","NISSAN","ARMADA 2WD"],["Nissan","NISSAN","ARMADA 4WD"],["Nissan","NISSAN","ARMADA 4WD PRO-4X"],["Nissan","NISSAN","FRONTIER 2WD"],["Nissan","NISSAN","FRONTIER 4WD"],["Nissan","NISSAN","FRONTIER 4WD PRO-4X"],["Nissan","NISSAN","KICKS"],["Nissan","NISSAN","KICKS AWD"],["Nissan","NISSAN","KICKS PLAY"],["Nissan","NISSAN","MURANO AWD"],["Nissan","NISSAN","MURANO FWD"],["Nissan","NISSAN","PATHFINDER 2WD"],["Nissan","NISSAN","PATHFINDER 4WD"],["Nissan","NISSAN","PATHFINDER 4WD PLATINUM"],["Nissan","NISSAN","PATHFINDER 4WD ROCK CREEK"],["Nissan","NISSAN","ROGUE AWD"],["Nissan","NISSAN","ROGUE AWD ROCK CREEK"],["Nissan","NISSAN","ROGUE AWD SL\u002fPLATINUM"],["Nissan","NISSAN","ROGUE FWD"],["Nissan","NISSAN","ROGUE FWD SL\u002fPLATINUM"],["Nissan","NISSAN","SENTRA"],["Nissan","NISSAN","SENTRA SR"],["Nissan","NISSAN","VERSA"],["Nissan","NISSAN","VERSA"],["Nissan","NISSAN","Z"],["Nissan","NISSAN","Z"],["Nissan","NISSAN","Z NISMO"],["Porsche","Porsche","718 Boxster"],["Porsche","Porsche","718 Boxster"],["Porsche","Porsche","718 Boxster GTS 4.0"],["Porsche","Porsche","718 Boxster GTS 4.0"],["Porsche","Porsche","718 Boxster S"],["Porsche","Porsche","718 Boxster S"],["Porsche","Porsche","718 Cayman"],["Porsche","Porsche","718 Cayman"],["Porsche","Porsche","718 Cayman GTS 4.0"],["Porsche","Porsche","718 Cayman GTS 4.0"],["Porsche","Porsche","718 Cayman S"],["Porsche","Porsche","718 Cayman S"],["Porsche","Porsche","718 GT4 RS"],["Porsche","Porsche","718 Spyder RS"],["Porsche","Porsche","911 Carrera"],["Porsche","Porsche","911 Carrera 4 GTS"],["Porsche","Porsche","911 Carrera 4 GTS Cabriolet"],["Porsche","Porsche","911 Carrera Cabriolet"],["Porsche","Porsche","911 Carrera GTS"],["Porsche","Porsche","911 Carrera GTS Cabriolet"],["Porsche","Porsche","911 Carrera GTS Cabriolet"],["Porsche","Porsche","911 Carrera S"],["Porsche","Porsche","911 Carrera S Cabriolet"],["Porsche","Porsche","911 Carrera T"],["Porsche","Porsche","911 Carrera T Cabriolet"],["Porsche","Porsche","911 Targa 4 GTS"],["Porsche","Porsche","911 Turbo"],["Porsche","Porsche","911 Turbo Cabriolet"],["Porsche","Porsche","911 Turbo S"],["Porsche","Porsche","911 Turbo S Cabriolet"],["Porsche","Porsche","Cayenne"],["Porsche","Porsche","Cayenne Coupe"],["Porsche","Porsche","Cayenne GTS"],["Porsche","Porsche","Cayenne GTS Coupe"],["Porsche","Porsche","Cayenne S"],["Porsche","Porsche","Cayenne S Coupe"],["Porsche","Porsche","Cayenne Turbo GT"],["Porsche","Porsche","Macan"],["Porsche","Porsche","Macan GTS"],["Porsche","Porsche","Macan S"],["Porsche","Porsche","Macan T"],["Porsche","Porsche","Panamera"],["Porsche","Porsche","Panamera 4"],["Porsche","Porsche","Panamera GTS"],["FCA US LLC","RAM","1500 4X2"],["FCA US LLC","RAM","1500 4X2"],["FCA US LLC","RAM","1500 4X4"],["FCA US LLC","RAM","1500 4X4"],["FCA US LLC","RAM","1500 HFE 4X2"],["FCA US LLC","RAM","1500 HO 4x4"],["FCA US LLC","RAM","1500 RHO 4x4"],["Rolls-Royce","Rolls-Royce Motor Cars Limited","Black Badge Cullinan"],["Rolls-Royce","Rolls-Royce Motor Cars Limited","Black Badge Ghost"],["Rolls-Royce","Rolls-Royce Motor Cars Limited","Cullinan"],["Rolls-Royce","Rolls-Royce Motor Cars Limited","Ghost"],["Rolls-Royce","Rolls-Royce Motor Cars Limited","Ghost Extended"],["Rolls-Royce","Rolls-Royce Motor Cars Limited","Phantom"],["Rolls-Royce","Rolls-Royce Motor Cars Limited","Phantom Extended"],["Subaru","Subaru","ASCENT AWD"],["Subaru","Subaru","ASCENT LIMITED\u002fTOURING\u002fONYX EDITION AWD"],["Subaru","Subaru","BRZ"],["Subaru","Subaru","BRZ"],["Subaru","Subaru","CROSSTREK AWD"],["Subaru","Subaru","CROSSTREK AWD"],["Subaru","Subaru","CROSSTREK WILDERNESS AWD"],["Subaru","Subaru","FORESTER AWD"],["Subaru","Subaru","FORESTER HYBRID AWD"],["Subaru","Subaru","FORESTER SPORT\u002fTOURING AWD"],["Subaru","Subaru","FORESTER WILDERNESS AWD"],["Subaru","Subaru","IMPREZA"],["Subaru","Subaru","IMPREZA"],["Subaru","Subaru","LEGACY"],["Subaru","Subaru","LEGACY"],["Subaru","Subaru","OUTBACK AWD"],["Subaru","Subaru","OUTBACK AWD"],["Subaru","Subaru","OUTBACK WILDERNESS AWD"],["Subaru","Subaru","WRX"],["Subaru","Subaru","WRX"],["Toyota","TOYOTA","4RUNNER 2WD"],["Toyota","TOYOTA","4RUNNER 2WD"],["Toyota","TOYOTA","4RUNNER 4WD"],["Toyota","TOYOTA","4RUNNER 4WD"],["Toyota","TOYOTA","4RUNNER 4WD"],["Toyota","TOYOTA","4RUNNER 4WD"],["Toyota","TOYOTA","CAMRY HEV AWD LE"],["Toyota","TOYOTA","CAMRY HEV AWD SE\u002fXLE"],["Toyota","TOYOTA","CAMRY HEV AWD XSE"],["Toyota","TOYOTA","CAMRY HEV FF LE"],["Toyota","TOYOTA","CAMRY HEV FF SE\u002fXLE\u002fXSE"],["Toyota","TOYOTA","COROLLA"],["Toyota","TOYOTA","COROLLA"],["Toyota","TOYOTA","COROLLA"],["Toyota","TOYOTA","COROLLA CROSS"],["Toyota","TOYOTA","COROLLA CROSS AWD"],["Toyota","TOYOTA","COROLLA CROSS HYBRID AWD"],["Toyota","TOYOTA","COROLLA FX"],["Toyota","TOYOTA","COROLLA HATCHBACK"],["Toyota","TOYOTA","COROLLA HATCHBACK XSE"],["Toyota","TOYOTA","COROLLA HYBRID"],["Toyota","TOYOTA","COROLLA HYBRID"],["Toyota","TOYOTA","COROLLA HYBRID AWD"],["Toyota","TOYOTA","COROLLA HYBRID AWD"],["Toyota","TOYOTA","GR COROLLA"],["Toyota","TOYOTA","GR COROLLA"],["Toyota","TOYOTA","GR86"],["Toyota","TOYOTA","GR86"],["Toyota","TOYOTA","GRAND HIGHLANDER AWD LE\u002fXLE"],["Toyota","TOYOTA","GRAND HIGHLANDER AWD LIMITED\u002fPLATINUM"],["Toyota","TOYOTA","GRAND HIGHLANDER HYBRID"],["Toyota","TOYOTA","GRAND HIGHLANDER HYBRID AWD"],["Toyota","TOYOTA","GRAND HIGHLANDER HYBRID AWD"],["Toyota","TOYOTA","GRAND HIGHLANDER LE\u002fXLE"],["Toyota","TOYOTA","GRAND HIGHLANDER LIMITED"],["Toyota","TOYOTA","HIGHLANDER"],["Toyota","TOYOTA","HIGHLANDER"],["Toyota","TOYOTA","HIGHLANDER AWD"],["Toyota","TOYOTA","HIGHLANDER HYBRID AWD"],["Toyota","TOYOTA","HIGHLANDER HYBRID AWD LTD\u002fPLAT"],["Toyota","TOYOTA","LAND CRUISER"],["Toyota","TOYOTA","PRIUS"],["Toyota","TOYOTA","PRIUS AWD"],["Toyota","TOYOTA","PRIUS AWD XLE\u002fLTD"],["Toyota","TOYOTA","PRIUS XLE\u002fLTD"],["Toyota","TOYOTA","RAV4"],["Toyota","TOYOTA","RAV4 AWD"],["Toyota","TOYOTA","RAV4 AWD"],["Toyota","TOYOTA","RAV4 AWD LE"],["Toyota","TOYOTA","RAV4 HYBRID AWD"],["Toyota","TOYOTA","RAV4 HYBRID AWD WOODLAND EDITION"],["Toyota","TOYOTA","SEQUOIA 2WD"],["Toyota","TOYOTA","SEQUOIA 4WD"],["Toyota","TOYOTA","SIENNA"],["Toyota","TOYOTA","SIENNA AWD"],["BMW","TOYOTA","Supra 2.0"],["BMW","TOYOTA","Supra 3.0"],["BMW","TOYOTA","Supra 3.0"],["Toyota","TOYOTA","TACOMA 2WD"],["Toyota","TOYOTA","TACOMA 4WD"],["Toyota","TOYOTA","TACOMA 4WD MT"],["Toyota","TOYOTA","TACOMA HYBRID 4WD"],["Toyota","TOYOTA","TACOMA HYBRID 4WD"],["Toyota","TOYOTA","TACOMA SR5\u002fSPORT\u002fOFFROAD\u002fLIMITED 4WD"],["Toyota","TOYOTA","TACOMA SR5\u002fSPORT\u002fOFFROAD\u002fLIMITED 4WD"],["Toyota","TOYOTA","TACOMA SR5\u002fSPORT\u002fOFFROAD\u002fLIMITED 4WD"],["Toyota","TOYOTA","TACOMA SR5\u002fSPORT\u002fPRERUNNER 2WD"],["Toyota","TOYOTA","TACOMA SR5\u002fSPORT\u002fPRERUNNER 2WD"],["Toyota","TOYOTA","TOYOTA CROWN AWD"],["Toyota","TOYOTA","TOYOTA CROWN AWD"],["Toyota","TOYOTA","TOYOTA CROWN SIGNIA AWD"],["Toyota","TOYOTA","TUNDRA 2WD"],["Toyota","TOYOTA","TUNDRA 2WD"],["Toyota","TOYOTA","TUNDRA 2WD"],["Toyota","TOYOTA","TUNDRA 4WD"],["Toyota","TOYOTA","TUNDRA 4WD"],["Toyota","TOYOTA","TUNDRA 4WD"],["Toyota","TOYOTA","TUNDRA 4WD PRO"],["Volkswagen Group of","Volkswagen","Atlas"],["Volkswagen Group of","Volkswagen","Atlas 4Motion Peak Edition"],["Volkswagen Group of","Volkswagen","Atlas Cross Sport"],["Volkswagen Group of","Volkswagen","Atlas Cross Sport 4Motion"],["Volkswagen Group of","Volkswagen","Atlas SE 4Motion"],["Volkswagen Group of","Volkswagen","Atlas SEL 4Motion"],["Volkswagen Group of","Volkswagen","GLI"],["Volkswagen Group of","Volkswagen","GLI"],["Volkswagen Group of","Volkswagen","Golf R"],["Volkswagen Group of","Volkswagen","GTI"],["Volkswagen Group of","Volkswagen","Jetta"],["Volkswagen Group of","Volkswagen","Jetta Sport\u002fSE\u002fSEL"],["Volkswagen Group of","Volkswagen","Taos"],["Volkswagen Group of","Volkswagen","Taos 4Motion"],["Volkswagen Group of","Volkswagen","Tiguan"],["Volkswagen Group of","Volkswagen","Tiguan 4Motion"],["Volkswagen Group of","Volkswagen","Tiguan S"],["Volvo","Volvo Cars of North America, LLC","S60 B5"],["Volvo","Volvo Cars of North America, LLC","S60 B5 AWD"],["Volvo","Volvo Cars of North America, LLC","S90 B6 AWD"],["Volvo","Volvo Cars of North America, LLC","V90CC B6 AWD"],["Volvo","Volvo Cars of North America, LLC","XC40 B5 AWD"],["Volvo","Volvo Cars of North America, LLC","XC60 B5 AWD"],["Volvo","Volvo Cars of North America, LLC","XC90 B5 AWD"],["Volvo","Volvo Cars of North America, LLC","XC90 B6 AWD"]],"hovertemplate":"Manufacturer: %{customdata[0]}\u003cbr\u003eDivision: %{customdata[1]}\u003cbr\u003eCarline: %{customdata[2]}\u003cbr\u003eCity fuel economy: %{x:.0f} MPG\u003cbr\u003eEstimated annual fuel cost: $%{y:,.0f}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#176b87","line":{"color":"#17212b","width":0.5},"opacity":0.58,"size":8},"mode":"markers","x":[25.0,26.0,30.0,21.0,29.0,26.0,19.0,17.0,19.0,21.0,21.0,21.0,22.0,19.0,24.0,23.0,22.0,21.0,15.0,15.0,13.0,15.0,24.0,23.0,26.0,23.0,22.0,26.0,23.0,22.0,24.0,22.0,22.0,19.0,22.0,20.0,23.0,22.0,22.0,22.0,22.0,20.0,18.0,17.0,20.0,18.0,14.0,14.0,14.0,23.0,20.0,19.0,20.0,19.0,19.0,15.0,19.0,19.0,19.0,19.0,15.0,15.0,14.0,14.0,26.0,26.0,25.0,28.0,26.0,27.0,28.0,27.0,24.0,27.0,25.0,28.0,27.0,26.0,25.0,24.0,18.0,21.0,21.0,21.0,21.0,21.0,21.0,17.0,16.0,16.0,24.0,23.0,23.0,16.0,16.0,16.0,27.0,26.0,16.0,16.0,16.0,16.0,27.0,27.0,26.0,25.0,26.0,25.0,16.0,15.0,15.0,15.0,17.0,17.0,17.0,23.0,24.0,23.0,24.0,25.0,27.0,15.0,15.0,22.0,21.0,13.0,17.0,23.0,23.0,13.0,17.0,23.0,16.0,20.0,23.0,19.0,25.0,8.0,19.0,20.0,26.0,29.0,30.0,22.0,28.0,28.0,21.0,21.0,21.0,20.0,16.0,15.0,20.0,19.0,23.0,18.0,21.0,18.0,13.0,13.0,17.0,15.0,14.0,11.0,23.0,24.0,21.0,18.0,22.0,19.0,21.0,18.0,21.0,19.0,22.0,18.0,22.0,19.0,19.0,17.0,17.0,17.0,16.0,16.0,16.0,12.0,12.0,12.0,24.0,26.0,28.0,23.0,17.0,18.0,16.0,16.0,15.0,22.0,22.0,17.0,17.0,15.0,15.0,15.0,16.0,16.0,14.0,21.0,21.0,16.0,16.0,15.0,14.0,15.0,15.0,15.0,20.0,14.0,15.0,15.0,21.0,14.0,14.0,20.0,15.0,15.0,22.0,14.0,15.0,14.0,20.0,26.0,29.0,30.0,19.0,20.0,28.0,28.0,19.0,17.0,19.0,17.0,14.0,18.0,14.0,12.0,21.0,12.0,12.0,17.0,18.0,17.0,18.0,17.0,17.0,17.0,19.0,15.0,17.0,17.0,25.0,21.0,23.0,23.0,26.0,42.0,27.0,42.0,16.0,15.0,18.0,18.0,20.0,18.0,18.0,20.0,17.0,19.0,16.0,16.0,18.0,16.0,22.0,16.0,15.0,14.0,10.0,22.0,40.0,42.0,21.0,21.0,16.0,22.0,15.0,14.0,14.0,10.0,21.0,19.0,19.0,16.0,17.0,20.0,17.0,21.0,20.0,16.0,18.0,17.0,19.0,22.0,18.0,19.0,16.0,18.0,19.0,20.0,19.0,17.0,17.0,16.0,23.0,18.0,17.0,16.0,16.0,15.0,22.0,17.0,17.0,15.0,15.0,15.0,15.0,15.0,19.0,14.0,14.0,21.0,16.0,15.0,14.0,15.0,15.0,15.0,24.0,26.0,15.0,15.0,21.0,14.0,15.0,20.0,15.0,15.0,21.0,14.0,14.0,20.0,29.0,51.0,46.0,27.0,32.0,31.0,50.0,30.0,50.0,22.0,26.0,40.0,28.0,43.0,25.0,26.0,19.0,19.0,19.0,19.0,18.0,19.0,18.0,18.0,30.0,32.0,28.0,49.0,51.0,20.0,21.0,24.0,26.0,27.0,26.0,28.0,29.0,19.0,19.0,21.0,19.0,22.0,18.0,20.0,19.0,20.0,35.0,36.0,25.0,25.0,28.0,23.0,44.0,24.0,25.0,35.0,38.0,29.0,15.0,14.0,23.0,22.0,22.0,22.0,16.0,16.0,22.0,19.0,15.0,24.0,17.0,19.0,19.0,19.0,18.0,14.0,14.0,17.0,16.0,17.0,16.0,20.0,17.0,20.0,18.0,16.0,13.0,18.0,34.0,29.0,30.0,26.0,25.0,26.0,23.0,24.0,53.0,53.0,24.0,27.0,28.0,23.0,20.0,23.0,20.0,34.0,36.0,27.0,29.0,23.0,25.0,38.0,42.0,23.0,18.0,20.0,18.0,14.0,15.0,14.0,16.0,17.0,18.0,18.0,15.0,18.0,19.0,19.0,20.0,16.0,16.0,19.0,19.0,16.0,20.0,20.0,16.0,16.0,16.0,22.0,19.0,19.0,24.0,43.0,22.0,22.0,15.0,21.0,19.0,20.0,19.0,17.0,16.0,15.0,26.0,18.0,17.0,22.0,22.0,17.0,19.0,26.0,25.0,21.0,21.0,41.0,21.0,19.0,20.0,19.0,16.0,22.0,21.0,37.0,27.0,21.0,20.0,27.0,45.0,45.0,44.0,44.0,17.0,18.0,21.0,22.0,21.0,30.0,15.0,16.0,18.0,17.0,17.0,18.0,18.0,22.0,22.0,18.0,15.0,15.0,15.0,26.0,22.0,23.0,26.0,22.0,25.0,23.0,39.0,39.0,24.0,23.0,24.0,23.0,27.0,26.0,23.0,26.0,27.0,26.0,23.0,26.0,26.0,19.0,22.0,20.0,19.0,20.0,14.0,22.0,21.0,19.0,18.0,18.0,18.0,14.0,14.0,14.0,19.0,19.0,19.0,12.0,15.0,12.0,12.0,19.0,13.0,13.0,25.0,24.0,26.0,25.0,23.0,24.0,23.0,23.0,25.0,24.0,22.0,22.0,17.0,26.0,25.0,25.0,24.0,24.0,23.0,23.0,21.0,19.0,19.0,19.0,15.0,19.0,14.0,13.0,21.0,17.0,16.0,12.0,27.0,28.0,28.0,26.0,28.0,28.0,24.0,26.0,23.0,27.0,24.0,24.0,25.0,25.0,25.0,23.0,23.0,27.0,25.0,27.0,16.0,16.0,15.0,19.0,17.0,16.0,28.0,27.0,31.0,21.0,21.0,20.0,21.0,20.0,20.0,28.0,27.0,28.0,30.0,29.0,30.0,30.0,32.0,27.0,18.0,19.0,17.0,20.0,21.0,17.0,19.0,19.0,19.0,20.0,21.0,17.0,19.0,19.0,19.0,15.0,14.0,18.0,17.0,17.0,18.0,17.0,17.0,17.0,17.0,17.0,17.0,17.0,17.0,14.0,14.0,14.0,14.0,17.0,17.0,15.0,16.0,16.0,16.0,15.0,19.0,17.0,17.0,19.0,18.0,18.0,16.0,18.0,20.0,17.0,19.0,20.0,15.0,14.0,12.0,12.0,12.0,12.0,12.0,12.0,12.0,20.0,19.0,20.0,21.0,27.0,27.0,25.0,26.0,35.0,25.0,25.0,27.0,26.0,27.0,23.0,26.0,22.0,21.0,19.0,18.0,20.0,20.0,19.0,20.0,23.0,23.0,51.0,46.0,44.0,53.0,48.0,32.0,31.0,31.0,31.0,29.0,45.0,31.0,32.0,30.0,53.0,50.0,51.0,47.0,19.0,21.0,20.0,21.0,21.0,20.0,37.0,36.0,26.0,21.0,21.0,22.0,21.0,21.0,35.0,35.0,22.0,57.0,53.0,49.0,52.0,27.0,27.0,25.0,27.0,41.0,38.0,21.0,19.0,36.0,34.0,25.0,23.0,19.0,20.0,19.0,18.0,22.0,23.0,19.0,20.0,19.0,20.0,21.0,42.0,29.0,39.0,18.0,18.0,20.0,17.0,17.0,19.0,18.0,20.0,18.0,20.0,19.0,19.0,18.0,25.0,26.0,22.0,24.0,29.0,29.0,28.0,25.0,25.0,22.0,26.0,27.0,25.0,23.0,22.0,23.0,23.0,23.0,20.0],"y":[2350.0,2300.0,1950.0,2650.0,2000.0,2100.0,3050.0,3350.0,2900.0,2750.0,2750.0,2650.0,2550.0,3050.0,2350.0,2450.0,2650.0,2200.0,3750.0,3750.0,4000.0,3550.0,2300.0,2450.0,2200.0,2450.0,2450.0,2200.0,2450.0,2550.0,2450.0,2550.0,2550.0,2900.0,2100.0,2300.0,2450.0,2550.0,2550.0,2550.0,2550.0,2900.0,3200.0,3350.0,2750.0,3200.0,3750.0,3750.0,4000.0,2450.0,2650.0,2900.0,2750.0,2900.0,2900.0,3550.0,3050.0,2900.0,3050.0,2900.0,3750.0,3750.0,4000.0,4000.0,2100.0,2100.0,2300.0,2050.0,2200.0,2100.0,2050.0,2100.0,2300.0,2100.0,2200.0,2050.0,2100.0,2300.0,2300.0,2350.0,3200.0,2650.0,2650.0,2650.0,2650.0,2650.0,2650.0,3350.0,3350.0,3350.0,2350.0,2450.0,2450.0,3550.0,3350.0,3350.0,2200.0,2200.0,3350.0,3550.0,3350.0,3550.0,2200.0,2100.0,2300.0,2300.0,2200.0,2350.0,3550.0,3750.0,3750.0,3750.0,3350.0,3350.0,3350.0,2450.0,2300.0,2450.0,2300.0,2350.0,2200.0,3750.0,3750.0,2750.0,2650.0,4250.0,3350.0,2550.0,2550.0,4250.0,3350.0,2650.0,3550.0,2900.0,2550.0,2900.0,2300.0,7100.0,2500.0,2300.0,1950.0,1750.0,1750.0,2200.0,1750.0,1750.0,2550.0,2550.0,2650.0,2750.0,3350.0,3550.0,2750.0,2900.0,2450.0,3050.0,2550.0,3050.0,4250.0,4250.0,3200.0,3750.0,4000.0,4900.0,2550.0,2450.0,2750.0,2500.0,2650.0,2500.0,2750.0,2600.0,2750.0,2500.0,2200.0,2500.0,2100.0,2400.0,2600.0,2750.0,2900.0,3100.0,3300.0,3350.0,3350.0,4550.0,4550.0,4550.0,2000.0,1950.0,1700.0,2350.0,2750.0,2750.0,2900.0,2900.0,3300.0,2550.0,2650.0,2900.0,2900.0,3100.0,3750.0,3300.0,3100.0,3100.0,3500.0,2650.0,2800.0,3300.0,3300.0,3100.0,4250.0,3300.0,3300.0,3300.0,2950.0,4250.0,4000.0,3100.0,2650.0,4000.0,3300.0,2800.0,3750.0,3100.0,2550.0,4000.0,3100.0,3300.0,2800.0,1950.0,1700.0,1750.0,2500.0,2300.0,1750.0,1800.0,2400.0,2600.0,2400.0,2600.0,3550.0,2600.0,3550.0,4900.0,2200.0,4550.0,4900.0,3350.0,2600.0,2900.0,2750.0,2900.0,2900.0,3100.0,2600.0,3500.0,2900.0,2900.0,1950.0,2300.0,2200.0,2000.0,1900.0,1350.0,1750.0,1350.0,2750.0,2900.0,2600.0,2500.0,2300.0,2500.0,2500.0,2200.0,2600.0,2500.0,2750.0,2750.0,2600.0,2750.0,2300.0,2900.0,3100.0,3300.0,5300.0,2100.0,1400.0,1400.0,2200.0,2300.0,2750.0,2000.0,2900.0,3100.0,3100.0,4400.0,2300.0,2400.0,2600.0,3100.0,3350.0,2750.0,3200.0,2650.0,2650.0,3350.0,3050.0,3200.0,2900.0,2650.0,3200.0,3050.0,3350.0,3200.0,2500.0,2300.0,2600.0,2750.0,3100.0,3300.0,2350.0,2750.0,2750.0,2900.0,3100.0,3300.0,2550.0,3100.0,2900.0,3100.0,4000.0,3300.0,3100.0,3100.0,3250.0,4250.0,3500.0,2650.0,3300.0,3100.0,4250.0,3300.0,3300.0,3300.0,2100.0,1950.0,3750.0,3100.0,2650.0,4000.0,3100.0,2800.0,4000.0,3100.0,2650.0,4000.0,3300.0,2800.0,1650.0,1100.0,1200.0,2050.0,1450.0,1550.0,1050.0,1550.0,1100.0,2650.0,1900.0,1400.0,1750.0,1300.0,1950.0,1900.0,2400.0,2500.0,2500.0,2500.0,2600.0,2400.0,2500.0,2600.0,1550.0,1450.0,1700.0,1050.0,950.0,2750.0,2650.0,2000.0,1950.0,1900.0,1900.0,1700.0,1700.0,2500.0,2400.0,2200.0,2400.0,2100.0,2500.0,2300.0,2400.0,2200.0,1550.0,1450.0,1900.0,1800.0,1650.0,1950.0,1100.0,2000.0,1900.0,1500.0,1400.0,1700.0,4250.0,4550.0,2450.0,2550.0,2650.0,2650.0,3550.0,3750.0,2650.0,3050.0,3750.0,1950.0,2750.0,2400.0,2400.0,2500.0,2500.0,3750.0,3750.0,2600.0,2750.0,2600.0,2750.0,2500.0,2750.0,2500.0,2600.0,2750.0,4550.0,2500.0,1600.0,1600.0,1550.0,1800.0,1800.0,1750.0,1950.0,1950.0,1050.0,1000.0,2100.0,1800.0,1700.0,2100.0,2300.0,2000.0,2300.0,1550.0,1450.0,1750.0,1700.0,2100.0,1900.0,1400.0,1200.0,2000.0,2600.0,2400.0,3350.0,4000.0,3750.0,4000.0,3550.0,3550.0,3350.0,3350.0,4000.0,3350.0,3050.0,3200.0,2900.0,3550.0,3350.0,3050.0,3050.0,3350.0,2900.0,2900.0,3550.0,3550.0,3550.0,2750.0,2900.0,3050.0,1900.0,1200.0,2100.0,2100.0,3750.0,2550.0,2900.0,2750.0,2900.0,3200.0,3550.0,3550.0,2200.0,2900.0,3050.0,2550.0,2550.0,3350.0,3200.0,1900.0,1900.0,2650.0,2650.0,1650.0,2550.0,2900.0,2750.0,2900.0,3350.0,2550.0,2650.0,1750.0,2350.0,2750.0,2750.0,2350.0,1200.0,1200.0,1250.0,1250.0,2600.0,2500.0,2200.0,2100.0,2200.0,1750.0,3100.0,2500.0,2500.0,3200.0,3200.0,3050.0,3050.0,2650.0,2650.0,3200.0,3550.0,3550.0,3550.0,1800.0,2100.0,2100.0,1900.0,2200.0,1900.0,2100.0,1400.0,1400.0,2100.0,2550.0,2100.0,2550.0,1700.0,1750.0,1950.0,1750.0,1750.0,1800.0,2000.0,2200.0,2200.0,2900.0,2550.0,2750.0,2900.0,2750.0,4250.0,2650.0,2750.0,3050.0,3050.0,3200.0,3200.0,4000.0,4000.0,4250.0,2900.0,3050.0,3050.0,4550.0,3750.0,4550.0,4550.0,2900.0,4000.0,4000.0,2200.0,2350.0,2100.0,2200.0,2450.0,2350.0,2450.0,2450.0,2300.0,2350.0,2550.0,2550.0,3550.0,2200.0,2300.0,2300.0,2350.0,2350.0,2450.0,2450.0,2750.0,2900.0,3050.0,3050.0,3750.0,3050.0,4000.0,4250.0,2650.0,3200.0,3200.0,4250.0,2100.0,2000.0,2000.0,2100.0,2000.0,2000.0,2350.0,2100.0,2450.0,2100.0,1950.0,2000.0,2000.0,2100.0,2000.0,2000.0,2100.0,1650.0,1900.0,1700.0,3550.0,3750.0,4000.0,2500.0,2750.0,2900.0,1700.0,1750.0,1600.0,2300.0,2300.0,2300.0,2300.0,2400.0,3050.0,1700.0,1800.0,1700.0,1600.0,1650.0,1550.0,1600.0,1500.0,1750.0,3200.0,2900.0,3350.0,2900.0,2650.0,3350.0,3050.0,3050.0,2900.0,2900.0,2650.0,3350.0,3050.0,3050.0,2900.0,4000.0,4000.0,3050.0,3350.0,3350.0,3050.0,3200.0,3350.0,3350.0,3200.0,3200.0,3200.0,3350.0,3350.0,3750.0,4000.0,4000.0,4000.0,3350.0,3350.0,3550.0,3550.0,3550.0,3550.0,3750.0,3050.0,3350.0,3350.0,3050.0,3050.0,3050.0,3550.0,2500.0,2400.0,2750.0,2500.0,2300.0,3750.0,4250.0,4550.0,4550.0,4550.0,4550.0,4550.0,4550.0,4550.0,2400.0,2500.0,2900.0,2550.0,1800.0,1800.0,1950.0,1800.0,1500.0,1900.0,2000.0,1750.0,1800.0,1750.0,2000.0,1900.0,2100.0,2300.0,2900.0,3050.0,2400.0,2400.0,2500.0,2500.0,2300.0,2300.0,1050.0,1150.0,1200.0,1050.0,1100.0,1500.0,1550.0,1550.0,1650.0,1750.0,1250.0,1550.0,1500.0,1600.0,1050.0,1100.0,1100.0,1200.0,2900.0,2650.0,2900.0,2650.0,2300.0,2400.0,1450.0,1550.0,1950.0,2200.0,2200.0,2100.0,2200.0,2200.0,1500.0,1500.0,2750.0,900.0,950.0,1050.0,1000.0,1750.0,1800.0,1900.0,1750.0,1350.0,1400.0,2400.0,2600.0,1450.0,1500.0,2350.0,2450.0,3050.0,2300.0,2500.0,2600.0,2300.0,2300.0,2500.0,2500.0,2500.0,2400.0,2300.0,1300.0,1750.0,1400.0,2600.0,2600.0,2400.0,2750.0,2750.0,2600.0,2750.0,2400.0,2600.0,2300.0,2500.0,2500.0,2500.0,1800.0,1750.0,2550.0,1950.0,1600.0,1600.0,1700.0,1900.0,1900.0,2100.0,1800.0,2100.0,2300.0,2450.0,2550.0,2450.0,2450.0,2450.0,2750.0],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"title":{"text":"City fuel economy (miles per gallon)"},"range":[0,60],"rangemode":"tozero"},"yaxis":{"title":{"text":"Estimated annual fuel cost (dollars)"},"range":[0,7500],"rangemode":"tozero","tickprefix":"$","tickformat":","},"title":{"text":"2025 city fuel economy and estimated annual fuel cost"},"font":{"family":"Arial, sans-serif","size":16,"color":"#17212b"},"margin":{"l":90,"r":35,"t":85,"b":80},"transition":{"duration":0},"autosize":true,"height":520,"paper_bgcolor":"#ffffff","plot_bgcolor":"#ffffff"},                        {"displayModeBar": false, "displaylogo": false, "responsive": true, "scrollZoom": false, "staticPlot": false}                    )                };            </script>        </div><noscript><p>The interactive chart needs JavaScript. Use the chart description and data table below.</p></noscript></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l6-reference-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.8: City fuel economy and estimated annual fuel cost for 868 rows in the supplied 2025 FEguide snapshot.
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="e4a-l6-reference-scatter-description">
+<p><strong>What to notice:</strong> The 868 points show a generally negative association. Annual fuel cost tends to be lower as city MPG increases. Hovering identifies each row.</p>
+<p><strong>Limitation:</strong> The chart does not show one driver’s actual cost. Driving, location, fuel prices, and other information may differ. The graph alone does not prove a simple cause.</p>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Reference check</th>
+<th style="text-align: right;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Worksheet</td>
+<td style="text-align: right;">FEguide</td>
+</tr>
+<tr class="even">
+<td>Usable 2025 rows</td>
+<td style="text-align: right;">868</td>
+</tr>
+<tr class="odd">
+<td>City fuel-economy range</td>
+<td style="text-align: right;">8–57 MPG</td>
+</tr>
+<tr class="even">
+<td>Estimated annual fuel-cost range</td>
+<td style="text-align: right;">$900–$7,100</td>
+</tr>
+<tr class="odd">
+<td>Worksheets not mixed into this graph</td>
+<td style="text-align: right;">EV, PHEV, FCV</td>
+</tr>
+</tbody>
+</table>
+<section class="e4a-data-workshop" data-e4a-data-workshop="" aria-labelledby="e4a-l6-reference-scatter-check-title">
+  <h3 id="e4a-l6-reference-scatter-check-title" class="anchored">Quick Graph Check</h3>
+  <div class="e4a-data-workshop__progress-row"><p class="e4a-data-workshop__progress-text" data-e4a-data-workshop-progress-text="" aria-live="polite">0 of 2 questions checked</p><div class="e4a-data-workshop__progress-track"><div class="e4a-data-workshop__progress-bar" data-e4a-data-workshop-progress-bar="" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="2"></div></div></div>
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="negative" data-e4a-correct-label="a generally negative association">
+    <legend>1. What general association do the points show?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="negative">A generally negative association</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="positive">A generally positive association</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="none">No visible association</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>Estimated annual fuel cost generally moves down as city MPG moves up.</p></details>
+  </fieldset>
+  <fieldset class="e4a-data-workshop__question" data-e4a-data-workshop-question="" data-e4a-correct-answer="estimate" data-e4a-correct-label="No, it is an estimate for vehicle rows">
+    <legend>2. Does the graph show every driver's actual annual fuel cost?</legend>
+    <div class="e4a-data-workshop__options"><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="estimate">No, it is an estimate for vehicle rows</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="actual">Yes, every point is a driver's bill</button><button type="button" class="e4a-data-workshop__option" data-e4a-data-workshop-option="cause">Yes, the chart proves one simple cause</button></div>
+    <details class="e4a-data-workshop__feedback" data-e4a-data-workshop-feedback=""><summary>Check your answer</summary><p class="e4a-data-workshop__feedback-status" data-e4a-data-workshop-feedback-status="" aria-live="polite">Choose an answer, then open this panel to check it.</p><p>The workbook reports estimated annual fuel cost for vehicle rows, not actual bills for individual drivers.</p></details>
+  </fieldset>
+  <div class="e4a-data-workshop__actions"><button type="button" class="btn btn-outline-secondary e4a-data-workshop__restart" data-e4a-data-workshop-restart="">Restart check</button></div>
+</section>
+</div>
+</div>
 </div>
 <section class="e4a-workbook-card e4a-activity-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-chart-lab" data-e4a-artifact-title="Lesson 6 - Chart Laboratory" data-e4a-filename="Lesson 6 - Chart Laboratory">
   <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Interpret and Limit Each Chart</h3><p class="e4a-workbook-card__filename">For each chart, say what it shows and what it cannot prove.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
@@ -1446,7 +2279,7 @@ This association does not prove..."></textarea></div>
   <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
 </section>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1455,7 +2288,7 @@ This association does not prove..."></textarea></div>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Title:</strong> Recall records in the downloaded FDA file by year</p>
 <p><strong>Subtitle:</strong> The 2026 value includes records only through the latest date available in the downloaded file.</p>
@@ -1476,6 +2309,49 @@ This association does not prove..."></textarea></div>
 <li>What percentage of records is explicitly marked Terminated?</li>
 <li>Which values need cleaning or normalization?</li>
 </ol>
+<section id="return-to-marias-claim" class="level3" data-number="8.16.1">
+<h3 data-number="8.16.1" class="anchored" data-anchor-id="return-to-marias-claim"><span class="header-section-number">8.16.1</span> Return to Maria’s Claim</h3>
+<p>Maria’s opening statement had two claims:</p>
+<blockquote class="blockquote">
+<p><strong>“Food recalls are increasing, and packaged food is becoming more dangerous.”</strong></p>
+</blockquote>
+<p>Read each claim separately.</p>
+<ol type="1">
+<li><strong>“Food recalls are increasing” is only partly supported by this snapshot.</strong> The <code>Food &amp; Beverages</code> label appears more often in 2025 than in 2024. However, two years do not prove a general trend. The file may not contain every food recall, and 2026 is incomplete.</li>
+<li><strong>“Packaged food is becoming more dangerous” is not supported.</strong> The spreadsheet does not measure danger. It does not include injury or illness rates, severity, consumer exposure, sales volume, or another measure of risk.</li>
+</ol>
+<table class="caption-top table">
+<caption>Records with the <code>Food &amp; Beverages</code> label in the supplied FDA spreadsheet snapshot</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Year</th>
+<th style="text-align: right;">Records with the <code>Food &amp; Beverages</code> label</th>
+<th>Comparison note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2024</td>
+<td style="text-align: right;">240</td>
+<td>Complete year in this snapshot</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2025</td>
+<td style="text-align: right;">253</td>
+<td>Complete year in this snapshot</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2026</td>
+<td style="text-align: right;">114</td>
+<td>Partial year through July 16</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important:</strong> These are records in the supplied spreadsheet snapshot. The existing line-chart exercise counts <strong>all FDA records in the file</strong>, not only records with the <code>Food &amp; Beverages</code> label.</p>
+<p>Write your verdict in the final field of your report. Use this frame:</p>
+<pre class="text"><code>The spreadsheet partly supports __________ because __________.
+However, it does not support __________ because __________.
+One limitation is __________.</code></pre>
 <section class="e4a-workbook-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-06-source-check-paraphrase" data-e4a-artifact-title="Lesson 6 - Source-Grounded Data Report" data-e4a-filename="Lesson 6 - Source-Grounded Data Report">
   <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Source-Grounded Data Report</h3><p class="e4a-workbook-card__filename">Your existing Lesson 6 source-check fields remain compatible. New fields complete the data report.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
   <div class="e4a-workbook-field"><label for="e4a-l6-lesson-source-check">Source details and columns</label><textarea id="e4a-l6-lesson-source-check" data-e4a-field="sourceCheck" data-e4a-field-type="textarea" data-e4a-label="Source details and columns" rows="7" placeholder="Source organization:
@@ -1497,11 +2373,33 @@ The chart shows..."></textarea></div>
   <div class="e4a-workbook-field"><label for="e4a-l6-lesson-verification">One manual verification</label><textarea id="e4a-l6-lesson-verification" data-e4a-field="manualVerification" data-e4a-field-type="textarea" data-e4a-label="One manual verification" rows="5" placeholder="Result checked:
 Spreadsheet evidence:
 Correction, if needed:"></textarea></div>
-  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-conclusion">Revised final conclusion</label><textarea id="e4a-l6-lesson-conclusion" data-e4a-field="revisedConclusion" data-e4a-field-type="textarea" data-e4a-label="Revised final conclusion" rows="5" placeholder="The source supports..., but it does not support..."></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-lesson-conclusion">Final verdict on Maria's opening claim</label><textarea id="e4a-l6-lesson-conclusion" data-e4a-field="revisedConclusion" data-e4a-field-type="textarea" data-e4a-label="Final verdict on Maria's opening claim" rows="6" placeholder="The spreadsheet partly supports... because...
+However, it does not support... because...
+One limitation is..."></textarea></div>
   <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
 </section>
-<section id="assessment-rubric" class="level3" data-number="8.16.1">
-<h3 data-number="8.16.1" class="anchored" data-anchor-id="assessment-rubric"><span class="header-section-number">8.16.1</span> Assessment Rubric</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check a Careful Final Verdict
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Try writing your own verdict before opening this panel.</p>
+<blockquote class="blockquote">
+<p>The spreadsheet alone does not support the full claim. It has 253 <code>Food &amp; Beverages</code> records in 2025 and 240 in 2024, but this does not prove that food recalls are generally increasing, and 2026 is incomplete. The file does not measure danger, so it cannot show that packaged food is becoming more dangerous.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+<section id="assessment-rubric" class="level3" data-number="8.16.2">
+<h3 data-number="8.16.2" class="anchored" data-anchor-id="assessment-rubric"><span class="header-section-number">8.16.2</span> Assessment Rubric</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -1561,7 +2459,9 @@ I used the __________ column.
 My chart shows __________.
 I verified the result by __________.
 One limitation is __________.
-The chart cannot prove that __________.</code></pre>
+The chart cannot prove that __________.
+My verdict on Maria's opening claim is __________.
+The first part is __________, but the second part is __________.</code></pre>
 </section>
 <section id="reflection" class="level2" data-number="8.18">
 <h2 data-number="8.18" class="anchored" data-anchor-id="reflection"><span class="header-section-number">8.18</span> Reflection</h2>
@@ -1584,7 +2484,8 @@ The chart cannot prove that __________.</code></pre>
   <div class="e4a-workbook-field"><label for="e4a-l6-exit-category">3. Best chart for comparing categories</label><input id="e4a-l6-exit-category" type="text" data-e4a-field="categoryChart" data-e4a-field-type="text" data-e4a-label="Best chart for comparing categories"></div>
   <div class="e4a-workbook-field"><label for="e4a-l6-exit-time">4. Best chart for showing change over time</label><input id="e4a-l6-exit-time" type="text" data-e4a-field="timeChart" data-e4a-field-type="text" data-e4a-label="Best chart for showing change over time"></div>
   <div class="e4a-workbook-field"><label for="e4a-l6-exit-misleading">5. One way a correct chart can still mislead</label><textarea id="e4a-l6-exit-misleading" data-e4a-field="misleadingWay" data-e4a-field-type="textarea" data-e4a-label="One way a correct chart can still mislead" rows="3"></textarea></div>
-  <div class="e4a-workbook-field"><label for="e4a-l6-exit-quote">6. One sentence I revised after checking evidence</label><textarea id="e4a-l6-exit-quote" data-e4a-field="quoteAndParaphrase" data-e4a-field-type="textarea" data-e4a-label="One sentence revised after checking evidence" rows="4"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l6-exit-quote">6. My final verdict on Maria's claim and one dataset limitation</label><textarea id="e4a-l6-exit-quote" data-e4a-field="quoteAndParaphrase" data-e4a-field-type="textarea" data-e4a-label="Final verdict on Maria's claim and one dataset limitation" rows="5" placeholder="My verdict is...
+One dataset limitation is..."></textarea></div>
   <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
 </section>
 </section>
@@ -1623,7 +2524,7 @@ The chart cannot prove that __________.</code></pre>
 <div class="callout-body-container callout-body">
 <p>This lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.</p>
 <p>Open the <strong>Lessons 5-6 Source-Grounded Lab</strong> in Colab:</p>
-<p><a href="https://colab.research.google.com/github/zoni-group/E4A/blob/public-54945515718d/english-for-ai-course/interactives/class-03-source-grounded-lab.ipynb" class="uri">https://colab.research.google.com/github/zoni-group/E4A/blob/public-54945515718d/english-for-ai-course/interactives/class-03-source-grounded-lab.ipynb</a></p>
+<p><a href="https://colab.research.google.com/github/zoni-group/E4A/blob/public-29aa42447f1e/english-for-ai-course/interactives/class-03-source-grounded-lab.ipynb" class="uri">https://colab.research.google.com/github/zoni-group/E4A/blob/public-29aa42447f1e/english-for-ai-course/interactives/class-03-source-grounded-lab.ipynb</a></p>
 <p>Use the built-in safe sample sources only. Do not paste private documents or upload personal data.</p>
 <p>The lab uses <strong>Colab AI</strong> automatically when it is available. If it is unavailable, the regular lab steps still work.</p>
 <p>After any AI answer, say: <em>“I checked the AI answer before I used it.”</em></p>
