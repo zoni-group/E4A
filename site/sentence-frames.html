@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,14 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9c42ed6baed5871d395e4db15611d42f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-343830dee7e81009abd9657442190b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-febdc0bd1cf710de19db6afa0751cb89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-343830dee7e81009abd9657442190b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -339,8 +342,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lesson-07-visual-communication-attribution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Visual Communication and Attribution</span></span></a>
+  <a href="./lesson-07-coding-with-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Create Games with AI — Prompt, Test, Debug, Persist</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -413,7 +416,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#using-the-zoni-clear-prompt-scaffold" id="toc-using-the-zoni-clear-prompt-scaffold" class="nav-link" data-scroll-target="#using-the-zoni-clear-prompt-scaffold"><span class="header-section-number">14.4</span> Using the ZONI CLEAR Prompt Scaffold</a></li>
   <li><a href="#comparing-options" id="toc-comparing-options" class="nav-link" data-scroll-target="#comparing-options"><span class="header-section-number">14.5</span> Comparing Options</a></li>
   <li><a href="#using-sources" id="toc-using-sources" class="nav-link" data-scroll-target="#using-sources"><span class="header-section-number">14.6</span> Using Sources</a></li>
-  <li><a href="#describing-visuals" id="toc-describing-visuals" class="nav-link" data-scroll-target="#describing-visuals"><span class="header-section-number">14.7</span> Describing Visuals</a></li>
+  <li><a href="#creating-and-debugging-a-small-html-game" id="toc-creating-and-debugging-a-small-html-game" class="nav-link" data-scroll-target="#creating-and-debugging-a-small-html-game"><span class="header-section-number">14.7</span> Creating and Debugging a Small HTML Game</a></li>
   <li><a href="#polite-speaking" id="toc-polite-speaking" class="nav-link" data-scroll-target="#polite-speaking"><span class="header-section-number">14.8</span> Polite Speaking</a></li>
   <li><a href="#giving-feedback" id="toc-giving-feedback" class="nav-link" data-scroll-target="#giving-feedback"><span class="header-section-number">14.9</span> Giving Feedback</a></li>
   <li><a href="#presenting" id="toc-presenting" class="nav-link" data-scroll-target="#presenting"><span class="header-section-number">14.10</span> Presenting</a></li>
@@ -508,14 +511,18 @@ The answer is not in the source.
 I cannot answer from the provided source.
 I need more information about __________.</code></pre>
 </section>
-<section id="describing-visuals" class="level2" data-number="14.7">
-<h2 data-number="14.7" class="anchored" data-anchor-id="describing-visuals"><span class="header-section-number">14.7</span> Describing Visuals</h2>
-<pre class="text"><code>The image shows __________.
-There is __________.
-There are __________.
-The purpose of the image is __________.
-The caption says __________.
-The source of this image is __________.</code></pre>
+<section id="creating-and-debugging-a-small-html-game" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="creating-and-debugging-a-small-html-game"><span class="header-section-number">14.7</span> Creating and Debugging a Small HTML Game</h2>
+<pre class="text"><code>I want to create __________.
+Create one complete HTML file.
+The game should __________.
+My file name is __________.
+I expected __________.
+The actual result was __________.
+The bug happens when __________.
+Return the complete corrected HTML file.
+I saved the working version as __________.
+I will persist by trying __________.</code></pre>
 </section>
 <section id="polite-speaking" class="level2" data-number="14.8">
 <h2 data-number="14.8" class="anchored" data-anchor-id="polite-speaking"><span class="header-section-number">14.8</span> Polite Speaking</h2>

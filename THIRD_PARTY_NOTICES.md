@@ -10,7 +10,9 @@ has been removed from version control and added to `.gitignore` to avoid redistr
 
 Developers may keep a local ignored copy of the extension if needed for local rendering, but it must not be committed to the public repository.
 
-If any third-party files, libraries, generated assets, or copied components are added in the future, their licenses must be verified and documented here before publication.
+Third-party files and libraries currently used by the course are documented
+below. Any future addition must also have its license verified and documented
+here before publication.
 
 ## Plotly
 
@@ -25,3 +27,22 @@ copyright and license header is preserved in the generated JavaScript file.
 Project: <https://plotly.com/python/>
 
 License: <https://github.com/plotly/plotly.py/blob/main/LICENSE.txt>
+
+## Gamedev Canvas Workshop Brick Breaker Code Sample
+
+Lesson 7 includes a classroom copy of `lesson10.html` from the Gamedev Canvas
+Workshop by Andrzej Mazur and Mozilla Contributors, pinned to revision
+`5199692d8acb9770dc5c16b5b18afbadd95fa497`.
+
+The upstream project dedicates its code samples and snippets to the public
+domain under CC0 1.0 Universal. The course copy includes only the code sample,
+not the CC BY-SA tutorial prose. A source record, change list, and CC0 notice
+are stored beside the file at:
+
+`english-for-ai-course/assets/sample-code/lesson-07/`
+
+Project: <https://github.com/end3r/Gamedev-Canvas-workshop>
+
+Pinned source: <https://github.com/end3r/Gamedev-Canvas-workshop/blob/5199692d8acb9770dc5c16b5b18afbadd95fa497/lesson10.html>
+
+Upstream license notice: <https://raw.githubusercontent.com/end3r/Gamedev-Canvas-workshop/5199692d8acb9770dc5c16b5b18afbadd95fa497/LICENSE>

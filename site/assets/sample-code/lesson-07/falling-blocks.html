@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Falling Blocks</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 10px; font-family: system-ui, sans-serif; color: #f4f6ff; background: #101326; text-align: center; }
+    main { width: min(100%, 500px); margin: auto; }
+    h1 { margin: 0 0 4px; font-size: clamp(1.4rem, 5vw, 2rem); }
+    p { margin: 5px 0; }
+    #score { color: #ffd166; font-weight: 800; }
+    canvas { display: block; width: min(82vw, 300px); height: auto; margin: 8px auto; border: 3px solid #9299c2; border-radius: 8px; background: #090b18; }
+    .controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+    button { min-width: 66px; min-height: 42px; padding: 7px 10px; border: 2px solid #8e9bff; border-radius: 8px; color: white; background: #353f8f; font: inherit; font-weight: 700; cursor: pointer; }
+    button:focus-visible { outline: 3px solid #ffd166; outline-offset: 2px; }
+    #message { min-height: 1.5em; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Falling Blocks</h1>
+    <p>Use ← →, ↑ to rotate, and ↓ for a fast drop.</p>
+    <p id="score">Score: 0</p>
+    <canvas id="game" width="300" height="540">Falling Blocks game area.</canvas>
+    <p id="message" role="status" aria-live="polite">Complete a row to clear it.</p>
+    <div class="controls" aria-label="Game controls">
+      <button id="left" type="button">←</button>
+      <button id="rotate" type="button">Rotate</button>
+      <button id="right" type="button">→</button>
+      <button id="drop" type="button">Drop ↓</button>
+      <button id="restart" type="button">Restart</button>
+    </div>
+  </main>
+  <script>
+    const canvas = document.querySelector("#game");
+    const ctx = canvas.getContext("2d");
+    const scoreText = document.querySelector("#score");
+    const message = document.querySelector("#message");
+    const columns = 10;
+    const rows = 18;
+    const size = 30;
+    const shapes = [
+      [[1, 1, 1, 1]],
+      [[1, 1], [1, 1]],
+      [[0, 1, 0], [1, 1, 1]],
+      [[1, 0, 0], [1, 1, 1]],
+      [[0, 0, 1], [1, 1, 1]],
+      [[0, 1, 1], [1, 1, 0]],
+      [[1, 1, 0], [0, 1, 1]]
+    ];
+    const colors = ["#59a5ff", "#ffd166", "#b46cff", "#ff8c5a", "#62d6a7", "#ff6b82", "#48cae4"];
+    const state = { board: [], piece: null, score: 0, running: true, timer: null, nextShape: 0 };
+
+    function emptyBoard() {
+      return Array.from({ length: rows }, () => Array(columns).fill(""));
+    }
+
+    function copyShape(shape) {
+      return shape.map(row => [...row]);
+    }
+
+    function nextPiece() {
+      const index = state.nextShape % shapes.length;
+      state.nextShape += 3;
+      state.piece = { shape: copyShape(shapes[index]), color: colors[index], x: 3, y: 0 };
+      if (collides(state.piece, 0, 0, state.piece.shape)) {
+        state.running = false;
+        message.textContent = "Game over. Select Restart to try again.";
+      }
+    }
+
+    function collides(piece, moveX, moveY, shape) {
+      for (let y = 0; y < shape.length; y += 1) {
+        for (let x = 0; x < shape[y].length; x += 1) {
+          if (!shape[y][x]) continue;
+          const boardX = piece.x + x + moveX;
+          const boardY = piece.y + y + moveY;
+          if (boardX < 0) return true;
+          if (boardX >= columns) return true;
+          if (boardY >= rows) return true;
+          if (boardY >= 0 && state.board[boardY][boardX]) return true;
+        }
+      }
+      return false;
+    }
+
+    function rotateShape(shape) {
+      return shape[0].map((value, index) => shape.map(row => row[index]).reverse());
+    }
+
+    function movePiece(amount) {
+      if (!state.running) return;
+      if (!collides(state.piece, amount, 0, state.piece.shape)) state.piece.x += amount;
+      draw();
+    }
+
+    function rotatePiece() {
+      if (!state.running) return;
+      const rotated = rotateShape(state.piece.shape);
+      if (!collides(state.piece, 0, 0, rotated)) state.piece.shape = rotated;
+      draw();
+    }
+
+    function lockPiece() {
+      const piece = state.piece;
+      for (let y = 0; y < piece.shape.length; y += 1) {
+        for (let x = 0; x < piece.shape[y].length; x += 1) {
+          if (piece.shape[y][x]) state.board[piece.y + y][piece.x + x] = piece.color;
+        }
+      }
+      clearRows();
+      nextPiece();
+    }
+
+    function stepDown() {
+      if (!state.running) return;
+      if (collides(state.piece, 0, 1, state.piece.shape)) lockPiece();
+      else state.piece.y += 1;
+      draw();
+    }
+
+    function fastDrop() {
+      if (!state.running) return;
+      let distance = 0;
+      while (!collides(state.piece, 0, distance + 1, state.piece.shape)) distance += 1;
+      state.piece.y += distance;
+      state.score += distance;
+      lockPiece();
+      updateScore();
+      draw();
+    }
+
+    function clearRows() {
+      let cleared = 0;
+      for (let y = rows - 1; y >= 0; y -= 1) {
+        if (state.board[y].every(cell => Boolean(cell))) {
+          state.board.splice(y, 1);
+          state.board.unshift(Array(columns).fill(""));
+          cleared += 1;
+          y += 1;
+        }
+      }
+      if (cleared > 0) {
+        state.score += cleared * cleared * 100;
+        message.textContent = `${cleared} row cleared.`;
+        updateScore();
+      }
+    }
+
+    function updateScore() {
+      scoreText.textContent = `Score: ${state.score}`;
+    }
+
+    function drawCell(x, y, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(x * size + 1, y * size + 1, size - 2, size - 2);
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = "#242a4d";
+      for (let x = 0; x <= columns; x += 1) {
+        ctx.beginPath(); ctx.moveTo(x * size, 0); ctx.lineTo(x * size, canvas.height); ctx.stroke();
+      }
+      for (let y = 0; y <= rows; y += 1) {
+        ctx.beginPath(); ctx.moveTo(0, y * size); ctx.lineTo(canvas.width, y * size); ctx.stroke();
+      }
+      for (let y = 0; y < rows; y += 1) {
+        for (let x = 0; x < columns; x += 1) {
+          if (state.board[y][x]) drawCell(x, y, state.board[y][x]);
+        }
+      }
+      if (!state.piece) return;
+      for (let y = 0; y < state.piece.shape.length; y += 1) {
+        for (let x = 0; x < state.piece.shape[y].length; x += 1) {
+          if (state.piece.shape[y][x]) drawCell(state.piece.x + x, state.piece.y + y, state.piece.color);
+        }
+      }
+    }
+
+    function restartGame() {
+      if (state.timer) clearInterval(state.timer);
+      state.board = emptyBoard();
+      state.score = 0;
+      state.running = true;
+      state.nextShape = 0;
+      message.textContent = "Complete a row to clear it.";
+      updateScore();
+      nextPiece();
+      draw();
+      state.timer = setInterval(stepDown, 550);
+    }
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "ArrowLeft") movePiece(-1);
+      if (event.key === "ArrowRight") movePiece(1);
+      if (event.key === "ArrowUp") rotatePiece();
+      if (event.key === "ArrowDown") fastDrop();
+    });
+    document.querySelector("#left").addEventListener("click", () => movePiece(-1));
+    document.querySelector("#right").addEventListener("click", () => movePiece(1));
+    document.querySelector("#rotate").addEventListener("click", rotatePiece);
+    document.querySelector("#drop").addEventListener("click", fastDrop);
+    document.querySelector("#restart").addEventListener("click", restartGame);
+    restartGame();
+  </script>
+</body>
+</html>

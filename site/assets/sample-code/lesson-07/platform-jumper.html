@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Platform Jumper</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 12px; font-family: system-ui, sans-serif; color: #13304a; background: #e8f8ff; text-align: center; }
+    main { width: min(100%, 560px); margin: auto; }
+    h1 { margin: 0 0 4px; font-size: clamp(1.4rem, 5vw, 2rem); }
+    p { margin: 5px 0; }
+    #score { font-weight: 800; }
+    canvas { display: block; width: min(100%, 480px); height: auto; margin: 10px auto; border: 3px solid #16537e; border-radius: 10px; background: #d7f3ff; }
+    .controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    button { min-width: 82px; min-height: 44px; padding: 8px 14px; border: 2px solid #16537e; border-radius: 8px; color: white; background: #16537e; font: inherit; font-weight: 700; cursor: pointer; }
+    button:focus-visible { outline: 3px solid #ffb703; outline-offset: 2px; }
+    #message { min-height: 1.5em; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Platform Jumper</h1>
+    <p>Move with ← → or the buttons. The player jumps automatically.</p>
+    <p id="score">Height: 0</p>
+    <canvas id="game" width="480" height="520">Platform Jumper game area.</canvas>
+    <p id="message" role="status" aria-live="polite">Land on higher platforms.</p>
+    <div class="controls" aria-label="Game controls">
+      <button id="left" type="button">← Left</button>
+      <button id="right" type="button">Right →</button>
+      <button id="restart" type="button">Restart</button>
+    </div>
+  </main>
+  <script>
+    const canvas = document.querySelector("#game");
+    const ctx = canvas.getContext("2d");
+    const scoreText = document.querySelector("#score");
+    const message = document.querySelector("#message");
+    const state = {
+      running: true, left: false, right: false, score: 0,
+      player: { x: 215, y: 425, width: 38, height: 42, dx: 0, dy: -11 },
+      platforms: []
+    };
+
+    function startingPlatforms() {
+      return [
+        { x: 170, y: 480, width: 140, height: 14 },
+        { x: 35, y: 390, width: 120, height: 14 },
+        { x: 270, y: 305, width: 130, height: 14 },
+        { x: 115, y: 220, width: 120, height: 14 },
+        { x: 320, y: 130, width: 105, height: 14 },
+        { x: 55, y: 45, width: 115, height: 14 }
+      ];
+    }
+
+    function restartGame() {
+      state.running = true;
+      state.score = 0;
+      state.left = false;
+      state.right = false;
+      state.player = { x: 215, y: 425, width: 38, height: 42, dx: 0, dy: -11 };
+      state.platforms = startingPlatforms();
+      scoreText.textContent = "Height: 0";
+      message.textContent = "Land on higher platforms.";
+    }
+
+    function addTopPlatform() {
+      const lastX = state.platforms.length * 97;
+      state.platforms.push({ x: 25 + lastX % 320, y: -30, width: 115, height: 14 });
+    }
+
+    function update() {
+      if (!state.running) return;
+      const player = state.player;
+      if (state.left) player.dx = -4.8;
+      if (state.right) player.dx = 4.8;
+      if (!state.left && !state.right) player.dx *= 0.75;
+      player.x += player.dx;
+      if (player.x < 0) player.x = 0;
+      if (player.x > canvas.width - player.width) player.x = canvas.width - player.width;
+      const oldBottom = player.y + player.height;
+      player.dy += 0.45;
+      player.y += player.dy;
+      const newBottom = player.y + player.height;
+      if (player.dy > 0) {
+        for (const platform of state.platforms) {
+          const horizontallyInside = player.x + player.width > platform.x && player.x < platform.x + platform.width;
+          const crossedTop = oldBottom <= platform.y && newBottom >= platform.y;
+          if (horizontallyInside && crossedTop) {
+            player.y = platform.y - player.height;
+            player.dy = -11;
+            break;
+          }
+        }
+      }
+      if (player.y < 145 && player.dy < 0) {
+        const shift = 145 - player.y;
+        player.y = 145;
+        for (const platform of state.platforms) platform.y += shift;
+        state.score += Math.round(shift);
+        scoreText.textContent = `Height: ${state.score}`;
+      }
+      state.platforms = state.platforms.filter(platform => platform.y < canvas.height + 30);
+      if (state.platforms.length < 7) addTopPlatform();
+      if (player.y > canvas.height) {
+        state.running = false;
+        message.textContent = `Game over at height ${state.score}. Select Restart.`;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#2fa866";
+      for (const platform of state.platforms) {
+        ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
+      }
+      const player = state.player;
+      ctx.fillStyle = "#6c4cff";
+      ctx.fillRect(player.x, player.y, player.width, player.height);
+      ctx.fillStyle = "white";
+      ctx.beginPath();
+      ctx.arc(player.x + 12, player.y + 15, 3, 0, Math.PI * 2);
+      ctx.arc(player.x + 27, player.y + 15, 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    function setDirection(direction, pressed) {
+      state[direction] = pressed;
+    }
+    document.addEventListener("keydown", event => {
+      if (event.key === "ArrowLeft") setDirection("left", true);
+      if (event.key === "ArrowRight") setDirection("right", true);
+    });
+    document.addEventListener("keyup", event => {
+      if (event.key === "ArrowLeft") setDirection("left", false);
+      if (event.key === "ArrowRight") setDirection("right", false);
+    });
+    for (const direction of ["left", "right"]) {
+      const button = document.querySelector(`#${direction}`);
+      button.addEventListener("pointerdown", () => setDirection(direction, true));
+      button.addEventListener("pointerup", () => setDirection(direction, false));
+      button.addEventListener("pointerleave", () => setDirection(direction, false));
+    }
+    document.querySelector("#restart").addEventListener("click", restartGame);
+    restartGame();
+    loop();
+  </script>
+</body>
+</html>

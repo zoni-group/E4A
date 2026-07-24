@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,14 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9c42ed6baed5871d395e4db15611d42f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-343830dee7e81009abd9657442190b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-febdc0bd1cf710de19db6afa0751cb89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-343830dee7e81009abd9657442190b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -339,8 +342,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lesson-07-visual-communication-attribution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Visual Communication and Attribution</span></span></a>
+  <a href="./lesson-07-coding-with-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Create Games with AI — Prompt, Test, Debug, Persist</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -415,7 +418,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#lesson-4-worksheet-revised-prompt-and-decision-matrix" id="toc-lesson-4-worksheet-revised-prompt-and-decision-matrix" class="nav-link" data-scroll-target="#lesson-4-worksheet-revised-prompt-and-decision-matrix"><span class="header-section-number">15.6</span> Lesson 4 Worksheet: Revised Prompt and Decision Matrix</a></li>
   <li><a href="#lesson-5-worksheet-source-grounded-answer-in-english" id="toc-lesson-5-worksheet-source-grounded-answer-in-english" class="nav-link" data-scroll-target="#lesson-5-worksheet-source-grounded-answer-in-english"><span class="header-section-number">15.7</span> Lesson 5 Worksheet: Source-Grounded Answer in English</a></li>
   <li><a href="#lesson-6-worksheet-source-grounded-data-report" id="toc-lesson-6-worksheet-source-grounded-data-report" class="nav-link" data-scroll-target="#lesson-6-worksheet-source-grounded-data-report"><span class="header-section-number">15.8</span> Lesson 6 Worksheet: Source-Grounded Data Report</a></li>
-  <li><a href="#lesson-7-worksheet-visual-description-and-attribution-note" id="toc-lesson-7-worksheet-visual-description-and-attribution-note" class="nav-link" data-scroll-target="#lesson-7-worksheet-visual-description-and-attribution-note"><span class="header-section-number">15.9</span> Lesson 7 Worksheet: Visual Description and Attribution Note</a></li>
+  <li><a href="#lesson-7-worksheet-ai-game-prompt-and-debug-log" id="toc-lesson-7-worksheet-ai-game-prompt-and-debug-log" class="nav-link" data-scroll-target="#lesson-7-worksheet-ai-game-prompt-and-debug-log"><span class="header-section-number">15.9</span> Lesson 7 Worksheet: AI Game Prompt and Debug Log</a></li>
   <li><a href="#lesson-8-worksheet-speaking-script-and-consent-check" id="toc-lesson-8-worksheet-speaking-script-and-consent-check" class="nav-link" data-scroll-target="#lesson-8-worksheet-speaking-script-and-consent-check"><span class="header-section-number">15.10</span> Lesson 8 Worksheet: Speaking Script and Consent Check</a></li>
   <li><a href="#lesson-9-worksheet-presentation-draft-and-portfolio-checklist" id="toc-lesson-9-worksheet-presentation-draft-and-portfolio-checklist" class="nav-link" data-scroll-target="#lesson-9-worksheet-presentation-draft-and-portfolio-checklist"><span class="header-section-number">15.11</span> Lesson 9 Worksheet: Presentation Draft and Portfolio Checklist</a></li>
   <li><a href="#lesson-10-worksheet-my-ai-decision-assistant-prompt" id="toc-lesson-10-worksheet-my-ai-decision-assistant-prompt" class="nav-link" data-scroll-target="#lesson-10-worksheet-my-ai-decision-assistant-prompt"><span class="header-section-number">15.12</span> Lesson 10 Worksheet: My AI Decision Assistant Prompt</a></li>
@@ -506,7 +509,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This workbook collects the major student worksheets for <strong>English for AI: 10 Lessons + Homework</strong>. Your teacher may give you this as a website, PDF, Word file, or printed packet.</p>
 <section id="student-course-overview" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="student-course-overview"><span class="header-section-number">15.1</span> Student Course Overview</h2>
-<p>In this course, you will practice English while you learn safe AI skills. You will write prompts, compare options, check sources, describe visuals, write a speaking script, and present a final toolkit.</p>
+<p>In this course, you will practice English while you learn safe AI skills. You will write prompts, compare options, check sources, create and debug a small HTML game, write a speaking script, and present a final toolkit.</p>
 <p>Your final portfolio is called:</p>
 <pre class="text"><code>English AI Decision Toolkit</code></pre>
 </section>
@@ -662,21 +665,38 @@ One limitation is..."></textarea></div>
   <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
 </section>
 </section>
-<section id="lesson-7-worksheet-visual-description-and-attribution-note" class="level2" data-number="15.9">
-<h2 data-number="15.9" class="anchored" data-anchor-id="lesson-7-worksheet-visual-description-and-attribution-note"><span class="header-section-number">15.9</span> Lesson 7 Worksheet: Visual Description and Attribution Note</h2>
-<section class="e4a-workbook-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-07-visual-attribution" data-e4a-artifact-title="Lesson 7 - Visual Description and Attribution Note" data-e4a-filename="Lesson 7 - Visual Description and Attribution Note">
-  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Lesson 7 - Visual Description and Attribution Note</h3><p class="e4a-workbook-card__filename">Write directly in this workbook page.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
-  <div class="e4a-workbook-field"><label for="e4a-l7-plan">Visual plan and description</label><textarea id="e4a-l7-plan" data-e4a-field="visualPlanDescription" data-e4a-field-type="textarea" data-e4a-label="Visual plan and description" rows="7"></textarea></div>
-  <div class="e4a-workbook-field"><label for="e4a-l7-attribution">Visual attribution</label><textarea id="e4a-l7-attribution" data-e4a-field="visualAttribution" data-e4a-field-type="textarea" data-e4a-label="Visual attribution" rows="7"></textarea></div>
-  <div class="e4a-workbook-field"><label for="e4a-l7-consent">Consent and safety check</label><textarea id="e4a-l7-consent" data-e4a-field="consentSafetyCheck" data-e4a-field-type="textarea" data-e4a-label="Consent and safety check" rows="5"></textarea></div>
+<section id="lesson-7-worksheet-ai-game-prompt-and-debug-log" class="level2" data-number="15.9">
+<h2 data-number="15.9" class="anchored" data-anchor-id="lesson-7-worksheet-ai-game-prompt-and-debug-log"><span class="header-section-number">15.9</span> Lesson 7 Worksheet: AI Game Prompt and Debug Log</h2>
+<section class="e4a-workbook-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-07-ai-game-debug-log" data-e4a-artifact-title="Lesson 7 - AI Game Prompt and Debug Log" data-e4a-filename="Lesson 7 - AI Game Prompt and Debug Log">
+  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Lesson 7 - AI Game Prompt and Debug Log</h3><p class="e4a-workbook-card__filename">Document the process. A perfect game is not required.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
+  <div class="e4a-workbook-field"><label for="e4a-l7-wb-goal">Game goal</label><textarea id="e4a-l7-wb-goal" data-e4a-field="gameGoal" data-e4a-field-type="textarea" data-e4a-label="Game goal" rows="3" placeholder="I want to create..."></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l7-wb-prompt">Complete-file prompt</label><textarea id="e4a-l7-wb-prompt" data-e4a-field="completeFilePrompt" data-e4a-field-type="textarea" data-e4a-label="Complete-file prompt" rows="10" placeholder="Create one complete, self-contained HTML file..."></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l7-wb-first-file">First filename</label><input id="e4a-l7-wb-first-file" type="text" data-e4a-field="firstFilename" data-e4a-field-type="text" data-e4a-label="First filename" placeholder="guess-number-v1.html"></div>
+  <div class="e4a-workbook-field"><label for="e4a-l7-wb-tests">Expected-behavior test table</label><textarea id="e4a-l7-wb-tests" data-e4a-field="expectedBehaviorTests" data-e4a-field-type="textarea" data-e4a-label="Expected-behavior test table" rows="9" placeholder="Test:
+Expected result:
+Actual result:
+Pass / Needs work:"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l7-wb-bug">Observed bug</label><textarea id="e4a-l7-wb-bug" data-e4a-field="observedBug" data-e4a-field-type="textarea" data-e4a-label="Observed bug" rows="5" placeholder="I expected...
+The actual result was...
+The bug happens when..."></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l7-wb-debug">Debugging prompt</label><textarea id="e4a-l7-wb-debug" data-e4a-field="debuggingPrompt" data-e4a-field-type="textarea" data-e4a-label="Debugging prompt" rows="7" placeholder="Keep all existing working features. Return the complete corrected HTML file, not a fragment."></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l7-wb-corrected-file">Corrected filename</label><input id="e4a-l7-wb-corrected-file" type="text" data-e4a-field="correctedFilename" data-e4a-field-type="text" data-e4a-label="Corrected filename" placeholder="guess-number-v2-fixed-input.html"></div>
+  <div class="e4a-workbook-field"><label for="e4a-l7-wb-version">Version and backup explanation</label><textarea id="e4a-l7-wb-version" data-e4a-field="versionBackupExplanation" data-e4a-field-type="textarea" data-e4a-label="Version and backup explanation" rows="4"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l7-wb-baseline">Baseline comparison</label><textarea id="e4a-l7-wb-baseline" data-e4a-field="baselineComparison" data-e4a-field-type="textarea" data-e4a-label="Baseline comparison" rows="4"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l7-wb-persist">Persistence reflection</label><textarea id="e4a-l7-wb-persist" data-e4a-field="persistenceReflection" data-e4a-field-type="textarea" data-e4a-label="Persistence reflection" rows="4" placeholder="I will persist by..."></textarea></div>
   <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
 </section>
 </section>
 <section id="lesson-8-worksheet-speaking-script-and-consent-check" class="level2" data-number="15.10">
 <h2 data-number="15.10" class="anchored" data-anchor-id="lesson-8-worksheet-speaking-script-and-consent-check"><span class="header-section-number">15.10</span> Lesson 8 Worksheet: Speaking Script and Consent Check</h2>
+<p>Your 60-second script may describe the game you generated or planned in Lesson 7, a webpage, or another application. Explain what it is, what the user can do, one test or learning point, and one next step.</p>
 <section class="e4a-workbook-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-08-speaking-consent" data-e4a-artifact-title="Lesson 8 - Speaking Script and Consent Check" data-e4a-filename="Lesson 8 - Speaking Script and Consent Check">
   <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Lesson 8 - Speaking Script and Consent Check</h3><p class="e4a-workbook-card__filename">Write directly in this workbook page.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
-  <div class="e4a-workbook-field"><label for="e4a-l8-script">Speaking script</label><textarea id="e4a-l8-script" data-e4a-field="speakingScript" data-e4a-field-type="textarea" data-e4a-label="Speaking script" rows="8"></textarea></div>
+  <div class="e4a-workbook-field"><label for="e4a-l8-script">Speaking script</label><textarea id="e4a-l8-script" data-e4a-field="speakingScript" data-e4a-field-type="textarea" data-e4a-label="Speaking script" rows="8" placeholder="My project is...
+The user can...
+I tested...
+One problem or learning point was...
+Next, I want to..."></textarea></div>
   <div class="e4a-workbook-field"><label for="e4a-l8-pronunciation">Pronunciation and timing</label><textarea id="e4a-l8-pronunciation" data-e4a-field="pronunciationTiming" data-e4a-field-type="textarea" data-e4a-label="Pronunciation and timing" rows="5"></textarea></div>
   <div class="e4a-workbook-field"><label for="e4a-l8-consent">Consent and safety check</label><textarea id="e4a-l8-consent" data-e4a-field="consentSafetyCheck" data-e4a-field-type="textarea" data-e4a-label="Consent and safety check" rows="5"></textarea></div>
   <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
@@ -744,7 +764,7 @@ Lesson 3 - English Decision Matrix
 Lesson 4 - Revised Prompt and Decision Matrix
 Lesson 5 - Source-Grounded Answer in English
 Lesson 6 - Source-Grounded Data Report
-Lesson 7 - Visual Description and Attribution Note
+Lesson 7 - AI Game Prompt and Debug Log
 Lesson 8 - Speaking Script and Consent Check
 Lesson 9 - Presentation Draft and Portfolio Checklist
 Lesson 10 - My AI Decision Assistant Prompt

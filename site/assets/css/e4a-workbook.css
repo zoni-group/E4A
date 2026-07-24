@@ -162,6 +162,114 @@
   }
 }
 
+.e4a-game-demo {
+  margin-block: 1.25rem 1.75rem;
+  border: 1px solid color-mix(in srgb, var(--bs-primary) 28%, var(--bs-border-color));
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--bs-primary) 4%, var(--bs-body-bg));
+  overflow: clip;
+}
+
+.e4a-game-demo > summary {
+  padding: 1rem 1.1rem;
+  color: var(--bs-primary);
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.e4a-game-demo > summary:focus-visible,
+.e4a-game-demo button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--bs-primary) 42%, transparent);
+  outline-offset: 3px;
+}
+
+.e4a-game-demo__body {
+  padding: 0 1.1rem 1.1rem;
+}
+
+.e4a-game-demo__note,
+.e4a-game-demo__status,
+.e4a-game-demo__action-status {
+  margin-block: 0.5rem;
+}
+
+.e4a-game-demo__status,
+.e4a-game-demo__action-status {
+  min-height: 1.5rem;
+  color: var(--bs-secondary-color);
+}
+
+.e4a-game-demo__controls,
+.e4a-game-demo__source-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-block: 0.75rem;
+}
+
+.e4a-game-demo__frame {
+  display: block;
+  width: 100%;
+  height: clamp(32rem, 75vw, 42rem);
+  margin-block: 0.9rem;
+  border: 2px solid var(--bs-border-color);
+  border-radius: 10px;
+  background: #eef4ff;
+}
+
+.e4a-game-demo__frame[hidden] {
+  display: none;
+}
+
+.e4a-game-demo__source {
+  margin-block-start: 1rem;
+  padding: 0.8rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 8px;
+  background: var(--bs-body-bg);
+}
+
+.e4a-game-demo__source > summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.e4a-game-demo__source pre {
+  max-height: 28rem;
+  margin-block: 0.75rem 0;
+  overflow: auto;
+  white-space: pre;
+}
+
+.e4a-game-demo__source code {
+  font-size: 0.82rem;
+}
+
+.e4a-game-prompt-copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-block: 0.6rem;
+}
+
+.e4a-game-prompt-copy__status {
+  min-height: 1.25rem;
+  color: var(--bs-success);
+}
+
+@media (max-width: 575.98px) {
+  .e4a-game-demo__frame {
+    height: 36rem;
+  }
+
+  .e4a-game-demo__controls .btn,
+  .e4a-game-demo__source-controls .btn {
+    flex: 1 1 9rem;
+  }
+}
+
 .e4a-workbook-field {
   margin-block: 1rem;
 }

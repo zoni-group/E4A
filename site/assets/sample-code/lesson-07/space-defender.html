@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Space Defender</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 10px; font-family: system-ui, sans-serif; color: #f6f8ff; background: #071126; text-align: center; }
+    main { width: min(100%, 620px); margin: auto; }
+    h1 { margin: 0 0 4px; font-size: clamp(1.4rem, 5vw, 2rem); }
+    p { margin: 5px 0; }
+    .stats { display: flex; justify-content: center; gap: 2rem; color: #8ff0c0; font-weight: 800; }
+    canvas { display: block; width: 100%; height: auto; margin: 9px auto; border: 3px solid #647cff; border-radius: 10px; background: #050b18; }
+    .controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+    button { min-width: 72px; min-height: 44px; padding: 8px 12px; border: 2px solid #7b8fff; border-radius: 8px; color: white; background: #26398f; font: inherit; font-weight: 700; cursor: pointer; }
+    button:focus-visible { outline: 3px solid #ffd166; outline-offset: 2px; }
+    #message { min-height: 1.5em; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Space Defender</h1>
+    <p>Move with ← →. Fire with Space or the Fire button.</p>
+    <div class="stats"><span id="score">Score: 0</span><span id="lives">Lives: 3</span></div>
+    <canvas id="game" width="600" height="440">Space Defender game area.</canvas>
+    <p id="message" role="status" aria-live="polite">Defend the bottom of the screen.</p>
+    <div class="controls" aria-label="Game controls">
+      <button id="left" type="button">← Left</button>
+      <button id="fire" type="button">Fire</button>
+      <button id="right" type="button">Right →</button>
+      <button id="restart" type="button">Restart</button>
+    </div>
+  </main>
+  <script>
+    const canvas = document.querySelector("#game");
+    const ctx = canvas.getContext("2d");
+    const scoreText = document.querySelector("#score");
+    const livesText = document.querySelector("#lives");
+    const message = document.querySelector("#message");
+    const state = {
+      score: 0, lives: 3, running: true, left: false, right: false,
+      player: { x: 275, y: 390, width: 50, height: 28 },
+      shots: [], enemies: [], enemyDirection: 1, enemySpeed: 0.5
+    };
+
+    function makeEnemies() {
+      state.enemies = [];
+      for (let row = 0; row < 3; row += 1) {
+        for (let column = 0; column < 8; column += 1) {
+          state.enemies.push({ x: 45 + column * 64, y: 45 + row * 45, width: 38, height: 25, active: true, color: ["#79e6ae", "#ffd166", "#ff7f8d"][row] });
+        }
+      }
+      state.enemyDirection = 1;
+    }
+
+    function restartGame() {
+      state.score = 0;
+      state.lives = 3;
+      state.running = true;
+      state.left = false;
+      state.right = false;
+      state.player.x = 275;
+      state.shots = [];
+      state.enemySpeed = 0.5;
+      makeEnemies();
+      message.textContent = "Defend the bottom of the screen.";
+      updateLabels();
+    }
+
+    function updateLabels() {
+      scoreText.textContent = `Score: ${state.score}`;
+      livesText.textContent = `Lives: ${state.lives}`;
+    }
+
+    function fireShot() {
+      if (!state.running) return;
+      if (state.shots.length >= 3) return;
+      state.shots.push({ x: state.player.x + 22, y: state.player.y - 14, width: 6, height: 14 });
+    }
+
+    function rectanglesTouch(first, second) {
+      const apart = [
+        first.x + first.width < second.x,
+        first.x > second.x + second.width,
+        first.y + first.height < second.y,
+        first.y > second.y + second.height
+      ].some(Boolean);
+      return !apart;
+    }
+
+    function loseLife() {
+      state.lives -= 1;
+      updateLabels();
+      if (state.lives < 1) {
+        state.running = false;
+        message.textContent = "Game over. Select Restart to try again.";
+        return;
+      }
+      message.textContent = "The enemies reached the bottom. One life lost.";
+      state.shots = [];
+      makeEnemies();
+    }
+
+    function update() {
+      if (!state.running) return;
+      if (state.left) state.player.x -= 6;
+      if (state.right) state.player.x += 6;
+      state.player.x = Math.max(0, Math.min(canvas.width - state.player.width, state.player.x));
+      for (const shot of state.shots) shot.y -= 8;
+      state.shots = state.shots.filter(shot => shot.y + shot.height > 0);
+      let changeDirection = false;
+      for (const enemy of state.enemies) {
+        if (!enemy.active) continue;
+        const nextX = enemy.x + state.enemyDirection * state.enemySpeed;
+        if (nextX < 10) changeDirection = true;
+        if (nextX + enemy.width > canvas.width - 10) changeDirection = true;
+      }
+      if (changeDirection) {
+        state.enemyDirection *= -1;
+        for (const enemy of state.enemies) enemy.y += 18;
+      } else {
+        for (const enemy of state.enemies) enemy.x += state.enemyDirection * state.enemySpeed;
+      }
+      for (const shot of state.shots) {
+        for (const enemy of state.enemies) {
+          if (enemy.active && rectanglesTouch(shot, enemy)) {
+            enemy.active = false;
+            shot.y = -100;
+            state.score += 25;
+            state.enemySpeed += 0.025;
+            updateLabels();
+            break;
+          }
+        }
+      }
+      state.shots = state.shots.filter(shot => shot.y > -20);
+      if (state.enemies.every(enemy => !enemy.active)) {
+        state.running = false;
+        message.textContent = "You win! Select Restart to play again.";
+      }
+      const reachedBottom = state.enemies.some(enemy => enemy.active && enemy.y + enemy.height >= state.player.y);
+      if (reachedBottom) loseLife();
+    }
+
+    function drawEnemy(enemy) {
+      ctx.fillStyle = enemy.color;
+      ctx.beginPath();
+      ctx.moveTo(enemy.x + 8, enemy.y);
+      ctx.lineTo(enemy.x + enemy.width - 8, enemy.y);
+      ctx.lineTo(enemy.x + enemy.width, enemy.y + enemy.height / 2);
+      ctx.lineTo(enemy.x + enemy.width - 8, enemy.y + enemy.height);
+      ctx.lineTo(enemy.x + 8, enemy.y + enemy.height);
+      ctx.lineTo(enemy.x, enemy.y + enemy.height / 2);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ffffff";
+      for (let star = 0; star < 24; star += 1) {
+        ctx.fillRect((star * 83) % canvas.width, (star * 47) % 350, 2, 2);
+      }
+      for (const enemy of state.enemies) if (enemy.active) drawEnemy(enemy);
+      ctx.fillStyle = "#ffd166";
+      for (const shot of state.shots) ctx.fillRect(shot.x, shot.y, shot.width, shot.height);
+      const player = state.player;
+      ctx.fillStyle = "#4aa8ff";
+      ctx.beginPath();
+      ctx.moveTo(player.x + player.width / 2, player.y);
+      ctx.lineTo(player.x + player.width, player.y + player.height);
+      ctx.lineTo(player.x, player.y + player.height);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    function setDirection(direction, pressed) {
+      state[direction] = pressed;
+    }
+    document.addEventListener("keydown", event => {
+      if (event.key === "ArrowLeft") setDirection("left", true);
+      if (event.key === "ArrowRight") setDirection("right", true);
+      if (event.code === "Space") { event.preventDefault(); fireShot(); }
+    });
+    document.addEventListener("keyup", event => {
+      if (event.key === "ArrowLeft") setDirection("left", false);
+      if (event.key === "ArrowRight") setDirection("right", false);
+    });
+    for (const direction of ["left", "right"]) {
+      const button = document.querySelector(`#${direction}`);
+      button.addEventListener("pointerdown", () => setDirection(direction, true));
+      button.addEventListener("pointerup", () => setDirection(direction, false));
+      button.addEventListener("pointerleave", () => setDirection(direction, false));
+    }
+    document.querySelector("#fire").addEventListener("click", fireShot);
+    document.querySelector("#restart").addEventListener("click", restartGame);
+    restartGame();
+    loop();
+  </script>
+</body>
+</html>

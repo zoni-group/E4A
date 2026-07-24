@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -34,21 +37,21 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./lesson-09-portfolio-presentation-workshop.html" rel="next">
-<link href="./lesson-07-visual-communication-attribution.html" rel="prev">
+<link href="./lesson-07-coding-with-ai.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9c42ed6baed5871d395e4db15611d42f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-343830dee7e81009abd9657442190b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-febdc0bd1cf710de19db6afa0751cb89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-343830dee7e81009abd9657442190b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -339,8 +342,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lesson-07-visual-communication-attribution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Visual Communication and Attribution</span></span></a>
+  <a href="./lesson-07-coding-with-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Create Games with AI — Prompt, Test, Debug, Persist</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -469,13 +472,13 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="start-here" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="start-here"><span class="header-section-number">10.1</span> Start Here</h2>
-<p>Speaking is easier when you prepare. A short script helps you organize your English before you talk to a teacher, employer, classmate, or community member.</p>
-<p>Today you will write a 60-second script, practice pronunciation and timing, and review voice consent rules.</p>
+<p>Speaking is easier when you prepare. A short script helps you organize your English before you talk to a teacher, employer, classmate, or community member. You can also use a script to explain the game, webpage, or application you planned in Lesson 7.</p>
+<p>Today you will write a 60-second description of a project or another useful topic, practice pronunciation and timing, and review voice consent rules.</p>
 </section>
 <section id="why-this-matters" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="why-this-matters"><span class="header-section-number">10.2</span> Why This Matters</h2>
 <p>AI can help revise a script or suggest clearer words. But your voice, your meaning, and your consent matter. You should not clone, copy, or imitate another real person’s voice. You should not record someone without permission.</p>
-<p>Clear speaking plus safe voice habits help you communicate respectfully.</p>
+<p>Clear speaking helps you show what an application does, what you tested, and what you want to improve. Safe voice habits help you communicate respectfully.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -495,7 +498,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="10.3" class="anchored" data-anchor-id="today-you-will"><span class="header-section-number">10.3</span> Today You Will</h2>
 <p>By the end of this lesson, you will:</p>
 <ol type="1">
-<li>Write a 60-second English speaking script.</li>
+<li>Write a 60-second English description of a game, webpage, application, or another useful topic.</li>
 <li>Practice polite spoken English.</li>
 <li>Improve pronunciation, pausing, and timing.</li>
 <li>Complete a voice consent and safety check.</li>
@@ -515,12 +518,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="callout-body-container callout-body">
 <p><strong>Theme:</strong> Prepared speaking builds confidence and requires consent.</p>
 <p><strong>AI Focus:</strong> Script revision, pronunciation suggestions, and voice safety.</p>
-<p><strong>ESL Focus:</strong> Polite requests, pronunciation, timing, process language, and feedback.</p>
+<p><strong>ESL Focus:</strong> Project descriptions, polite requests, pronunciation, timing, process language, and feedback.</p>
 <p><strong>Content Objective:</strong> Students will create and practice a short English script.</p>
 <p><strong>Language Objective:</strong> Students will use spoken English frames:</p>
 <pre class="text"><code>Hello, my name is...
-I am calling about...
-Could you please...
+My project is...
+The user can...
+I tested...
+Next, I want to...
 Thank you for your time.</code></pre>
 </div>
 </div>
@@ -596,6 +601,11 @@ Thank you for your time.</code></pre>
 <pre class="text"><code>Hello, my name is __________.
 I am speaking about __________.
 The purpose is __________.
+My project is a __________.
+The user can __________.
+I tested __________.
+One problem I found was __________.
+Next, I want to __________.
 I would like to __________.
 Could you please __________?
 One word I need to practice is __________.
@@ -700,19 +710,27 @@ Read once with a timer.</code></pre>
 <section id="independent-practice" class="level2" data-number="10.9">
 <h2 data-number="10.9" class="anchored" data-anchor-id="independent-practice"><span class="header-section-number">10.9</span> Independent Practice</h2>
 <p>Write directly in this workbook page. It is your Lesson 8 evidence.</p>
+<p>You may describe the game you generated or planned in Lesson 7. You can also describe a webpage or another application. Include:</p>
+<ol type="1">
+<li>what the project is;</li>
+<li>what the user can do;</li>
+<li>one feature;</li>
+<li>one test, bug, or learning point;</li>
+<li>one next step.</li>
+</ol>
 <section class="e4a-workbook-card" data-e4a-workbook="" data-e4a-artifact-id="lesson-08-speaking-consent" data-e4a-artifact-title="Lesson 8 - Speaking Script and Consent Check" data-e4a-filename="Lesson 8 - Speaking Script and Consent Check">
   <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Speaking Script and Consent Check</h3><p class="e4a-workbook-card__filename">Write directly in this workbook page.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
   <div class="e4a-workbook-field"><label for="e4a-l8-lesson-script">Speaking script</label><textarea id="e4a-l8-lesson-script" data-e4a-field="speakingScript" data-e4a-field-type="textarea" data-e4a-label="Speaking script" rows="11" placeholder="Purpose (why am I speaking?):
 
 Audience (who will listen?):
 
-Script (100-150 words):
+Script (about 100-150 words):
 
-Important details:
-- Date/time:
-- Name:
-- Request:
-- Deadline:"></textarea></div>
+Project details:
+- What it is:
+- What the user can do:
+- One test, bug, or learning point:
+- Next step or request:"></textarea></div>
   <div class="e4a-workbook-field"><label for="e4a-l8-lesson-pronunciation">Pronunciation and timing</label><textarea id="e4a-l8-lesson-pronunciation" data-e4a-field="pronunciationTiming" data-e4a-field-type="textarea" data-e4a-label="Pronunciation and timing" rows="9" placeholder="Pronunciation focus (final consonants / stress / pausing / intonation / polite tone):
 
 My script time was:
@@ -792,7 +810,7 @@ One privacy or consent concern:</code></pre>
 <li>updated <code>Vocabulary Log</code></li>
 </ul>
 <p>Privacy reminder: Do not record another person, clone a voice, imitate a real person, or include private information in your script.</p>
-<p>Optional extension: Open the Lessons 7-8 Visual Script Lab. Do not upload images, photos, or audio.</p>
+<p>Optional extension: Open the Lessons 7-8 Code Prompt and Speaking Lab. It is for prompt planning and project-speaking practice only. You will not run game code in the lab.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -804,9 +822,9 @@ One privacy or consent concern:</code></pre>
 </div>
 <div class="callout-body-container callout-body">
 <p>This lab is optional. Use it only if your teacher asks or if you want extra practice. You do not need to complete the lab to finish your portfolio.</p>
-<p>Open the <strong>Lessons 7-8 Visual Script Lab</strong> in Colab:</p>
-<p><a href="https://colab.research.google.com/github/zoni-group/E4A/blob/public-29aa42447f1e/english-for-ai-course/interactives/class-04-visual-script-lab.ipynb" class="uri">https://colab.research.google.com/github/zoni-group/E4A/blob/public-29aa42447f1e/english-for-ai-course/interactives/class-04-visual-script-lab.ipynb</a></p>
-<p>Use safe visual topics only. Do not upload images, photos, or audio.</p>
+<p>Open the <strong>Lessons 7-8 Code Prompt and Speaking Lab</strong> in Colab:</p>
+<p><a href="https://colab.research.google.com/github/zoni-group/E4A/blob/public-6859e0d67d72/english-for-ai-course/interactives/class-04-code-script-lab.ipynb" class="uri">https://colab.research.google.com/github/zoni-group/E4A/blob/public-6859e0d67d72/english-for-ai-course/interactives/class-04-code-script-lab.ipynb</a></p>
+<p>Use safe project details only. Do not upload HTML files, images, photos, or audio. The lab helps you plan English prompts and a 60-second explanation; it does not require GitHub or coding tools.</p>
 <p>The lab uses <strong>Colab AI</strong> automatically when it is available in the Colab runtime. If Colab AI is not available, the regular lab steps still work, and you can finish your portfolio without AI.</p>
 <p>After any AI answer, say: <em>“I checked the AI answer before I used it.”</em></p>
 </div>
@@ -1246,8 +1264,8 @@ One privacy or consent concern:</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./lesson-07-visual-communication-attribution.html" class="pagination-link" aria-label="Lesson 7: Visual Communication and Attribution">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Visual Communication and Attribution</span></span>
+      <a href="./lesson-07-coding-with-ai.html" class="pagination-link" aria-label="Lesson 7: Create Games with AI — Prompt, Test, Debug, Persist">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Create Games with AI — Prompt, Test, Debug, Persist</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

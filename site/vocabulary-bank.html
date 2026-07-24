@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,14 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9c42ed6baed5871d395e4db15611d42f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-343830dee7e81009abd9657442190b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-febdc0bd1cf710de19db6afa0751cb89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-343830dee7e81009abd9657442190b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -339,8 +342,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lesson-07-visual-communication-attribution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Visual Communication and Attribution</span></span></a>
+  <a href="./lesson-07-coding-with-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Create Games with AI — Prompt, Test, Debug, Persist</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -823,113 +826,179 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>Lesson 7</td>
-<td>visual</td>
-<td>A picture, flyer, poster, chart, or diagram</td>
-<td>My visual is a flyer.</td>
+<td>code</td>
+<td>Instructions a computer can follow</td>
+<td>AI created code for my game.</td>
 </tr>
 <tr class="odd">
 <td>Lesson 7</td>
-<td>image</td>
-<td>A picture</td>
-<td>The image shows a classroom.</td>
+<td>prompt</td>
+<td>Instructions or a question for AI</td>
+<td>My prompt describes the game.</td>
 </tr>
 <tr class="even">
 <td>Lesson 7</td>
-<td>license</td>
-<td>Permission to use something</td>
-<td>The image has an open license.</td>
+<td>context</td>
+<td>Information that helps AI understand the work</td>
+<td>I gave AI the current file as context.</td>
 </tr>
 <tr class="odd">
 <td>Lesson 7</td>
-<td>attribution</td>
-<td>Giving credit to the creator</td>
-<td>I wrote an attribution note.</td>
+<td>baseline</td>
+<td>A working starting point</td>
+<td>I changed one feature in the baseline.</td>
 </tr>
 <tr class="even">
 <td>Lesson 7</td>
-<td>consent</td>
-<td>Permission</td>
-<td>I need consent to use a face.</td>
+<td>HTML</td>
+<td>The structure of a webpage</td>
+<td>HTML creates the button.</td>
 </tr>
 <tr class="odd">
+<td>Lesson 7</td>
+<td>CSS</td>
+<td>The appearance of a webpage</td>
+<td>CSS makes the button blue.</td>
+</tr>
+<tr class="even">
+<td>Lesson 7</td>
+<td>JavaScript</td>
+<td>The behavior of a webpage</td>
+<td>JavaScript checks my guess.</td>
+</tr>
+<tr class="odd">
+<td>Lesson 7</td>
+<td>browser</td>
+<td>An application that opens webpages</td>
+<td>I tested the file in my browser.</td>
+</tr>
+<tr class="even">
+<td>Lesson 7</td>
+<td>file</td>
+<td>Saved information with a name</td>
+<td>My file is <code>guess-number-v1.html</code>.</td>
+</tr>
+<tr class="odd">
+<td>Lesson 7</td>
+<td>bug</td>
+<td>A problem in software</td>
+<td>The reset button has a bug.</td>
+</tr>
+<tr class="even">
+<td>Lesson 7</td>
+<td>debug</td>
+<td>Find and fix a software problem</td>
+<td>I asked AI to debug one problem.</td>
+</tr>
+<tr class="odd">
+<td>Lesson 7</td>
+<td>test</td>
+<td>Check whether something works as expected</td>
+<td>I tested the New Game button.</td>
+</tr>
+<tr class="even">
+<td>Lesson 7</td>
+<td>expected result</td>
+<td>What should happen</td>
+<td>My expected result is “Too low.”</td>
+</tr>
+<tr class="odd">
+<td>Lesson 7</td>
+<td>version</td>
+<td>One saved state of a file</td>
+<td>Version 2 keeps my bug fix.</td>
+</tr>
+<tr class="even">
+<td>Lesson 7</td>
+<td>backup</td>
+<td>A safe extra copy</td>
+<td>I kept a backup of Version 1.</td>
+</tr>
+<tr class="odd">
+<td>Lesson 7</td>
+<td>persist</td>
+<td>Continue after a problem</td>
+<td>I will persist and try a clearer prompt.</td>
+</tr>
+<tr class="even">
 <td>Lesson 8</td>
 <td>script</td>
 <td>Written words prepared before speaking</td>
 <td>I wrote a script for my call.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Lesson 8</td>
 <td>pronunciation</td>
 <td>How words sound</td>
 <td>I practiced pronunciation.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Lesson 8</td>
 <td>timing</td>
 <td>How long something takes</td>
 <td>My script timing is 58 seconds.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Lesson 8</td>
 <td>clone</td>
 <td>Make a copy</td>
 <td>Do not clone a real person’s voice.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Lesson 8</td>
 <td>imitate</td>
 <td>Copy the sound of someone</td>
 <td>Do not imitate another person’s voice.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Lesson 9</td>
 <td>portfolio</td>
 <td>A collection of work</td>
 <td>My portfolio shows my learning.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Lesson 9</td>
 <td>checklist</td>
 <td>A list to check completion</td>
 <td>I used a checklist.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Lesson 9</td>
 <td>draft</td>
 <td>A first version</td>
 <td>I wrote a presentation draft.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Lesson 9</td>
 <td>presentation</td>
 <td>A short talk</td>
 <td>I practiced my presentation.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Lesson 10</td>
 <td>workflow</td>
 <td>A repeatable process</td>
 <td>My workflow helps me check AI answers.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Lesson 10</td>
 <td>template</td>
 <td>A reusable format</td>
 <td>I kept a prompt template in my workbook.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Lesson 10</td>
 <td>guardrail</td>
 <td>A safety rule</td>
 <td>My guardrail is: do not share private data.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Lesson 10</td>
 <td>reflection</td>
 <td>Thinking about learning</td>
 <td>My reflection explains what improved.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Lesson 10</td>
 <td>final decision</td>
 <td>The choice I make</td>

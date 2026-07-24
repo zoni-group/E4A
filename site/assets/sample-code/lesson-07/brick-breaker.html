@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brick Breaker</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 12px; font-family: system-ui, sans-serif; color: #14213d; background: #eef4ff; text-align: center; }
+    main { width: min(100%, 680px); margin: auto; }
+    h1 { margin: 0 0 4px; font-size: clamp(1.4rem, 5vw, 2rem); }
+    p { margin: 5px 0; }
+    .stats { display: flex; justify-content: center; gap: 2rem; font-weight: 700; }
+    canvas { display: block; width: 100%; height: auto; margin: 10px auto; border: 3px solid #1f4f9f; border-radius: 10px; background: #101a36; }
+    .controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    button { min-width: 74px; min-height: 44px; padding: 8px 14px; border: 2px solid #1f4f9f; border-radius: 8px; color: white; background: #1f4f9f; font: inherit; font-weight: 700; cursor: pointer; }
+    button:focus-visible { outline: 3px solid #f6b73c; outline-offset: 2px; }
+    #message { min-height: 1.5em; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Brick Breaker</h1>
+    <p>Move with ← → or the buttons. Keep the ball above the paddle.</p>
+    <div class="stats"><span id="score">Score: 0</span><span id="lives">Lives: 3</span></div>
+    <canvas id="game" width="640" height="420">Brick Breaker game area.</canvas>
+    <p id="message" role="status" aria-live="polite">Break every brick.</p>
+    <div class="controls" aria-label="Game controls">
+      <button id="left" type="button" aria-label="Move paddle left">← Left</button>
+      <button id="right" type="button" aria-label="Move paddle right">Right →</button>
+      <button id="restart" type="button">Restart</button>
+    </div>
+  </main>
+  <script>
+    const canvas = document.querySelector("#game");
+    const ctx = canvas.getContext("2d");
+    const scoreText = document.querySelector("#score");
+    const livesText = document.querySelector("#lives");
+    const message = document.querySelector("#message");
+    const state = {
+      score: 0, lives: 3, running: true, left: false, right: false,
+      paddle: { x: 270, y: 388, width: 100, height: 14 },
+      ball: { x: 320, y: 365, dx: 3.4, dy: -3.4, radius: 8 },
+      bricks: []
+    };
+
+    function makeBricks() {
+      state.bricks = [];
+      for (let row = 0; row < 4; row += 1) {
+        for (let column = 0; column < 7; column += 1) {
+          state.bricks.push({ x: 35 + column * 83, y: 48 + row * 32, width: 70, height: 20, active: true, color: ["#ff6b6b", "#ffd166", "#62d6a7", "#59a5ff"][row] });
+        }
+      }
+    }
+
+    function resetBall() {
+      state.ball.x = 320;
+      state.ball.y = 365;
+      state.ball.dx = 3.4;
+      state.ball.dy = -3.4;
+      state.paddle.x = 270;
+    }
+
+    function restartGame() {
+      state.score = 0;
+      state.lives = 3;
+      state.running = true;
+      makeBricks();
+      resetBall();
+      message.textContent = "Break every brick.";
+      updateLabels();
+    }
+
+    function updateLabels() {
+      scoreText.textContent = `Score: ${state.score}`;
+      livesText.textContent = `Lives: ${state.lives}`;
+    }
+
+    function overlap(ball, box) {
+      const nearestX = Math.max(box.x, Math.min(ball.x, box.x + box.width));
+      const nearestY = Math.max(box.y, Math.min(ball.y, box.y + box.height));
+      const xDistance = ball.x - nearestX;
+      const yDistance = ball.y - nearestY;
+      return xDistance * xDistance + yDistance * yDistance < ball.radius * ball.radius;
+    }
+
+    function update() {
+      if (!state.running) return;
+      if (state.left) state.paddle.x -= 7;
+      if (state.right) state.paddle.x += 7;
+      state.paddle.x = Math.max(0, Math.min(canvas.width - state.paddle.width, state.paddle.x));
+      const ball = state.ball;
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+      if (ball.x > canvas.width - ball.radius) ball.dx = -Math.abs(ball.dx);
+      if (ball.x < ball.radius) ball.dx = Math.abs(ball.dx);
+      if (ball.y < ball.radius) ball.dy = Math.abs(ball.dy);
+      if (ball.dy > 0 && overlap(ball, state.paddle)) {
+        ball.dy = -Math.abs(ball.dy);
+        ball.dx += (ball.x - (state.paddle.x + state.paddle.width / 2)) * 0.025;
+      }
+      for (const brick of state.bricks) {
+        if (brick.active && overlap(ball, brick)) {
+          brick.active = false;
+          ball.dy = -ball.dy;
+          state.score += 10;
+          updateLabels();
+          break;
+        }
+      }
+      if (state.bricks.every(brick => !brick.active)) {
+        state.running = false;
+        message.textContent = "You win! Select Restart to play again.";
+      }
+      if (ball.y > canvas.height + ball.radius) {
+        state.lives -= 1;
+        updateLabels();
+        if (state.lives < 1) {
+          state.running = false;
+          message.textContent = "Game over. Select Restart to try again.";
+        } else {
+          message.textContent = "One life lost. Keep going.";
+          resetBall();
+        }
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const brick of state.bricks) {
+        if (!brick.active) continue;
+        ctx.fillStyle = brick.color;
+        ctx.fillRect(brick.x, brick.y, brick.width, brick.height);
+      }
+      ctx.fillStyle = "#59a5ff";
+      ctx.fillRect(state.paddle.x, state.paddle.y, state.paddle.width, state.paddle.height);
+      ctx.beginPath();
+      ctx.arc(state.ball.x, state.ball.y, state.ball.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#ffffff";
+      ctx.fill();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    function setDirection(direction, pressed) {
+      state[direction] = pressed;
+    }
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "ArrowLeft") setDirection("left", true);
+      if (event.key === "ArrowRight") setDirection("right", true);
+    });
+    document.addEventListener("keyup", event => {
+      if (event.key === "ArrowLeft") setDirection("left", false);
+      if (event.key === "ArrowRight") setDirection("right", false);
+    });
+    for (const direction of ["left", "right"]) {
+      const button = document.querySelector(`#${direction}`);
+      button.addEventListener("pointerdown", () => setDirection(direction, true));
+      button.addEventListener("pointerup", () => setDirection(direction, false));
+      button.addEventListener("pointerleave", () => setDirection(direction, false));
+    }
+    document.querySelector("#restart").addEventListener("click", restartGame);
+    restartGame();
+    loop();
+  </script>
+</body>
+</html>

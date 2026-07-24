@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -59,14 +62,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9c42ed6baed5871d395e4db15611d42f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-82cb5808e81da3454e8042d903791e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-343830dee7e81009abd9657442190b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-febdc0bd1cf710de19db6afa0751cb89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-343830dee7e81009abd9657442190b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -357,8 +360,8 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lesson-07-visual-communication-attribution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Visual Communication and Attribution</span></span></a>
+  <a href="./lesson-07-coding-with-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lesson 7: Create Games with AI — Prompt, Test, Debug, Persist</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -503,8 +506,16 @@ div.csl-indent {
 <td>The course’s “stop and check” habit connects to Mike Caulfield’s web literacy and SIFT work <span class="citation" data-cites="caulfield2017web caulfield2019sift">(<a href="references.html#ref-caulfield2017web" role="doc-biblioref">Caulfield 2017</a>, <a href="references.html#ref-caulfield2019sift" role="doc-biblioref">2019</a>)</span>.</td>
 </tr>
 <tr class="even">
-<td>Visual attribution</td>
-<td>Lesson 7 uses Creative Commons attribution practices, especially TASL: Title, Author, Source, License <span class="citation" data-cites="creativeCommonsAttribution">(<a href="references.html#ref-creativeCommonsAttribution" role="doc-biblioref">Creative Commons n.d.</a>)</span>.</td>
+<td>Test-first development</td>
+<td>Lesson 7 introduces a manual, beginner version of Red-Green-Refactor: write an expected result, test, correct one problem, and test again <span class="citation" data-cites="fowler2023tdd">(<a href="references.html#ref-fowler2023tdd" role="doc-biblioref">Fowler 2023</a>)</span>.</td>
+</tr>
+<tr class="odd">
+<td>Version control</td>
+<td>Lesson 7 uses named files and backups, then notes that professional tools such as Git can record changes automatically <span class="citation" data-cites="chacon2014versioncontrol">(<a href="references.html#ref-chacon2014versioncontrol" role="doc-biblioref">Chacon and Straub 2014</a>)</span>.</td>
+</tr>
+<tr class="even">
+<td>Starting from a baseline</td>
+<td>Lesson 7 uses a pinned CC0 code sample from the Gamedev Canvas Workshop and teaches students to check licenses, preserve required credit, understand the result, and retest changes <span class="citation" data-cites="mazurCanvasWorkshop">(<a href="references.html#ref-mazurCanvasWorkshop" role="doc-biblioref">Mazur 2015</a>)</span>.</td>
 </tr>
 <tr class="odd">
 <td>ESL scaffolding</td>
@@ -548,14 +559,17 @@ Mike Caulfield. <a href="https://open.umn.edu/opentextbooks/textbooks/454">https
 Caulfield, Mike. 2019. <em>Introducing SIFT, a Four Moves Acronym</em>.
 <a href="https://hapgood.us/2019/05/12/sift-and-a-check-please-preview/">https://hapgood.us/2019/05/12/sift-and-a-check-please-preview/</a>.
 </div>
-<div id="ref-creativeCommonsAttribution" class="csl-entry" role="listitem">
-Creative Commons. n.d. <em>Recommended Practices for Attribution</em>.
-<a href="https://wiki.creativecommons.org/wiki/Best_practices_for_attribution">https://wiki.creativecommons.org/wiki/Best_practices_for_attribution</a>.
+<div id="ref-chacon2014versioncontrol" class="csl-entry" role="listitem">
+Chacon, Scott, and Ben Straub. 2014. <em>Pro Git</em>. 2nd ed. Apress.
+<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control</a>.
 </div>
 <div id="ref-echevarria2017siop" class="csl-entry" role="listitem">
 Echevarria, Jana, MaryEllen Vogt, and Deborah J. Short. 2017. <em>Making
 Content Comprehensible for English Learners: The SIOP Model</em>. 5th
 ed. Pearson. <a href="https://www.pearson.com/us/higher-education/product/Echevarria-Making-Content-Comprehensible-for-English-Learners-The-SIOP-Model-5th-Edition/9780134045238.html">https://www.pearson.com/us/higher-education/product/Echevarria-Making-Content-Comprehensible-for-English-Learners-The-SIOP-Model-5th-Edition/9780134045238.html</a>.
+</div>
+<div id="ref-fowler2023tdd" class="csl-entry" role="listitem">
+Fowler, Martin. 2023. <em>Test-Driven Development</em>. <a href="https://martinfowler.com/bliki/TestDrivenDevelopment.html">https://martinfowler.com/bliki/TestDrivenDevelopment.html</a>.
 </div>
 <div id="ref-lewis2010metafilterproduct" class="csl-entry" role="listitem">
 Lewis, Andrew. 2010. <em>User-Driven Discontent</em>. MetaFilter comment
@@ -584,9 +598,16 @@ Maynez, Joshua, Shashi Narayan, Bernd Bohnet, and Ryan McDonald. 2020.
 Summarization.”</span> <em>Proceedings of the 58th Annual Meeting of the
 Association for Computational Linguistics</em> (Online), 1906–19. <a href="https://doi.org/10.18653/v1/2020.acl-main.173">https://doi.org/10.18653/v1/2020.acl-main.173</a>.
 </div>
+<div id="ref-mazurCanvasWorkshop" class="csl-entry" role="listitem">
+Mazur, Andrzej. 2015. <em>Gamedev Canvas Workshop</em>. GitHub
+repository. <a href="https://github.com/end3r/Gamedev-Canvas-workshop/tree/5199692d8acb9770dc5c16b5b18afbadd95fa497">https://github.com/end3r/Gamedev-Canvas-workshop/tree/5199692d8acb9770dc5c16b5b18afbadd95fa497</a>.
+</div>
 <div id="ref-unesco2023generativeai" class="csl-entry" role="listitem">
 Miao, Fengchun, and Wayne Holmes. 2023. <em>Guidance for Generative AI
 in Education and Research</em>. UNESCO. <a href="https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research">https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research</a>.
+</div>
+<div id="ref-newton1676hooke" class="csl-entry" role="listitem">
+Newton, Isaac. 1676. <em>Letter to Robert Hooke</em>. <a href="https://digitallibrary.hsp.org/index.php/Detail/objects/9792">https://digitallibrary.hsp.org/index.php/Detail/objects/9792</a>.
 </div>
 <div id="ref-nist2023airmf" class="csl-entry" role="listitem">
 Tabassi, Elham. 2023. <em>Artificial Intelligence Risk Management

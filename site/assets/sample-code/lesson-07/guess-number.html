@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guess the Number</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, sans-serif;
+      background: #eef4ff;
+      color: #15213a;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    main {
+      width: min(90vw, 34rem);
+      box-sizing: border-box;
+      padding: 2rem;
+      border: 2px solid #2457c5;
+      border-radius: 1rem;
+      background: white;
+      box-shadow: 0 1rem 2rem rgb(21 33 58 / 12%);
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+
+    input,
+    button {
+      min-height: 2.75rem;
+      box-sizing: border-box;
+      border-radius: 0.5rem;
+      font: inherit;
+    }
+
+    input {
+      min-width: 10rem;
+      flex: 1;
+      padding: 0.5rem 0.75rem;
+      border: 2px solid #6d7890;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border: 2px solid #2457c5;
+      background: #2457c5;
+      color: white;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: white;
+      color: #2457c5;
+    }
+
+    #message {
+      min-height: 1.5rem;
+      font-weight: 700;
+    }
+
+    #attempts {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Guess the Number</h1>
+    <p>I chose a whole number from 1 to 100. Enter a number and select <strong>Guess</strong>. You can also press Enter.</p>
+
+    <form id="guess-form" novalidate>
+      <label for="guess">Your guess</label>
+      <div class="controls">
+        <input id="guess" name="guess" type="number" min="1" max="100" step="1" inputmode="numeric" autocomplete="off">
+        <button type="submit">Guess</button>
+        <button class="secondary" id="new-game" type="button">New Game</button>
+      </div>
+    </form>
+
+    <p id="message" role="status" aria-live="polite">Make your first guess.</p>
+    <p id="attempts">Attempts: 0</p>
+  </main>
+
+  <script>
+    const form = document.querySelector("#guess-form");
+    const input = document.querySelector("#guess");
+    const message = document.querySelector("#message");
+    const attemptsText = document.querySelector("#attempts");
+    const newGameButton = document.querySelector("#new-game");
+
+    let targetNumber;
+    let attempts;
+    let gameFinished;
+
+    function chooseTargetNumber() {
+      return Math.floor(Math.random() * 100) + 1;
+    }
+
+    function startNewGame() {
+      targetNumber = chooseTargetNumber();
+      attempts = 0;
+      gameFinished = false;
+      input.disabled = false;
+      input.value = "";
+      message.textContent = "Make your first guess.";
+      attemptsText.textContent = "Attempts: 0";
+      input.focus();
+    }
+
+    function readGuess() {
+      const text = input.value.trim();
+      const number = Number(text);
+
+      const invalidGuess = [
+        text === "",
+        !Number.isInteger(number),
+        number < 1,
+        number > 100
+      ].some(Boolean);
+
+      if (invalidGuess) {
+        return null;
+      }
+
+      return number;
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (gameFinished) {
+        message.textContent = "Select New Game to play again.";
+        return;
+      }
+
+      const guess = readGuess();
+      if (guess === null) {
+        message.textContent = "Enter one whole number from 1 to 100.";
+        input.focus();
+        return;
+      }
+
+      attempts += 1;
+      attemptsText.textContent = `Attempts: ${attempts}`;
+
+      if (guess < targetNumber) {
+        message.textContent = "Too low.";
+      } else if (guess > targetNumber) {
+        message.textContent = "Too high.";
+      } else {
+        message.textContent = `Correct! The number was ${targetNumber}.`;
+        gameFinished = true;
+        input.disabled = true;
+      }
+
+      input.select();
+    });
+
+    newGameButton.addEventListener("click", startNewGame);
+    startNewGame();
+  </script>
+</body>
+</html>

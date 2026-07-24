@@ -1,0 +1,10 @@
+CC0 1.0 Universal
+
+The upstream Gamedev Canvas Workshop dedicates its code samples and snippets
+to the public domain under CC0 1.0 Universal.
+
+Legal code and deed:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Upstream license notice:
+https://raw.githubusercontent.com/end3r/Gamedev-Canvas-workshop/5199692d8acb9770dc5c16b5b18afbadd95fa497/LICENSE
