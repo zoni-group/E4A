@@ -422,12 +422,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-ai-coding-loop" id="toc-the-ai-coding-loop" class="nav-link" data-scroll-target="#the-ai-coding-loop"><span class="header-section-number">9.4.2</span> The AI Coding Loop</a></li>
   <li><a href="#safety-before-you-ask-ai" id="toc-safety-before-you-ask-ai" class="nav-link" data-scroll-target="#safety-before-you-ask-ai"><span class="header-section-number">9.4.3</span> Safety Before You Ask AI</a></li>
   </ul></li>
-  <li><a href="#key-vocabulary" id="toc-key-vocabulary" class="nav-link" data-scroll-target="#key-vocabulary"><span class="header-section-number">9.5</span> Key Vocabulary</a>
+  <li><a href="#key-vocabulary" id="toc-key-vocabulary" class="nav-link" data-scroll-target="#key-vocabulary"><span class="header-section-number">9.5</span> Key Vocabulary</a></li>
+  <li><a href="#sentence-frames" id="toc-sentence-frames" class="nav-link" data-scroll-target="#sentence-frames"><span class="header-section-number">9.6</span> Sentence Frames</a>
   <ul class="collapse">
-  <li><a href="#round-1-files-and-context" id="toc-round-1-files-and-context" class="nav-link" data-scroll-target="#round-1-files-and-context"><span class="header-section-number">9.5.1</span> Round 1: Files and Context</a></li>
-  <li><a href="#round-2-testing-and-persistence" id="toc-round-2-testing-and-persistence" class="nav-link" data-scroll-target="#round-2-testing-and-persistence"><span class="header-section-number">9.5.2</span> Round 2: Testing and Persistence</a></li>
+  <li><a href="#use-the-words" id="toc-use-the-words" class="nav-link" data-scroll-target="#use-the-words"><span class="header-section-number">9.6.1</span> Use the Words</a></li>
   </ul></li>
-  <li><a href="#sentence-frames" id="toc-sentence-frames" class="nav-link" data-scroll-target="#sentence-frames"><span class="header-section-number">9.6</span> Sentence Frames</a></li>
   <li><a href="#lesson-agenda" id="toc-lesson-agenda" class="nav-link" data-scroll-target="#lesson-agenda"><span class="header-section-number">9.7</span> Lesson Agenda</a></li>
   <li><a href="#guided-practice" id="toc-guided-practice" class="nav-link" data-scroll-target="#guided-practice"><span class="header-section-number">9.8</span> Guided Practice</a>
   <ul class="collapse">
@@ -499,8 +498,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="9.1" class="anchored" data-anchor-id="start-here"><span class="header-section-number">9.1</span> Start Here</h2>
 <p>Your teacher opens one file:</p>
 <pre class="text"><code>guess-number-v1.html</code></pre>
-<p>A game appears in the browser. It has instructions, a number box, a <strong>Guess</strong> button, and a <strong>New Game</strong> button.</p>
-<p>The teacher did not write every line of code. The teacher described the game to AI, saved the complete answer as an HTML file, opened it, tested it, and fixed a problem.</p>
+<p>A <strong>file</strong> is saved information with a name. A <strong>browser</strong> is an application that opens webpages. When the teacher opens this file in a browser, a game appears. It has instructions, a number box, a <strong>Guess</strong> button, and a <strong>New Game</strong> button.</p>
+<p><strong>Code</strong> means instructions a computer can follow. The teacher did not write every line of code. The teacher described the game to AI, saved the complete answer as an HTML file, opened it, tested it, and fixed a problem.</p>
 <p>That is the process you will practice today.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -516,6 +515,41 @@ ul.task-list li input[type="checkbox"] {
 <p>Do not ask for a code fragment, a patch, or only the changed lines.</p>
 </div>
 </div>
+<p>These phrases will help you follow the lesson. You do not need to memorize them now.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Helpful phrase</th>
+<th>Simple meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>complete HTML file</td>
+<td>One file with the webpage structure, appearance, and behavior together</td>
+</tr>
+<tr class="even">
+<td>self-contained</td>
+<td>Works without other files or internet items</td>
+</tr>
+<tr class="odd">
+<td>requirement</td>
+<td>Something the game must do</td>
+</tr>
+<tr class="even">
+<td>feature</td>
+<td>A part or action in the game</td>
+</tr>
+<tr class="odd">
+<td>code fragment</td>
+<td>Only one part of the code</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="why-this-matters" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="why-this-matters"><span class="header-section-number">9.2</span> Why This Matters</h2>
@@ -667,123 +701,53 @@ Figure&nbsp;9.1: A beginner workflow for creating and improving one HTML game.
 </section>
 <section id="key-vocabulary" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="key-vocabulary"><span class="header-section-number">9.5</span> Key Vocabulary</h2>
-<section id="round-1-files-and-context" class="level3" data-number="9.5.1">
-<h3 data-number="9.5.1" class="anchored" data-anchor-id="round-1-files-and-context"><span class="header-section-number">9.5.1</span> Round 1: Files and Context</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Word</th>
-<th>Simple Meaning</th>
-<th>Example Sentence</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>code</td>
-<td>Instructions a computer can follow</td>
-<td>AI created code for my game.</td>
-</tr>
-<tr class="even">
-<td>prompt</td>
-<td>Instructions or a question for AI</td>
-<td>My prompt describes the game.</td>
-</tr>
-<tr class="odd">
-<td>context</td>
-<td>Information that helps AI understand the work</td>
-<td>I gave AI the current file as context.</td>
-</tr>
-<tr class="even">
-<td>baseline</td>
-<td>A working starting point</td>
-<td>I changed one feature in the baseline.</td>
-</tr>
-<tr class="odd">
-<td>HTML</td>
-<td>The structure of a webpage</td>
-<td>HTML creates the button.</td>
-</tr>
-<tr class="even">
-<td>CSS</td>
-<td>The appearance of a webpage</td>
-<td>CSS makes the button blue.</td>
-</tr>
-<tr class="odd">
-<td>JavaScript</td>
-<td>The behavior of a webpage</td>
-<td>JavaScript checks my guess.</td>
-</tr>
-<tr class="even">
-<td>browser</td>
-<td>An application that opens webpages</td>
-<td>I tested the file in my browser.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="round-2-testing-and-persistence" class="level3" data-number="9.5.2">
-<h3 data-number="9.5.2" class="anchored" data-anchor-id="round-2-testing-and-persistence"><span class="header-section-number">9.5.2</span> Round 2: Testing and Persistence</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Word</th>
-<th>Simple Meaning</th>
-<th>Example Sentence</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>file</td>
-<td>Saved information with a name</td>
-<td>My file is <code>guess-number-v1.html</code>.</td>
-</tr>
-<tr class="even">
-<td>bug</td>
-<td>A problem in software</td>
-<td>The reset button has a bug.</td>
-</tr>
-<tr class="odd">
-<td>debug</td>
-<td>Find and fix a software problem</td>
-<td>I asked AI to debug one problem.</td>
-</tr>
-<tr class="even">
-<td>test</td>
-<td>Check whether something works as expected</td>
-<td>I tested the New Game button.</td>
-</tr>
-<tr class="odd">
-<td>expected result</td>
-<td>What should happen</td>
-<td>My expected result is “Too low.”</td>
-</tr>
-<tr class="even">
-<td>version</td>
-<td>One saved state of a file</td>
-<td>Version 2 keeps my bug fix.</td>
-</tr>
-<tr class="odd">
-<td>backup</td>
-<td>A safe extra copy</td>
-<td>I kept a backup of Version 1.</td>
-</tr>
-<tr class="even">
-<td>persist</td>
-<td>Continue after a problem</td>
-<td>I will persist and try a clearer prompt.</td>
-</tr>
-</tbody>
-</table>
+<section class="e4a-workbook-card e4a-activity-card e4a-vocabulary-practice" data-e4a-workbook="" data-e4a-vocabulary-practice="" data-e4a-artifact-id="lesson-07-key-vocabulary-match" data-e4a-artifact-title="Lesson 7 - Key Vocabulary Match" data-e4a-filename="Lesson 7 - Key Vocabulary Match">
+  <div class="e4a-workbook-card__header"><div><h3 class="e4a-workbook-card__title anchored">Key Vocabulary Match</h3><p class="e4a-workbook-card__filename">Complete two short rounds. Choose the word that matches each meaning and example.</p></div><p class="e4a-workbook-status" data-e4a-save-status="" aria-live="polite">Not saved yet</p></div>
+  <noscript><p class="e4a-vocabulary-practice__noscript">The matching feedback needs JavaScript, but every word, meaning, and example remains available below.</p></noscript>
+
+  <fieldset class="e4a-vocabulary-round" data-e4a-vocabulary-round="">
+    <legend>Round 1: Build and give context</legend>
+    <p>Match the words that help you describe the game and give AI useful information.</p>
+    <div class="e4a-vocabulary-round__progress">
+      <p data-e4a-vocabulary-progress-text="" aria-live="polite">0 of 8 matched correctly</p>
+      <div class="e4a-vocabulary-round__progress-track"><span data-e4a-vocabulary-progress-bar="" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="8" aria-valuetext="0 of 8 matched correctly"></span></div>
+    </div>
+    <div class="e4a-vocab-match">
+      <div class="e4a-vocab-match__header" aria-hidden="true"><span>Word</span><span>Simple meaning</span><span>Example sentence</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-code-word">Word for code meaning</label><select id="e4a-l7-vocab-code-word" data-e4a-field="codeWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-build-word" data-e4a-label="Word for: Instructions a computer can follow" data-e4a-answer="code"><option value="">Choose word</option><option>code</option><option>prompt</option><option>context</option><option>baseline</option><option>HTML</option><option>CSS</option><option>JavaScript</option><option>browser</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">Instructions a computer can follow</span><span class="e4a-vocab-match__text">AI created code for my game.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-prompt-word">Word for prompt meaning</label><select id="e4a-l7-vocab-prompt-word" data-e4a-field="promptWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-build-word" data-e4a-label="Word for: Instructions or a question for AI" data-e4a-answer="prompt"><option value="">Choose word</option><option>code</option><option>prompt</option><option>context</option><option>baseline</option><option>HTML</option><option>CSS</option><option>JavaScript</option><option>browser</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">Instructions or a question for AI</span><span class="e4a-vocab-match__text">My prompt describes the game.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-context-word">Word for context meaning</label><select id="e4a-l7-vocab-context-word" data-e4a-field="contextWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-build-word" data-e4a-label="Word for: Information that helps AI understand the work" data-e4a-answer="context"><option value="">Choose word</option><option>code</option><option>prompt</option><option>context</option><option>baseline</option><option>HTML</option><option>CSS</option><option>JavaScript</option><option>browser</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">Information that helps AI understand the work</span><span class="e4a-vocab-match__text">I gave AI the current file as context.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-baseline-word">Word for baseline meaning</label><select id="e4a-l7-vocab-baseline-word" data-e4a-field="baselineWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-build-word" data-e4a-label="Word for: A working starting point" data-e4a-answer="baseline"><option value="">Choose word</option><option>code</option><option>prompt</option><option>context</option><option>baseline</option><option>HTML</option><option>CSS</option><option>JavaScript</option><option>browser</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">A working starting point</span><span class="e4a-vocab-match__text">I changed one feature in the baseline.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-html-word">Word for HTML meaning</label><select id="e4a-l7-vocab-html-word" data-e4a-field="htmlWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-build-word" data-e4a-label="Word for: The structure of a webpage" data-e4a-answer="HTML"><option value="">Choose word</option><option>code</option><option>prompt</option><option>context</option><option>baseline</option><option>HTML</option><option>CSS</option><option>JavaScript</option><option>browser</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">The structure of a webpage</span><span class="e4a-vocab-match__text">HTML creates the button.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-css-word">Word for CSS meaning</label><select id="e4a-l7-vocab-css-word" data-e4a-field="cssWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-build-word" data-e4a-label="Word for: The appearance of a webpage" data-e4a-answer="CSS"><option value="">Choose word</option><option>code</option><option>prompt</option><option>context</option><option>baseline</option><option>HTML</option><option>CSS</option><option>JavaScript</option><option>browser</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">The appearance of a webpage</span><span class="e4a-vocab-match__text">CSS makes the button blue.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-javascript-word">Word for JavaScript meaning</label><select id="e4a-l7-vocab-javascript-word" data-e4a-field="javaScriptWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-build-word" data-e4a-label="Word for: The behavior of a webpage" data-e4a-answer="JavaScript"><option value="">Choose word</option><option>code</option><option>prompt</option><option>context</option><option>baseline</option><option>HTML</option><option>CSS</option><option>JavaScript</option><option>browser</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">The behavior of a webpage</span><span class="e4a-vocab-match__text">JavaScript checks my guess.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-browser-word">Word for browser meaning</label><select id="e4a-l7-vocab-browser-word" data-e4a-field="browserWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-build-word" data-e4a-label="Word for: An application that opens webpages" data-e4a-answer="browser"><option value="">Choose word</option><option>code</option><option>prompt</option><option>context</option><option>baseline</option><option>HTML</option><option>CSS</option><option>JavaScript</option><option>browser</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">An application that opens webpages</span><span class="e4a-vocab-match__text">I tested the file in my browser.</span></div>
+    </div>
+    <button type="button" class="btn btn-outline-primary btn-sm e4a-vocabulary-round__restart" data-e4a-vocabulary-restart="">Restart Round 1</button>
+  </fieldset>
+
+  <fieldset class="e4a-vocabulary-round" data-e4a-vocabulary-round="">
+    <legend>Round 2: Test and improve</legend>
+    <p>Match the words that help you test the game, report a problem, and keep working safely.</p>
+    <div class="e4a-vocabulary-round__progress">
+      <p data-e4a-vocabulary-progress-text="" aria-live="polite">0 of 8 matched correctly</p>
+      <div class="e4a-vocabulary-round__progress-track"><span data-e4a-vocabulary-progress-bar="" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="8" aria-valuetext="0 of 8 matched correctly"></span></div>
+    </div>
+    <div class="e4a-vocab-match">
+      <div class="e4a-vocab-match__header" aria-hidden="true"><span>Word</span><span>Simple meaning</span><span>Example sentence</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-test-word">Word for test meaning</label><select id="e4a-l7-vocab-test-word" data-e4a-field="testWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-test-word" data-e4a-label="Word for: Check whether something works as expected" data-e4a-answer="test"><option value="">Choose word</option><option>test</option><option>expected result</option><option>actual result</option><option>bug</option><option>debug</option><option>version</option><option>backup</option><option>persist</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">Check whether something works as expected</span><span class="e4a-vocab-match__text">I tested the New Game button.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-expected-result-word">Words for expected result meaning</label><select id="e4a-l7-vocab-expected-result-word" data-e4a-field="expectedResultWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-test-word" data-e4a-label="Words for: What should happen" data-e4a-answer="expected result"><option value="">Choose word</option><option>test</option><option>expected result</option><option>actual result</option><option>bug</option><option>debug</option><option>version</option><option>backup</option><option>persist</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">What should happen</span><span class="e4a-vocab-match__text">My expected result is “Too low.”</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-actual-result-word">Words for actual result meaning</label><select id="e4a-l7-vocab-actual-result-word" data-e4a-field="actualResultWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-test-word" data-e4a-label="Words for: What happened when I ran the test" data-e4a-answer="actual result"><option value="">Choose word</option><option>test</option><option>expected result</option><option>actual result</option><option>bug</option><option>debug</option><option>version</option><option>backup</option><option>persist</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">What happened when I ran the test</span><span class="e4a-vocab-match__text">The actual result was a blank screen.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-bug-word">Word for bug meaning</label><select id="e4a-l7-vocab-bug-word" data-e4a-field="bugWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-test-word" data-e4a-label="Word for: A problem in software" data-e4a-answer="bug"><option value="">Choose word</option><option>test</option><option>expected result</option><option>actual result</option><option>bug</option><option>debug</option><option>version</option><option>backup</option><option>persist</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">A problem in software</span><span class="e4a-vocab-match__text">The reset button has a bug.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-debug-word">Word for debug meaning</label><select id="e4a-l7-vocab-debug-word" data-e4a-field="debugWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-test-word" data-e4a-label="Word for: Find and fix a software problem" data-e4a-answer="debug"><option value="">Choose word</option><option>test</option><option>expected result</option><option>actual result</option><option>bug</option><option>debug</option><option>version</option><option>backup</option><option>persist</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">Find and fix a software problem</span><span class="e4a-vocab-match__text">I asked AI to debug one problem.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-version-word">Word for version meaning</label><select id="e4a-l7-vocab-version-word" data-e4a-field="versionWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-test-word" data-e4a-label="Word for: One saved state of a file" data-e4a-answer="version"><option value="">Choose word</option><option>test</option><option>expected result</option><option>actual result</option><option>bug</option><option>debug</option><option>version</option><option>backup</option><option>persist</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">One saved state of a file</span><span class="e4a-vocab-match__text">Version 2 keeps my bug fix.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-backup-word">Word for backup meaning</label><select id="e4a-l7-vocab-backup-word" data-e4a-field="backupWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-test-word" data-e4a-label="Word for: A safe extra copy" data-e4a-answer="backup"><option value="">Choose word</option><option>test</option><option>expected result</option><option>actual result</option><option>bug</option><option>debug</option><option>version</option><option>backup</option><option>persist</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">A safe extra copy</span><span class="e4a-vocab-match__text">I kept a backup of Version 1.</span></div>
+      <div class="e4a-vocab-match__row"><div class="e4a-vocab-match__control"><label class="visually-hidden" for="e4a-l7-vocab-persist-word">Word for persist meaning</label><select id="e4a-l7-vocab-persist-word" data-e4a-field="persistWord" data-e4a-field-type="select" data-e4a-option-group="lesson-07-vocab-test-word" data-e4a-label="Word for: Continue after a problem" data-e4a-answer="persist"><option value="">Choose word</option><option>test</option><option>expected result</option><option>actual result</option><option>bug</option><option>debug</option><option>version</option><option>backup</option><option>persist</option></select><span class="e4a-vocab-match__feedback" data-e4a-vocabulary-feedback="" aria-hidden="true"></span></div><span class="e4a-vocab-match__text">Continue after a problem</span><span class="e4a-vocab-match__text">I will persist and try a clearer prompt.</span></div>
+    </div>
+    <button type="button" class="btn btn-outline-primary btn-sm e4a-vocabulary-round__restart" data-e4a-vocabulary-restart="">Restart Round 2</button>
+  </fieldset>
+
+  <div class="e4a-workbook-actions"><button type="button" class="btn btn-primary" data-e4a-copy="">Copy answers</button><button type="button" class="btn btn-outline-primary" data-e4a-download="">Download backup</button><button type="button" class="btn btn-outline-secondary" data-e4a-clear="">Clear saved answers</button></div><p class="e4a-workbook-action-status" data-e4a-action-status="" aria-live="polite"></p>
 </section>
 </section>
 <section id="sentence-frames" class="level2" data-number="9.6">
@@ -798,6 +762,27 @@ The bug happens when __________.
 Return the complete corrected HTML file.
 I saved the working version as __________.
 I will persist by trying __________.</code></pre>
+<section id="use-the-words" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="use-the-words"><span class="header-section-number">9.6.1</span> Use the Words</h3>
+<p>After the matching activity, practice the words with a partner.</p>
+<p><strong>Round 1 speaking</strong></p>
+<pre class="text"><code>The code is in one HTML file.
+HTML gives the page __________.
+CSS controls __________.
+JavaScript controls __________.
+I open the file in a __________.
+My prompt gives AI context about __________.
+My baseline is __________.</code></pre>
+<p><strong>Round 2 bug report</strong></p>
+<pre class="text"><code>My test was __________.
+I expected __________.
+The actual result was __________.
+The bug happens when __________.
+I will debug the problem by __________.
+I saved this version as __________.
+My backup is __________.
+I will persist by __________.</code></pre>
+</section>
 </section>
 <section id="lesson-agenda" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="lesson-agenda"><span class="header-section-number">9.7</span> Lesson Agenda</h2>
@@ -1701,7 +1686,7 @@ AI helped with __________, but I checked __________.</code></pre>
 <li>Write five expected-behavior tests.</li>
 <li>Write one possible bug report.</li>
 <li>Write a filename for Version 1 and Version 2.</li>
-<li>Add five Lesson 7 words to your <code>Vocabulary Log</code>.</li>
+<li>Choose five Lesson 7 words for your <code>Vocabulary Log</code>. For each word, write a simple meaning and one sentence about your game.</li>
 </ol>
 <p>What to complete:</p>
 <ul>
@@ -1723,7 +1708,7 @@ AI helped with __________, but I checked __________.</code></pre>
 <div class="callout-body-container callout-body">
 <p>This lab is optional. It practices the English for a coding prompt and a 60-second project explanation. It does not create or run HTML, and it does not require GitHub or a coding tool.</p>
 <p>Open the <strong>Lessons 7-8 Code Prompt and Speaking Lab</strong> in Colab:</p>
-<p><a href="https://colab.research.google.com/github/zoni-group/E4A/blob/public-6859e0d67d72/english-for-ai-course/interactives/class-04-code-script-lab.ipynb" class="uri">https://colab.research.google.com/github/zoni-group/E4A/blob/public-6859e0d67d72/english-for-ai-course/interactives/class-04-code-script-lab.ipynb</a></p>
+<p><a href="https://colab.research.google.com/github/zoni-group/E4A/blob/public-9c3abe1ad5b9/english-for-ai-course/interactives/class-04-code-script-lab.ipynb" class="uri">https://colab.research.google.com/github/zoni-group/E4A/blob/public-9c3abe1ad5b9/english-for-ai-course/interactives/class-04-code-script-lab.ipynb</a></p>
 <p>Do not paste a complete game, private code, names, passwords, or private information into the notebook.</p>
 <p>After any AI answer, say: <em>“I checked the AI answer before I used it.”</em></p>
 </div>
