@@ -28,6 +28,46 @@ Project: <https://plotly.com/python/>
 
 License: <https://github.com/plotly/plotly.py/blob/main/LICENSE.txt>
 
+## LiveCodes
+
+Lesson 7 uses the LiveCodes SDK 0.14.1 to open a self-hosted LiveCodes v49
+editor in a new tab only after a student selects **Open HTML editor in new
+tab**. LiveCodes is provided under the MIT License, copyright Hatem Hosny and
+the LiveCodes contributors.
+
+The reproducible asset builder downloads the pinned v49 release archive,
+verifies its SHA-256 checksum, and extracts only the static application needed
+at `/livecodes/`. Documentation, Storybook content, source code, and unrelated
+SDK wrappers are not included. The reviewed upstream tree and the complete
+generated tree are pinned by separate digests. A reproducible, course-owned
+education-mode policy hides account, sharing, deployment, synchronization,
+broadcast, and third-party export controls while retaining local project
+storage and export. It also triggers LiveCodes' pinned HTML formatter when a
+complete lesson file first opens; format-on-save keeps later saved versions
+indented. The rendered site includes the upstream license at
+`livecodes/LICENSE.txt`.
+
+The core application is served from the same origin as the book. LiveCodes may
+load its stock language and editor support packages from public CDNs while the
+editor is open.
+
+On Cloudflare Pages, `/livecodes/` is intentionally available without the book
+session cookie. LiveCodes runs compilation and student results in an isolated
+cross-origin sandbox, which must be able to load the pinned compiler utility
+from this public static subtree. The rest of the book remains protected.
+
+For localhost development only, the repository can download and serve the two
+small v9 sandbox HTML files from the pinned LiveCodes v49 source tag. Their
+individual SHA-256 digests are verified before they are installed in the
+ignored `.livecodes-sandbox/` directory. These development files are not
+included in the rendered or public site.
+
+Project: <https://livecodes.io/>
+
+Pinned release: <https://github.com/live-codes/livecodes/releases/tag/v49>
+
+License: <https://github.com/live-codes/livecodes/blob/v49/LICENSE>
+
 ## Gamedev Canvas Workshop Brick Breaker Code Sample
 
 Lesson 7 includes a classroom copy of `lesson10.html` from the Gamedev Canvas

@@ -10,6 +10,8 @@ authoring source or material intended only for course staff.
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import re
 import sys
 from dataclasses import dataclass
@@ -64,6 +66,27 @@ ALLOWED_TOP_LEVEL_DIRS = {
 PUBLIC_NOTEBOOK_MANIFEST = "english-for-ai-course/interactives/public_notebooks.txt"
 SAFE_NOTEBOOK_NAME = re.compile(r"^[A-Za-z0-9._-]+\.ipynb$")
 CUSTOM_DOMAIN = "e4ai.zoni.edu"
+
+LIVECODES_ROOT = "site/livecodes"
+LIVECODES_MANIFEST = f"{LIVECODES_ROOT}/asset-manifest.json"
+LIVECODES_EXPECTED_MANIFEST = {
+    "appVersion": "49",
+    "archiveSha256": "e8ede45a372217283222f68ec0f0234d6d73524add88bb0b7a547f70d9fe9864",
+    "fileCount": 297,
+    "policyScriptSha256": "ad7fd09bfff02af2b8157d2b70913a7783ce8b1171506e79771562fbe7361dcf",
+    "sdkVersion": "0.14.1",
+    "totalBytes": 5_451_246,
+    "treeSha256": "1f2a4b2a94e1b886aa6be405c759d4b4296b13ba36d9db16396f58e9dce5a6af",
+    "upstreamTreeSha256": "e57d99dae912b9079e0c9aeeb8d74d629df827d5348573b098b978d1088f1e7b",
+}
+LIVECODES_COURSE_OWNED_PATHS = {
+    LIVECODES_MANIFEST,
+    f"{LIVECODES_ROOT}/app.html",
+    f"{LIVECODES_ROOT}/e4a-education-mode.js",
+}
+LIVECODES_MAX_FILE_BYTES = 25 * 1024 * 1024
+PAGES_MAX_FILES = 20_000
+GITHUB_MAX_SITE_BYTES = 1_000_000_000
 
 FORBIDDEN_FILE_PATTERNS = [
     ("teacher guide source", re.compile(r"(^|/)teacher-guide\.qmd$", re.IGNORECASE)),
@@ -219,6 +242,9 @@ def validate(root: Path) -> list[Finding]:
 
     expected_notebooks = load_public_notebook_manifest(root, findings)
     validate_required_public_files(root, expected_notebooks, findings)
+    validate_cloudflare_livecodes_policy(root, findings)
+    validate_site_limits(root, findings)
+    livecodes_verified = validate_livecodes_tree(root, findings)
     for path in iter_files(root):
         rel = path.relative_to(root).as_posix()
         validate_allowed_path(rel, expected_notebooks, findings)
@@ -227,6 +253,16 @@ def validate(root: Path) -> list[Finding]:
             continue
         text = read_text(path)
         if text is None:
+            continue
+        if (
+            livecodes_verified
+            and rel.startswith(f"{LIVECODES_ROOT}/")
+            and rel not in LIVECODES_COURSE_OWNED_PATHS
+        ):
+            # The pinned upstream application contains public API keys,
+            # maintainer data, and example templates. Exempt it only after the
+            # complete patched tree has matched the reviewed digest. The
+            # course-owned policy and bootstrap files are still scanned.
             continue
         validate_text(rel, text, findings)
     return findings
@@ -289,6 +325,11 @@ def validate_required_public_files(
         "scripts/validate_public_repo.py",
         "site/CNAME",
         "site/index.html",
+        "site/livecodes/LICENSE.txt",
+        "site/livecodes/app.html",
+        "site/livecodes/asset-manifest.json",
+        "site/livecodes/e4a-education-mode.js",
+        "site/livecodes/index.html",
         "wrangler.jsonc",
         "english-for-ai-course/interactives/e4a_colab.py",
     ]
@@ -318,6 +359,167 @@ def validate_required_public_files(
                 f"expected {CUSTOM_DOMAIN}",
             )
         )
+
+
+def validate_livecodes_tree(root: Path, findings: list[Finding]) -> bool:
+    """Verify the exact reviewed LiveCodes tree before allowing scan exemptions."""
+
+    finding_count = len(findings)
+    livecodes_root = root / LIVECODES_ROOT
+    manifest_path = root / LIVECODES_MANIFEST
+    if not livecodes_root.is_dir():
+        findings.append(Finding(LIVECODES_ROOT, "missing LiveCodes application", "directory is required"))
+        return False
+    if not manifest_path.is_file():
+        findings.append(Finding(LIVECODES_MANIFEST, "missing LiveCodes manifest", "file is required"))
+        return False
+
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        findings.append(Finding(LIVECODES_MANIFEST, "invalid LiveCodes manifest", "expected UTF-8 JSON"))
+        return False
+    if manifest != LIVECODES_EXPECTED_MANIFEST:
+        findings.append(
+            Finding(
+                LIVECODES_MANIFEST,
+                "unexpected LiveCodes manifest",
+                "expected the pinned v49 app and SDK 0.14.1 metadata",
+            )
+        )
+
+    files: list[Path] = []
+    for path in livecodes_root.rglob("*"):
+        if path.is_symlink():
+            findings.append(
+                Finding(path.relative_to(root).as_posix(), "unsafe LiveCodes asset", "symbolic links are not allowed")
+            )
+            continue
+        if path.is_file() and path != manifest_path:
+            files.append(path)
+            if path.stat().st_size > LIVECODES_MAX_FILE_BYTES:
+                findings.append(
+                    Finding(
+                        path.relative_to(root).as_posix(),
+                        "oversized LiveCodes asset",
+                        "file exceeds the Cloudflare Pages 25 MiB limit",
+                    )
+                )
+
+    file_count = len(files)
+    total_bytes = sum(path.stat().st_size for path in files)
+    tree_sha256 = livecodes_tree_digest(livecodes_root, files)
+    if file_count != LIVECODES_EXPECTED_MANIFEST["fileCount"]:
+        findings.append(
+            Finding(LIVECODES_ROOT, "unexpected LiveCodes file count", f"found {file_count}")
+        )
+    if total_bytes != LIVECODES_EXPECTED_MANIFEST["totalBytes"]:
+        findings.append(
+            Finding(LIVECODES_ROOT, "unexpected LiveCodes byte count", f"found {total_bytes}")
+        )
+    if tree_sha256 != LIVECODES_EXPECTED_MANIFEST["treeSha256"]:
+        findings.append(
+            Finding(LIVECODES_ROOT, "unexpected LiveCodes tree digest", f"found {tree_sha256}")
+        )
+
+    forbidden_parts = {"docs", "documentation", "stories", "storybook", "src"}
+    for path in files:
+        relative_parts = {part.lower() for part in path.relative_to(livecodes_root).parts[:-1]}
+        if relative_parts & forbidden_parts:
+            findings.append(
+                Finding(
+                    path.relative_to(root).as_posix(),
+                    "unexpected LiveCodes content",
+                    "documentation, Storybook, and source directories are excluded",
+                )
+            )
+
+    return len(findings) == finding_count
+
+
+def validate_cloudflare_livecodes_policy(root: Path, findings: list[Finding]) -> None:
+    """Require the reviewed public LiveCodes exception in the auth middleware."""
+
+    middleware_path = root / "functions/_middleware.js"
+    if not middleware_path.is_file():
+        return
+    text = read_text(middleware_path)
+    if text is None:
+        return
+
+    required_markers = (
+        'url.pathname === "/livecodes"',
+        'url.pathname.startsWith("/livecodes/")',
+        "isPublicLiveCodesRequest(url)",
+        "publicLiveCodesResponse(request, await context.next())",
+        'publicResponse.headers.set("Access-Control-Allow-Origin", "*")',
+        'publicResponse.headers.set("Cross-Origin-Resource-Policy", "cross-origin")',
+        'publicResponse.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive")',
+    )
+    for marker in required_markers:
+        if marker not in text:
+            findings.append(
+                Finding(
+                    "functions/_middleware.js",
+                    "missing public LiveCodes policy",
+                    marker,
+                )
+            )
+
+
+def validate_site_limits(root: Path, findings: list[Finding]) -> None:
+    site_root = root / "site"
+    if not site_root.is_dir():
+        return
+
+    for forbidden in ("node_modules", "_site", "_site-student", "_site-instructor"):
+        if (site_root / forbidden).exists():
+            findings.append(
+                Finding(
+                    f"site/{forbidden}",
+                    "unexpected rendered payload",
+                    "dependency and nested output directories must not be published",
+                )
+            )
+
+    site_files = [path for path in site_root.rglob("*") if path.is_file()]
+    if len(site_files) > PAGES_MAX_FILES:
+        findings.append(
+            Finding("site", "Cloudflare Pages file limit", f"found {len(site_files)} files")
+        )
+    total_bytes = sum(path.stat().st_size for path in site_files)
+    if total_bytes >= GITHUB_MAX_SITE_BYTES:
+        findings.append(
+            Finding("site", "GitHub Pages site-size limit", f"found {total_bytes} bytes")
+        )
+    for path in site_files:
+        if path.stat().st_size > LIVECODES_MAX_FILE_BYTES:
+            findings.append(
+                Finding(
+                    path.relative_to(root).as_posix(),
+                    "Cloudflare Pages file-size limit",
+                    "file exceeds 25 MiB",
+                )
+            )
+
+
+def livecodes_tree_digest(root: Path, files: list[Path]) -> str:
+    digest = hashlib.sha256()
+    for path in sorted(files, key=lambda candidate: candidate.relative_to(root).as_posix()):
+        relative = path.relative_to(root).as_posix()
+        digest.update(relative.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(file_sha256(path).encode("ascii"))
+        digest.update(b"\n")
+    return digest.hexdigest()
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def validate_allowed_path(rel: str, expected_notebooks: set[str], findings: list[Finding]) -> None:

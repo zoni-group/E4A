@@ -16,5 +16,10 @@ The protected Cloudflare Pages pilot host is `https://en4ai.zoni.edu/`.
 Production custom domain after cutover: `https://e4ai.zoni.edu/`.
 
 Unauthenticated or expired sessions are redirected to `https://www.zoni.edu/portal`.
+The pinned static LiveCodes classroom editor at `/livecodes/` is the only
+public site subtree. It is public so LiveCodes' isolated compiler sandbox can
+load its reviewed static assets without receiving the protected book's session
+cookie. The editor is marked `noindex`; lesson pages and other course assets
+remain protected.
 
 See `LICENSE.md` and `THIRD_PARTY_NOTICES.md` for license and attribution information.

@@ -179,7 +179,8 @@
 }
 
 .e4a-game-demo > summary:focus-visible,
-.e4a-game-demo button:focus-visible {
+.e4a-game-demo button:focus-visible,
+.e4a-game-demo a:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--bs-primary) 42%, transparent);
   outline-offset: 3px;
 }

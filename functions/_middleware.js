@@ -7,6 +7,8 @@ const MAX_SESSION_SECONDS = 8 * 60 * 60;
 const AES_GCM_IV_BYTES = 12;
 const PROTECTED_DOCUMENT_CACHE_CONTROL = "private, no-store";
 const PROTECTED_ASSET_CACHE_CONTROL = "private, max-age=300, must-revalidate";
+const PUBLIC_LIVECODES_DOCUMENT_CACHE_CONTROL = "public, max-age=0, must-revalidate";
+const PUBLIC_LIVECODES_ASSET_CACHE_CONTROL = "public, max-age=300, must-revalidate";
 const ALLOWED_SITE_METHODS = new Set(["GET", "HEAD", "OPTIONS"]);
 const BLOCKED_DYNAMIC_EXTENSIONS = new Set([
   ".asp",
@@ -95,6 +97,10 @@ export async function onRequest(context) {
 
   if (sessionId) {
     return handleSessionQuery(context, sessionId, url);
+  }
+
+  if (isPublicLiveCodesRequest(url)) {
+    return publicLiveCodesResponse(request, await context.next());
   }
 
   const sessionCookie = parseCookie(request.headers.get("Cookie") || "")[COOKIE_NAME];
@@ -286,6 +292,21 @@ function protectedAssetResponse(request, response, setCookie) {
   return protectedResponse;
 }
 
+function publicLiveCodesResponse(request, response) {
+  const publicResponse = new Response(response.body, response);
+  publicResponse.headers.set(
+    "Cache-Control",
+    isStaticAssetRequest(request)
+      ? PUBLIC_LIVECODES_ASSET_CACHE_CONTROL
+      : PUBLIC_LIVECODES_DOCUMENT_CACHE_CONTROL
+  );
+  publicResponse.headers.set("Access-Control-Allow-Origin", "*");
+  publicResponse.headers.set("Cross-Origin-Resource-Policy", "cross-origin");
+  publicResponse.headers.set("Referrer-Policy", "no-referrer");
+  publicResponse.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+  return publicResponse;
+}
+
 function applyProtectedHeaders(response, allowPrivateAssetCache = false) {
   response.headers.set(
     "Cache-Control",
@@ -303,6 +324,10 @@ function isStaticAssetRequest(request) {
     }
   }
   return false;
+}
+
+function isPublicLiveCodesRequest(url) {
+  return url.pathname === "/livecodes" || url.pathname.startsWith("/livecodes/");
 }
 
 function isBlockedProbeRequest(request, url) {

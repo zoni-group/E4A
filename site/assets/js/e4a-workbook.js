@@ -3052,6 +3052,194 @@
     }
   };
 
+  // node_modules/.pnpm/livecodes@0.14.1/node_modules/livecodes/livecodes.js
+  var te = Object.create;
+  var Q = Object.defineProperty;
+  var ne = Object.getOwnPropertyDescriptor;
+  var oe = Object.getOwnPropertyNames;
+  var re = Object.getPrototypeOf;
+  var se = Object.prototype.hasOwnProperty;
+  var ie = (c, m) => () => (m || c((m = { exports: {} }).exports, m), m.exports);
+  var ae = (c, m, P, f) => {
+    if (m && typeof m == "object" || typeof m == "function") for (let L of oe(m)) !se.call(c, L) && L !== P && Q(c, L, { get: () => m[L], enumerable: !(f = ne(m, L)) || f.enumerable });
+    return c;
+  };
+  var le = (c, m, P) => (P = c != null ? te(re(c)) : {}, ae(m || !c || !c.__esModule ? Q(P, "default", { value: c, enumerable: true }) : P, c));
+  var Z = ie((ge, N) => {
+    var ce = (function() {
+      var c = String.fromCharCode, m = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=", P = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$", f = {};
+      function L(s, r) {
+        if (!f[s]) {
+          f[s] = {};
+          for (var e = 0; e < s.length; e++) f[s][s.charAt(e)] = e;
+        }
+        return f[s][r];
+      }
+      var x = { compressToBase64: function(s) {
+        if (s == null) return "";
+        var r = x._compress(s, 6, function(e) {
+          return m.charAt(e);
+        });
+        switch (r.length % 4) {
+          default:
+          case 0:
+            return r;
+          case 1:
+            return r + "===";
+          case 2:
+            return r + "==";
+          case 3:
+            return r + "=";
+        }
+      }, decompressFromBase64: function(s) {
+        return s == null ? "" : s == "" ? null : x._decompress(s.length, 32, function(r) {
+          return L(m, s.charAt(r));
+        });
+      }, compressToUTF16: function(s) {
+        return s == null ? "" : x._compress(s, 15, function(r) {
+          return c(r + 32);
+        }) + " ";
+      }, decompressFromUTF16: function(s) {
+        return s == null ? "" : s == "" ? null : x._decompress(s.length, 16384, function(r) {
+          return s.charCodeAt(r) - 32;
+        });
+      }, compressToUint8Array: function(s) {
+        for (var r = x.compress(s), e = new Uint8Array(r.length * 2), n = 0, l = r.length; n < l; n++) {
+          var g = r.charCodeAt(n);
+          e[n * 2] = g >>> 8, e[n * 2 + 1] = g % 256;
+        }
+        return e;
+      }, decompressFromUint8Array: function(s) {
+        if (s == null) return x.decompress(s);
+        for (var r = new Array(s.length / 2), e = 0, n = r.length; e < n; e++) r[e] = s[e * 2] * 256 + s[e * 2 + 1];
+        var l = [];
+        return r.forEach(function(g) {
+          l.push(c(g));
+        }), x.decompress(l.join(""));
+      }, compressToEncodedURIComponent: function(s) {
+        return s == null ? "" : x._compress(s, 6, function(r) {
+          return P.charAt(r);
+        });
+      }, decompressFromEncodedURIComponent: function(s) {
+        return s == null ? "" : s == "" ? null : (s = s.replace(/ /g, "+"), x._decompress(s.length, 32, function(r) {
+          return L(P, s.charAt(r));
+        }));
+      }, compress: function(s) {
+        return x._compress(s, 16, function(r) {
+          return c(r);
+        });
+      }, _compress: function(s, r, e) {
+        if (s == null) return "";
+        var n, l, g = {}, y = {}, w = "", C = "", v = "", E = 2, S = 3, d = 2, h = [], t = 0, o = 0, A;
+        for (A = 0; A < s.length; A += 1) if (w = s.charAt(A), Object.prototype.hasOwnProperty.call(g, w) || (g[w] = S++, y[w] = true), C = v + w, Object.prototype.hasOwnProperty.call(g, C)) v = C;
+        else {
+          if (Object.prototype.hasOwnProperty.call(y, v)) {
+            if (v.charCodeAt(0) < 256) {
+              for (n = 0; n < d; n++) t = t << 1, o == r - 1 ? (o = 0, h.push(e(t)), t = 0) : o++;
+              for (l = v.charCodeAt(0), n = 0; n < 8; n++) t = t << 1 | l & 1, o == r - 1 ? (o = 0, h.push(e(t)), t = 0) : o++, l = l >> 1;
+            } else {
+              for (l = 1, n = 0; n < d; n++) t = t << 1 | l, o == r - 1 ? (o = 0, h.push(e(t)), t = 0) : o++, l = 0;
+              for (l = v.charCodeAt(0), n = 0; n < 16; n++) t = t << 1 | l & 1, o == r - 1 ? (o = 0, h.push(e(t)), t = 0) : o++, l = l >> 1;
+            }
+            E--, E == 0 && (E = Math.pow(2, d), d++), delete y[v];
+          } else for (l = g[v], n = 0; n < d; n++) t = t << 1 | l & 1, o == r - 1 ? (o = 0, h.push(e(t)), t = 0) : o++, l = l >> 1;
+          E--, E == 0 && (E = Math.pow(2, d), d++), g[C] = S++, v = String(w);
+        }
+        if (v !== "") {
+          if (Object.prototype.hasOwnProperty.call(y, v)) {
+            if (v.charCodeAt(0) < 256) {
+              for (n = 0; n < d; n++) t = t << 1, o == r - 1 ? (o = 0, h.push(e(t)), t = 0) : o++;
+              for (l = v.charCodeAt(0), n = 0; n < 8; n++) t = t << 1 | l & 1, o == r - 1 ? (o = 0, h.push(e(t)), t = 0) : o++, l = l >> 1;
+            } else {
+              for (l = 1, n = 0; n < d; n++) t = t << 1 | l, o == r - 1 ? (o = 0, h.push(e(t)), t = 0) : o++, l = 0;
+              for (l = v.charCodeAt(0), n = 0; n < 16; n++) t = t << 1 | l & 1, o == r - 1 ? (o = 0, h.push(e(t)), t = 0) : o++, l = l >> 1;
+            }
+            E--, E == 0 && (E = Math.pow(2, d), d++), delete y[v];
+          } else for (l = g[v], n = 0; n < d; n++) t = t << 1 | l & 1, o == r - 1 ? (o = 0, h.push(e(t)), t = 0) : o++, l = l >> 1;
+          E--, E == 0 && (E = Math.pow(2, d), d++);
+        }
+        for (l = 2, n = 0; n < d; n++) t = t << 1 | l & 1, o == r - 1 ? (o = 0, h.push(e(t)), t = 0) : o++, l = l >> 1;
+        for (; ; ) if (t = t << 1, o == r - 1) {
+          h.push(e(t));
+          break;
+        } else o++;
+        return h.join("");
+      }, decompress: function(s) {
+        return s == null ? "" : s == "" ? null : x._decompress(s.length, 32768, function(r) {
+          return s.charCodeAt(r);
+        });
+      }, _decompress: function(s, r, e) {
+        var n = [], l, g = 4, y = 4, w = 3, C = "", v = [], E, S, d, h, t, o, A, a = { val: e(0), position: r, index: 1 };
+        for (E = 0; E < 3; E += 1) n[E] = E;
+        for (d = 0, t = Math.pow(2, 2), o = 1; o != t; ) h = a.val & a.position, a.position >>= 1, a.position == 0 && (a.position = r, a.val = e(a.index++)), d |= (h > 0 ? 1 : 0) * o, o <<= 1;
+        switch (l = d) {
+          case 0:
+            for (d = 0, t = Math.pow(2, 8), o = 1; o != t; ) h = a.val & a.position, a.position >>= 1, a.position == 0 && (a.position = r, a.val = e(a.index++)), d |= (h > 0 ? 1 : 0) * o, o <<= 1;
+            A = c(d);
+            break;
+          case 1:
+            for (d = 0, t = Math.pow(2, 16), o = 1; o != t; ) h = a.val & a.position, a.position >>= 1, a.position == 0 && (a.position = r, a.val = e(a.index++)), d |= (h > 0 ? 1 : 0) * o, o <<= 1;
+            A = c(d);
+            break;
+          case 2:
+            return "";
+        }
+        for (n[3] = A, S = A, v.push(A); ; ) {
+          if (a.index > s) return "";
+          for (d = 0, t = Math.pow(2, w), o = 1; o != t; ) h = a.val & a.position, a.position >>= 1, a.position == 0 && (a.position = r, a.val = e(a.index++)), d |= (h > 0 ? 1 : 0) * o, o <<= 1;
+          switch (A = d) {
+            case 0:
+              for (d = 0, t = Math.pow(2, 8), o = 1; o != t; ) h = a.val & a.position, a.position >>= 1, a.position == 0 && (a.position = r, a.val = e(a.index++)), d |= (h > 0 ? 1 : 0) * o, o <<= 1;
+              n[y++] = c(d), A = y - 1, g--;
+              break;
+            case 1:
+              for (d = 0, t = Math.pow(2, 16), o = 1; o != t; ) h = a.val & a.position, a.position >>= 1, a.position == 0 && (a.position = r, a.val = e(a.index++)), d |= (h > 0 ? 1 : 0) * o, o <<= 1;
+              n[y++] = c(d), A = y - 1, g--;
+              break;
+            case 2:
+              return v.join("");
+          }
+          if (g == 0 && (g = Math.pow(2, w), w++), n[A]) C = n[A];
+          else if (A === y) C = S + S.charAt(0);
+          else return null;
+          v.push(C), n[y++] = S + C.charAt(0), g--, S = C, g == 0 && (g = Math.pow(2, w), w++);
+        }
+      } };
+      return x;
+    })();
+    typeof N != "undefined" && N != null && (N.exports = ce);
+  });
+  var I = le(Z());
+  function ue(c = {}) {
+    let { appUrl: m = "https://livecodes.io", params: P = {}, config: f = {}, headless: L, import: x, lite: s, view: r, ...e } = c, n;
+    try {
+      n = new URL(m);
+    } catch (y) {
+      throw new Error(`${m} is not a valid URL.`);
+    }
+    let l = new URLSearchParams();
+    Object.entries(e).forEach(([y, w]) => {
+      w !== void 0 && n.searchParams.set(y, String(w));
+    });
+    let g = c.view === "headless" || L;
+    if (s && (console.warn(`Deprecation notice: "lite" option is deprecated. Use "config: { mode: 'lite' }" instead.`), typeof f == "object" && f.mode == null ? f.mode = "lite" : n.searchParams.set("lite", "true")), r && (console.warn('Deprecation notice: The "view" option has been moved to "config.view". For headless mode use "headless: true".'), typeof f == "object" && f.view == null && r !== "headless" ? f.view = r : n.searchParams.set("view", r)), typeof f == "string") try {
+      new URL(f), n.searchParams.set("config", encodeURIComponent(f));
+    } catch (y) {
+      throw new Error('"config" is not a valid URL or configuration object.');
+    }
+    else f && typeof f == "object" && Object.keys(f).length > 0 && (f.title && f.title !== "Untitled Project" && n.searchParams.set("title", f.title), f.description && f.description.length > 0 && n.searchParams.set("description", f.description), l.set("config", "code/" + (0, I.compressToEncodedURIComponent)(JSON.stringify(f))));
+    if (P && typeof P == "object" && Object.keys(P).length > 0) try {
+      l.set("params", (0, I.compressToEncodedURIComponent)(JSON.stringify(P)));
+    } catch (y) {
+      Object.keys(P).forEach((w) => {
+        n.searchParams.set(w, encodeURIComponent(String(P[w])));
+      });
+    }
+    return x && n.searchParams.set("x", encodeURIComponent(x)), g && n.searchParams.set("headless", "true"), l.toString().length > 0 && (n.hash = l.toString()), n.href;
+  }
+  var ve = I.compressToEncodedURIComponent;
+  var we = I.decompressFromEncodedURIComponent;
+
   // assets/sample-code/lesson-07/brick-breaker.html
   var brick_breaker_default = '<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <title>Brick Breaker</title>\n  <style>\n    * { box-sizing: border-box; }\n    body { margin: 0; padding: 12px; font-family: system-ui, sans-serif; color: #14213d; background: #eef4ff; text-align: center; }\n    main { width: min(100%, 680px); margin: auto; }\n    h1 { margin: 0 0 4px; font-size: clamp(1.4rem, 5vw, 2rem); }\n    p { margin: 5px 0; }\n    .stats { display: flex; justify-content: center; gap: 2rem; font-weight: 700; }\n    canvas { display: block; width: 100%; height: auto; margin: 10px auto; border: 3px solid #1f4f9f; border-radius: 10px; background: #101a36; }\n    .controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }\n    button { min-width: 74px; min-height: 44px; padding: 8px 14px; border: 2px solid #1f4f9f; border-radius: 8px; color: white; background: #1f4f9f; font: inherit; font-weight: 700; cursor: pointer; }\n    button:focus-visible { outline: 3px solid #f6b73c; outline-offset: 2px; }\n    #message { min-height: 1.5em; font-weight: 700; }\n  </style>\n</head>\n<body>\n  <main>\n    <h1>Brick Breaker</h1>\n    <p>Move with \u2190 \u2192 or the buttons. Keep the ball above the paddle.</p>\n    <div class="stats"><span id="score">Score: 0</span><span id="lives">Lives: 3</span></div>\n    <canvas id="game" width="640" height="420">Brick Breaker game area.</canvas>\n    <p id="message" role="status" aria-live="polite">Break every brick.</p>\n    <div class="controls" aria-label="Game controls">\n      <button id="left" type="button" aria-label="Move paddle left">\u2190 Left</button>\n      <button id="right" type="button" aria-label="Move paddle right">Right \u2192</button>\n      <button id="restart" type="button">Restart</button>\n    </div>\n  </main>\n  <script>\n    const canvas = document.querySelector("#game");\n    const ctx = canvas.getContext("2d");\n    const scoreText = document.querySelector("#score");\n    const livesText = document.querySelector("#lives");\n    const message = document.querySelector("#message");\n    const state = {\n      score: 0, lives: 3, running: true, left: false, right: false,\n      paddle: { x: 270, y: 388, width: 100, height: 14 },\n      ball: { x: 320, y: 365, dx: 3.4, dy: -3.4, radius: 8 },\n      bricks: []\n    };\n\n    function makeBricks() {\n      state.bricks = [];\n      for (let row = 0; row < 4; row += 1) {\n        for (let column = 0; column < 7; column += 1) {\n          state.bricks.push({ x: 35 + column * 83, y: 48 + row * 32, width: 70, height: 20, active: true, color: ["#ff6b6b", "#ffd166", "#62d6a7", "#59a5ff"][row] });\n        }\n      }\n    }\n\n    function resetBall() {\n      state.ball.x = 320;\n      state.ball.y = 365;\n      state.ball.dx = 3.4;\n      state.ball.dy = -3.4;\n      state.paddle.x = 270;\n    }\n\n    function restartGame() {\n      state.score = 0;\n      state.lives = 3;\n      state.running = true;\n      makeBricks();\n      resetBall();\n      message.textContent = "Break every brick.";\n      updateLabels();\n    }\n\n    function updateLabels() {\n      scoreText.textContent = `Score: ${state.score}`;\n      livesText.textContent = `Lives: ${state.lives}`;\n    }\n\n    function overlap(ball, box) {\n      const nearestX = Math.max(box.x, Math.min(ball.x, box.x + box.width));\n      const nearestY = Math.max(box.y, Math.min(ball.y, box.y + box.height));\n      const xDistance = ball.x - nearestX;\n      const yDistance = ball.y - nearestY;\n      return xDistance * xDistance + yDistance * yDistance < ball.radius * ball.radius;\n    }\n\n    function update() {\n      if (!state.running) return;\n      if (state.left) state.paddle.x -= 7;\n      if (state.right) state.paddle.x += 7;\n      state.paddle.x = Math.max(0, Math.min(canvas.width - state.paddle.width, state.paddle.x));\n      const ball = state.ball;\n      ball.x += ball.dx;\n      ball.y += ball.dy;\n      if (ball.x > canvas.width - ball.radius) ball.dx = -Math.abs(ball.dx);\n      if (ball.x < ball.radius) ball.dx = Math.abs(ball.dx);\n      if (ball.y < ball.radius) ball.dy = Math.abs(ball.dy);\n      if (ball.dy > 0 && overlap(ball, state.paddle)) {\n        ball.dy = -Math.abs(ball.dy);\n        ball.dx += (ball.x - (state.paddle.x + state.paddle.width / 2)) * 0.025;\n      }\n      for (const brick of state.bricks) {\n        if (brick.active && overlap(ball, brick)) {\n          brick.active = false;\n          ball.dy = -ball.dy;\n          state.score += 10;\n          updateLabels();\n          break;\n        }\n      }\n      if (state.bricks.every(brick => !brick.active)) {\n        state.running = false;\n        message.textContent = "You win! Select Restart to play again.";\n      }\n      if (ball.y > canvas.height + ball.radius) {\n        state.lives -= 1;\n        updateLabels();\n        if (state.lives < 1) {\n          state.running = false;\n          message.textContent = "Game over. Select Restart to try again.";\n        } else {\n          message.textContent = "One life lost. Keep going.";\n          resetBall();\n        }\n      }\n    }\n\n    function draw() {\n      ctx.clearRect(0, 0, canvas.width, canvas.height);\n      for (const brick of state.bricks) {\n        if (!brick.active) continue;\n        ctx.fillStyle = brick.color;\n        ctx.fillRect(brick.x, brick.y, brick.width, brick.height);\n      }\n      ctx.fillStyle = "#59a5ff";\n      ctx.fillRect(state.paddle.x, state.paddle.y, state.paddle.width, state.paddle.height);\n      ctx.beginPath();\n      ctx.arc(state.ball.x, state.ball.y, state.ball.radius, 0, Math.PI * 2);\n      ctx.fillStyle = "#ffffff";\n      ctx.fill();\n    }\n\n    function loop() {\n      update();\n      draw();\n      requestAnimationFrame(loop);\n    }\n\n    function setDirection(direction, pressed) {\n      state[direction] = pressed;\n    }\n\n    document.addEventListener("keydown", event => {\n      if (event.key === "ArrowLeft") setDirection("left", true);\n      if (event.key === "ArrowRight") setDirection("right", true);\n    });\n    document.addEventListener("keyup", event => {\n      if (event.key === "ArrowLeft") setDirection("left", false);\n      if (event.key === "ArrowRight") setDirection("right", false);\n    });\n    for (const direction of ["left", "right"]) {\n      const button = document.querySelector(`#${direction}`);\n      button.addEventListener("pointerdown", () => setDirection(direction, true));\n      button.addEventListener("pointerup", () => setDirection(direction, false));\n      button.addEventListener("pointerleave", () => setDirection(direction, false));\n    }\n    document.querySelector("#restart").addEventListener("click", restartGame);\n    restartGame();\n    loop();\n  <\/script>\n</body>\n</html>\n';
 
@@ -3101,6 +3289,7 @@
       const source = this.root.querySelector("[data-e4a-game-source]");
       const copyButton = this.root.querySelector("[data-e4a-game-copy]");
       const downloadButton = this.root.querySelector("[data-e4a-game-download]");
+      const editorLink = this.root.querySelector("[data-e4a-game-open-editor]");
       if (!this.frame || !this.startButton || !this.restartButton) {
         return;
       }
@@ -3110,6 +3299,10 @@
       if (source) {
         source.textContent = this.definition.source;
       }
+      if (editorLink) {
+        editorLink.href = this.editorUrl();
+        editorLink.setAttribute("aria-label", `Open ${this.definition.title} HTML editor in a new tab`);
+      }
       this.startButton.addEventListener("click", () => this.start());
       this.restartButton.addEventListener("click", () => this.start());
       copyButton?.addEventListener("click", () => void this.copySource());
@@ -3117,6 +3310,35 @@
       this.root.addEventListener("toggle", () => {
         if (!this.root.open) {
           this.stop();
+        }
+      });
+    }
+    editorUrl() {
+      return ue({
+        appUrl: new URL("livecodes/?disableAI=true", document.baseURI).href,
+        config: {
+          title: `Lesson 7 - ${this.definition.title} - Student Copy`,
+          mode: "full",
+          view: "split",
+          editor: "codejar",
+          layout: "responsive",
+          theme: document.documentElement.dataset.bsTheme === "dark" ? "dark" : "light",
+          allowLangChange: false,
+          activeEditor: "markup",
+          languages: ["html"],
+          markup: { language: "html", content: this.definition.source },
+          style: { language: "css", content: "" },
+          script: { language: "javascript", content: "" },
+          tools: { enabled: [], status: "closed" },
+          autoupdate: false,
+          autosave: true,
+          formatOnsave: true,
+          lineNumbers: true,
+          tabSize: 2,
+          useTabs: false,
+          wordWrap: false,
+          recoverUnsaved: false,
+          welcome: false
         }
       });
     }
@@ -3161,7 +3383,7 @@
     async copySource() {
       try {
         await copyWorkbookText(this.definition.source);
-        this.setActionStatus("Complete HTML copied.");
+        this.setActionStatus("Lesson HTML copied.");
       } catch {
         this.setActionStatus("Copy failed. Select the code and copy it instead.");
       }
