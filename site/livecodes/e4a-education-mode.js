@@ -24,6 +24,10 @@
   ];
   const selector = blockedSelectors.join(",");
   const htmlEditorSelector = "code.language-html[contenteditable]";
+  // LiveCodes v49 forces CodeJar to `nowrap`, which visually collapses newline text in Safari.
+  // `pre` preserves explicit line breaks without adding soft wrapping.
+  const PRESERVE_MULTILINE_CSS =
+    ".prism.codejar code.language-html[contenteditable] { white-space: pre !important; }";
   const FORMAT_DEBOUNCE_MS = 600;
   const FORMAT_VERIFY_MS = 900;
   const FORMAT_RETRY_DELAYS = [250, 500, 1000, 2000, 4000, 8000];
@@ -38,7 +42,7 @@
 
   const style = document.createElement("style");
   style.dataset.e4aEducationMode = "true";
-  style.textContent = `${selector} { display: none !important; }`;
+  style.textContent = `${selector} { display: none !important; }\n${PRESERVE_MULTILINE_CSS}`;
   document.head.append(style);
 
   const disableControl = (element) => {

@@ -535,7 +535,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Vibe coding</strong> is a casual name for creating software by telling AI what you want in everyday language. A <strong>large language model (LLM)</strong> is a type of AI that can understand your request and write most of the code. AI researcher Andrej Karpathy introduced the term <em>vibe coding</em> in February 2025 <span class="citation" data-cites="merriamWebster2025VibeCoding">(Merriam-Webster 2025)</span>.</p>
 <p>People disagree about vibe coding. It can help people create and test ideas quickly, and modern LLMs can perform very well on many coding tasks <span class="citation" data-cites="metr2026TimeHorizons">(METR 2026)</span>. However, AI can still produce bugs, unsafe choices, or code that is difficult to understand. Coding tests also do not represent every real project <span class="citation" data-cites="openai2026CodingEvaluations">(OpenAI 2026)</span>.</p>
 <p>In this lesson, you will use AI while staying in control. You will describe your goal, test the result, report problems, and keep a working version.</p>
-<p>Your teacher opens <strong>My First Page</strong> in LiveCodes. LiveCodes shows the code and the result together. The teacher selects <strong>Run</strong>. The page becomes light yellow. Then the teacher changes one color word and runs the page again.</p>
+<p>Your teacher opens <strong>My First Page</strong> in LiveCodes. LiveCodes shows the code and the result together. The teacher selects <strong>Run</strong>. The page starts at <code>Points: 0</code>. The teacher selects <strong>Add points</strong> two times. The number changes from <code>0</code> to <code>1</code> to <code>2</code>.</p>
+<p>Then the teacher changes <code>points + 1</code> to <code>points + 2</code> and runs the page again. Now two clicks change the number from <code>0</code> to <code>2</code> to <code>4</code>.</p>
 <p><strong>Code</strong> means instructions a computer can follow. The teacher did not write every line of code. The teacher described the page to AI, pasted the complete answer into LiveCodes, ran it, tested it, and fixed a problem.</p>
 <p>That is the process you will practice today.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -621,7 +622,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>By the end of this lesson, you will:</p>
 <ol type="1">
 <li>Identify the <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, and <code>&lt;script&gt;</code> parts of a webpage.</li>
-<li>Use LiveCodes to run and change one simple webpage.</li>
+<li>Use LiveCodes to run and change one interactive webpage.</li>
 <li>Explain HTML, CSS, and JavaScript in simple English.</li>
 <li>Ask Copilot Chat for one complete HTML game document.</li>
 <li>Paste, run, and save a LiveCodes project.</li>
@@ -649,7 +650,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Content Objective:</strong> Students will inspect and change one simple webpage, then create or plan one self-contained HTML game in LiveCodes and document a test-and-debug cycle.</p>
 <p><strong>Language Objective:</strong> Students will identify webpage parts and describe a goal, change, expected result, actual result, bug, and next step using simple English:</p>
 <pre class="text"><code>The &lt;body&gt; shows...
-The &lt;script&gt; changes...
+The &lt;script&gt; waits for...
+Each click...
 I changed... The result was...
 I want to create...
 I expected...
@@ -709,14 +711,22 @@ I will persist by...</code></pre>
 <span id="e4a-l7-first-webpage-source-5"><a href="#e4a-l7-first-webpage-source-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>My First Page<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
 <span id="e4a-l7-first-webpage-source-6"><a href="#e4a-l7-first-webpage-source-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
 <span id="e4a-l7-first-webpage-source-7"><a href="#e4a-l7-first-webpage-source-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="e4a-l7-first-webpage-source-8"><a href="#e4a-l7-first-webpage-source-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Hello!<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
-<span id="e4a-l7-first-webpage-source-9"><a href="#e4a-l7-first-webpage-source-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>This is a simple webpage.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="e4a-l7-first-webpage-source-10"><a href="#e4a-l7-first-webpage-source-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="e4a-l7-first-webpage-source-11"><a href="#e4a-l7-first-webpage-source-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="e4a-l7-first-webpage-source-12"><a href="#e4a-l7-first-webpage-source-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">"lightyellow"</span><span class="op">;</span></span>
-<span id="e4a-l7-first-webpage-source-13"><a href="#e4a-l7-first-webpage-source-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="e4a-l7-first-webpage-source-14"><a href="#e4a-l7-first-webpage-source-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="e4a-l7-first-webpage-source-15"><a href="#e4a-l7-first-webpage-source-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="e4a-l7-first-webpage-source-8"><a href="#e4a-l7-first-webpage-source-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Point Counter<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="e4a-l7-first-webpage-source-9"><a href="#e4a-l7-first-webpage-source-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> id</span><span class="op">=</span><span class="st">"points"</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="dt">&gt;</span>Points: 0<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="e4a-l7-first-webpage-source-10"><a href="#e4a-l7-first-webpage-source-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">"add-points"</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="dt">&gt;</span>Add points<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="e4a-l7-first-webpage-source-11"><a href="#e4a-l7-first-webpage-source-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="e4a-l7-first-webpage-source-12"><a href="#e4a-l7-first-webpage-source-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="e4a-l7-first-webpage-source-13"><a href="#e4a-l7-first-webpage-source-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> points <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="e4a-l7-first-webpage-source-14"><a href="#e4a-l7-first-webpage-source-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> pointsText <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#points"</span>)<span class="op">;</span></span>
+<span id="e4a-l7-first-webpage-source-15"><a href="#e4a-l7-first-webpage-source-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> addButton <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#add-points"</span>)<span class="op">;</span></span>
+<span id="e4a-l7-first-webpage-source-16"><a href="#e4a-l7-first-webpage-source-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="e4a-l7-first-webpage-source-17"><a href="#e4a-l7-first-webpage-source-17" aria-hidden="true" tabindex="-1"></a>    addButton<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> <span class="kw">function</span> () {</span>
+<span id="e4a-l7-first-webpage-source-18"><a href="#e4a-l7-first-webpage-source-18" aria-hidden="true" tabindex="-1"></a>      points <span class="op">=</span> points <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="e4a-l7-first-webpage-source-19"><a href="#e4a-l7-first-webpage-source-19" aria-hidden="true" tabindex="-1"></a>      pointsText<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">"Points: "</span> <span class="op">+</span> points<span class="op">;</span></span>
+<span id="e4a-l7-first-webpage-source-20"><a href="#e4a-l7-first-webpage-source-20" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="e4a-l7-first-webpage-source-21"><a href="#e4a-l7-first-webpage-source-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="e4a-l7-first-webpage-source-22"><a href="#e4a-l7-first-webpage-source-22" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="e4a-l7-first-webpage-source-23"><a href="#e4a-l7-first-webpage-source-23" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -739,15 +749,16 @@ I will persist by...</code></pre>
 <tr class="even">
 <td><code>&lt;body&gt;</code></td>
 <td>Holds the words and other content people see</td>
-<td>It shows a heading and a sentence.</td>
+<td>It shows a heading, a point total, and a button.</td>
 </tr>
 <tr class="odd">
 <td><code>&lt;script&gt;</code></td>
 <td>Gives optional instructions for actions or changes</td>
-<td>It changes the background to light yellow.</td>
+<td>It waits for a click, adds one point, and changes the total.</td>
 </tr>
 </tbody>
 </table>
+<p>HTML creates the heading, point total, and button. CSS can change how they look. JavaScript gives the page repeated behavior. It remembers the number, waits for each click, and shows the new total.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -763,17 +774,18 @@ I will persist by...</code></pre>
 </div>
 <a class="btn btn-primary" href="livecodes/" target="_blank" rel="noopener" aria-label="Open My First Page in LiveCodes in a new tab" data-e4a-livecodes-source-id="e4a-l7-first-webpage-source" data-e4a-livecodes-title="My First Page">Open My First Page in LiveCodes</a>
 <ol type="1">
-<li>Select <strong>Open My First Page in LiveCodes</strong>. A new tab opens.</li>
-<li>Find the <strong>code</strong> area and the <strong>result</strong> area. They may be side by side or one above the other.</li>
-<li>Select <strong>Run</strong>. The page background becomes light yellow.</li>
+<li>Select <strong>Open My First Page in LiveCodes</strong>. Find the <strong>code</strong> area and the <strong>result</strong> area.</li>
+<li>Select <strong>Run</strong>. Confirm that the page starts at <code>Points: 0</code>.</li>
+<li>Select <strong>Add points</strong> three times. Watch the total change to <code>1</code>, <code>2</code>, and <code>3</code>.</li>
 <li>Find <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, and <code>&lt;script&gt;</code> in the code.</li>
-<li>Change <code>lightyellow</code> to <code>lightblue</code>. Select <strong>Run</strong> again and look at the result.</li>
+<li>Change <code>points + 1</code> to <code>points + 2</code>. Select <strong>Run</strong> again. Select <strong>Add points</strong> two times and confirm that the total changes to <code>2</code> and <code>4</code>.</li>
 </ol>
 <p>If the example does not appear in the editor, copy the code above and paste it into the HTML code area.</p>
-<p>If LiveCodes is not available, read the code and point to <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, and <code>&lt;script&gt;</code>. Your teacher can demonstrate the color change.</p>
+<p>If LiveCodes is not available, read the code and point to <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, and <code>&lt;script&gt;</code>. Trace the instructions in the script. Predict the totals <code>0</code>, <code>1</code>, and <code>2</code>. Then change <code>points + 1</code> to <code>points + 2</code> on paper and predict <code>0</code>, <code>2</code>, and <code>4</code>.</p>
 <p>Use these sentence frames:</p>
 <pre class="text"><code>The &lt;body&gt; shows __________.
-The &lt;script&gt; changes __________.
+The &lt;script&gt; waits for __________.
+Each click __________.
 I changed __________. The result was __________.</code></pre>
 </section>
 <section id="the-ai-coding-loop" class="level3" data-number="9.4.3">
@@ -1801,7 +1813,7 @@ AI helped with __________, but I checked __________.</code></pre>
 <div class="callout-body-container callout-body">
 <p>This lab is optional. It practices the English for a coding prompt and a 60-second project explanation. It does not create or run HTML, and it does not require GitHub or a coding tool.</p>
 <p>Open the <strong>Lessons 7-8 Code Prompt and Speaking Lab</strong> in Colab:</p>
-<p><a href="https://colab.research.google.com/github/zoni-group/E4A/blob/public-8aca323b7196/english-for-ai-course/interactives/class-04-code-script-lab.ipynb" class="uri">https://colab.research.google.com/github/zoni-group/E4A/blob/public-8aca323b7196/english-for-ai-course/interactives/class-04-code-script-lab.ipynb</a></p>
+<p><a href="https://colab.research.google.com/github/zoni-group/E4A/blob/public-7e8034967bb3/english-for-ai-course/interactives/class-04-code-script-lab.ipynb" class="uri">https://colab.research.google.com/github/zoni-group/E4A/blob/public-7e8034967bb3/english-for-ai-course/interactives/class-04-code-script-lab.ipynb</a></p>
 <p>Do not paste a complete game, private code, names, passwords, or private information into the notebook.</p>
 <p>After any AI answer, say: <em>“I checked the AI answer before I used it.”</em></p>
 </div>
