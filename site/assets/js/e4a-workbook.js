@@ -3243,6 +3243,9 @@
   // assets/sample-code/lesson-07/brick-breaker.html
   var brick_breaker_default = '<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <title>Brick Breaker</title>\n  <style>\n    * { box-sizing: border-box; }\n    body { margin: 0; padding: 12px; font-family: system-ui, sans-serif; color: #14213d; background: #eef4ff; text-align: center; }\n    main { width: min(100%, 680px); margin: auto; }\n    h1 { margin: 0 0 4px; font-size: clamp(1.4rem, 5vw, 2rem); }\n    p { margin: 5px 0; }\n    .stats { display: flex; justify-content: center; gap: 2rem; font-weight: 700; }\n    canvas { display: block; width: 100%; height: auto; margin: 10px auto; border: 3px solid #1f4f9f; border-radius: 10px; background: #101a36; }\n    .controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }\n    button { min-width: 74px; min-height: 44px; padding: 8px 14px; border: 2px solid #1f4f9f; border-radius: 8px; color: white; background: #1f4f9f; font: inherit; font-weight: 700; cursor: pointer; }\n    button:focus-visible { outline: 3px solid #f6b73c; outline-offset: 2px; }\n    #message { min-height: 1.5em; font-weight: 700; }\n  </style>\n</head>\n<body>\n  <main>\n    <h1>Brick Breaker</h1>\n    <p>Move with \u2190 \u2192 or the buttons. Keep the ball above the paddle.</p>\n    <div class="stats"><span id="score">Score: 0</span><span id="lives">Lives: 3</span></div>\n    <canvas id="game" width="640" height="420">Brick Breaker game area.</canvas>\n    <p id="message" role="status" aria-live="polite">Break every brick.</p>\n    <div class="controls" aria-label="Game controls">\n      <button id="left" type="button" aria-label="Move paddle left">\u2190 Left</button>\n      <button id="right" type="button" aria-label="Move paddle right">Right \u2192</button>\n      <button id="restart" type="button">Restart</button>\n    </div>\n  </main>\n  <script>\n    const canvas = document.querySelector("#game");\n    const ctx = canvas.getContext("2d");\n    const scoreText = document.querySelector("#score");\n    const livesText = document.querySelector("#lives");\n    const message = document.querySelector("#message");\n    const state = {\n      score: 0, lives: 3, running: true, left: false, right: false,\n      paddle: { x: 270, y: 388, width: 100, height: 14 },\n      ball: { x: 320, y: 365, dx: 3.4, dy: -3.4, radius: 8 },\n      bricks: []\n    };\n\n    function makeBricks() {\n      state.bricks = [];\n      for (let row = 0; row < 4; row += 1) {\n        for (let column = 0; column < 7; column += 1) {\n          state.bricks.push({ x: 35 + column * 83, y: 48 + row * 32, width: 70, height: 20, active: true, color: ["#ff6b6b", "#ffd166", "#62d6a7", "#59a5ff"][row] });\n        }\n      }\n    }\n\n    function resetBall() {\n      state.ball.x = 320;\n      state.ball.y = 365;\n      state.ball.dx = 3.4;\n      state.ball.dy = -3.4;\n      state.paddle.x = 270;\n    }\n\n    function restartGame() {\n      state.score = 0;\n      state.lives = 3;\n      state.running = true;\n      makeBricks();\n      resetBall();\n      message.textContent = "Break every brick.";\n      updateLabels();\n    }\n\n    function updateLabels() {\n      scoreText.textContent = `Score: ${state.score}`;\n      livesText.textContent = `Lives: ${state.lives}`;\n    }\n\n    function overlap(ball, box) {\n      const nearestX = Math.max(box.x, Math.min(ball.x, box.x + box.width));\n      const nearestY = Math.max(box.y, Math.min(ball.y, box.y + box.height));\n      const xDistance = ball.x - nearestX;\n      const yDistance = ball.y - nearestY;\n      return xDistance * xDistance + yDistance * yDistance < ball.radius * ball.radius;\n    }\n\n    function update() {\n      if (!state.running) return;\n      if (state.left) state.paddle.x -= 7;\n      if (state.right) state.paddle.x += 7;\n      state.paddle.x = Math.max(0, Math.min(canvas.width - state.paddle.width, state.paddle.x));\n      const ball = state.ball;\n      ball.x += ball.dx;\n      ball.y += ball.dy;\n      if (ball.x > canvas.width - ball.radius) ball.dx = -Math.abs(ball.dx);\n      if (ball.x < ball.radius) ball.dx = Math.abs(ball.dx);\n      if (ball.y < ball.radius) ball.dy = Math.abs(ball.dy);\n      if (ball.dy > 0 && overlap(ball, state.paddle)) {\n        ball.dy = -Math.abs(ball.dy);\n        ball.dx += (ball.x - (state.paddle.x + state.paddle.width / 2)) * 0.025;\n      }\n      for (const brick of state.bricks) {\n        if (brick.active && overlap(ball, brick)) {\n          brick.active = false;\n          ball.dy = -ball.dy;\n          state.score += 10;\n          updateLabels();\n          break;\n        }\n      }\n      if (state.bricks.every(brick => !brick.active)) {\n        state.running = false;\n        message.textContent = "You win! Select Restart to play again.";\n      }\n      if (ball.y > canvas.height + ball.radius) {\n        state.lives -= 1;\n        updateLabels();\n        if (state.lives < 1) {\n          state.running = false;\n          message.textContent = "Game over. Select Restart to try again.";\n        } else {\n          message.textContent = "One life lost. Keep going.";\n          resetBall();\n        }\n      }\n    }\n\n    function draw() {\n      ctx.clearRect(0, 0, canvas.width, canvas.height);\n      for (const brick of state.bricks) {\n        if (!brick.active) continue;\n        ctx.fillStyle = brick.color;\n        ctx.fillRect(brick.x, brick.y, brick.width, brick.height);\n      }\n      ctx.fillStyle = "#59a5ff";\n      ctx.fillRect(state.paddle.x, state.paddle.y, state.paddle.width, state.paddle.height);\n      ctx.beginPath();\n      ctx.arc(state.ball.x, state.ball.y, state.ball.radius, 0, Math.PI * 2);\n      ctx.fillStyle = "#ffffff";\n      ctx.fill();\n    }\n\n    function loop() {\n      update();\n      draw();\n      requestAnimationFrame(loop);\n    }\n\n    function setDirection(direction, pressed) {\n      state[direction] = pressed;\n    }\n\n    document.addEventListener("keydown", event => {\n      if (event.key === "ArrowLeft") setDirection("left", true);\n      if (event.key === "ArrowRight") setDirection("right", true);\n    });\n    document.addEventListener("keyup", event => {\n      if (event.key === "ArrowLeft") setDirection("left", false);\n      if (event.key === "ArrowRight") setDirection("right", false);\n    });\n    for (const direction of ["left", "right"]) {\n      const button = document.querySelector(`#${direction}`);\n      button.addEventListener("pointerdown", () => setDirection(direction, true));\n      button.addEventListener("pointerup", () => setDirection(direction, false));\n      button.addEventListener("pointerleave", () => setDirection(direction, false));\n    }\n    document.querySelector("#restart").addEventListener("click", restartGame);\n    restartGame();\n    loop();\n  <\/script>\n</body>\n</html>\n';
 
+  // assets/sample-code/lesson-07/brick-breaker-baseline.html
+  var brick_breaker_baseline_default = '<!DOCTYPE html>\n<!--\n  Source: Gamedev Canvas Workshop lesson10.html\n  Creator: Andrzej Mazur and Mozilla Contributors\n  Pinned source revision: 5199692d8acb9770dc5c16b5b18afbadd95fa497\n  Code license: CC0 1.0 Universal / public domain dedication\n  See SOURCE-AND-LICENSE.md beside this file.\n  Changes for this course: added this source comment, lang and viewport\n  metadata, a descriptive title, canvas fallback text, and one equivalent\n  wall-boundary condition rewrite. See SOURCE-AND-LICENSE.md.\n-->\n<html lang="en">\n<head>\n    <meta charset="utf-8" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <title>Brick Breaker Baseline</title>\n    <style>* { padding: 0; margin: 0; } canvas { background: #eee; display: block; margin: 0 auto; }</style>\n</head>\n<body>\n\n<canvas id="myCanvas" width="480" height="320">A brick-breaker game with a paddle, ball, bricks, score, and lives.</canvas>\n\n<script>\n    var canvas = document.getElementById("myCanvas");\n    var ctx = canvas.getContext("2d");\n    var ballRadius = 10;\n    var x = canvas.width/2;\n    var y = canvas.height-30;\n    var dx = 2;\n    var dy = -2;\n    var paddleHeight = 10;\n    var paddleWidth = 75;\n    var paddleX = (canvas.width-paddleWidth)/2;\n    var rightPressed = false;\n    var leftPressed = false;\n    var brickRowCount = 5;\n    var brickColumnCount = 3;\n    var brickWidth = 75;\n    var brickHeight = 20;\n    var brickPadding = 10;\n    var brickOffsetTop = 30;\n    var brickOffsetLeft = 30;\n    var score = 0;\n    var lives = 3;\n\n    var bricks = [];\n    for(var c=0; c<brickColumnCount; c++) {\n        bricks[c] = [];\n        for(var r=0; r<brickRowCount; r++) {\n            bricks[c][r] = { x: 0, y: 0, status: 1 };\n        }\n    }\n\n    document.addEventListener("keydown", keyDownHandler, false);\n    document.addEventListener("keyup", keyUpHandler, false);\n    document.addEventListener("mousemove", mouseMoveHandler, false);\n\n    function keyDownHandler(e) {\n        if(e.code  == "ArrowRight") {\n            rightPressed = true;\n        }\n        else if(e.code == "ArrowLeft") {\n            leftPressed = true;\n        }\n    }\n    function keyUpHandler(e) {\n        if(e.code == "ArrowRight") {\n            rightPressed = false;\n        }\n        else if(e.code == "ArrowLeft") {\n            leftPressed = false;\n        }\n    }\n    function mouseMoveHandler(e) {\n        var relativeX = e.clientX - canvas.offsetLeft;\n        if(relativeX > 0 && relativeX < canvas.width) {\n            paddleX = relativeX - paddleWidth/2;\n        }\n    }\n    function collisionDetection() {\n        for(var c=0; c<brickColumnCount; c++) {\n            for(var r=0; r<brickRowCount; r++) {\n                var b = bricks[c][r];\n                if(b.status == 1) {\n                    if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {\n                        dy = -dy;\n                        b.status = 0;\n                        score++;\n                        if(score == brickRowCount*brickColumnCount) {\n                            alert("YOU WIN, CONGRATS!");\n                            document.location.reload();\n                        }\n                    }\n                }\n            }\n        }\n    }\n\n    function drawBall() {\n        ctx.beginPath();\n        ctx.arc(x, y, ballRadius, 0, Math.PI*2);\n        ctx.fillStyle = "#0095DD";\n        ctx.fill();\n        ctx.closePath();\n    }\n    function drawPaddle() {\n        ctx.beginPath();\n        ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);\n        ctx.fillStyle = "#0095DD";\n        ctx.fill();\n        ctx.closePath();\n    }\n    function drawBricks() {\n        for(var c=0; c<brickColumnCount; c++) {\n            for(var r=0; r<brickRowCount; r++) {\n                if(bricks[c][r].status == 1) {\n                    var brickX = (r*(brickWidth+brickPadding))+brickOffsetLeft;\n                    var brickY = (c*(brickHeight+brickPadding))+brickOffsetTop;\n                    bricks[c][r].x = brickX;\n                    bricks[c][r].y = brickY;\n                    ctx.beginPath();\n                    ctx.rect(brickX, brickY, brickWidth, brickHeight);\n                    ctx.fillStyle = "#0095DD";\n                    ctx.fill();\n                    ctx.closePath();\n                }\n            }\n        }\n    }\n    function drawScore() {\n        ctx.font = "16px Arial";\n        ctx.fillStyle = "#0095DD";\n        ctx.fillText("Score: "+score, 8, 20);\n    }\n    function drawLives() {\n        ctx.font = "16px Arial";\n        ctx.fillStyle = "#0095DD";\n        ctx.fillText("Lives: "+lives, canvas.width-65, 20);\n    }\n\n    function draw() {\n        ctx.clearRect(0, 0, canvas.width, canvas.height);\n        drawBricks();\n        drawBall();\n        drawPaddle();\n        drawScore();\n        drawLives();\n        collisionDetection();\n\n        if(x + dx > canvas.width-ballRadius) {\n            dx = -dx;\n        }\n        else if(x + dx < ballRadius) {\n            dx = -dx;\n        }\n        if(y + dy < ballRadius) {\n            dy = -dy;\n        }\n        else if(y + dy > canvas.height-ballRadius) {\n            if(x > paddleX && x < paddleX + paddleWidth) {\n                dy = -dy;\n            }\n            else {\n                lives--;\n                if(!lives) {\n                    alert("GAME OVER");\n                    document.location.reload();\n                }\n                else {\n                    x = canvas.width/2;\n                    y = canvas.height-30;\n                    dx = 2;\n                    dy = -2;\n                    paddleX = (canvas.width-paddleWidth)/2;\n                }\n            }\n        }\n\n        if(rightPressed && paddleX < canvas.width-paddleWidth) {\n            paddleX += 7;\n        }\n        else if(leftPressed && paddleX > 0) {\n            paddleX -= 7;\n        }\n\n        x += dx;\n        y += dy;\n        requestAnimationFrame(draw);\n    }\n\n    draw();\n<\/script>\n\n</body>\n</html>\n';
+
   // assets/sample-code/lesson-07/falling-blocks.html
   var falling_blocks_default = '<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <title>Falling Blocks</title>\n  <style>\n    * { box-sizing: border-box; }\n    body { margin: 0; padding: 10px; font-family: system-ui, sans-serif; color: #f4f6ff; background: #101326; text-align: center; }\n    main { width: min(100%, 500px); margin: auto; }\n    h1 { margin: 0 0 4px; font-size: clamp(1.4rem, 5vw, 2rem); }\n    p { margin: 5px 0; }\n    #score { color: #ffd166; font-weight: 800; }\n    canvas { display: block; width: min(82vw, 300px); height: auto; margin: 8px auto; border: 3px solid #9299c2; border-radius: 8px; background: #090b18; }\n    .controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }\n    button { min-width: 66px; min-height: 42px; padding: 7px 10px; border: 2px solid #8e9bff; border-radius: 8px; color: white; background: #353f8f; font: inherit; font-weight: 700; cursor: pointer; }\n    button:focus-visible { outline: 3px solid #ffd166; outline-offset: 2px; }\n    #message { min-height: 1.5em; font-weight: 700; }\n  </style>\n</head>\n<body>\n  <main>\n    <h1>Falling Blocks</h1>\n    <p>Use \u2190 \u2192, \u2191 to rotate, and \u2193 for a fast drop.</p>\n    <p id="score">Score: 0</p>\n    <canvas id="game" width="300" height="540">Falling Blocks game area.</canvas>\n    <p id="message" role="status" aria-live="polite">Complete a row to clear it.</p>\n    <div class="controls" aria-label="Game controls">\n      <button id="left" type="button">\u2190</button>\n      <button id="rotate" type="button">Rotate</button>\n      <button id="right" type="button">\u2192</button>\n      <button id="drop" type="button">Drop \u2193</button>\n      <button id="restart" type="button">Restart</button>\n    </div>\n  </main>\n  <script>\n    const canvas = document.querySelector("#game");\n    const ctx = canvas.getContext("2d");\n    const scoreText = document.querySelector("#score");\n    const message = document.querySelector("#message");\n    const columns = 10;\n    const rows = 18;\n    const size = 30;\n    const shapes = [\n      [[1, 1, 1, 1]],\n      [[1, 1], [1, 1]],\n      [[0, 1, 0], [1, 1, 1]],\n      [[1, 0, 0], [1, 1, 1]],\n      [[0, 0, 1], [1, 1, 1]],\n      [[0, 1, 1], [1, 1, 0]],\n      [[1, 1, 0], [0, 1, 1]]\n    ];\n    const colors = ["#59a5ff", "#ffd166", "#b46cff", "#ff8c5a", "#62d6a7", "#ff6b82", "#48cae4"];\n    const state = { board: [], piece: null, score: 0, running: true, timer: null, nextShape: 0 };\n\n    function emptyBoard() {\n      return Array.from({ length: rows }, () => Array(columns).fill(""));\n    }\n\n    function copyShape(shape) {\n      return shape.map(row => [...row]);\n    }\n\n    function nextPiece() {\n      const index = state.nextShape % shapes.length;\n      state.nextShape += 3;\n      state.piece = { shape: copyShape(shapes[index]), color: colors[index], x: 3, y: 0 };\n      if (collides(state.piece, 0, 0, state.piece.shape)) {\n        state.running = false;\n        message.textContent = "Game over. Select Restart to try again.";\n      }\n    }\n\n    function collides(piece, moveX, moveY, shape) {\n      for (let y = 0; y < shape.length; y += 1) {\n        for (let x = 0; x < shape[y].length; x += 1) {\n          if (!shape[y][x]) continue;\n          const boardX = piece.x + x + moveX;\n          const boardY = piece.y + y + moveY;\n          if (boardX < 0) return true;\n          if (boardX >= columns) return true;\n          if (boardY >= rows) return true;\n          if (boardY >= 0 && state.board[boardY][boardX]) return true;\n        }\n      }\n      return false;\n    }\n\n    function rotateShape(shape) {\n      return shape[0].map((value, index) => shape.map(row => row[index]).reverse());\n    }\n\n    function movePiece(amount) {\n      if (!state.running) return;\n      if (!collides(state.piece, amount, 0, state.piece.shape)) state.piece.x += amount;\n      draw();\n    }\n\n    function rotatePiece() {\n      if (!state.running) return;\n      const rotated = rotateShape(state.piece.shape);\n      if (!collides(state.piece, 0, 0, rotated)) state.piece.shape = rotated;\n      draw();\n    }\n\n    function lockPiece() {\n      const piece = state.piece;\n      for (let y = 0; y < piece.shape.length; y += 1) {\n        for (let x = 0; x < piece.shape[y].length; x += 1) {\n          if (piece.shape[y][x]) state.board[piece.y + y][piece.x + x] = piece.color;\n        }\n      }\n      clearRows();\n      nextPiece();\n    }\n\n    function stepDown() {\n      if (!state.running) return;\n      if (collides(state.piece, 0, 1, state.piece.shape)) lockPiece();\n      else state.piece.y += 1;\n      draw();\n    }\n\n    function fastDrop() {\n      if (!state.running) return;\n      let distance = 0;\n      while (!collides(state.piece, 0, distance + 1, state.piece.shape)) distance += 1;\n      state.piece.y += distance;\n      state.score += distance;\n      lockPiece();\n      updateScore();\n      draw();\n    }\n\n    function clearRows() {\n      let cleared = 0;\n      for (let y = rows - 1; y >= 0; y -= 1) {\n        if (state.board[y].every(cell => Boolean(cell))) {\n          state.board.splice(y, 1);\n          state.board.unshift(Array(columns).fill(""));\n          cleared += 1;\n          y += 1;\n        }\n      }\n      if (cleared > 0) {\n        state.score += cleared * cleared * 100;\n        message.textContent = `${cleared} row cleared.`;\n        updateScore();\n      }\n    }\n\n    function updateScore() {\n      scoreText.textContent = `Score: ${state.score}`;\n    }\n\n    function drawCell(x, y, color) {\n      ctx.fillStyle = color;\n      ctx.fillRect(x * size + 1, y * size + 1, size - 2, size - 2);\n    }\n\n    function draw() {\n      ctx.clearRect(0, 0, canvas.width, canvas.height);\n      ctx.strokeStyle = "#242a4d";\n      for (let x = 0; x <= columns; x += 1) {\n        ctx.beginPath(); ctx.moveTo(x * size, 0); ctx.lineTo(x * size, canvas.height); ctx.stroke();\n      }\n      for (let y = 0; y <= rows; y += 1) {\n        ctx.beginPath(); ctx.moveTo(0, y * size); ctx.lineTo(canvas.width, y * size); ctx.stroke();\n      }\n      for (let y = 0; y < rows; y += 1) {\n        for (let x = 0; x < columns; x += 1) {\n          if (state.board[y][x]) drawCell(x, y, state.board[y][x]);\n        }\n      }\n      if (!state.piece) return;\n      for (let y = 0; y < state.piece.shape.length; y += 1) {\n        for (let x = 0; x < state.piece.shape[y].length; x += 1) {\n          if (state.piece.shape[y][x]) drawCell(state.piece.x + x, state.piece.y + y, state.piece.color);\n        }\n      }\n    }\n\n    function restartGame() {\n      if (state.timer) clearInterval(state.timer);\n      state.board = emptyBoard();\n      state.score = 0;\n      state.running = true;\n      state.nextShape = 0;\n      message.textContent = "Complete a row to clear it.";\n      updateScore();\n      nextPiece();\n      draw();\n      state.timer = setInterval(stepDown, 550);\n    }\n\n    document.addEventListener("keydown", event => {\n      if (event.key === "ArrowLeft") movePiece(-1);\n      if (event.key === "ArrowRight") movePiece(1);\n      if (event.key === "ArrowUp") rotatePiece();\n      if (event.key === "ArrowDown") fastDrop();\n    });\n    document.querySelector("#left").addEventListener("click", () => movePiece(-1));\n    document.querySelector("#right").addEventListener("click", () => movePiece(1));\n    document.querySelector("#rotate").addEventListener("click", rotatePiece);\n    document.querySelector("#drop").addEventListener("click", fastDrop);\n    document.querySelector("#restart").addEventListener("click", restartGame);\n    restartGame();\n  <\/script>\n</body>\n</html>\n';
 
@@ -3258,14 +3261,21 @@
   // assets/ts/e4a-game-demo.ts
   var GAME_DEFINITIONS = Object.fromEntries(
     [
-      { id: "guess-number", filename: "guess-number.html", title: "Guess the Number", source: guess_number_default },
-      { id: "brick-breaker", filename: "brick-breaker.html", title: "Brick Breaker", source: brick_breaker_default },
-      { id: "platform-jumper", filename: "platform-jumper.html", title: "Platform Jumper", source: platform_jumper_default },
-      { id: "falling-blocks", filename: "falling-blocks.html", title: "Falling Blocks", source: falling_blocks_default },
-      { id: "space-defender", filename: "space-defender.html", title: "Space Defender", source: space_defender_default }
+      { id: "guess-number", title: "Guess the Number", source: guess_number_default },
+      { id: "brick-breaker", title: "Brick Breaker", source: brick_breaker_default },
+      { id: "platform-jumper", title: "Platform Jumper", source: platform_jumper_default },
+      { id: "falling-blocks", title: "Falling Blocks", source: falling_blocks_default },
+      { id: "space-defender", title: "Space Defender", source: space_defender_default }
     ].map((definition) => [definition.id, definition])
   );
+  var STANDALONE_EDITOR_DEFINITIONS = {
+    "brick-breaker-baseline": {
+      title: "Brick Breaker Baseline",
+      source: brick_breaker_baseline_default
+    }
+  };
   function initializeGameDemos(root = document) {
+    initializeStandaloneEditorLinks(root);
     const demos = Array.from(root.querySelectorAll("[data-e4a-game-demo]"));
     for (const demo of demos) {
       const gameId = demo.dataset.e4aGameId?.trim();
@@ -3274,6 +3284,54 @@
         new GameDemo(demo, definition).initialize();
       }
     }
+  }
+  function initializeStandaloneEditorLinks(root) {
+    const links = Array.from(
+      root.querySelectorAll(
+        "[data-e4a-livecodes-source-id], [data-e4a-livecodes-definition-id]"
+      )
+    );
+    for (const link of links) {
+      const sourceId = link.dataset.e4aLivecodesSourceId?.trim();
+      const definitionId = link.dataset.e4aLivecodesDefinitionId?.trim();
+      const importedDefinition = definitionId ? STANDALONE_EDITOR_DEFINITIONS[definitionId] : void 0;
+      const title = link.dataset.e4aLivecodesTitle?.trim() ?? importedDefinition?.title;
+      const sourceElement = sourceId ? root.querySelector(`#${sourceId}`) : void 0;
+      const source = sourceElement?.textContent?.trim() ?? importedDefinition?.source;
+      if (!title || !source) {
+        continue;
+      }
+      link.href = editorUrl({ title, source });
+    }
+  }
+  function editorUrl(definition) {
+    return ue({
+      appUrl: new URL("livecodes/?disableAI=true", document.baseURI).href,
+      config: {
+        title: `Lesson 7 - ${definition.title} - Student Copy`,
+        mode: "full",
+        view: "split",
+        editor: "codejar",
+        layout: "responsive",
+        theme: document.documentElement.dataset.bsTheme === "dark" ? "dark" : "light",
+        allowLangChange: false,
+        activeEditor: "markup",
+        languages: ["html"],
+        markup: { language: "html", content: definition.source },
+        style: { language: "css", content: "" },
+        script: { language: "javascript", content: "" },
+        tools: { enabled: [], status: "closed" },
+        autoupdate: false,
+        autosave: true,
+        formatOnsave: true,
+        lineNumbers: true,
+        tabSize: 2,
+        useTabs: false,
+        wordWrap: false,
+        recoverUnsaved: false,
+        welcome: false
+      }
+    });
   }
   var GameDemo = class {
     constructor(root, definition) {
@@ -3285,10 +3343,7 @@
       this.startButton = this.root.querySelector("[data-e4a-game-start]") ?? void 0;
       this.restartButton = this.root.querySelector("[data-e4a-game-restart]") ?? void 0;
       this.status = this.root.querySelector("[data-e4a-game-status]") ?? void 0;
-      this.actionStatus = this.root.querySelector("[data-e4a-game-action-status]") ?? void 0;
       const source = this.root.querySelector("[data-e4a-game-source]");
-      const copyButton = this.root.querySelector("[data-e4a-game-copy]");
-      const downloadButton = this.root.querySelector("[data-e4a-game-download]");
       const editorLink = this.root.querySelector("[data-e4a-game-open-editor]");
       if (!this.frame || !this.startButton || !this.restartButton) {
         return;
@@ -3300,45 +3355,14 @@
         source.textContent = this.definition.source;
       }
       if (editorLink) {
-        editorLink.href = this.editorUrl();
+        editorLink.href = editorUrl(this.definition);
         editorLink.setAttribute("aria-label", `Open ${this.definition.title} HTML editor in a new tab`);
       }
       this.startButton.addEventListener("click", () => this.start());
       this.restartButton.addEventListener("click", () => this.start());
-      copyButton?.addEventListener("click", () => void this.copySource());
-      downloadButton?.addEventListener("click", () => this.downloadSource());
       this.root.addEventListener("toggle", () => {
         if (!this.root.open) {
           this.stop();
-        }
-      });
-    }
-    editorUrl() {
-      return ue({
-        appUrl: new URL("livecodes/?disableAI=true", document.baseURI).href,
-        config: {
-          title: `Lesson 7 - ${this.definition.title} - Student Copy`,
-          mode: "full",
-          view: "split",
-          editor: "codejar",
-          layout: "responsive",
-          theme: document.documentElement.dataset.bsTheme === "dark" ? "dark" : "light",
-          allowLangChange: false,
-          activeEditor: "markup",
-          languages: ["html"],
-          markup: { language: "html", content: this.definition.source },
-          style: { language: "css", content: "" },
-          script: { language: "javascript", content: "" },
-          tools: { enabled: [], status: "closed" },
-          autoupdate: false,
-          autosave: true,
-          formatOnsave: true,
-          lineNumbers: true,
-          tabSize: 2,
-          useTabs: false,
-          wordWrap: false,
-          recoverUnsaved: false,
-          welcome: false
         }
       });
     }
@@ -3380,35 +3404,9 @@
       }
       this.setStatus("Game stopped. Select Start game when you are ready.");
     }
-    async copySource() {
-      try {
-        await copyWorkbookText(this.definition.source);
-        this.setActionStatus("Lesson HTML copied.");
-      } catch {
-        this.setActionStatus("Copy failed. Select the code and copy it instead.");
-      }
-    }
-    downloadSource() {
-      const blob = new Blob([this.definition.source], { type: "text/html;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const anchor = document.createElement("a");
-      anchor.href = url;
-      anchor.download = this.definition.filename;
-      anchor.rel = "noopener";
-      document.body.append(anchor);
-      anchor.click();
-      anchor.remove();
-      URL.revokeObjectURL(url);
-      this.setActionStatus(`Download started: ${this.definition.filename}`);
-    }
     setStatus(text) {
       if (this.status) {
         this.status.textContent = text;
-      }
-    }
-    setActionStatus(text) {
-      if (this.actionStatus) {
-        this.actionStatus.textContent = text;
       }
     }
   };

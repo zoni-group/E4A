@@ -190,19 +190,16 @@
 }
 
 .e4a-game-demo__note,
-.e4a-game-demo__status,
-.e4a-game-demo__action-status {
+.e4a-game-demo__status {
   margin-block: 0.5rem;
 }
 
-.e4a-game-demo__status,
-.e4a-game-demo__action-status {
+.e4a-game-demo__status {
   min-height: 1.5rem;
   color: var(--bs-secondary-color);
 }
 
-.e4a-game-demo__controls,
-.e4a-game-demo__source-controls {
+.e4a-game-demo__controls {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
@@ -265,8 +262,7 @@
     height: 36rem;
   }
 
-  .e4a-game-demo__controls .btn,
-  .e4a-game-demo__source-controls .btn {
+  .e4a-game-demo__controls .btn {
     flex: 1 1 9rem;
   }
 }
