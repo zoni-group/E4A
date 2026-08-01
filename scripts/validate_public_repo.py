@@ -73,10 +73,10 @@ LIVECODES_EXPECTED_MANIFEST = {
     "appVersion": "49",
     "archiveSha256": "e8ede45a372217283222f68ec0f0234d6d73524add88bb0b7a547f70d9fe9864",
     "fileCount": 297,
-    "policyScriptSha256": "ad7fd09bfff02af2b8157d2b70913a7783ce8b1171506e79771562fbe7361dcf",
+    "policyScriptSha256": "0908e110abc769f7b683ab4d152acb9fad5719d409aa74a358d13a09a2f0946b",
     "sdkVersion": "0.14.1",
-    "totalBytes": 5_451_246,
-    "treeSha256": "1f2a4b2a94e1b886aa6be405c759d4b4296b13ba36d9db16396f58e9dce5a6af",
+    "totalBytes": 5_453_284,
+    "treeSha256": "85c2f7bbc4c3b4d4e6770342ff89842fd84c7a7a33e1e9ea6a771be7eb1fbb98",
     "upstreamTreeSha256": "e57d99dae912b9079e0c9aeeb8d74d629df827d5348573b098b978d1088f1e7b",
 }
 LIVECODES_COURSE_OWNED_PATHS = {

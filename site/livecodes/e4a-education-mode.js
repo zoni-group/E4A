@@ -23,8 +23,18 @@
     "ninja-keys",
   ];
   const selector = blockedSelectors.join(",");
-  let initialHtmlFormatStarted = false;
-  let initialHtmlFormatTimer;
+  const htmlEditorSelector = "code.language-html[contenteditable]";
+  const FORMAT_DEBOUNCE_MS = 600;
+  const FORMAT_VERIFY_MS = 900;
+  const FORMAT_RETRY_DELAYS = [250, 500, 1000, 2000, 4000, 8000];
+  let formatTimer;
+  let scheduledEditor;
+  let scheduledSource = "";
+  let trackedEditor;
+  let trackedSource = "";
+  let formatAttempts = 0;
+  let formatExhausted = false;
+  let formatInProgress = false;
 
   const style = document.createElement("style");
   style.dataset.e4aEducationMode = "true";
@@ -54,33 +64,89 @@
     root.querySelectorAll?.(selector).forEach(disableControl);
   };
 
-  const formatInitialHtml = () => {
-    if (initialHtmlFormatStarted || initialHtmlFormatTimer) {
+  const isCollapsedCompleteHtml = (source) =>
+    /^\s*<!doctype html>/i.test(source) && !/[\r\n]/.test(source);
+
+  const syncFormatState = (editor, source) => {
+    if (editor === trackedEditor && source === trackedSource) {
       return;
     }
-    const editor = document.querySelector("code.language-html[contenteditable]");
+    trackedEditor = editor;
+    trackedSource = source;
+    formatAttempts = 0;
+    formatExhausted = false;
+  };
+
+  const retryDelay = () =>
+    FORMAT_RETRY_DELAYS[Math.min(Math.max(formatAttempts - 1, 0), FORMAT_RETRY_DELAYS.length - 1)];
+
+  const scheduleHtmlFormatting = (delay = FORMAT_DEBOUNCE_MS) => {
+    if (formatInProgress) {
+      return;
+    }
+    const editor = document.querySelector(htmlEditorSelector);
+    const source = editor?.textContent || "";
+    syncFormatState(editor, source);
+    if (!isCollapsedCompleteHtml(source) || formatExhausted) {
+      return;
+    }
+    if (formatTimer) {
+      if (editor === scheduledEditor && source === scheduledSource) {
+        return;
+      }
+      window.clearTimeout(formatTimer);
+    }
+    scheduledEditor = editor;
+    scheduledSource = source;
+    formatTimer = window.setTimeout(attemptHtmlFormatting, delay);
+  };
+
+  const finishFormattingAttempt = () => {
+    formatInProgress = false;
+    const editor = document.querySelector(htmlEditorSelector);
+    const source = editor?.textContent || "";
+    if (!isCollapsedCompleteHtml(source)) {
+      syncFormatState(editor, source);
+      return;
+    }
+    trackedEditor = editor;
+    trackedSource = source;
+    if (formatAttempts >= FORMAT_RETRY_DELAYS.length) {
+      formatExhausted = true;
+      return;
+    }
+    scheduleHtmlFormatting(retryDelay());
+  };
+
+  function attemptHtmlFormatting() {
+    formatTimer = undefined;
+    scheduledEditor = undefined;
+    scheduledSource = "";
+    const editor = document.querySelector(htmlEditorSelector);
     const formatButton = document.querySelector("#format-btn");
     const source = editor?.textContent || "";
-    if (!(formatButton instanceof HTMLElement) || !/^\s*<!doctype html>/i.test(source)) {
+    syncFormatState(editor, source);
+    if (!isCollapsedCompleteHtml(source) || formatExhausted) {
       return;
     }
 
-    initialHtmlFormatTimer = window.setTimeout(() => {
-      initialHtmlFormatTimer = undefined;
-      const readyEditor = document.querySelector("code.language-html[contenteditable]");
-      const readyFormatButton = document.querySelector("#format-btn");
-      const readySource = readyEditor?.textContent || "";
-      if (
-        !(readyFormatButton instanceof HTMLElement) ||
-        !/^\s*<!doctype html>/i.test(readySource)
-      ) {
-        formatInitialHtml();
+    formatAttempts += 1;
+    const buttonDisabled =
+      formatButton?.getAttribute("aria-disabled") === "true" ||
+      (formatButton instanceof HTMLButtonElement && formatButton.disabled);
+    if (!(formatButton instanceof HTMLElement) || buttonDisabled) {
+      if (formatAttempts >= FORMAT_RETRY_DELAYS.length) {
+        formatExhausted = true;
         return;
       }
-      initialHtmlFormatStarted = true;
-      readyFormatButton.click();
-    }, 1000);
-  };
+      scheduleHtmlFormatting(retryDelay());
+      return;
+    }
+
+    formatInProgress = true;
+    formatButton.click();
+    window.setTimeout(finishFormattingAttempt, FORMAT_VERIFY_MS);
+  }
 
   document.addEventListener(
     "click",
@@ -110,11 +176,12 @@
   );
 
   disableBlockedControls();
-  formatInitialHtml();
+  scheduleHtmlFormatting();
   new MutationObserver((records) => {
     records.forEach((record) => record.addedNodes.forEach((node) => disableBlockedControls(node)));
-    formatInitialHtml();
+    scheduleHtmlFormatting();
   }).observe(document.documentElement, {
+    characterData: true,
     childList: true,
     subtree: true,
   });
